@@ -97,6 +97,11 @@
           hours: 0,
           sessions: 0,
           hasSessions: false,
+          // Only some platforms report launch counts (PSN does, Steam does
+          // not), so session maths must use the hours those counts cover —
+          // never the cross-platform total.
+          sessionHours: 0,
+          sessionConsoles: [],
           firstPlayed: null,
           lastPlayed: null,
           consoles: [],
@@ -106,7 +111,12 @@
         byKey.set(key, g);
       }
       g.hours += e.hours || 0;
-      if (typeof e.sessions === "number") { g.sessions += e.sessions; g.hasSessions = true; }
+      if (typeof e.sessions === "number") {
+        g.sessions += e.sessions;
+        g.hasSessions = true;
+        g.sessionHours += e.hours || 0;
+        if (!g.sessionConsoles.includes(e.console)) g.sessionConsoles.push(e.console);
+      }
       g.firstPlayed = minDate(g.firstPlayed, e.firstPlayed);
       g.lastPlayed = maxDate(g.lastPlayed, e.lastPlayed);
       if (!g.consoles.includes(e.console)) g.consoles.push(e.console);
@@ -117,6 +127,13 @@
     }
     return [...byKey.values()].sort((a, b) => b.hours - a.hours);
   }
+
+  // Average session length over the platforms that actually count launches.
+  const avgSession = (g) => (g.sessions ? g.sessionHours / g.sessions : 0);
+  // True when the launch count covers only part of the game's hours.
+  const partialSessions = (g) => g.hasSessions && g.sessionHours + 0.01 < g.hours;
+  const sessionLabel = (g) =>
+    `${g.sessions} ${partialSessions(g) ? g.sessionConsoles.join("/") + " " : ""}sessions`;
 
   /* ------------------------------------------------------------- derive */
 
@@ -242,17 +259,23 @@
       `</div>`;
 
     // Longest average sessions — PSN only, Steam reports no launch counts.
-    const avg = state.groups.filter((g) => g.hasSessions && g.sessions >= 5 && g.hours > 0)
-      .map((g) => ({ ...g, avg: g.hours / g.sessions }))
+    const avg = state.groups.filter((g) => g.hasSessions && g.sessions >= 5 && g.sessionHours > 0)
+      .map((g) => ({ ...g, avg: avgSession(g) }))
       .sort((a, b) => b.avg - a.avg).slice(0, 12);
     $("#sessionChart").innerHTML = barRows(
-      avg.map((g) => ({ label: g.title, value: g.avg, color: tint(g.consoles[0]), suffix: "h", extra: `${g.sessions} launches` }))
+      avg.map((g) => ({
+        label: g.title,
+        value: g.avg,
+        color: tint(g.sessionConsoles[0]),
+        suffix: "h",
+        extra: `${g.sessions} launches` + (partialSessions(g) ? ` on ${g.sessionConsoles.join("/")}` : ""),
+      }))
     );
   }
 
   const metaLine = (g) => {
     const bits = [];
-    if (g.hasSessions) bits.push(`${g.sessions} sessions`);
+    if (g.hasSessions) bits.push(`${sessionLabel(g)} · ${fmtH(avgSession(g))}h avg`);
     if (g.platforms.length > 1) bits.push(g.parts.map((p) => `${p.console} ${fmtH(p.hours)}h`).join(" + "));
     bits.push(`last played ${fmtDate(g.lastPlayed)}`);
     return esc(bits.join(" · "));
@@ -297,7 +320,7 @@
       recent: (a, b) => (b.lastPlayed || "").localeCompare(a.lastPlayed || ""),
       first: (a, b) => (b.firstPlayed || "").localeCompare(a.firstPlayed || ""),
       sessions: (a, b) => b.sessions - a.sessions,
-      avg: (a, b) => b.hours / (b.sessions || 1) - a.hours / (a.sessions || 1),
+      avg: (a, b) => avgSession(b) - avgSession(a),
       title: (a, b) => a.title.localeCompare(b.title),
     }[sort];
     list = [...list].sort(cmp);
@@ -311,7 +334,7 @@
         <div>
           <div class="name">${esc(g.title)}${pills(g)}</div>
           <div class="meta">
-            ${g.hasSessions ? `${g.sessions} sessions · ${fmtH(g.hours / (g.sessions || 1))}h avg<br>` : ""}
+            ${g.hasSessions ? `${sessionLabel(g)} · ${fmtH(avgSession(g))}h avg<br>` : ""}
             ${g.firstPlayed ? fmtDate(g.firstPlayed) + " → " : ""}${fmtDate(g.lastPlayed)}
             ${g.platforms.length > 1 ? "<br>" + esc(g.parts.map((p) => `${p.console} ${fmtH(p.hours)}h`).join(" + ")) : ""}
           </div>

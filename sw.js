@@ -1,5 +1,5 @@
 /* Bump CACHE on every deploy so clients pick up new code. */
-const CACHE = "playtime-v7";
+const CACHE = "playtime-v8";
 const SHELL = ["./", "index.html", "styles.css", "app.js", "manifest.webmanifest", "icon.svg"];
 
 self.addEventListener("install", (e) => {
