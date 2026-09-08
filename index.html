@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0b0f17">
+<meta name="theme-color" content="#f6f7f9">
 <title>Playtime</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="styles.css">
@@ -30,7 +30,10 @@
   <section id="panel-overview" class="panel is-active">
     <div class="tiles" id="tiles"></div>
 
-    <h2 class="h">Most played</h2>
+    <div class="seg" id="listToggle" role="tablist">
+      <button class="seg__btn is-active" data-list="recent" role="tab">Recently played</button>
+      <button class="seg__btn" data-list="top" role="tab">Most played</button>
+    </div>
     <ol class="toplist" id="topList"></ol>
 
     <div class="split">
@@ -73,16 +76,13 @@
   <section id="panel-timeline" class="panel">
     <h2 class="h">When each game was in rotation</h2>
     <p class="hint">
-      Each bar runs from the first time you played a game to the last, one bar per platform.
-      PSN gives exact first and last dates, so this reaches back to 2015 — but it says nothing
-      about how the hours were spread in between, so a long bar is not a busy one.
+      Each bar runs from the first time you played a game to the last, one bar per platform,
+      clipped to the range you pick. PSN gives exact first and last dates, so this reaches back
+      to 2015 — but it says nothing about how the hours were spread in between, so a long bar is
+      not a busy one.
     </p>
     <div class="controls">
-      <select id="timelineCount">
-        <option value="40">Top 40 by hours</option>
-        <option value="80">Top 80 by hours</option>
-        <option value="0">Everything</option>
-      </select>
+      <select id="timelineRange"></select>
     </div>
     <p class="hint" id="timelineNote"></p>
     <div id="timeline" class="chartbox chartbox--scroll"></div>

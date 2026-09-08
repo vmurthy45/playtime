@@ -49,6 +49,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+from filters import split_games
+
 SOURCE = "steam"
 OWNED_URL = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/"
 CDN = "https://cdn.cloudflare.steamstatic.com/steam/apps"
@@ -207,6 +209,9 @@ def main():
 
     today = dt.date.today().isoformat()
     games = [to_model(g) for g in fetch_owned(key, steamid)]
+    games, dropped = split_games(games, out)
+    if dropped:
+        print(f"skipped {len(dropped)} non-game titles: " + ", ".join(g["title"] for g in dropped[:6]))
     games.sort(key=lambda g: -g["hours"])
 
     titles_path = out / "steam_titles.json"

@@ -73,6 +73,20 @@ commits.
 After a code change, bump `CACHE` in `sw.js` or clients keep serving the old
 shell from cache.
 
+## The dashboard
+
+- **Overview** — totals, then *Recently played* (the default) or *Most played*,
+  ten each across both platforms; games started per year; where the hours went;
+  session lengths.
+- **Games** — everything, searchable and sortable, merged across platforms.
+- **Timeline** — when each game was in rotation, filtered by a time window:
+  last 7 days, last 30 days, this year, last year, all time, or any single year.
+  Bars are clipped to the window, and tick spacing follows it (weeks for a
+  month, months for a year, years for a decade).
+- **Daily** — hours per day, derived from snapshot diffs.
+
+The site renders in light mode only.
+
 ## How the numbers are derived
 
 PSN reports **lifetime totals per title**, never a per-day breakdown. So:
@@ -96,6 +110,15 @@ Steam has no first-played field either. `steam_sync.py` derives one by watching
 for a game going from zero hours to non-zero between syncs; games already played
 before the first sync keep an empty start date and stay off the Timeline.
 
+### What counts as a game
+
+Consoles report Netflix, YouTube, Disney+, Plex and the like as titles with play
+time — on this account that was 67 hours of "play". They are dropped by both
+collectors and hidden by the app, using the list in `data/non_games.json`.
+Matching is on the normalised title, so add a name to that file to hide anything
+else (or an id under `ids` for a title a name cannot catch). Steam's separate
+`- Multiplayer` entries are genuine game components and are kept.
+
 ### Same game, two platforms
 
 Entries are merged into one game by a normalised title — trademark symbols and
@@ -114,6 +137,8 @@ tools/steam_sync.py                Steam collector
 data/psn_titles.json               current lifetime totals per title
 data/steam_titles.json             same, for Steam (plus per-device hours)
 data/aliases.json                  manual cross-platform title pairings
+data/non_games.json                titles to hide — media apps, tools
+tools/filters.py                   shared exclusion logic for the collectors
 data/snapshots.json                append-only history, one entry per sync per source
 .github/workflows/sync.yml         both collectors, daily 06:00 UTC
 ```

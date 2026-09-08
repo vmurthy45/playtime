@@ -47,6 +47,8 @@ import os
 import pathlib
 import sys
 
+from filters import split_games
+
 SOURCE = "psn"
 
 
@@ -159,6 +161,10 @@ def main():
             "If this mentions auth or a token, the npsso has most likely expired "
             "(they last ~60 days). Get a fresh one and update PSN_NPSSO."
         )
+
+    titles, dropped = split_games(titles, out)
+    if dropped:
+        print(f"skipped {len(dropped)} non-game titles: " + ", ".join(g["title"] for g in dropped[:6]))
 
     today = dt.date.today().isoformat()
     payload = {

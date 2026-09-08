@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-08T21:33:23+00:00",
+ "syncedAt": "2026-09-08T21:46:16+00:00",
  "games": [
   {
    "id": "psn_CUSA02624_00",
@@ -472,18 +472,6 @@
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202309/0813/81ab4b5e5fc8aeba84d3ce3fb7aeede9f00bbab93d9c9c60.png"
   },
   {
-   "id": "psn_PPSA01615_00",
-   "titleId": "PPSA01615_00",
-   "title": "Netflix",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 21.637,
-   "sessions": 26,
-   "firstPlayed": "2021-07-09",
-   "lastPlayed": "2023-01-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/1422/i0AxG1FE1AMNq0KrcXepdYrd.png"
-  },
-  {
    "id": "psn_CUSA12552_00",
    "titleId": "CUSA12552_00",
    "title": "Apex Legends\u2122",
@@ -652,18 +640,6 @@
    "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09155_00/1/i_a2e731f3d67f1d3faa4162b699a775c71a8caa4d03826947bef5fe59ef911a93/i/icon0.png"
   },
   {
-   "id": "psn_PPSA01651_00",
-   "titleId": "PPSA01651_00",
-   "title": "YouTube",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 16.696,
-   "sessions": 32,
-   "firstPlayed": "2022-04-18",
-   "lastPlayed": "2026-09-03",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3017/wYAvR9akyRjDjy75S4zCLAGi.png"
-  },
-  {
    "id": "psn_PPSA28176_00",
    "titleId": "PPSA28176_00",
    "title": "Battlefield\u2122 6",
@@ -710,18 +686,6 @@
    "firstPlayed": "2018-03-09",
    "lastPlayed": "2021-10-22",
    "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1020/2sD70skhUEhaf3gwCWJsEfGt.png"
-  },
-  {
-   "id": "psn_CUSA00127_00",
-   "titleId": "CUSA00127_00",
-   "title": "Netflix",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 15.369,
-   "sessions": 14,
-   "firstPlayed": "2020-06-26",
-   "lastPlayed": "2022-04-06",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/1422/i0AxG1FE1AMNq0KrcXepdYrd.png"
   },
   {
    "id": "psn_CUSA00076_00",
@@ -1192,18 +1156,6 @@
    "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12443_00/3/i_574d91bf4cf0e6167042e5ffcf3c2b2e3b1f1e770922a54dcdec404095aa7060/i/icon0.png"
   },
   {
-   "id": "psn_CUSA02012_00",
-   "titleId": "CUSA02012_00",
-   "title": "Media Player",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 5.024,
-   "sessions": 8,
-   "firstPlayed": "2021-04-19",
-   "lastPlayed": "2021-06-18",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02012_00/1/i_018d3114f496346e1705e2165d8980995ee1253dc9a85c8cc1bfb8ffff1856cb/i/icon0.png"
-  },
-  {
    "id": "psn_PPSA34501_00",
    "titleId": "PPSA34501_00",
    "title": "Call of Duty\u00ae: Black Ops",
@@ -1442,18 +1394,6 @@
    "firstPlayed": "2024-05-08",
    "lastPlayed": "2024-05-11",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202012/0815/0Xqi1LgRoEtJ5zlFprpd54Vu.png"
-  },
-  {
-   "id": "psn_PPSA02137_00",
-   "titleId": "PPSA02137_00",
-   "title": "TVNZ+",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 3.072,
-   "sessions": 2,
-   "firstPlayed": "2026-06-13",
-   "lastPlayed": "2026-06-26",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0222/tBf5JXWPC6eG7roEQB4edxoN.png"
   },
   {
    "id": "psn_CUSA00031_00",
@@ -1756,18 +1696,6 @@
    "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02369_00/3/i_2c97ed4eeabb3e426f3fafa12dc38b9fa9e335baacec73ab394139b9e79bf5ef/i/icon0.png"
   },
   {
-   "id": "psn_CUSA15362_00",
-   "titleId": "CUSA15362_00",
-   "title": "Disney+",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 1.954,
-   "sessions": 4,
-   "firstPlayed": "2021-04-24",
-   "lastPlayed": "2022-02-07",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA15362_00/1/i_60c1f77bac313d5e85b78658a4e68f8bbb4a57456a2352dd3b1bbbb6eb3c4cbf/i/icon0.png"
-  },
-  {
    "id": "psn_CUSA00004_00",
    "titleId": "CUSA00004_00",
    "title": "inFAMOUS\u2122 Second Son",
@@ -1852,18 +1780,6 @@
    "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA16745_00/1/i_7b2f4e6eb77ae1f364b1c3be21ea7326c6baaa7c12cd5351fddaf756a0029a47/i/icon0_01.png"
   },
   {
-   "id": "psn_CUSA01116_00",
-   "titleId": "CUSA01116_00",
-   "title": "YouTube",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 1.476,
-   "sessions": 6,
-   "firstPlayed": "2016-06-03",
-   "lastPlayed": "2022-03-26",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3017/wYAvR9akyRjDjy75S4zCLAGi.png"
-  },
-  {
    "id": "psn_CUSA12414_00",
    "titleId": "CUSA12414_00",
    "title": "HITMAN\u2122 2",
@@ -1910,18 +1826,6 @@
    "firstPlayed": "2015-12-01",
    "lastPlayed": "2015-12-08",
    "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00634_00/3/i_bd22c9c5ff495c10c426c43b96fdbaf5766a8c7cf9cb11996283ced3402d9292/i/icon0_01.png"
-  },
-  {
-   "id": "psn_CUSA01780_00",
-   "titleId": "CUSA01780_00",
-   "title": "Spotify",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 1.295,
-   "sessions": 14,
-   "firstPlayed": "2016-01-10",
-   "lastPlayed": "2022-01-21",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/0105/nkAJcbaKJ1N0YP7JuRd3DdTc.png"
   },
   {
    "id": "psn_PPSA04298_00",
@@ -3124,18 +3028,6 @@
    "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA04944_00/2/i_f5fb197d0849d65a46a146c642ebba7b6222fa04a6e752c5e2f2ab2c90755e9a/i/icon0.png"
   },
   {
-   "id": "psn_PPSA01936_00",
-   "titleId": "PPSA01936_00",
-   "title": "Plex",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 0.201,
-   "sessions": 5,
-   "firstPlayed": "2023-11-29",
-   "lastPlayed": "2026-08-06",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01703_00/1/i_d184889a2cf32608e780747e3abb3b548a14311a37313f42cb9b2ccc431d3481/i/icon0.png"
-  },
-  {
    "id": "psn_CUSA02764_00",
    "titleId": "CUSA02764_00",
    "title": "NBA 2K16",
@@ -3314,18 +3206,6 @@
    "firstPlayed": "2019-06-16",
    "lastPlayed": "2019-06-16",
    "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07010_00/3/i_ad76ec0060a76200ff44a8242a9204cb896f2f28444606d73b635fb7497468b8/i/icon0.png"
-  },
-  {
-   "id": "psn_CUSA01015_00",
-   "titleId": "CUSA01015_00",
-   "title": "YouTube",
-   "platform": "PlayStation",
-   "console": "Other",
-   "hours": 0.049,
-   "sessions": 1,
-   "firstPlayed": "2015-04-26",
-   "lastPlayed": "2015-04-26",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3017/wYAvR9akyRjDjy75S4zCLAGi.png"
   },
   {
    "id": "psn_CUSA25765_00",

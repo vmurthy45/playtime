@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-09-08T21:32:37+00:00",
+ "syncedAt": "2026-09-08T21:46:17+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -825,22 +825,6 @@
     "deck": 1.667
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/49520/header.jpg"
-  },
-  {
-   "id": "steam_431960",
-   "appid": 431960,
-   "title": "Wallpaper Engine",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 4.317,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2022-11-07",
-   "recentHours": 0.0,
-   "devices": {
-    "windows": 4.317
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/431960/header.jpg"
   },
   {
    "id": "steam_209000",

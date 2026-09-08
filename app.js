@@ -35,11 +35,18 @@
     fetch(url, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
 
   async function load() {
-    const [files, snaps, aliases] = await Promise.all([
+    const [files, snaps, aliases, nonGames] = await Promise.all([
       Promise.all(SOURCES.map((s) => getJSON(s.file))),
       getJSON("data/snapshots.json"),
       getJSON("data/aliases.json"),
+      getJSON("data/non_games.json"),
     ]);
+
+    // Consoles count Netflix and friends as titles with play time. The
+    // collectors drop them going forward; this hides any already collected.
+    const skipNames = new Set((nonGames && nonGames.names) || []);
+    const skipIds = new Set((nonGames && nonGames.ids) || []);
+    const isGame = (g) => !skipNames.has(normalize(g.title)) && !skipIds.has(g.id);
 
     // Keys starting with "_" are notes in the file, not mappings.
     state.aliases = Object.fromEntries(
@@ -49,6 +56,7 @@
       if (!f) return;
       // Older syncs wrote the raw enum name; "Other" is what the UI shows.
       for (const g of f.games || []) {
+        if (!isGame(g)) continue;
         if (g.console === "UNKNOWN" || !g.console) g.console = "Other";
         state.entries.push(g);
       }
@@ -226,19 +234,37 @@
     $("#tiles").innerHTML = tiles
       .map(([v, l]) => `<div class="tile"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
 
-    // Most played
-    const top = state.groups.filter((g) => g.hours > 0).slice(0, 10);
-    const max = top.length ? top[0].hours : 1;
-    $("#topList").innerHTML = top.map((g) => `
-      <li>
-        ${cover(g)}
-        <div>
-          <div class="name">${esc(g.title)}${pills(g)}</div>
-          <div class="meta">${metaLine(g)}</div>
-          <div class="barwrap">${splitBar(g, max)}</div>
-        </div>
-        <div class="hrs">${fmtH(g.hours)}h</div>
-      </li>`).join("");
+    // Recently played / Most played — ten each, across every platform.
+    const lists = {
+      recent: state.groups.filter((g) => g.lastPlayed)
+        .sort((a, b) => b.lastPlayed.localeCompare(a.lastPlayed)).slice(0, 10),
+      top: state.groups.filter((g) => g.hours > 0).slice(0, 10),
+    };
+
+    const drawList = (which) => {
+      const rows = lists[which] || [];
+      // Bars are scaled within the list on show, not against the all-time top.
+      const max = Math.max(...rows.map((g) => g.hours), 1);
+      $("#topList").innerHTML = rows.length ? rows.map((g) => `
+        <li>
+          ${cover(g)}
+          <div>
+            <div class="name">${esc(g.title)}${pills(g)}</div>
+            <div class="meta">${metaLine(g)}</div>
+            <div class="barwrap">${splitBar(g, max)}</div>
+          </div>
+          <div class="hrs">${fmtH(g.hours)}h</div>
+        </li>`).join("") : `<li class="empty">Nothing here yet.</li>`;
+    };
+
+    $("#listToggle").addEventListener("click", (e) => {
+      const btn = e.target.closest(".seg__btn");
+      if (!btn) return;
+      document.querySelectorAll("#listToggle .seg__btn")
+        .forEach((b) => b.classList.toggle("is-active", b === btn));
+      drawList(btn.dataset.list);
+    });
+    drawList("recent");
 
     // Games started per year — only counts games whose start date is known.
     const byYear = {};
@@ -284,7 +310,8 @@
   // One bar per platform, so a cross-platform game shows its split in place.
   const splitBar = (g, max) =>
     g.parts.filter((p) => p.hours > 0).map((p) =>
-      `<span class="bar" style="width:${(p.hours / max * 100).toFixed(2)}%;background:${tint(p.console)}"></span>`).join("");
+      `<span class="bar" title="${esc(p.console)} — ${fmtH(p.hours)}h"
+         style="width:${(p.hours / max * 100).toFixed(2)}%;background:${tint(p.console)}"></span>`).join("");
 
   // Cover art 404s on a few older titles, so the initial is the fallback
   // rather than an empty grey square.
@@ -346,44 +373,75 @@
   /* --- timeline --- */
 
   function renderTimeline() {
-    $("#timelineCount").addEventListener("change", drawTimeline);
+    const dated = state.entries.filter((x) => x.firstPlayed && x.lastPlayed);
+    const today = new Date().toISOString().slice(0, 10);
+    const earliest = dated.reduce((m, x) => minDate(m, x.firstPlayed), today);
+    const years = [];
+    for (let y = +today.slice(0, 4); y >= +earliest.slice(0, 4); y--) years.push(y);
+
+    // Ranges are windows on the calendar, not a cap on how many games show.
+    const opts = [
+      `<option value="7d">Last 7 days</option>`,
+      `<option value="30d">Last 30 days</option>`,
+      `<option value="y:${years[0]}" selected>This year (${years[0]})</option>`,
+      years[1] ? `<option value="y:${years[1]}">Last year (${years[1]})</option>` : "",
+      `<option value="all">All time</option>`,
+      years.length > 2
+        ? `<optgroup label="By year">` +
+          years.slice(2).map((y) => `<option value="y:${y}">${y}</option>`).join("") +
+          `</optgroup>`
+        : "",
+    ].join("");
+    $("#timelineRange").innerHTML = opts;
+    $("#timelineRange").addEventListener("change", drawTimeline);
     drawTimeline();
   }
 
+  function rangeWindow(value, dated) {
+    const today = new Date().toISOString().slice(0, 10);
+    if (value === "all") {
+      return {
+        start: dated.reduce((m, x) => minDate(m, x.firstPlayed), today),
+        end: dated.reduce((m, x) => maxDate(m, x.lastPlayed), today),
+        label: "all time",
+      };
+    }
+    if (value.startsWith("y:")) {
+      const y = value.slice(2);
+      return { start: `${y}-01-01`, end: `${y}-12-31`, label: y };
+    }
+    const days = parseInt(value, 10);
+    return { start: fromDay(toDay(today) - days + 1), end: today, label: `the last ${days} days` };
+  }
+
   function drawTimeline() {
-    const limit = +$("#timelineCount").value;
     const dated = state.entries.filter((x) => x.firstPlayed && x.lastPlayed);
     const undated = state.entries.length - dated.length;
+    const win = rangeWindow($("#timelineRange").value || "all", dated);
 
-    $("#timelineNote").innerHTML = undated
-      ? `${undated} entries are missing a start date and are not shown. PSN supplies one for
-         every title; Steam supplies none, so a Steam game only joins this chart once it goes
-         from unplayed to played while tracking is running.`
-      : "";
+    // A game counts as in rotation if its span overlaps the window at all.
+    let rows = dated.filter((x) => x.lastPlayed >= win.start && x.firstPlayed <= win.end);
+    rows.sort((a, b) => a.firstPlayed.localeCompare(b.firstPlayed) || b.hours - a.hours);
 
-    let rows = [...dated].sort((a, b) => b.hours - a.hours);
-    if (limit) rows = rows.slice(0, limit);
-    rows.sort((a, b) => a.firstPlayed.localeCompare(b.firstPlayed));
+    $("#timelineNote").innerHTML =
+      `<b>${rows.length}</b> ${rows.length === 1 ? "game" : "games"} in rotation during ${esc(win.label)}.` +
+      (undated
+        ? ` ${undated} entries have no start date and cannot be placed — PSN supplies one for every
+           title; Steam supplies none, so a Steam game only joins this chart once it goes from
+           unplayed to played while tracking is running.`
+        : "");
 
-    if (!rows.length) { $("#timeline").innerHTML = `<p class="empty">No dated games yet.</p>`; return; }
+    if (!rows.length) { $("#timeline").innerHTML = `<p class="empty">Nothing was played in that window.</p>`; return; }
 
-    const minD = toDay(rows.reduce((m, x) => minDate(m, x.firstPlayed), rows[0].firstPlayed));
-    const maxD = toDay(dated.reduce((m, x) => maxDate(m, x.lastPlayed), rows[0].lastPlayed));
+    const minD = toDay(win.start), maxD = toDay(win.end);
     const rowH = 15, padL = 4, padT = 22, w = 1000;
     const h = padT + rows.length * rowH + 6;
     const x = (d) => padL + ((d - minD) / Math.max(1, maxD - minD)) * (w - padL * 2);
 
-    const y0 = +fromDay(minD).slice(0, 4), y1 = +fromDay(maxD).slice(0, 4);
-    let grid = "";
-    for (let y = y0; y <= y1; y++) {
-      const gx = x(toDay(`${y}-01-01`));
-      if (gx < padL || gx > w - padL) continue;
-      grid += `<line x1="${gx.toFixed(1)}" y1="16" x2="${gx.toFixed(1)}" y2="${h}" stroke="var(--line)" stroke-width="1"/>` +
-              `<text x="${(gx + 3).toFixed(1)}" y="11" font-size="10" fill="var(--muted)">${y}</text>`;
-    }
-
     const bars = rows.map((g, i) => {
-      const x1 = x(toDay(g.firstPlayed)), x2 = Math.max(x(toDay(g.lastPlayed)), x1 + 2.5);
+      // Clip to the window — a bar means "in rotation here", not the whole life.
+      const s = Math.max(toDay(g.firstPlayed), minD), e = Math.min(toDay(g.lastPlayed), maxD);
+      const x1 = x(s), x2 = Math.max(x(e), x1 + 2.5);
       const y = padT + i * rowH;
       const tip = `<title>${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}\n${fmtDate(g.firstPlayed)} → ${fmtDate(g.lastPlayed)}</title>`;
       // Label after the bar, or before it once the bar runs too close to the
@@ -397,10 +455,40 @@
 
     const consoles = [...new Set(rows.map((r) => r.console))];
     $("#timeline").innerHTML =
-      `<svg viewBox="0 0 ${w} ${h}" style="min-width:640px" role="img" aria-label="Game rotation timeline">${grid}${bars}</svg>` +
+      `<svg viewBox="0 0 ${w} ${h}" style="min-width:640px" role="img" aria-label="Game rotation timeline">
+         ${gridlines(minD, maxD, x, h)}${bars}
+       </svg>` +
       `<div class="legend">` +
       consoles.map((c) => `<span><i style="background:${tint(c)}"></i>${esc(c)}</span>`).join("") +
       `</div>`;
+  }
+
+  // Tick spacing follows the window: years for a decade, months for a year,
+  // weeks for a month.
+  function gridlines(minD, maxD, x, h) {
+    const span = maxD - minD;
+    const ticks = [];
+    if (span > 3 * 365) {
+      for (let y = +fromDay(minD).slice(0, 4); y <= +fromDay(maxD).slice(0, 4); y++)
+        ticks.push([toDay(`${y}-01-01`), String(y)]);
+    } else if (span > 45) {
+      const d = new Date(fromDay(minD) + "T00:00:00");
+      d.setDate(1);
+      while (toDay(d.toISOString().slice(0, 10)) <= maxD) {
+        const iso = d.toISOString().slice(0, 10);
+        ticks.push([toDay(iso), d.toLocaleDateString(undefined, { month: "short" })]);
+        d.setMonth(d.getMonth() + 1);
+      }
+    } else {
+      for (let t = minD; t <= maxD; t += 7)
+        ticks.push([t, new Date(t * dayMs).toLocaleDateString(undefined, { day: "numeric", month: "short" })]);
+    }
+    return ticks.map(([t, label]) => {
+      const gx = x(t);
+      if (gx < 0 || gx > 1000) return "";
+      return `<line x1="${gx.toFixed(1)}" y1="16" x2="${gx.toFixed(1)}" y2="${h}" stroke="var(--line)" stroke-width="1"/>` +
+             `<text x="${(gx + 3).toFixed(1)}" y="11" font-size="10" fill="var(--muted)">${esc(label)}</text>`;
+    }).join("");
   }
 
   /* --- daily --- */
