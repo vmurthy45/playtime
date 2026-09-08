@@ -30,8 +30,11 @@ SETUP
    gitignored; in CI: a repository secret named PSN_NPSSO):
        PSN_NPSSO=xxxxxxxx...
 
-   The refresh token derived from it lasts ~60 days, after which this script
-   fails and you repeat step 1.
+   The npsso cookie lasts about 60 days. Every run exchanges it for fresh
+   tokens, so the short-lived access token (1 hour) and refresh token (10
+   days) psnawp reports are irrelevant here — do not treat them as the
+   deadline. When the npsso itself expires the sync fails, and the workflow
+   raises a GitHub issue saying so.
 
 --------------------------------------------------------------------------------
 RUN
@@ -50,6 +53,23 @@ import sys
 from filters import split_games
 
 SOURCE = "psn"
+
+TZ = os.environ.get("PLAYTIME_TZ", "Pacific/Auckland")
+
+
+def local_today():
+    """Today where the games were actually played, not on the CI runner.
+
+    The sync runs at midnight NZ, so the UTC date is the day before for part
+    of the year. Labelling snapshots with the local date keeps a day's hours
+    on the day they were played.
+    """
+    try:
+        from zoneinfo import ZoneInfo
+        return dt.datetime.now(ZoneInfo(TZ)).date().isoformat()
+    except Exception:  # noqa: BLE001 — no tzdata: UTC is close enough to carry on
+        return dt.date.today().isoformat()
+
 
 
 def load_dotenv(path):
@@ -179,7 +199,7 @@ def main():
     if dropped:
         print(f"skipped {len(dropped)} non-game titles: " + ", ".join(g["title"] for g in dropped[:6]))
 
-    today = dt.date.today().isoformat()
+    today = local_today()
     payload = {
         "source": SOURCE,
         "onlineId": online_id,

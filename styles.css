@@ -197,6 +197,7 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 .gapnote { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12.5px; margin-top: 10px; }
 .hatch { width: 22px; height: 12px; border-radius: 3px; border: 1px dashed var(--nodata); }
 
+.stale { color: #b45309; font-weight: 600; }
 .foot { text-align: center; color: var(--muted); font-size: 12px; padding: 0 var(--gut) 32px; }
 
 /* ---------- timeline ---------- */

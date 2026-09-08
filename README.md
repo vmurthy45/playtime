@@ -53,9 +53,15 @@ The `ca.` is Canada and is irrelevant — it reads the cookie from whatever sess
 you are logged into, from any region. `{"npsso":null}` means you are not logged
 in, not that you are in the wrong place.
 
-The refresh token derived from it lasts **~60 days**, after which the sync fails
-and you repeat the three steps above. Locally it lives in `.env` (gitignored); in
-CI it is the repository secret `PSN_NPSSO`.
+The npsso cookie lasts **about 60 days**, after which the sync fails and you
+repeat the three steps above. Locally it lives in `.env` (gitignored); in CI it
+is the repository secret `PSN_NPSSO`.
+
+Every run exchanges the npsso for fresh tokens, so the short-lived access token
+(1 hour) and refresh token (10 days) that `psnawp` reports are **not** the
+deadline — only the npsso's own life matters. It cannot be renewed without a
+login, so there is nothing to automate: when it dies the workflow raises a
+GitHub issue telling you to replace it, and Steam keeps syncing meanwhile.
 
 ## Deploy
 
@@ -105,6 +111,10 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
   `data/snapshots.json`. That means the daily chart only fills in from the second
   sync onward, and days before the first sync are genuinely unknown rather than
   zero — the app draws them that way.
+- The sync runs at **12:00 UTC, midnight in Auckland** (1am while daylight
+  saving is on — cron cannot follow DST). Snapshots are stamped with the *local*
+  date, and the hours between two snapshots are credited to the day that just
+  ended, so an evening's play lands on the evening's date.
 - When two syncs land more than a day apart, the total for that window is real
   but the split across those days is an even guess. Those bars are drawn hatched
   and labelled estimated.
@@ -148,5 +158,5 @@ data/aliases.json                  manual cross-platform title pairings
 data/non_games.json                titles to hide — media apps, tools
 tools/filters.py                   shared exclusion logic for the collectors
 data/snapshots.json                append-only history, one entry per sync per source
-.github/workflows/sync.yml         both collectors, daily 06:00 UTC
+.github/workflows/sync.yml         both collectors, daily at midnight NZ
 ```

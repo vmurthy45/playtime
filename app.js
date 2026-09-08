@@ -177,7 +177,10 @@
           const delta = hours - (prev.hours[id] || 0);
           if (delta > 0.005) { gained += delta; perGame[id] = delta; }
         }
-        const from = toDay(prev.date) + 1, to = toDay(cur.date);
+        // The hours were earned between the two snapshots, so they belong to
+        // the days from the earlier one up to (not including) the later one.
+        // With a midnight sync that is exactly the day that just ended.
+        const from = toDay(prev.date), to = toDay(cur.date) - 1;
         const span = Math.max(1, to - from + 1);
         for (let d = from; d <= to; d++) {
           const date = fromDay(d);
@@ -203,8 +206,14 @@
     $("#subtitle").textContent =
       `${state.groups.length} games, ${fmtH(totalH)} hours.` +
       (known.length ? ` Since ${known[0].slice(0, 4)}` : "");
-    $("#syncedAt").textContent = state.synced
-      .map((s) => `${sourceName(s.source)} synced ${fmtStamp(s.at)}`)
+    // A source that quietly stops syncing should look wrong, not just old.
+    const todayD = toDay(new Date().toISOString().slice(0, 10));
+    $("#syncedAt").innerHTML = state.synced
+      .map((s) => {
+        const age = todayD - toDay(s.at.slice(0, 10));
+        const label = `${sourceName(s.source)} synced ${fmtStamp(s.at)}`;
+        return age > 2 ? `<span class="stale">${esc(label)} · ${age} days ago</span>` : esc(label);
+      })
       .join(" · ");
     renderOverview();
     renderStats(totalH);

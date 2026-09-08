@@ -5,11 +5,14 @@ name: Daily play-time sync
 # consecutive snapshots — which only accumulates while this runs.
 on:
   schedule:
-    - cron: "0 6 * * *"   # 06:00 UTC daily
+    # 12:00 UTC = midnight in Auckland (1am while daylight saving is on).
+    # Cron cannot follow DST, so the boundary drifts by an hour in summer.
+    - cron: "0 12 * * *"
   workflow_dispatch: {}    # run on demand from the Actions tab
 
 permissions:
   contents: write
+  issues: write     # so a failed PSN sync can raise an issue and email you
 
 concurrency:
   group: playtime-sync
@@ -34,6 +37,7 @@ jobs:
       # should not cost a day of Steam history, and vice versa. A failed step
       # still shows up red on the run.
       - name: Fetch PSN play time
+        id: psn
         continue-on-error: true
         env:
           PSN_NPSSO: ${{ secrets.PSN_NPSSO }}
@@ -45,6 +49,22 @@ jobs:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_ID: ${{ secrets.STEAM_ID }}
         run: python3 tools/steam_sync.py --out data
+
+      # The npsso cannot be renewed without a login, so the best automation
+      # available is telling you the moment it stops working.
+      - name: Raise an issue if PSN sync failed
+        if: steps.psn.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="PSN sync is failing — refresh the npsso token"
+          existing=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number')
+          body=$'The daily PSN sync failed. The usual cause is the npsso token expiring (they last about 60 days).\n\nTo fix:\n1. Log in to PlayStation in a browser.\n2. Open https://ca.account.sony.com/api/v1/ssocookie\n3. Copy the 64-character npsso value.\n4. Update the PSN_NPSSO repository secret.\n5. Re-run the workflow.\n\nSteam is unaffected and keeps syncing.'
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "Still failing as of $(date -u +%Y-%m-%d)."
+          else
+            gh issue create --title "$title" --body "$body"
+          fi
 
       - name: Commit updated data
         if: always()

@@ -52,6 +52,24 @@ import urllib.request
 from filters import split_games
 
 SOURCE = "steam"
+
+TZ = os.environ.get("PLAYTIME_TZ", "Pacific/Auckland")
+
+
+def local_today():
+    """Today where the games were actually played, not on the CI runner.
+
+    The sync runs at midnight NZ, so the UTC date is the day before for part
+    of the year. Labelling snapshots with the local date keeps a day's hours
+    on the day they were played.
+    """
+    try:
+        from zoneinfo import ZoneInfo
+        return dt.datetime.now(ZoneInfo(TZ)).date().isoformat()
+    except Exception:  # noqa: BLE001 — no tzdata: UTC is close enough to carry on
+        return dt.date.today().isoformat()
+
+
 OWNED_URL = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/"
 CDN = "https://cdn.cloudflare.steamstatic.com/steam/apps"
 
@@ -207,7 +225,7 @@ def main():
         out = root / out
     out.mkdir(parents=True, exist_ok=True)
 
-    today = dt.date.today().isoformat()
+    today = local_today()
     games = [to_model(g) for g in fetch_owned(key, steamid)]
     games, dropped = split_games(games, out)
     if dropped:
