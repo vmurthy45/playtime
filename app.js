@@ -314,7 +314,7 @@
     const byYear = {};
     for (const g of state.groups) { const y = year(g.firstPlayed); if (y) byYear[y] = (byYear[y] || 0) + 1; }
     $("#startedChart").innerHTML = columnChart(
-      Object.keys(byYear).sort().map((y) => ({ label: y.slice(2), value: byYear[y], title: `${byYear[y]} games started in ${y}` }))
+      Object.keys(byYear).sort().map((y) => ({ label: y, value: byYear[y], title: `${byYear[y]} games started in ${y}` }))
     );
 
     const parts = Object.entries(byConsole).sort((a, b) => b[1] - a[1]);
@@ -626,14 +626,17 @@
     const w = 1000, h = 170, pad = 22;
     const max = Math.max(...items.map((i) => i.value));
     const bw = (w - pad * 2) / items.length;
-    return `<svg viewBox="0 0 ${w} ${h}" role="img">
+    // Full years need room; below that width the chart scrolls sideways
+    // rather than shrinking the labels into soup.
+    const minW = items.length * 54;
+    return `<svg viewBox="0 0 ${w} ${h}" role="img" style="min-width:${minW}px">
       ${items.map((it, i) => {
         const bh = (it.value / max) * (h - pad * 2.2);
         const x = pad + i * bw, y = h - pad - bh;
         return `<rect x="${(x + 2).toFixed(1)}" y="${y.toFixed(1)}" width="${(bw - 5).toFixed(1)}" height="${bh.toFixed(1)}"
                   rx="3" fill="var(--accent)" opacity=".85"><title>${esc(it.title || it.label)}</title></rect>
-                <text x="${(x + bw / 2).toFixed(1)}" y="${h - 6}" font-size="10.5" fill="var(--muted)" text-anchor="middle">${esc(it.label)}</text>
-                <text x="${(x + bw / 2).toFixed(1)}" y="${(y - 4).toFixed(1)}" font-size="10.5" fill="var(--muted)" text-anchor="middle">${it.value}</text>`;
+                <text x="${(x + bw / 2).toFixed(1)}" y="${h - 6}" font-size="12" fill="var(--muted)" text-anchor="middle">${esc(it.label)}</text>
+                <text x="${(x + bw / 2).toFixed(1)}" y="${(y - 4).toFixed(1)}" font-size="12" fill="var(--muted)" text-anchor="middle">${it.value}</text>`;
       }).join("")}
     </svg>`;
   }

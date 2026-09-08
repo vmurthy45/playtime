@@ -112,7 +112,7 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
   background: var(--surface); border: 1px solid var(--line);
   border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow);
 }
-.chartbox--scroll { overflow-x: auto; max-height: 78vh; overflow-y: auto; }
+.chartbox--scrollx { overflow-x: auto; }
 .chartbox svg { display: block; width: 100%; height: auto; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
 @media (max-width: 640px) { .split { grid-template-columns: 1fr; } }
