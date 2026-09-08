@@ -215,14 +215,27 @@
   /* --- overview --- */
 
   function renderOverview() {
-    const lists = {
-      recent: state.groups.filter((g) => g.lastPlayed)
-        .sort((a, b) => b.lastPlayed.localeCompare(a.lastPlayed)).slice(0, 10),
-      top: state.groups.filter((g) => g.hours > 0).slice(0, 10),
-    };
+    let platform = null;   // null = every platform
 
-    const drawList = (which) => {
-      const rows = lists[which] || [];
+    const consoles = [...new Set(state.entries.map((e) => e.console).filter(Boolean))]
+      .sort((a, b) => a.localeCompare(b));
+    $("#platformFilter").innerHTML = consoles.map((c) =>
+      `<button class="pf__btn" data-platform="${esc(c)}">
+         <i style="background:${tint(c)}"></i>${esc(c)}
+       </button>`).join("");
+
+    const draw = () => {
+      // With a platform selected, regroup from that platform's entries alone —
+      // showing a merged game's combined hours under one platform's filter
+      // would overstate it.
+      const groups = platform
+        ? groupEntries(state.entries.filter((e) => e.console === platform))
+        : state.groups;
+
+      const rows = $("#listToggle .is-active").dataset.list === "recent"
+        ? groups.filter((g) => g.lastPlayed).sort((a, b) => b.lastPlayed.localeCompare(a.lastPlayed)).slice(0, 10)
+        : groups.filter((g) => g.hours > 0).slice(0, 10);
+
       // Bars are scaled within the list on show, not against the all-time top.
       const max = Math.max(...rows.map((g) => g.hours), 1);
       $("#topList").innerHTML = rows.length ? rows.map((g) => `
@@ -234,7 +247,7 @@
             <div class="barwrap">${splitBar(g, max)}</div>
           </div>
           <div class="hrs">${fmtH(g.hours)}h</div>
-        </li>`).join("") : `<li class="empty">Nothing here yet.</li>`;
+        </li>`).join("") : `<li class="empty">Nothing played on ${esc(platform || "any platform")} yet.</li>`;
     };
 
     $("#listToggle").addEventListener("click", (e) => {
@@ -242,9 +255,23 @@
       if (!btn) return;
       document.querySelectorAll("#listToggle .seg__btn")
         .forEach((b) => b.classList.toggle("is-active", b === btn));
-      drawList(btn.dataset.list);
+      draw();
     });
-    drawList("recent");
+
+    $("#platformFilter").addEventListener("click", (e) => {
+      const btn = e.target.closest(".pf__btn");
+      if (!btn) return;
+      // Clicking the active platform clears the filter.
+      platform = btn.dataset.platform === platform ? null : btn.dataset.platform;
+      document.querySelectorAll("#platformFilter .pf__btn").forEach((b) => {
+        const on = b.dataset.platform === platform;
+        b.classList.toggle("is-on", on);
+        b.style.background = on ? tint(b.dataset.platform) : "";
+      });
+      draw();
+    });
+
+    draw();
   }
 
   /* --- stats --- */
@@ -463,13 +490,14 @@
 
       const bar = `<span class="tlbar" style="left:${left.toFixed(3)}%;width:${width.toFixed(3)}%;background:${colour}"></span>`;
 
-      const n = typeof g.sessions === "number" && g.sessions ? ` · ${g.sessions} sessions` : "";
+      const n = typeof g.sessions === "number" && g.sessions ? g.sessions : null;
       // Platform reads as a colour chip; the title stays in body colour so it
       // is legible (light blue text on white is not).
       return `<div class="tlrow">
-        <div class="tlrow__name" title="${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}${n}">
+        <div class="tlrow__name" title="${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}${n ? ` · ${n} sessions` : ""}">
           <span class="tlrow__chip" style="background:${colour}"></span>
           <span class="tlrow__title">${esc(g.title)}</span>
+          ${n ? `<span class="tlrow__n">${n}×</span>` : ""}
         </div>
         <div class="tlrow__plot">${bar}</div>
       </div>`;

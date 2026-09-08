@@ -69,8 +69,20 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
 .tile span { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
 
 /* ---------- segmented control ---------- */
+.ovhead { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+          flex-wrap: wrap; margin: 26px 0 12px; }
 .seg { display: inline-flex; gap: 2px; background: var(--surface-2); border: 1px solid var(--line);
-       border-radius: 10px; padding: 3px; margin: 26px 0 12px; }
+       border-radius: 10px; padding: 3px; }
+
+.pfilter { display: flex; gap: 6px; flex-wrap: wrap; }
+.pf__btn {
+  appearance: none; font: inherit; font-size: 13px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--muted);
+  border-radius: 999px; padding: 5px 13px; display: inline-flex; align-items: center; gap: 6px;
+}
+.pf__btn i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.pf__btn.is-on { color: #fff; border-color: transparent; font-weight: 600; }
+.pf__btn.is-on i { background: rgba(255, 255, 255, .85) !important; }
 .seg__btn { appearance: none; border: 0; background: none; color: var(--muted); font: inherit;
             font-size: 13.5px; padding: 6px 13px; border-radius: 7px; cursor: pointer; white-space: nowrap; }
 .seg__btn.is-active { background: var(--surface); color: var(--text); font-weight: 600; box-shadow: var(--shadow); }
