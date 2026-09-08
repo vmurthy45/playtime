@@ -205,6 +205,9 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
   position: absolute; top: 50%; height: 5px; margin-top: -2.5px;
   min-width: 4px; border-radius: 3px; opacity: .9;
 }
+/* A squared end means the bar continues past what is drawn. */
+.tlbar--cutL { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.tlbar--cutR { border-top-right-radius: 0; border-bottom-right-radius: 0; }
 
 @media (max-width: 640px) {
   :root { --gut: 14px; }

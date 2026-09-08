@@ -429,6 +429,7 @@
         start: dated.reduce((m, x) => minDate(m, x.firstPlayed), today),
         end: dated.reduce((m, x) => maxDate(m, x.lastPlayed), today),
         label: "all time",
+        padded: false,
       };
     }
     if (value.startsWith("y:")) {
@@ -466,15 +467,24 @@
       return;
     }
 
-    const minD = toDay(win.start), maxD = toDay(win.end);
+    // The window decides which games appear; the drawn range is padded either
+    // side so a game carrying over from the year before is actually visible
+    // instead of being cut flat at the edge.
+    const winFrom = toDay(win.start), winTo = toDay(win.end);
+    const pad = win.padded === false ? 0 : Math.min(90, Math.max(3, Math.round((winTo - winFrom) * 0.14)));
+    const minD = winFrom - pad, maxD = winTo + pad;
     const pct = (d) => ((d - minD) / Math.max(1, maxD - minD)) * 100;
 
     // Every tick gets room and the chart scrolls sideways, rather than
     // dropping labels until they fit.
     const ticks = tickMarks(minD, maxD);
     const plotW = Math.max(560, ticks.length * 85);
-    const axis = ticks.map(([t, label]) =>
-      `<span class="tl__tick" style="left:${pct(t).toFixed(2)}%">${esc(label)}</span>`).join("");
+    const axis = ticks.map(([t, label]) => {
+      const x = pct(t);
+      // Centred labels fall off the ends; the first and last anchor inward.
+      const align = x < 3 ? "left:0;transform:none" : x > 97 ? "right:0;left:auto;transform:none" : `left:${x.toFixed(2)}%`;
+      return `<span class="tl__tick" style="${align}">${esc(label)}</span>`;
+    }).join("");
     const lines = ticks.map(([t]) =>
       `<span class="tl__line" style="left:${pct(t).toFixed(2)}%"></span>`).join("");
 
@@ -483,12 +493,14 @@
     // played every day in it.
     const body = rows.map((g) => {
       const colour = tint(g.console);
-      const from = Math.max(toDay(g.firstPlayed), minD);
-      const to = Math.min(toDay(g.lastPlayed), maxD);
+      const first = toDay(g.firstPlayed), last = toDay(g.lastPlayed);
+      const from = Math.max(first, minD), to = Math.min(last, maxD);
       const left = pct(from);
       const width = Math.max(0.35, pct(to) - left);
+      // A squared-off end means the bar runs past the edge of what is drawn.
+      const cut = (first < minD ? " tlbar--cutL" : "") + (last > maxD ? " tlbar--cutR" : "");
 
-      const bar = `<span class="tlbar" style="left:${left.toFixed(3)}%;width:${width.toFixed(3)}%;background:${colour}"></span>`;
+      const bar = `<span class="tlbar${cut}" style="left:${left.toFixed(3)}%;width:${width.toFixed(3)}%;background:${colour}"></span>`;
 
       const n = typeof g.sessions === "number" && g.sessions ? g.sessions : null;
       // Platform reads as a colour chip; the title stays in body colour so it
