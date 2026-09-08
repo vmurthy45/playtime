@@ -121,19 +121,23 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
   padding: 7px 10px; border-radius: 9px; cursor: pointer; text-align: left; color: inherit;
 }
 .yrow:hover { background: var(--surface-2); }
-.yrow.is-on { background: var(--surface-2); }
+.yrow.is-on { background: #e9efff; box-shadow: inset 0 0 0 1.5px var(--accent); }
 .yrow__year { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.yrow.is-on .yrow__year { color: var(--text); font-weight: 650; }
+.yrow.is-on .yrow__year { color: var(--accent); font-weight: 700; }
+.yrow.is-on .yrow__n { color: var(--accent); }
+/* While a year is open the rest recede, so the choice is unmissable. */
+.chartbox--rows.has-selection .yrow:not(.is-on) { opacity: .5; }
 .yrow__track { height: 14px; border-radius: 7px; background: var(--surface-2); overflow: hidden; }
 .yrow:hover .yrow__track, .yrow.is-on .yrow__track { background: #e2e7f0; }
 .yrow__fill { display: block; height: 100%; border-radius: 7px; background: var(--accent); }
+.yrow.is-on .yrow__track { background: #cfdcff; }
 .yrow__n {
   font-size: 15px; font-weight: 700; text-align: right;
   font-variant-numeric: tabular-nums; letter-spacing: -.02em;
 }
 
-.yearlist { margin-top: 12px; }
-.yearlist h3 { font-size: 14px; margin: 0 0 10px; }
+.yearlist { margin-top: 12px; border-color: var(--accent); }
+.yearlist h3 { font-size: 14px; margin: 0 0 10px; color: var(--accent); }
 .yearlist ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px;
                 grid-template-columns: minmax(0, 1fr); }
 /* min-width:0 or the long titles refuse to shrink and push the page wide. */

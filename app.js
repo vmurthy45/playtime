@@ -354,7 +354,11 @@
         b.classList.toggle("is-on", on);
         b.setAttribute("aria-pressed", on ? "true" : "false");
       });
-      if (openYear) showYear(openYear); else $("#yearGames").innerHTML = "";
+      $("#startedChart").classList.toggle("has-selection", !!openYear);
+      if (!openYear) { $("#yearGames").innerHTML = ""; return; }
+      showYear(openYear);
+      // The list opens below the chart; on a phone that is off-screen.
+      $("#yearGames").scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
     const parts = Object.entries(byConsole).sort((a, b) => b[1] - a[1]);
