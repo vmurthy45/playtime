@@ -75,7 +75,7 @@ def fetch_titles(npsso):
                 "titleId": t.title_id,
                 "title": t.name,
                 "platform": "PlayStation",
-                "console": str(t.category).rsplit(".", 1)[-1],  # PS4 / PS5 / UNKNOWN
+                "console": _console(t.category),  # PS4 / PS5 / Other
                 "hours": round(duration.total_seconds() / 3600, 3) if duration else 0.0,
                 "sessions": t.play_count,
                 "firstPlayed": _date(t.first_played_date_time),
@@ -85,6 +85,12 @@ def fetch_titles(npsso):
         )
     titles.sort(key=lambda g: -g["hours"])
     return client.online_id, titles
+
+
+def _console(category):
+    """PS4 / PS5 — anything else (PS3, Vita, unrecognised) reads as Other."""
+    name = str(category).rsplit(".", 1)[-1]
+    return name if name in ("PS4", "PS5") else "Other"
 
 
 def _date(value):

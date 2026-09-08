@@ -1,7 +1,7 @@
-name: Daily PSN sync
+name: Daily play-time sync
 
 # Captures play time every day whether or not the site is ever opened.
-# PSN reports lifetime totals, so per-day history comes from diffing
+# Both platforms report lifetime totals, so per-day history comes from diffing
 # consecutive snapshots — which only accumulates while this runs.
 on:
   schedule:
@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: psn-sync
+  group: playtime-sync
   cancel-in-progress: false
 
 jobs:
@@ -30,19 +30,31 @@ jobs:
       - name: Install psnawp
         run: pip install --quiet psnawp
 
+      # Each platform is allowed to fail on its own — an expired PSN token
+      # should not cost a day of Steam history, and vice versa. A failed step
+      # still shows up red on the run.
       - name: Fetch PSN play time
+        continue-on-error: true
         env:
           PSN_NPSSO: ${{ secrets.PSN_NPSSO }}
         run: python3 tools/psn_sync.py --out data
 
+      - name: Fetch Steam play time
+        continue-on-error: true
+        env:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          STEAM_ID: ${{ secrets.STEAM_ID }}
+        run: python3 tools/steam_sync.py --out data
+
       - name: Commit updated data
+        if: always()
         run: |
           git config user.name "playtime-sync-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/psn_titles.json data/snapshots.json
+          git add data/*.json
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Daily PSN sync: $(date -u +%Y-%m-%d)"
+            git commit -m "Daily sync: $(date -u +%Y-%m-%d)"
             git push
           fi

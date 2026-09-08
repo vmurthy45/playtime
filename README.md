@@ -12,22 +12,36 @@ whether or not the site is ever opened.
 | Source | State | Notes |
 | --- | --- | --- |
 | PlayStation | **working** | `tools/psn_sync.py`, daily via Actions |
-| Steam | planned | port `steam_sync.py` from the old `game-library` repo |
+| Steam | **built, needs credentials** | `tools/steam_sync.py`; add `STEAM_API_KEY` + `STEAM_ID` |
 | Steam Deck / GOG via Heroic | planned | read the SDH-PlayTime plugin's SQLite db on the Deck |
 
 ## Run it locally
 
 ```bash
 pip install psnawp
-cp .env.example .env          # then paste your npsso into it
+cp .env.example .env          # then fill in the credentials
 python3 tools/psn_sync.py --out data
+python3 tools/steam_sync.py --out data
 python3 -m http.server 8230   # then open http://localhost:8230
 ```
+
+Either collector can run without the other; the app renders whatever data files
+exist.
 
 `file://` will not work — the app fetches `data/*.json`, which browsers block on
 the file protocol.
 
-## The npsso token
+## Credentials
+
+### Steam
+
+- **API key** — <https://steamcommunity.com/dev/apikey>, free and instant. Enter
+  any domain (`localhost` is fine). Does not expire.
+- **SteamID64** — the 17-digit one, from <https://steamid.io/>.
+- **Profile > Privacy Settings > "Game details" must be Public**, or the API
+  returns an empty library with no error worth reading.
+
+### The npsso token
 
 PSN auth is a browser cookie, not an API key:
 
@@ -46,10 +60,15 @@ CI it is the repository secret `PSN_NPSSO`.
 ## Deploy
 
 1. Push this folder as the root of a GitHub repo.
-2. Settings → Secrets and variables → Actions → add `PSN_NPSSO`.
+2. Settings → Secrets and variables → Actions → add `PSN_NPSSO`,
+   `STEAM_API_KEY` and `STEAM_ID`.
 3. Settings → Actions → General → Workflow permissions → **Read and write**.
 4. Settings → Pages → deploy from branch, root.
-5. Actions → *Daily PSN sync* → **Run workflow** once to confirm it works.
+5. Actions → *Daily play-time sync* → **Run workflow** once to confirm it works.
+
+Each platform's fetch step is `continue-on-error`, so an expired PSN token does
+not cost a day of Steam history — the run goes red but the other source still
+commits.
 
 After a code change, bump `CACHE` in `sw.js` or clients keep serving the old
 shell from cache.
@@ -70,7 +89,20 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
 
 `play_count` counts launches, not sessions in a strict sense — a game suspended
 and resumed can count again, so "average session" runs short on games you dip in
-and out of.
+and out of. Steam reports no launch count at all, so session figures are
+PlayStation-only.
+
+Steam has no first-played field either. `steam_sync.py` derives one by watching
+for a game going from zero hours to non-zero between syncs; games already played
+before the first sync keep an empty start date and stay off the Timeline.
+
+### Same game, two platforms
+
+Entries are merged into one game by a normalised title — trademark symbols and
+punctuation stripped, nothing more aggressive, so *Modern Warfare* and *Modern
+Warfare Remastered* stay separate. A merged game shows one row with a per-platform
+split. If the normaliser misses a pairing, force it in `data/aliases.json` by
+mapping the game's id to the other title's normalised form.
 
 ## Files
 
@@ -78,7 +110,10 @@ and out of.
 index.html  styles.css  app.js     the dashboard (Overview / Games / Timeline / Daily)
 sw.js  manifest.webmanifest        PWA shell — bump CACHE on every change
 tools/psn_sync.py                  PSN collector
+tools/steam_sync.py                Steam collector
 data/psn_titles.json               current lifetime totals per title
+data/steam_titles.json             same, for Steam (plus per-device hours)
+data/aliases.json                  manual cross-platform title pairings
 data/snapshots.json                append-only history, one entry per sync per source
-.github/workflows/psn-sync.yml     daily 06:00 UTC
+.github/workflows/sync.yml         both collectors, daily 06:00 UTC
 ```

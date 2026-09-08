@@ -1,0 +1,4 @@
+{
+  "_comment": "Force a cross-platform pairing the title normaliser misses. Map a game id to the shared key (the other title, lowercased, punctuation stripped). Example: \"steam_1091500\": \"cyberpunk 2077\"",
+  "_ignored": "keys starting with _ are ignored"
+}

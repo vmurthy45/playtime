@@ -39,7 +39,7 @@
         <div id="startedChart" class="chartbox"></div>
       </div>
       <div>
-        <h2 class="h">Console split</h2>
+        <h2 class="h">Where the hours went</h2>
         <div id="consoleChart" class="chartbox"></div>
       </div>
     </div>
@@ -73,9 +73,9 @@
   <section id="panel-timeline" class="panel">
     <h2 class="h">When each game was in rotation</h2>
     <p class="hint">
-      Each bar runs from the first time you played a game to the last. PSN gives exact
-      first and last dates, so this reaches back to 2015 — but it says nothing about how
-      the hours were spread in between, so a long bar is not a busy one.
+      Each bar runs from the first time you played a game to the last, one bar per platform.
+      PSN gives exact first and last dates, so this reaches back to 2015 — but it says nothing
+      about how the hours were spread in between, so a long bar is not a busy one.
     </p>
     <div class="controls">
       <select id="timelineCount">
@@ -84,6 +84,7 @@
         <option value="0">Everything</option>
       </select>
     </div>
+    <p class="hint" id="timelineNote"></p>
     <div id="timeline" class="chartbox chartbox--scroll"></div>
   </section>
 
