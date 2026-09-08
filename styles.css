@@ -7,9 +7,9 @@
   --text: #131720;
   --muted: #626b7d;
   --accent: #3b6ef2;
-  --ps4: #2f6fd0;
-  --ps5: #7b5cf0;
-  --steam: #1f8ac0;
+  --ps4: #45a8e6;   /* light blue */
+  --ps5: #1c3f8f;   /* dark blue  */
+  --steam: #d23b3b; /* red        */
   --other: #8b93a5;
   --nodata: #b6bdc9;
   --radius: 12px;
