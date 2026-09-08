@@ -75,15 +75,23 @@ shell from cache.
 
 ## The dashboard
 
-- **Overview** — totals, then *Recently played* (the default) or *Most played*,
-  ten each across both platforms; games started per year; where the hours went;
-  session lengths.
+- **Overview** — *Recently played* (the default) or *Most played*, ten each
+  across both platforms.
 - **Games** — everything, searchable and sortable, merged across platforms.
-- **Timeline** — when each game was in rotation, filtered by a time window:
-  last 7 days, last 30 days, this year, last year, all time, or any single year.
-  Bars are clipped to the window, and tick spacing follows it (weeks for a
-  month, months for a year, years for a decade).
+- **Timeline** — when each game was in rotation, filtered by a time window
+  (last 7 days, last 30 days, this year, last year, all time, or any single
+  year) and searchable by title. Tick spacing follows the window: weeks for a
+  month, months for a year, years for a decade.
 - **Daily** — hours per day, derived from snapshot diffs.
+- **Stats** — totals, games started per year, where the hours went.
+
+### Why the Timeline is dots, not bars
+
+Only two dates per game are known for certain — first played and last played —
+plus whatever days daily tracking has since recorded. A solid bar between them
+would claim continuous play that never happened. So known days are dots, and the
+faint line joining them means "in rotation across this stretch", nothing more.
+The middle fills in with real dots as daily syncing accumulates.
 
 The site renders in light mode only.
 

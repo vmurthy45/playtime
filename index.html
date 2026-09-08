@@ -20,6 +20,7 @@
     <button class="tab" data-tab="games">Games</button>
     <button class="tab" data-tab="timeline">Timeline</button>
     <button class="tab" data-tab="daily">Daily</button>
+    <button class="tab" data-tab="stats">Stats</button>
   </nav>
 </header>
 
@@ -28,28 +29,11 @@
 
   <!-- OVERVIEW -->
   <section id="panel-overview" class="panel is-active">
-    <div class="tiles" id="tiles"></div>
-
     <div class="seg" id="listToggle" role="tablist">
       <button class="seg__btn is-active" data-list="recent" role="tab">Recently played</button>
       <button class="seg__btn" data-list="top" role="tab">Most played</button>
     </div>
     <ol class="toplist" id="topList"></ol>
-
-    <div class="split">
-      <div>
-        <h2 class="h">Games started per year</h2>
-        <div id="startedChart" class="chartbox"></div>
-      </div>
-      <div>
-        <h2 class="h">Where the hours went</h2>
-        <div id="consoleChart" class="chartbox"></div>
-      </div>
-    </div>
-
-    <h2 class="h">Session length</h2>
-    <p class="hint">Average hours per launch. Long bars are games you sink evenings into; short ones are pick-up-and-put-down.</p>
-    <div id="sessionChart" class="chartbox"></div>
   </section>
 
   <!-- GAMES -->
@@ -61,7 +45,6 @@
         <option value="recent">Recently played</option>
         <option value="first">First played</option>
         <option value="sessions">Most sessions</option>
-        <option value="avg">Longest sessions</option>
         <option value="title">Title A–Z</option>
       </select>
       <select id="consoleFilter">
@@ -76,13 +59,15 @@
   <section id="panel-timeline" class="panel">
     <h2 class="h">When each game was in rotation</h2>
     <p class="hint">
-      Each bar runs from the first time you played a game to the last, one bar per platform,
-      clipped to the range you pick. PSN gives exact first and last dates, so this reaches back
-      to 2015 — but it says nothing about how the hours were spread in between, so a long bar is
-      not a busy one.
+      Dots are days that are actually known: the first and last time you played a game, plus
+      every day daily tracking has recorded since it started. The faint line between them means
+      the game was in your rotation across that stretch — not that you played it continuously.
+      PSN supplies exact first and last dates back to 2015; the in-between dots only fill in as
+      daily syncing runs.
     </p>
     <div class="controls">
       <select id="timelineRange"></select>
+      <input type="search" id="timelineSearch" placeholder="Find a game…" autocomplete="off">
     </div>
     <p class="hint" id="timelineNote"></p>
     <div id="timeline" class="chartbox chartbox--scroll"></div>
@@ -94,6 +79,17 @@
     <p class="hint" id="dailyHint"></p>
     <div id="dailyChart" class="chartbox"></div>
     <div id="dailyBreakdown"></div>
+  </section>
+  <!-- STATS -->
+  <section id="panel-stats" class="panel">
+    <div class="tiles" id="tiles"></div>
+
+    <h2 class="h">Games started per year</h2>
+    <p class="hint">Counts games whose first-played date is known — PlayStation from 2015, Steam only from when tracking started.</p>
+    <div id="startedChart" class="chartbox"></div>
+
+    <h2 class="h">Where the hours went</h2>
+    <div id="consoleChart" class="chartbox"></div>
   </section>
 </main>
 

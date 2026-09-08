@@ -17,8 +17,21 @@
   const $ = (sel) => document.querySelector(sel);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const fmtH = (h) => (h >= 100 ? Math.round(h).toLocaleString() : h >= 10 ? h.toFixed(1) : h.toFixed(2).replace(/0$/, ""));
-  const fmtDate = (iso) =>
-    iso ? new Date(iso + "T00:00:00").toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "—";
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  // DD MMM YY throughout — one date style, and never the locale's "Sept".
+  const fmtDate = (iso) => {
+    if (!iso) return "—";
+    const [y, m, d] = iso.slice(0, 10).split("-");
+    return `${d} ${MONTHS[+m - 1]} ${y.slice(2)}`;
+  };
+  // syncedAt is a UTC timestamp, so read it in local time — UTC is a day
+  // behind NZ for most of the morning.
+  const fmtStamp = (iso) => {
+    const d = new Date(iso);
+    return `${String(d.getDate()).padStart(2, "0")} ${MONTHS[d.getMonth()]} ${String(d.getFullYear()).slice(2)}`;
+  };
+  const SOURCE_NAMES = { psn: "PSN", steam: "Steam" };
+  const sourceName = (s) => SOURCE_NAMES[s] || s;
   const year = (iso) => (iso ? iso.slice(0, 4) : null);
   const dayMs = 86400000;
   const toDay = (iso) => Math.floor(new Date(iso + "T00:00:00").getTime() / dayMs);
@@ -136,8 +149,6 @@
     return [...byKey.values()].sort((a, b) => b.hours - a.hours);
   }
 
-  // Average session length over the platforms that actually count launches.
-  const avgSession = (g) => (g.sessions ? g.sessionHours / g.sessions : 0);
   // True when the launch count covers only part of the game's hours.
   const partialSessions = (g) => g.hasSessions && g.sessionHours + 0.01 < g.hours;
   const sessionLabel = (g) =>
@@ -192,9 +203,10 @@
       `${state.groups.length} games · ${fmtH(totalH)} hours · ${platforms.join(" + ")}` +
       (firsts.length ? ` · since ${fmtDate(firsts[0])}` : "");
     $("#syncedAt").textContent = state.synced
-      .map((s) => `${s.source} synced ${new Date(s.at).toLocaleDateString()}`)
+      .map((s) => `${sourceName(s.source)} synced ${fmtStamp(s.at)}`)
       .join(" · ");
-    renderOverview(totalH);
+    renderOverview();
+    renderStats(totalH);
     renderGames();
     renderTimeline();
     renderDaily();
@@ -202,7 +214,42 @@
 
   /* --- overview --- */
 
-  function renderOverview(totalH) {
+  function renderOverview() {
+    const lists = {
+      recent: state.groups.filter((g) => g.lastPlayed)
+        .sort((a, b) => b.lastPlayed.localeCompare(a.lastPlayed)).slice(0, 10),
+      top: state.groups.filter((g) => g.hours > 0).slice(0, 10),
+    };
+
+    const drawList = (which) => {
+      const rows = lists[which] || [];
+      // Bars are scaled within the list on show, not against the all-time top.
+      const max = Math.max(...rows.map((g) => g.hours), 1);
+      $("#topList").innerHTML = rows.length ? rows.map((g) => `
+        <li>
+          ${cover(g)}
+          <div>
+            <div class="name">${esc(g.title)}${pills(g)}</div>
+            <div class="meta">${metaLine(g)}</div>
+            <div class="barwrap">${splitBar(g, max)}</div>
+          </div>
+          <div class="hrs">${fmtH(g.hours)}h</div>
+        </li>`).join("") : `<li class="empty">Nothing here yet.</li>`;
+    };
+
+    $("#listToggle").addEventListener("click", (e) => {
+      const btn = e.target.closest(".seg__btn");
+      if (!btn) return;
+      document.querySelectorAll("#listToggle .seg__btn")
+        .forEach((b) => b.classList.toggle("is-active", b === btn));
+      drawList(btn.dataset.list);
+    });
+    drawList("recent");
+  }
+
+  /* --- stats --- */
+
+  function renderStats(totalH) {
     const entries = state.entries;
     const byConsole = {};
     for (const e of entries) byConsole[e.console || "Other"] = (byConsole[e.console || "Other"] || 0) + (e.hours || 0);
@@ -234,46 +281,12 @@
     $("#tiles").innerHTML = tiles
       .map(([v, l]) => `<div class="tile"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
 
-    // Recently played / Most played — ten each, across every platform.
-    const lists = {
-      recent: state.groups.filter((g) => g.lastPlayed)
-        .sort((a, b) => b.lastPlayed.localeCompare(a.lastPlayed)).slice(0, 10),
-      top: state.groups.filter((g) => g.hours > 0).slice(0, 10),
-    };
-
-    const drawList = (which) => {
-      const rows = lists[which] || [];
-      // Bars are scaled within the list on show, not against the all-time top.
-      const max = Math.max(...rows.map((g) => g.hours), 1);
-      $("#topList").innerHTML = rows.length ? rows.map((g) => `
-        <li>
-          ${cover(g)}
-          <div>
-            <div class="name">${esc(g.title)}${pills(g)}</div>
-            <div class="meta">${metaLine(g)}</div>
-            <div class="barwrap">${splitBar(g, max)}</div>
-          </div>
-          <div class="hrs">${fmtH(g.hours)}h</div>
-        </li>`).join("") : `<li class="empty">Nothing here yet.</li>`;
-    };
-
-    $("#listToggle").addEventListener("click", (e) => {
-      const btn = e.target.closest(".seg__btn");
-      if (!btn) return;
-      document.querySelectorAll("#listToggle .seg__btn")
-        .forEach((b) => b.classList.toggle("is-active", b === btn));
-      drawList(btn.dataset.list);
-    });
-    drawList("recent");
-
-    // Games started per year — only counts games whose start date is known.
     const byYear = {};
     for (const g of state.groups) { const y = year(g.firstPlayed); if (y) byYear[y] = (byYear[y] || 0) + 1; }
     $("#startedChart").innerHTML = columnChart(
       Object.keys(byYear).sort().map((y) => ({ label: y.slice(2), value: byYear[y], title: `${byYear[y]} games started in ${y}` }))
     );
 
-    // Where the hours went
     const parts = Object.entries(byConsole).sort((a, b) => b[1] - a[1]);
     const sum = parts.reduce((s, p) => s + p[1], 0) || 1;
     $("#consoleChart").innerHTML =
@@ -283,25 +296,11 @@
       parts.map(([c, h]) =>
         `<span><i style="background:${tint(c)}"></i>${esc(c)} — ${fmtH(h)}h (${Math.round(h / sum * 100)}%)</span>`).join("") +
       `</div>`;
-
-    // Longest average sessions — PSN only, Steam reports no launch counts.
-    const avg = state.groups.filter((g) => g.hasSessions && g.sessions >= 5 && g.sessionHours > 0)
-      .map((g) => ({ ...g, avg: avgSession(g) }))
-      .sort((a, b) => b.avg - a.avg).slice(0, 12);
-    $("#sessionChart").innerHTML = barRows(
-      avg.map((g) => ({
-        label: g.title,
-        value: g.avg,
-        color: tint(g.sessionConsoles[0]),
-        suffix: "h",
-        extra: `${g.sessions} launches` + (partialSessions(g) ? ` on ${g.sessionConsoles.join("/")}` : ""),
-      }))
-    );
   }
 
   const metaLine = (g) => {
     const bits = [];
-    if (g.hasSessions) bits.push(`${sessionLabel(g)} · ${fmtH(avgSession(g))}h avg`);
+    if (g.hasSessions) bits.push(sessionLabel(g));
     if (g.platforms.length > 1) bits.push(g.parts.map((p) => `${p.console} ${fmtH(p.hours)}h`).join(" + "));
     bits.push(`last played ${fmtDate(g.lastPlayed)}`);
     return esc(bits.join(" · "));
@@ -347,7 +346,6 @@
       recent: (a, b) => (b.lastPlayed || "").localeCompare(a.lastPlayed || ""),
       first: (a, b) => (b.firstPlayed || "").localeCompare(a.firstPlayed || ""),
       sessions: (a, b) => b.sessions - a.sessions,
-      avg: (a, b) => avgSession(b) - avgSession(a),
       title: (a, b) => a.title.localeCompare(b.title),
     }[sort];
     list = [...list].sort(cmp);
@@ -361,7 +359,7 @@
         <div>
           <div class="name">${esc(g.title)}${pills(g)}</div>
           <div class="meta">
-            ${g.hasSessions ? `${sessionLabel(g)} · ${fmtH(avgSession(g))}h avg<br>` : ""}
+            ${g.hasSessions ? sessionLabel(g) + "<br>" : ""}
             ${g.firstPlayed ? fmtDate(g.firstPlayed) + " → " : ""}${fmtDate(g.lastPlayed)}
             ${g.platforms.length > 1 ? "<br>" + esc(g.parts.map((p) => `${p.console} ${fmtH(p.hours)}h`).join(" + ")) : ""}
           </div>
@@ -373,6 +371,14 @@
   /* --- timeline --- */
 
   function renderTimeline() {
+    // Days we can actually pin down, from snapshot diffs. Estimated days are
+    // left out — a guessed split is not evidence a game was played that day.
+    state.playedDays = {};
+    for (const d of dailySeries().days) {
+      if (d.estimated) continue;
+      for (const id of Object.keys(d.perGame)) (state.playedDays[id] ||= []).push(d.date);
+    }
+
     const dated = state.entries.filter((x) => x.firstPlayed && x.lastPlayed);
     const today = new Date().toISOString().slice(0, 10);
     const earliest = dated.reduce((m, x) => minDate(m, x.firstPlayed), today);
@@ -380,7 +386,7 @@
     for (let y = +today.slice(0, 4); y >= +earliest.slice(0, 4); y--) years.push(y);
 
     // Ranges are windows on the calendar, not a cap on how many games show.
-    const opts = [
+    $("#timelineRange").innerHTML = [
       `<option value="7d">Last 7 days</option>`,
       `<option value="30d">Last 30 days</option>`,
       `<option value="y:${years[0]}" selected>This year (${years[0]})</option>`,
@@ -392,8 +398,8 @@
           `</optgroup>`
         : "",
     ].join("");
-    $("#timelineRange").innerHTML = opts;
     $("#timelineRange").addEventListener("change", drawTimeline);
+    $("#timelineSearch").addEventListener("input", drawTimeline);
     drawTimeline();
   }
 
@@ -417,40 +423,66 @@
   function drawTimeline() {
     const dated = state.entries.filter((x) => x.firstPlayed && x.lastPlayed);
     const undated = state.entries.length - dated.length;
+    const q = $("#timelineSearch").value.trim().toLowerCase();
     const win = rangeWindow($("#timelineRange").value || "all", dated);
 
+    const matches = q ? dated.filter((x) => x.title.toLowerCase().includes(q)) : dated;
     // A game counts as in rotation if its span overlaps the window at all.
-    let rows = dated.filter((x) => x.lastPlayed >= win.start && x.firstPlayed <= win.end);
+    const inWindow = (x) => x.lastPlayed >= win.start && x.firstPlayed <= win.end;
+    let rows = matches.filter(inWindow);
     rows.sort((a, b) => a.firstPlayed.localeCompare(b.firstPlayed) || b.hours - a.hours);
 
+    const elsewhere = matches.length - rows.length;
     $("#timelineNote").innerHTML =
-      `<b>${rows.length}</b> ${rows.length === 1 ? "game" : "games"} in rotation during ${esc(win.label)}.` +
-      (undated
+      `<b>${rows.length}</b> ${rows.length === 1 ? "game" : "games"}` +
+      (q ? ` matching “${esc(q)}”` : "") + ` in rotation during ${esc(win.label)}.` +
+      (elsewhere ? ` <b>${elsewhere}</b> more outside this range — switch to All time to see them.` : "") +
+      (!q && undated
         ? ` ${undated} entries have no start date and cannot be placed — PSN supplies one for every
            title; Steam supplies none, so a Steam game only joins this chart once it goes from
            unplayed to played while tracking is running.`
         : "");
 
-    if (!rows.length) { $("#timeline").innerHTML = `<p class="empty">Nothing was played in that window.</p>`; return; }
+    if (!rows.length) {
+      $("#timeline").innerHTML = `<p class="empty">${q ? "No game matches that." : "Nothing was played in that window."}</p>`;
+      return;
+    }
 
     const minD = toDay(win.start), maxD = toDay(win.end);
-    const rowH = 15, padL = 4, padT = 22, w = 1000;
+    const rowH = 16, padL = 4, padT = 22, w = 1000;
     const h = padT + rows.length * rowH + 6;
     const x = (d) => padL + ((d - minD) / Math.max(1, maxD - minD)) * (w - padL * 2);
 
     const bars = rows.map((g, i) => {
-      // Clip to the window — a bar means "in rotation here", not the whole life.
-      const s = Math.max(toDay(g.firstPlayed), minD), e = Math.min(toDay(g.lastPlayed), maxD);
-      const x1 = x(s), x2 = Math.max(x(e), x1 + 2.5);
-      const y = padT + i * rowH;
+      const first = toDay(g.firstPlayed), last = toDay(g.lastPlayed);
+      const x1 = x(Math.max(first, minD)), x2 = x(Math.min(last, maxD));
+      const cy = padT + i * rowH + 4;
+      const colour = tint(g.console);
       const tip = `<title>${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}\n${fmtDate(g.firstPlayed)} → ${fmtDate(g.lastPlayed)}</title>`;
-      // Label after the bar, or before it once the bar runs too close to the
-      // right edge — hover tooltips are useless on a phone.
+
+      // The line is the span the game was in rotation, drawn faint because we
+      // cannot claim the days in between. Dots are days we actually know.
+      const span = x2 - x1 > 1
+        ? `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}"
+             stroke="${colour}" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>`
+        : "";
+
+      const marks = [];
+      if (first >= minD && first <= maxD) marks.push([x(first), 3.2, 0.9]);
+      if (last >= minD && last <= maxD && last !== first) marks.push([x(last), 3.2, 0.9]);
+      for (const day of state.playedDays[g.id] || []) {
+        const d = toDay(day);
+        if (d >= minD && d <= maxD) marks.push([x(d), 2.4, 0.75]);
+      }
+      const dots = marks.map(([cx, r, o]) =>
+        `<circle cx="${cx.toFixed(1)}" cy="${cy}" r="${r}" fill="${colour}" opacity="${o}"/>`).join("");
+
+      // Label after the span, or before it once it runs too close to the right
+      // edge — hover tooltips are useless on a phone.
       const after = x2 < w * 0.62;
-      const label = `<text x="${(after ? x2 + 5 : x1 - 5).toFixed(1)}" y="${y + 7.5}" font-size="9.5"
+      const label = `<text x="${(after ? x2 + 7 : x1 - 7).toFixed(1)}" y="${cy + 3.5}" font-size="9.5"
         fill="var(--muted)" text-anchor="${after ? "start" : "end"}">${esc(g.title.slice(0, 42))}</text>`;
-      return `<g>${tip}<rect x="${x1.toFixed(1)}" y="${y}" width="${(x2 - x1).toFixed(1)}" height="8" rx="4"
-        fill="${tint(g.console)}" opacity="0.85"/>${label}</g>`;
+      return `<g>${tip}${span}${dots}${label}</g>`;
     }).join("");
 
     const consoles = [...new Set(rows.map((r) => r.console))];
@@ -521,7 +553,7 @@
       const x = pad + i * bw, y = h - pad - bh;
       const fill = d.hours === 0 ? "var(--nodata)" : "var(--accent)";
       const style = d.estimated ? ` opacity="0.45" stroke="var(--accent)" stroke-dasharray="2 2"` : "";
-      const per = Object.entries(d.sources).map(([s, hrs]) => `${s} ${fmtH(hrs)}h`).join(", ");
+      const per = Object.entries(d.sources).map(([s, hrs]) => `${sourceName(s)} ${fmtH(hrs)}h`).join(", ");
       return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${Math.max(1, bw - 1.5).toFixed(1)}"
         height="${Math.max(d.hours ? 1.5 : 0.8, bh).toFixed(1)}" rx="2" fill="${fill}"${style}>
         <title>${fmtDate(d.date)} — ${fmtH(d.hours)}h${per ? " (" + per + ")" : ""}${d.estimated ? " · estimated across a multi-day gap" : ""}</title></rect>`;
