@@ -198,10 +198,9 @@
   function render() {
     const totalH = state.entries.reduce((s, x) => s + (x.hours || 0), 0);
     const firsts = state.entries.map((x) => x.firstPlayed).filter(Boolean).sort();
-    const platforms = [...new Set(state.entries.map((x) => x.platform))];
     $("#subtitle").textContent =
-      `${state.groups.length} games · ${fmtH(totalH)} hours · ${platforms.join(" + ")}` +
-      (firsts.length ? ` · since ${fmtDate(firsts[0])}` : "");
+      `${state.groups.length} games, ${fmtH(totalH)} hours.` +
+      (firsts.length ? ` Since ${firsts[0].slice(0, 4)}` : "");
     $("#syncedAt").textContent = state.synced
       .map((s) => `${sourceName(s.source)} synced ${fmtStamp(s.at)}`)
       .join(" · ");

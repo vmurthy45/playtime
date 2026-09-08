@@ -1,5 +1,5 @@
 /* Bump CACHE on every deploy so clients pick up new code. */
-const CACHE = "playtime-v29";
+const CACHE = "playtime-v31";
 const SHELL = ["./", "index.html", "styles.css", "app.js", "manifest.webmanifest",
                "favicon-32.png", "favicon-64.png", "apple-touch-icon.png", "icon-192.png"];
 
