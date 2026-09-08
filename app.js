@@ -197,10 +197,12 @@
 
   function render() {
     const totalH = state.entries.reduce((s, x) => s + (x.hours || 0), 0);
-    const firsts = state.entries.map((x) => x.firstPlayed).filter(Boolean).sort();
+    const known = state.entries
+      .map((x) => x.firstPlayed || x.lastPlayed)
+      .filter(Boolean).sort();
     $("#subtitle").textContent =
       `${state.groups.length} games, ${fmtH(totalH)} hours.` +
-      (firsts.length ? ` Since ${firsts[0].slice(0, 4)}` : "");
+      (known.length ? ` Since ${known[0].slice(0, 4)}` : "");
     $("#syncedAt").textContent = state.synced
       .map((s) => `${sourceName(s.source)} synced ${fmtStamp(s.at)}`)
       .join(" · ");
@@ -281,8 +283,10 @@
     for (const e of entries) byConsole[e.console || "Other"] = (byConsole[e.console || "Other"] || 0) + (e.hours || 0);
 
     const dates = entries.map((x) => x.lastPlayed).filter(Boolean).sort();
-    const firsts = entries.map((x) => x.firstPlayed).filter(Boolean).sort();
-    const years = firsts.length && dates.length ? (toDay(dates[dates.length - 1]) - toDay(firsts[0])) / 365.25 : 0;
+    // Steam supplies no start date, so its earliest known point is when a game
+    // was last played — ignoring that dated the library from 2015, not 2011.
+    const known = entries.map((x) => x.firstPlayed || x.lastPlayed).filter(Boolean).sort();
+    const years = known.length && dates.length ? (toDay(dates[dates.length - 1]) - toDay(known[0])) / 365.25 : 0;
     const cutoff = fromDay(toDay(new Date().toISOString().slice(0, 10)) - 365);
     const activeYear = state.groups.filter((g) => g.lastPlayed && g.lastPlayed >= cutoff);
     const multi = state.groups.filter((g) => g.platforms.length > 1);
@@ -367,10 +371,17 @@
     let list = state.groups.filter((g) =>
       (!q || g.title.toLowerCase().includes(q)) && (!con || g.consoles.includes(con)));
 
+    // Newest first, and anything undated sinks to the bottom rather than
+    // sorting as an empty string.
+    const byDate = (get) => (a, b) => {
+      const x = get(a) || "", y = get(b) || "";
+      if (!x || !y) return x ? -1 : y ? 1 : 0;
+      return x < y ? 1 : x > y ? -1 : 0;
+    };
     const cmp = {
       hours: (a, b) => b.hours - a.hours,
-      recent: (a, b) => (b.lastPlayed || "").localeCompare(a.lastPlayed || ""),
-      first: (a, b) => (b.firstPlayed || "").localeCompare(a.firstPlayed || ""),
+      recent: byDate((g) => g.lastPlayed),
+      first: byDate((g) => g.firstPlayed),
       sessions: (a, b) => b.sessions - a.sessions,
       title: (a, b) => a.title.localeCompare(b.title),
     }[sort];
@@ -386,7 +397,9 @@
           <div class="name">${esc(g.title)}${pills(g)}</div>
           <div class="meta">
             ${g.hasSessions ? sessionLabel(g) + "<br>" : ""}
-            ${g.firstPlayed ? fmtDate(g.firstPlayed) + " → " : ""}${fmtDate(g.lastPlayed)}
+            ${g.firstPlayed
+              ? fmtDate(g.firstPlayed) + " → " + fmtDate(g.lastPlayed)
+              : g.lastPlayed ? "last played " + fmtDate(g.lastPlayed) : ""}
             ${g.platforms.length > 1 ? "<br>" + esc(g.parts.map((p) => `${p.console} ${fmtH(p.hours)}h`).join(" + ")) : ""}
           </div>
         </div>

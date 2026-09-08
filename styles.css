@@ -53,7 +53,7 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
 .panel.is-active { display: block; }
 .h { font-size: 15px; margin: 26px 0 10px; letter-spacing: -.01em; }
 .h:first-child { margin-top: 0; }
-.hint { color: var(--muted); font-size: 13px; margin: 0 0 12px; max-width: 62ch; }
+.hint { color: var(--muted); font-size: 13px; margin: 0 0 12px; max-width: 62ch; text-wrap: pretty; }
 
 .notice { padding: 12px 14px; border-radius: var(--radius); font-size: 14px; }
 .notice--error { background: #fdecec; color: #8a1c1c; border: 1px solid #f5c6c6; }
