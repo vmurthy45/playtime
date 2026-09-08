@@ -371,14 +371,6 @@
   /* --- timeline --- */
 
   function renderTimeline() {
-    // Days we can actually pin down, from snapshot diffs. Estimated days are
-    // left out — a guessed split is not evidence a game was played that day.
-    state.playedDays = {};
-    for (const d of dailySeries().days) {
-      if (d.estimated) continue;
-      for (const id of Object.keys(d.perGame)) (state.playedDays[id] ||= []).push(d.date);
-    }
-
     const dated = state.entries.filter((x) => x.firstPlayed && x.lastPlayed);
     const today = new Date().toISOString().slice(0, 10);
     const earliest = dated.reduce((m, x) => minDate(m, x.firstPlayed), today);
@@ -459,23 +451,17 @@
     const lines = ticks.map(([t]) =>
       `<span class="tl__line" style="left:${pct(t).toFixed(2)}%"></span>`).join("");
 
-    // A dot per day that is genuinely known. Nothing is drawn between dots —
-    // play is not continuous, and the gaps are not evidence of anything.
+    // A bar spanning first-played to last-played, clipped to the window. It
+    // means the game was in rotation across that stretch, not that it was
+    // played every day in it.
     const body = rows.map((g) => {
       const colour = tint(g.console);
-      const marks = new Map();
-      const put = (iso, faint) => {
-        const d = toDay(iso);
-        if (d < minD || d > maxD) return;
-        if (!marks.has(iso) || !faint) marks.set(iso, faint);
-      };
-      for (const day of state.playedDays[g.id] || []) put(day, false);
-      put(g.firstPlayed, false);
-      put(g.lastPlayed, false);
+      const from = Math.max(toDay(g.firstPlayed), minD);
+      const to = Math.min(toDay(g.lastPlayed), maxD);
+      const left = pct(from);
+      const width = Math.max(0.35, pct(to) - left);
 
-      const dots = [...marks].map(([iso, faint]) =>
-        `<span class="dot${faint ? " dot--faint" : ""}" style="left:${pct(toDay(iso)).toFixed(3)}%;background:${colour}"
-           title="${esc(g.title)} — ${fmtDate(iso)}"></span>`).join("");
+      const bar = `<span class="tlbar" style="left:${left.toFixed(3)}%;width:${width.toFixed(3)}%;background:${colour}"></span>`;
 
       const n = typeof g.sessions === "number" && g.sessions ? ` · ${g.sessions} sessions` : "";
       // Platform reads as a colour chip; the title stays in body colour so it
@@ -485,7 +471,7 @@
           <span class="tlrow__chip" style="background:${colour}"></span>
           <span class="tlrow__title">${esc(g.title)}</span>
         </div>
-        <div class="tlrow__plot">${dots}</div>
+        <div class="tlrow__plot">${bar}</div>
       </div>`;
     }).join("");
 

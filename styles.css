@@ -189,11 +189,10 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 .tlrow__chip { width: 7px; height: 7px; border-radius: 2px; flex: none; }
 .tlrow__n { color: var(--muted); font-size: 11px; flex: none; }
 .tlrow__plot { flex: 0 0 var(--plotw); position: relative; height: 100%; z-index: 1; }
-.dot {
-  position: absolute; top: 50%; width: 8px; height: 8px;
-  margin: -4px 0 0 -4px; border-radius: 50%;
+.tlbar {
+  position: absolute; top: 50%; height: 9px; margin-top: -4.5px;
+  min-width: 5px; border-radius: 5px; opacity: .9;
 }
-.dot--faint { width: 6px; height: 6px; margin: -3px 0 0 -3px; opacity: .55; }
 
 @media (max-width: 640px) {
   :root { --gut: 14px; }
