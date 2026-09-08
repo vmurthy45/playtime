@@ -307,15 +307,55 @@
       [activeYear.length, "played in last 12 months"],
     ];
     if (deck) tiles.push([fmtH(deck), `hours on Steam Deck (${Math.round(deck / steamH * 100)}% of Steam)`]);
-    if (multi.length) tiles.push([multi.length, "games on both platforms"]);
+    if (multi.length) tiles.push([multi.length, "games on multiple platforms"]);
     $("#tiles").innerHTML = tiles
       .map(([v, l]) => `<div class="tile"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
 
+    // New games per year: each game counted once, in the year it was first
+    // played. Horizontal bars — twelve rows fit a phone; twelve columns did
+    // not, and scrolling a chart sideways to read it was worse.
     const byYear = {};
-    for (const g of state.groups) { const y = year(g.firstPlayed); if (y) byYear[y] = (byYear[y] || 0) + 1; }
-    $("#startedChart").innerHTML = columnChart(
-      Object.keys(byYear).sort().map((y) => ({ label: y, value: byYear[y], title: `${byYear[y]} games started in ${y}` }))
-    );
+    for (const g of state.groups) {
+      const y = year(g.firstPlayed);
+      if (y) (byYear[y] ||= []).push(g);
+    }
+    const yearKeys = Object.keys(byYear).sort().reverse();
+    const peak = Math.max(...yearKeys.map((y) => byYear[y].length), 1);
+
+    $("#startedChart").innerHTML = yearKeys.map((y) => `
+      <button class="yrow" data-year="${y}" aria-pressed="false">
+        <span class="yrow__year">${y}</span>
+        <span class="yrow__track"><span class="yrow__fill" style="width:${(byYear[y].length / peak * 100).toFixed(1)}%"></span></span>
+        <span class="yrow__n">${byYear[y].length}</span>
+      </button>`).join("");
+
+    let openYear = null;
+    const showYear = (y) => {
+      const games = [...(byYear[y] || [])].sort((a, b) => a.firstPlayed.localeCompare(b.firstPlayed));
+      $("#yearGames").innerHTML = `
+        <div class="yearlist chartbox">
+          <h3>${games.length} new ${games.length === 1 ? "game" : "games"} in ${y}</h3>
+          <ol>${games.map((g) => `
+            <li>
+              ${g.consoles.map((c) => `<span class="pip" style="background:${tint(c)}" title="${esc(c)}"></span>`).join("")}
+              <span class="yl__title">${esc(g.title)}</span>
+              <span class="yl__meta">${fmtDate(g.firstPlayed)} · ${fmtH(g.hours)}h</span>
+            </li>`).join("")}</ol>
+        </div>`;
+    };
+
+    $("#startedChart").addEventListener("click", (e) => {
+      const btn = e.target.closest(".yrow");
+      if (!btn) return;
+      const y = btn.dataset.year;
+      openYear = y === openYear ? null : y;   // click the open year to close it
+      document.querySelectorAll(".yrow").forEach((b) => {
+        const on = b.dataset.year === openYear;
+        b.classList.toggle("is-on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      if (openYear) showYear(openYear); else $("#yearGames").innerHTML = "";
+    });
 
     const parts = Object.entries(byConsole).sort((a, b) => b[1] - a[1]);
     const sum = parts.reduce((s, p) => s + p[1], 0) || 1;
@@ -620,26 +660,6 @@
   }
 
   /* ------------------------------------------------------- chart helpers */
-
-  function columnChart(items) {
-    if (!items.length) return `<p class="empty">No data.</p>`;
-    const w = 1000, h = 170, pad = 22;
-    const max = Math.max(...items.map((i) => i.value));
-    const bw = (w - pad * 2) / items.length;
-    // Full years need room; below that width the chart scrolls sideways
-    // rather than shrinking the labels into soup.
-    const minW = items.length * 54;
-    return `<svg viewBox="0 0 ${w} ${h}" role="img" style="min-width:${minW}px">
-      ${items.map((it, i) => {
-        const bh = (it.value / max) * (h - pad * 2.2);
-        const x = pad + i * bw, y = h - pad - bh;
-        return `<rect x="${(x + 2).toFixed(1)}" y="${y.toFixed(1)}" width="${(bw - 5).toFixed(1)}" height="${bh.toFixed(1)}"
-                  rx="3" fill="var(--accent)" opacity=".85"><title>${esc(it.title || it.label)}</title></rect>
-                <text x="${(x + bw / 2).toFixed(1)}" y="${h - 6}" font-size="12" fill="var(--muted)" text-anchor="middle">${esc(it.label)}</text>
-                <text x="${(x + bw / 2).toFixed(1)}" y="${(y - 4).toFixed(1)}" font-size="12" fill="var(--muted)" text-anchor="middle">${it.value}</text>`;
-      }).join("")}
-    </svg>`;
-  }
 
   function barRows(items) {
     if (!items.length) return `<p class="empty">No data.</p>`;

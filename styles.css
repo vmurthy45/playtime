@@ -112,7 +112,38 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
   background: var(--surface); border: 1px solid var(--line);
   border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow);
 }
-.chartbox--scrollx { overflow-x: auto; }
+.chartbox--rows { padding: 6px; }
+
+/* Years as horizontal bars: twelve rows fit a phone, twelve columns do not. */
+.yrow {
+  display: grid; grid-template-columns: 46px 1fr 34px; align-items: center; gap: 10px;
+  width: 100%; appearance: none; border: 0; background: none; font: inherit;
+  padding: 7px 10px; border-radius: 9px; cursor: pointer; text-align: left; color: inherit;
+}
+.yrow:hover { background: var(--surface-2); }
+.yrow.is-on { background: var(--surface-2); }
+.yrow__year { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.yrow.is-on .yrow__year { color: var(--text); font-weight: 650; }
+.yrow__track { height: 14px; border-radius: 7px; background: var(--surface-2); overflow: hidden; }
+.yrow:hover .yrow__track, .yrow.is-on .yrow__track { background: #e2e7f0; }
+.yrow__fill { display: block; height: 100%; border-radius: 7px; background: var(--accent); }
+.yrow__n {
+  font-size: 15px; font-weight: 700; text-align: right;
+  font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+}
+
+.yearlist { margin-top: 12px; }
+.yearlist h3 { font-size: 14px; margin: 0 0 10px; }
+.yearlist ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px;
+                grid-template-columns: minmax(0, 1fr); }
+/* min-width:0 or the long titles refuse to shrink and push the page wide. */
+.yearlist li { display: flex; align-items: baseline; gap: 8px; min-width: 0;
+               padding: 6px 4px; font-size: 13.5px; }
+.yearlist li + li { border-top: 1px solid var(--line); }
+.pip { width: 8px; height: 8px; border-radius: 50%; flex: none; transform: translateY(-1px); }
+.pip + .pip { margin-left: -4px; }
+.yearlist .yl__title { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.yearlist .yl__meta { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
 .chartbox svg { display: block; width: 100%; height: auto; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
 @media (max-width: 640px) { .split { grid-template-columns: 1fr; } }
