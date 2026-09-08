@@ -442,7 +442,6 @@
 
   function drawTimeline() {
     const dated = state.entries.filter((x) => x.firstPlayed && x.lastPlayed);
-    const undated = state.entries.length - dated.length;
     const q = $("#timelineSearch").value.trim().toLowerCase();
     const win = rangeWindow($("#timelineRange").value || "all", dated);
 
@@ -455,12 +454,9 @@
     $("#timelineNote").innerHTML =
       `<b>${rows.length}</b> ${rows.length === 1 ? "game" : "games"}` +
       (q ? ` matching “${esc(q)}”` : "") + ` played during ${esc(win.label)}.` +
-      (elsewhere ? ` <b>${elsewhere}</b> more outside this range — switch to All time to see them.` : "") +
-      (!q && undated
-        ? ` ${undated} entries have no start date and cannot be placed — PSN supplies one for every
-           title; Steam supplies none, so a Steam game only joins this chart once it goes from
-           unplayed to played while tracking is running.`
-        : "");
+      // Only worth saying while searching, when it is the difference between
+      // "no match" and "no match here".
+      (q && elsewhere ? ` <b>${elsewhere}</b> more outside this range.` : "");
 
     if (!rows.length) {
       $("#timeline").innerHTML = `<p class="empty">${q ? "No game matches that." : "Nothing was played in that window."}</p>`;
