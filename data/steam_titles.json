@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-09-08T23:49:37+00:00",
+ "syncedAt": "2026-09-08T23:52:31+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -245,7 +245,7 @@
    "hours": 14.067,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-03-28",
+   "lastPlayed": "2025-03-27",
    "recentHours": 0.0,
    "devices": {
     "mac": 14.067
@@ -334,7 +334,7 @@
    "hours": 11.967,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-12-25",
+   "lastPlayed": "2025-12-24",
    "recentHours": 0.0,
    "devices": {
     "linux": 4.933,
@@ -428,7 +428,7 @@
    "hours": 10.283,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-06-14",
+   "lastPlayed": "2025-06-13",
    "recentHours": 0.0,
    "devices": {
     "linux": 10.283,
@@ -479,7 +479,7 @@
    "hours": 9.6,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-05-12",
+   "lastPlayed": "2026-05-11",
    "recentHours": 0.0,
    "devices": {
     "linux": 9.6,
@@ -543,7 +543,7 @@
    "hours": 8.867,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2021-10-14",
+   "lastPlayed": "2021-10-13",
    "recentHours": 0.0,
    "devices": {
     "windows": 8.867
@@ -621,7 +621,7 @@
    "hours": 6.533,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-01-01",
+   "lastPlayed": "2024-12-31",
    "recentHours": 0.0,
    "devices": {
     "linux": 6.533,
@@ -638,7 +638,7 @@
    "hours": 6.517,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-06-29",
+   "lastPlayed": "2026-06-28",
    "recentHours": 0.0,
    "devices": {
     "linux": 6.517,
@@ -685,7 +685,7 @@
    "hours": 5.833,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-07-22",
+   "lastPlayed": "2025-07-21",
    "recentHours": 0.0,
    "devices": {
     "mac": 5.683,
@@ -1010,7 +1010,7 @@
    "hours": 3.083,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-08-22",
+   "lastPlayed": "2026-08-21",
    "recentHours": 0.0,
    "devices": {
     "linux": 3.083,
@@ -1130,7 +1130,7 @@
    "hours": 2.75,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-03-19",
+   "lastPlayed": "2025-03-18",
    "recentHours": 0.0,
    "devices": {
     "linux": 2.75,
@@ -1241,7 +1241,7 @@
    "hours": 2.433,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-08-02",
+   "lastPlayed": "2025-08-01",
    "recentHours": 0.0,
    "devices": {
     "linux": 2.433,
@@ -1275,7 +1275,7 @@
    "hours": 2.367,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2015-01-26",
+   "lastPlayed": "2015-01-25",
    "recentHours": 0.0,
    "devices": {},
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/262450/header.jpg"
@@ -1576,7 +1576,7 @@
    "hours": 1.5,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-11-13",
+   "lastPlayed": "2024-11-12",
    "recentHours": 0.0,
    "devices": {
     "linux": 1.5,
@@ -1593,7 +1593,7 @@
    "hours": 1.483,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-01-11",
+   "lastPlayed": "2025-01-10",
    "recentHours": 0.0,
    "devices": {
     "linux": 1.483,
@@ -1729,7 +1729,7 @@
    "hours": 1.217,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2014-09-13",
+   "lastPlayed": "2014-09-12",
    "recentHours": 0.0,
    "devices": {},
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/63700/header.jpg"
@@ -1883,7 +1883,7 @@
    "hours": 0.883,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-06-14",
+   "lastPlayed": "2024-06-13",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.017,
@@ -1987,7 +1987,7 @@
    "hours": 0.783,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2023-07-10",
+   "lastPlayed": "2023-07-09",
    "recentHours": 0.0,
    "devices": {
     "windows": 0.783
@@ -2076,7 +2076,7 @@
    "hours": 0.717,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-07-30",
+   "lastPlayed": "2024-07-29",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.717,
@@ -2138,7 +2138,7 @@
    "hours": 0.583,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2022-06-11",
+   "lastPlayed": "2022-06-10",
    "recentHours": 0.0,
    "devices": {
     "windows": 0.583
@@ -2168,7 +2168,7 @@
    "hours": 0.517,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2014-03-12",
+   "lastPlayed": "2014-03-11",
    "recentHours": 0.0,
    "devices": {},
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/108500/header.jpg"
@@ -2199,7 +2199,7 @@
    "hours": 0.45,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-08-23",
+   "lastPlayed": "2024-08-22",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.45,
@@ -2294,7 +2294,7 @@
    "hours": 0.4,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2023-08-07",
+   "lastPlayed": "2023-08-06",
    "recentHours": 0.0,
    "devices": {
     "windows": 0.4
@@ -2372,7 +2372,7 @@
    "hours": 0.333,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2014-07-13",
+   "lastPlayed": "2014-07-12",
    "recentHours": 0.0,
    "devices": {},
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/20920/header.jpg"
@@ -2434,7 +2434,7 @@
    "hours": 0.317,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2014-09-13",
+   "lastPlayed": "2014-09-12",
    "recentHours": 0.0,
    "devices": {},
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/105300/header.jpg"
@@ -2448,7 +2448,7 @@
    "hours": 0.317,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-12-15",
+   "lastPlayed": "2025-12-14",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.317,
@@ -2616,7 +2616,7 @@
    "hours": 0.167,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-08-15",
+   "lastPlayed": "2026-08-14",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.167,
