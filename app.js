@@ -192,6 +192,11 @@
     const byPlatform = {};
     for (const e of entries) byPlatform[e.platform] = (byPlatform[e.platform] || 0) + (e.hours || 0);
 
+    // Steam breaks its own totals down by device, so handheld hours are
+    // knowable without touching the Deck itself.
+    const deck = entries.reduce((s, e) => s + ((e.devices && e.devices.deck) || 0), 0);
+    const steamH = byPlatform.Steam || 0;
+
     const tiles = [
       [fmtH(totalH), "hours tracked"],
       [state.groups.length, "games"],
@@ -199,6 +204,7 @@
       [years ? years.toFixed(1) + " yrs" : "—", "of history"],
       [activeYear.length, "played in last 12 months"],
     ];
+    if (deck) tiles.push([fmtH(deck), `hours on Steam Deck (${Math.round(deck / steamH * 100)}% of Steam)`]);
     if (multi.length) tiles.push([multi.length, "games on both platforms"]);
     $("#tiles").innerHTML = tiles
       .map(([v, l]) => `<div class="tile"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
