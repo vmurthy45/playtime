@@ -154,32 +154,41 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 
 /* ---------- timeline ---------- */
 .chartbox--tl { padding: 0; overflow: hidden; }
-.tl { --namecol: 210px; font-variant-numeric: tabular-nums; }
+.tl {
+  --namecol: 210px;
+  font-variant-numeric: tabular-nums;
+  /* Explicit width, or the rows stay viewport-wide and the sticky name
+     column runs out of travel part-way through a horizontal scroll. */
+  width: calc(var(--namecol) + var(--plotw));
+}
 .tl__head {
-  display: grid; grid-template-columns: var(--namecol) 1fr;
-  position: sticky; top: 0; z-index: 2;
+  display: flex;
+  position: sticky; top: 0; z-index: 3;
   background: var(--surface); border-bottom: 1px solid var(--line);
 }
-.tl__axis { position: relative; height: 26px; }
+/* Names stay put while the chart scrolls sideways. */
+.tl__headname { flex: 0 0 var(--namecol); position: sticky; left: 0; z-index: 4; background: var(--surface); }
+.tl__axis { position: relative; height: 26px; flex: 0 0 var(--plotw); }
 .tl__tick {
   position: absolute; top: 8px; font-size: 10.5px; color: var(--muted);
   transform: translateX(-50%); white-space: nowrap;
 }
-.tl__scroll { max-height: 70vh; overflow-y: auto; }
-.tl__body { position: relative; }
-.tl__lines { position: absolute; left: var(--namecol); right: 12px; top: 0; bottom: 0; pointer-events: none; }
+.tl__scroll { max-height: 72vh; overflow: auto; }
+.tl__body { position: relative; padding-bottom: 10px; }  /* clear of the scrollbar */
+.tl__lines { position: absolute; left: var(--namecol); width: var(--plotw); top: 0; bottom: 0; pointer-events: none; z-index: 0; }
 .tl__line { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); opacity: .7; }
 
-.tlrow { display: grid; grid-template-columns: var(--namecol) 1fr; align-items: center; height: 24px; }
+.tlrow { display: flex; align-items: center; height: 24px; background: var(--surface); }
 .tlrow:nth-child(odd) { background: var(--surface-2); }
 .tlrow__name {
-  display: flex; align-items: center; gap: 6px; min-width: 0;
-  font-size: 12px; padding: 0 10px 0 14px;
+  flex: 0 0 var(--namecol); display: flex; align-items: center; gap: 6px; min-width: 0;
+  font-size: 12px; padding: 0 10px 0 14px; height: 100%;
+  position: sticky; left: 0; z-index: 2; background: inherit;
 }
 .tlrow__title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tlrow__chip { width: 7px; height: 7px; border-radius: 2px; flex: none; }
 .tlrow__n { color: var(--muted); font-size: 11px; flex: none; }
-.tlrow__plot { position: relative; height: 100%; margin-right: 12px; }
+.tlrow__plot { flex: 0 0 var(--plotw); position: relative; height: 100%; z-index: 1; }
 .dot {
   position: absolute; top: 50%; width: 8px; height: 8px;
   margin: -4px 0 0 -4px; border-radius: 50%;

@@ -400,11 +400,6 @@
     ].join("");
     $("#timelineRange").addEventListener("change", drawTimeline);
     $("#timelineSearch").addEventListener("input", drawTimeline);
-    let resizeTimer;
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(drawTimeline, 200);
-    });
     drawTimeline();
   }
 
@@ -455,18 +450,10 @@
     const minD = toDay(win.start), maxD = toDay(win.end);
     const pct = (d) => ((d - minD) / Math.max(1, maxD - minD)) * 100;
 
-    // Thin the axis to whatever actually fits — twelve month labels collide
-    // on a phone.
-    // Measured from the viewport, not the element: the panel is hidden when
-    // this first runs, so its clientWidth is zero.
-    const nameW = window.innerWidth <= 640 ? 122 : 210;
-    const avail = Math.max(120, Math.min(window.innerWidth, 1060) - nameW - 70);
-    let ticks = tickMarks(minD, maxD);
-    const maxTicks = Math.max(2, Math.floor(avail / 40));
-    if (ticks.length > maxTicks) {
-      const step = Math.ceil(ticks.length / maxTicks);
-      ticks = ticks.filter((_, i) => i % step === 0);
-    }
+    // Every tick gets room and the chart scrolls sideways, rather than
+    // dropping labels until they fit.
+    const ticks = tickMarks(minD, maxD);
+    const plotW = Math.max(560, ticks.length * 85);
     const axis = ticks.map(([t, label]) =>
       `<span class="tl__tick" style="left:${pct(t).toFixed(2)}%">${esc(label)}</span>`).join("");
     const lines = ticks.map(([t]) =>
@@ -490,13 +477,13 @@
         `<span class="dot${faint ? " dot--faint" : ""}" style="left:${pct(toDay(iso)).toFixed(3)}%;background:${colour}"
            title="${esc(g.title)} — ${fmtDate(iso)}"></span>`).join("");
 
-      const n = typeof g.sessions === "number" && g.sessions ? `<span class="tlrow__n">${g.sessions}×</span>` : "";
+      const n = typeof g.sessions === "number" && g.sessions ? ` · ${g.sessions} sessions` : "";
       // Platform reads as a colour chip; the title stays in body colour so it
       // is legible (light blue text on white is not).
       return `<div class="tlrow">
-        <div class="tlrow__name" title="${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}">
+        <div class="tlrow__name" title="${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}${n}">
           <span class="tlrow__chip" style="background:${colour}"></span>
-          <span class="tlrow__title">${esc(g.title)}</span>${n}
+          <span class="tlrow__title">${esc(g.title)}</span>
         </div>
         <div class="tlrow__plot">${dots}</div>
       </div>`;
@@ -504,9 +491,9 @@
 
     const consoles = [...new Set(rows.map((r) => r.console))];
     $("#timeline").innerHTML =
-      `<div class="tl">
-         <div class="tl__head"><div></div><div class="tl__axis">${axis}</div></div>
-         <div class="tl__scroll">
+      `<div class="tl__scroll">
+         <div class="tl" style="--plotw:${plotW}px">
+           <div class="tl__head"><div class="tl__headname"></div><div class="tl__axis">${axis}</div></div>
            <div class="tl__body"><div class="tl__lines">${lines}</div>${body}</div>
          </div>
        </div>
