@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0f17">
+<title>Playtime</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <h1>Playtime</h1>
+    <p id="subtitle" class="subtitle">Loading…</p>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="tab is-active" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="games">Games</button>
+    <button class="tab" data-tab="timeline">Timeline</button>
+    <button class="tab" data-tab="daily">Daily</button>
+  </nav>
+</header>
+
+<main>
+  <p id="loadError" class="notice notice--error" hidden></p>
+
+  <!-- OVERVIEW -->
+  <section id="panel-overview" class="panel is-active">
+    <div class="tiles" id="tiles"></div>
+
+    <h2 class="h">Most played</h2>
+    <ol class="toplist" id="topList"></ol>
+
+    <div class="split">
+      <div>
+        <h2 class="h">Games started per year</h2>
+        <div id="startedChart" class="chartbox"></div>
+      </div>
+      <div>
+        <h2 class="h">Console split</h2>
+        <div id="consoleChart" class="chartbox"></div>
+      </div>
+    </div>
+
+    <h2 class="h">Session length</h2>
+    <p class="hint">Average hours per launch. Long bars are games you sink evenings into; short ones are pick-up-and-put-down.</p>
+    <div id="sessionChart" class="chartbox"></div>
+  </section>
+
+  <!-- GAMES -->
+  <section id="panel-games" class="panel">
+    <div class="controls">
+      <input type="search" id="search" placeholder="Search games…" autocomplete="off">
+      <select id="sort">
+        <option value="hours">Most hours</option>
+        <option value="recent">Recently played</option>
+        <option value="first">First played</option>
+        <option value="sessions">Most sessions</option>
+        <option value="avg">Longest sessions</option>
+        <option value="title">Title A–Z</option>
+      </select>
+      <select id="consoleFilter">
+        <option value="">All consoles</option>
+      </select>
+    </div>
+    <p class="hint" id="gamesCount"></p>
+    <ul class="cards" id="gameList"></ul>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="panel-timeline" class="panel">
+    <h2 class="h">When each game was in rotation</h2>
+    <p class="hint">
+      Each bar runs from the first time you played a game to the last. PSN gives exact
+      first and last dates, so this reaches back to 2015 — but it says nothing about how
+      the hours were spread in between, so a long bar is not a busy one.
+    </p>
+    <div class="controls">
+      <select id="timelineCount">
+        <option value="40">Top 40 by hours</option>
+        <option value="80">Top 80 by hours</option>
+        <option value="0">Everything</option>
+      </select>
+    </div>
+    <div id="timeline" class="chartbox chartbox--scroll"></div>
+  </section>
+
+  <!-- DAILY -->
+  <section id="panel-daily" class="panel">
+    <h2 class="h">Hours per day</h2>
+    <p class="hint" id="dailyHint"></p>
+    <div id="dailyChart" class="chartbox"></div>
+    <div id="dailyBreakdown"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span id="syncedAt"></span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
