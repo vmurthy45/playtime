@@ -11,6 +11,7 @@
 <body>
 
 <header class="topbar">
+ <div class="topbar__inner">
   <div class="brand">
     <h1>Playtime</h1>
     <p id="subtitle" class="subtitle">Loading…</p>
@@ -22,6 +23,7 @@
     <button class="tab" data-tab="daily">Daily</button>
     <button class="tab" data-tab="stats">Stats</button>
   </nav>
+ </div>
 </header>
 
 <main>
@@ -57,20 +59,19 @@
 
   <!-- TIMELINE -->
   <section id="panel-timeline" class="panel">
-    <h2 class="h">When each game was in rotation</h2>
+    <h2 class="h">When each game was played</h2>
     <p class="hint">
-      Dots are days that are actually known: the first and last time you played a game, plus
-      every day daily tracking has recorded since it started. The faint line between them means
-      the game was in your rotation across that stretch — not that you played it continuously.
-      PSN supplies exact first and last dates back to 2015; the in-between dots only fill in as
-      daily syncing runs.
+      One row per game, with a dot on every day that is actually known — the first and last
+      time you played it, plus each day daily tracking has recorded since it started. Nothing
+      is drawn between them, because nothing is known between them. PSN supplies exact first
+      and last dates back to 2015; the middle fills in as daily syncing accumulates.
     </p>
     <div class="controls">
       <select id="timelineRange"></select>
       <input type="search" id="timelineSearch" placeholder="Find a game…" autocomplete="off">
     </div>
     <p class="hint" id="timelineNote"></p>
-    <div id="timeline" class="chartbox chartbox--scroll"></div>
+    <div id="timeline" class="chartbox chartbox--tl"></div>
   </section>
 
   <!-- DAILY -->

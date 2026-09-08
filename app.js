@@ -400,6 +400,11 @@
     ].join("");
     $("#timelineRange").addEventListener("change", drawTimeline);
     $("#timelineSearch").addEventListener("input", drawTimeline);
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(drawTimeline, 200);
+    });
     drawTimeline();
   }
 
@@ -427,15 +432,14 @@
     const win = rangeWindow($("#timelineRange").value || "all", dated);
 
     const matches = q ? dated.filter((x) => x.title.toLowerCase().includes(q)) : dated;
-    // A game counts as in rotation if its span overlaps the window at all.
     const inWindow = (x) => x.lastPlayed >= win.start && x.firstPlayed <= win.end;
     let rows = matches.filter(inWindow);
-    rows.sort((a, b) => a.firstPlayed.localeCompare(b.firstPlayed) || b.hours - a.hours);
+    rows.sort((a, b) => b.lastPlayed.localeCompare(a.lastPlayed) || b.hours - a.hours);
 
     const elsewhere = matches.length - rows.length;
     $("#timelineNote").innerHTML =
       `<b>${rows.length}</b> ${rows.length === 1 ? "game" : "games"}` +
-      (q ? ` matching “${esc(q)}”` : "") + ` in rotation during ${esc(win.label)}.` +
+      (q ? ` matching “${esc(q)}”` : "") + ` played during ${esc(win.label)}.` +
       (elsewhere ? ` <b>${elsewhere}</b> more outside this range — switch to All time to see them.` : "") +
       (!q && undated
         ? ` ${undated} entries have no start date and cannot be placed — PSN supplies one for every
@@ -449,55 +453,71 @@
     }
 
     const minD = toDay(win.start), maxD = toDay(win.end);
-    const rowH = 16, padL = 4, padT = 22, w = 1000;
-    const h = padT + rows.length * rowH + 6;
-    const x = (d) => padL + ((d - minD) / Math.max(1, maxD - minD)) * (w - padL * 2);
+    const pct = (d) => ((d - minD) / Math.max(1, maxD - minD)) * 100;
 
-    const bars = rows.map((g, i) => {
-      const first = toDay(g.firstPlayed), last = toDay(g.lastPlayed);
-      const x1 = x(Math.max(first, minD)), x2 = x(Math.min(last, maxD));
-      const cy = padT + i * rowH + 4;
+    // Thin the axis to whatever actually fits — twelve month labels collide
+    // on a phone.
+    // Measured from the viewport, not the element: the panel is hidden when
+    // this first runs, so its clientWidth is zero.
+    const nameW = window.innerWidth <= 640 ? 122 : 210;
+    const avail = Math.max(120, Math.min(window.innerWidth, 1060) - nameW - 70);
+    let ticks = tickMarks(minD, maxD);
+    const maxTicks = Math.max(2, Math.floor(avail / 40));
+    if (ticks.length > maxTicks) {
+      const step = Math.ceil(ticks.length / maxTicks);
+      ticks = ticks.filter((_, i) => i % step === 0);
+    }
+    const axis = ticks.map(([t, label]) =>
+      `<span class="tl__tick" style="left:${pct(t).toFixed(2)}%">${esc(label)}</span>`).join("");
+    const lines = ticks.map(([t]) =>
+      `<span class="tl__line" style="left:${pct(t).toFixed(2)}%"></span>`).join("");
+
+    // A dot per day that is genuinely known. Nothing is drawn between dots —
+    // play is not continuous, and the gaps are not evidence of anything.
+    const body = rows.map((g) => {
       const colour = tint(g.console);
-      const tip = `<title>${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}\n${fmtDate(g.firstPlayed)} → ${fmtDate(g.lastPlayed)}</title>`;
+      const marks = new Map();
+      const put = (iso, faint) => {
+        const d = toDay(iso);
+        if (d < minD || d > maxD) return;
+        if (!marks.has(iso) || !faint) marks.set(iso, faint);
+      };
+      for (const day of state.playedDays[g.id] || []) put(day, false);
+      put(g.firstPlayed, false);
+      put(g.lastPlayed, false);
 
-      // The line is the span the game was in rotation, drawn faint because we
-      // cannot claim the days in between. Dots are days we actually know.
-      const span = x2 - x1 > 1
-        ? `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}"
-             stroke="${colour}" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>`
-        : "";
+      const dots = [...marks].map(([iso, faint]) =>
+        `<span class="dot${faint ? " dot--faint" : ""}" style="left:${pct(toDay(iso)).toFixed(3)}%;background:${colour}"
+           title="${esc(g.title)} — ${fmtDate(iso)}"></span>`).join("");
 
-      const marks = [];
-      if (first >= minD && first <= maxD) marks.push([x(first), 3.2, 0.9]);
-      if (last >= minD && last <= maxD && last !== first) marks.push([x(last), 3.2, 0.9]);
-      for (const day of state.playedDays[g.id] || []) {
-        const d = toDay(day);
-        if (d >= minD && d <= maxD) marks.push([x(d), 2.4, 0.75]);
-      }
-      const dots = marks.map(([cx, r, o]) =>
-        `<circle cx="${cx.toFixed(1)}" cy="${cy}" r="${r}" fill="${colour}" opacity="${o}"/>`).join("");
-
-      // Label after the span, or before it once it runs too close to the right
-      // edge — hover tooltips are useless on a phone.
-      const after = x2 < w * 0.62;
-      const label = `<text x="${(after ? x2 + 7 : x1 - 7).toFixed(1)}" y="${cy + 3.5}" font-size="9.5"
-        fill="var(--muted)" text-anchor="${after ? "start" : "end"}">${esc(g.title.slice(0, 42))}</text>`;
-      return `<g>${tip}${span}${dots}${label}</g>`;
+      const n = typeof g.sessions === "number" && g.sessions ? `<span class="tlrow__n">${g.sessions}×</span>` : "";
+      // Platform reads as a colour chip; the title stays in body colour so it
+      // is legible (light blue text on white is not).
+      return `<div class="tlrow">
+        <div class="tlrow__name" title="${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}">
+          <span class="tlrow__chip" style="background:${colour}"></span>
+          <span class="tlrow__title">${esc(g.title)}</span>${n}
+        </div>
+        <div class="tlrow__plot">${dots}</div>
+      </div>`;
     }).join("");
 
     const consoles = [...new Set(rows.map((r) => r.console))];
     $("#timeline").innerHTML =
-      `<svg viewBox="0 0 ${w} ${h}" style="min-width:640px" role="img" aria-label="Game rotation timeline">
-         ${gridlines(minD, maxD, x, h)}${bars}
-       </svg>` +
-      `<div class="legend">` +
+      `<div class="tl">
+         <div class="tl__head"><div></div><div class="tl__axis">${axis}</div></div>
+         <div class="tl__scroll">
+           <div class="tl__body"><div class="tl__lines">${lines}</div>${body}</div>
+         </div>
+       </div>
+       <div class="legend legend--tl">` +
       consoles.map((c) => `<span><i style="background:${tint(c)}"></i>${esc(c)}</span>`).join("") +
       `</div>`;
   }
 
   // Tick spacing follows the window: years for a decade, months for a year,
   // weeks for a month.
-  function gridlines(minD, maxD, x, h) {
+  function tickMarks(minD, maxD) {
     const span = maxD - minD;
     const ticks = [];
     if (span > 3 * 365) {
@@ -508,19 +528,16 @@
       d.setDate(1);
       while (toDay(d.toISOString().slice(0, 10)) <= maxD) {
         const iso = d.toISOString().slice(0, 10);
-        ticks.push([toDay(iso), d.toLocaleDateString(undefined, { month: "short" })]);
+        ticks.push([toDay(iso), MONTHS[d.getMonth()]]);
         d.setMonth(d.getMonth() + 1);
       }
     } else {
-      for (let t = minD; t <= maxD; t += 7)
-        ticks.push([t, new Date(t * dayMs).toLocaleDateString(undefined, { day: "numeric", month: "short" })]);
+      for (let t = minD; t <= maxD; t += 7) {
+        const iso = fromDay(t);
+        ticks.push([t, `${+iso.slice(8)} ${MONTHS[+iso.slice(5, 7) - 1]}`]);
+      }
     }
-    return ticks.map(([t, label]) => {
-      const gx = x(t);
-      if (gx < 0 || gx > 1000) return "";
-      return `<line x1="${gx.toFixed(1)}" y1="16" x2="${gx.toFixed(1)}" y2="${h}" stroke="var(--line)" stroke-width="1"/>` +
-             `<text x="${(gx + 3).toFixed(1)}" y="11" font-size="10" fill="var(--muted)">${esc(label)}</text>`;
-    }).join("");
+    return ticks.filter(([t]) => t >= minD && t <= maxD);
   }
 
   /* --- daily --- */

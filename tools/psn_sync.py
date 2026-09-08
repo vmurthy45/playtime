@@ -77,7 +77,7 @@ def fetch_titles(npsso):
                 "titleId": t.title_id,
                 "title": t.name,
                 "platform": "PlayStation",
-                "console": _console(t.category),  # PS4 / PS5 / Other
+                "console": _console(t.category, t.title_id),
                 "hours": round(duration.total_seconds() / 3600, 3) if duration else 0.0,
                 "sessions": t.play_count,
                 "firstPlayed": _date(t.first_played_date_time),
@@ -89,10 +89,23 @@ def fetch_titles(npsso):
     return client.online_id, titles
 
 
-def _console(category):
-    """PS4 / PS5 — anything else (PS3, Vita, unrecognised) reads as Other."""
+# Sony's own id scheme: PS4 titles are CUSA…, PS5 titles PPSA…
+ID_PREFIX = {"CUSA": "PS4", "PPSA": "PS5"}
+
+
+def _console(category, title_id):
+    """Which console a title belongs to.
+
+    The API's `category` is unreliable: delisted games come back as
+    "not_found", some report a bare "unknown", and media apps have their own
+    categories entirely. Only "ps4_game" and "ps5_native_game" are mapped by
+    the library. The title id prefix is dependable where the category is not,
+    so it decides whenever the category cannot.
+    """
     name = str(category).rsplit(".", 1)[-1]
-    return name if name in ("PS4", "PS5") else "Other"
+    if name in ("PS4", "PS5"):
+        return name
+    return ID_PREFIX.get((title_id or "")[:4].upper(), "Other")
 
 
 def _date(value):
