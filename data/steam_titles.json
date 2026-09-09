@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-09-08T23:52:31+00:00",
+ "syncedAt": "2026-09-09T01:13:16+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -65,7 +65,7 @@
    "hours": 123.583,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-09-07",
+   "lastPlayed": "2026-09-09",
    "recentHours": 3.5,
    "devices": {
     "mac": 37.417,

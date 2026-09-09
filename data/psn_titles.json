@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-08T23:52:30+00:00",
+ "syncedAt": "2026-09-09T01:13:16+00:00",
  "games": [
   {
    "id": "psn_CUSA02624_00",
@@ -1162,9 +1162,9 @@
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 4.98,
-   "sessions": 6,
+   "sessions": 7,
    "firstPlayed": "2026-07-09",
-   "lastPlayed": "2026-07-19",
+   "lastPlayed": "2026-09-09",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/2618/ee7d4a20243804f08a3c4a4eb1b4346dbe29dbce0fb59751.png"
   },
   {
