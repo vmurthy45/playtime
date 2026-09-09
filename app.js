@@ -305,22 +305,46 @@
     const byPlatform = {};
     for (const e of entries) byPlatform[e.platform] = (byPlatform[e.platform] || 0) + (e.hours || 0);
 
+    // Grouped by what the number is about: how many games, how much time,
+    // how much of it was finished.
+    const tile = ([v, l]) => `<div class="tile"><b>${v}</b><span>${esc(l)}</span></div>`;
+    const fill = (id, rows) => { $(id).innerHTML = rows.map(tile).join(""); };
+
+    fill("#tilesLibrary", [
+      [state.groups.length, "games"],
+      [activeYear.length, "played in last 12 months"],
+      [multi.length, "games on multiple platforms"],
+    ]);
+
     // Steam breaks its own totals down by device, so handheld hours are
     // knowable without touching the Deck itself.
     const deck = entries.reduce((s, e) => s + ((e.devices && e.devices.deck) || 0), 0);
     const steamH = byPlatform.Steam || 0;
-
-    const tiles = [
+    const timeTiles = [
       [fmtH(totalH), "hours tracked"],
-      [state.groups.length, "games"],
       ...Object.entries(byPlatform).map(([p, h]) => [fmtH(h), `hours on ${p}`]),
       [years ? years.toFixed(1) + " yrs" : "—", "of history"],
-      [activeYear.length, "played in last 12 months"],
     ];
-    if (deck) tiles.push([fmtH(deck), `hours on Steam Deck (${Math.round(deck / steamH * 100)}% of Steam)`]);
-    if (multi.length) tiles.push([multi.length, "games on multiple platforms"]);
-    $("#tiles").innerHTML = tiles
-      .map(([v, l]) => `<div class="tile"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
+    if (deck) timeTiles.push([fmtH(deck), `hours on Steam Deck (${Math.round(deck / steamH * 100)}% of Steam)`]);
+    fill("#tilesTime", timeTiles);
+
+    // Completion: a platinum or a full achievement sweep both mean finished.
+    let platinums = 0, full = 0, tEarned = 0, tTotal = 0, aEarned = 0, aTotal = 0;
+    for (const g of state.groups) {
+      const t = bestTrophies(g), a = bestAchievements(g);
+      if (t) { tEarned += t.earned; tTotal += t.total; if (t.platinum) platinums++; }
+      if (a) { aEarned += a.earned; aTotal += a.total; if (allAchievements(a)) full++; }
+    }
+    const pct = (e, t) => (t ? Math.round(e / t * 100) + "%" : "—");
+    fill("#tilesCompletion", [
+      [`${TROPHY}${platinums + full}`, "games completed"],
+      [platinums, "platinum trophies"],
+      [full, "Steam games at 100%"],
+      [pct(tEarned, tTotal), `trophies earned (${tEarned.toLocaleString()} of ${tTotal.toLocaleString()})`],
+      [pct(aEarned, aTotal), `achievements earned (${aEarned.toLocaleString()} of ${aTotal.toLocaleString()})`],
+    ]);
+    $("#completionNote").textContent =
+      `Counted across ${state.groups.filter((g) => bestTrophies(g) || bestAchievements(g)).length} games that have trophies or achievements.`;
 
     // New games per year: each game counted once, in the year it was first
     // played. Horizontal bars — twelve rows fit a phone; twelve columns did
