@@ -152,7 +152,7 @@
   // True when the launch count covers only part of the game's hours.
   const partialSessions = (g) => g.hasSessions && g.sessionHours + 0.01 < g.hours;
   const sessionLabel = (g) =>
-    `${g.sessions} ${partialSessions(g) ? g.sessionConsoles.join("/") + " " : ""}sessions`;
+    `x${g.sessions}${partialSessions(g) ? " " + g.sessionConsoles.join("/") : ""}`;
 
   /* ------------------------------------------------------------- derive */
 
@@ -252,7 +252,7 @@
         <li>
           ${cover(g)}
           <div>
-            <div class="name">${esc(g.title)}${pills(g)}</div>
+            <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}</div>
             <div class="meta">${metaLine(g)}</div>
             <div class="barwrap">${splitBar(g, max)}</div>
           </div>
@@ -383,9 +383,9 @@
 
   const metaLine = (g) => {
     const bits = [];
+    if (g.lastPlayed) bits.push(fmtDate(g.lastPlayed));
     if (g.hasSessions) bits.push(sessionLabel(g));
     if (g.platforms.length > 1) bits.push(g.parts.map((p) => `${p.console} ${fmtH(p.hours)}h`).join(" + "));
-    bits.push(`last played ${fmtDate(g.lastPlayed)}`);
     return esc(bits.join(" · "));
   };
 
@@ -447,7 +447,7 @@
       <li class="card">
         ${cover(g)}
         <div>
-          <div class="name">${esc(g.title)}${pills(g)}</div>
+          <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}</div>
           <div class="meta">
             ${g.hasSessions ? sessionLabel(g) + "<br>" : ""}
             ${g.firstPlayed
@@ -570,7 +570,7 @@
         <div class="tlrow__name" title="${esc(g.title)} — ${fmtH(g.hours)}h on ${esc(g.console)}${n ? ` · ${n} sessions` : ""}">
           <span class="tlrow__chip" style="background:${colour}"></span>
           <span class="tlrow__title">${esc(g.title)}</span>
-          ${n ? `<span class="tlrow__n">${n}×</span>` : ""}
+          ${n ? `<span class="tlrow__n">x${n}</span>` : ""}
         </div>
         <div class="tlrow__plot">${bar}</div>
       </div>`;

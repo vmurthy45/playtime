@@ -18,6 +18,10 @@
   --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .08);
 }
 * { box-sizing: border-box; }
+button, .yrow, .tab, .seg__btn, .pf__btn {
+  touch-action: manipulation;             /* no double-tap zoom delay */
+  -webkit-tap-highlight-color: transparent;
+}
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
@@ -101,6 +105,10 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
 }
 .cover span { color: var(--muted); font-weight: 650; font-size: 16px; }
 .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* One line: the title gives way, the platform pills never do. */
+.toplist li > div, .card > div { min-width: 0; }   /* let the middle column shrink */
+.toplist .name, .card .name { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.name__t { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .toplist .name { font-weight: 550; }
 .toplist .meta { color: var(--muted); font-size: 12.5px; }
 .barwrap { display: flex; gap: 2px; margin-top: 6px; height: 4px; }
@@ -179,10 +187,10 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 .card .hrs b { display: block; font-size: 16px; }
 .card .hrs span { color: var(--muted); font-size: 12px; }
 .pill {
-  display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px;
-  border: 1px solid var(--line); color: var(--muted); margin-left: 6px; vertical-align: 1px;
+  flex: none; font-size: 11px; padding: 1px 7px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--muted); white-space: nowrap;
 }
-.pill + .pill { margin-left: 4px; }
+
 
 .stack { display: flex; height: 26px; border-radius: 7px; overflow: hidden; background: var(--surface-2); }
 
@@ -221,7 +229,7 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
   position: absolute; top: 8px; font-size: 10.5px; color: var(--muted);
   transform: translateX(-50%); white-space: nowrap;
 }
-.tl__scroll { max-height: 72vh; overflow: auto; }
+.tl__scroll { max-height: 72vh; max-height: 72dvh; overflow: auto; }
 .tl__body { position: relative; padding-bottom: 10px; }  /* clear of the scrollbar */
 .tl__lines { position: absolute; left: var(--namecol); width: var(--plotw); top: 0; bottom: 0; pointer-events: none; z-index: 0; }
 .tl__line { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); opacity: .7; }
@@ -247,6 +255,16 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 
 @media (max-width: 640px) {
   :root { --gut: 14px; }
+
+  /* iOS zooms the whole page when you focus a control smaller than 16px. */
+  input[type="search"], select { font-size: 16px; }
+
+  /* Comfortable thumb targets. Vertical padding only — the toggle and the
+     platform pills share one row and there is no width to spare. */
+  .seg__btn { min-height: 36px; }
+  .pf__btn { min-height: 36px; }
+  .tab { padding: 10px 12px; }
+  .yrow { padding: 11px 10px; }
   /* Toggle and platform pills share one row at phone width. */
   .ovhead { gap: 8px; }
   .seg { padding: 2px; }
@@ -259,7 +277,7 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
   .cover { width: 68px; height: 38px; }
   .card { grid-template-columns: 76px 1fr auto; gap: 11px; }
   .card .cover { width: 76px; height: 43px; }
-  .tl { --namecol: 122px; }
+  .tl { --namecol: 140px; }
   .tlrow__name { font-size: 11px; padding-left: 10px; }
   .tl__lines { right: 8px; }
   .tlrow__plot { margin-right: 8px; }
