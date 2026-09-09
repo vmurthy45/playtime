@@ -1,8 +1,8 @@
 /* Bump CACHE on every deploy so clients pick up new code. */
-const CACHE = "playtime-v53";
+const CACHE = "playtime-v54";
 const SHELL = ["./", "index.html", "styles.css", "app.js", "manifest.webmanifest",
                "favicon-32.png", "favicon-64.png", "apple-touch-icon.png", "icon-192.png",
-               "platinum.png"];
+               "trophy.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));

@@ -253,7 +253,7 @@
           <button class="row__head" aria-expanded="false">
             ${cover(g)}
             <div>
-              <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}${hasPlatinum(g) ? PLAT : ""}</div>
+              <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}${hasTrophy(g) ? TROPHY : ""}</div>
               <div class="barwrap">${splitBar(g, max)}</div>
             </div>
             <div class="hrs">${fmtH(g.hours)}h</div>
@@ -383,14 +383,17 @@
       `</div>`;
   }
 
-  const PLAT = `<img class="plat" src="platinum.png" alt="Platinum" title="Platinum earned">`;
+  const TROPHY = `<img class="plat" src="trophy.png" alt="Completed" title="Platinum trophy or 100% achievements">`;
   // Trophies belong to the game, not to each platform entry — PSN reports the
   // same set against a PS4 and PS5 copy, so take the best and show it once.
   const bestTrophies = (g) =>
     g.parts.map((p) => p.trophies).filter(Boolean).sort((a, b) => b.earned - a.earned)[0] || null;
   const bestAchievements = (g) =>
     g.parts.map((p) => p.achievements).filter(Boolean).sort((a, b) => b.earned - a.earned)[0] || null;
-  const hasPlatinum = (g) => g.parts.some((p) => p.trophies && p.trophies.platinum);
+  // A trophy means "finished it": a PSN platinum, or every Steam achievement.
+  const allAchievements = (a) => a && a.total > 0 && a.earned >= a.total;
+  const hasTrophy = (g) =>
+    g.parts.some((p) => (p.trophies && p.trophies.platinum) || allAchievements(p.achievements));
 
   // Everything that used to crowd the row, shown only when it is opened.
   const detailHTML = (g) => {
@@ -403,11 +406,12 @@
     }
     const trophies = bestTrophies(g);
     if (trophies) {
-      rows.push(["Trophies", `${trophies.platinum ? PLAT : ""}${trophies.earned}/${trophies.total}`]);
+      rows.push(["Trophies", `${trophies.platinum ? TROPHY : ""}${trophies.earned}/${trophies.total}`]);
     }
     const achievements = bestAchievements(g);
     if (achievements) {
-      rows.push(["Achievements", `${achievements.earned}/${achievements.total}`]);
+      rows.push(["Achievements",
+        `${allAchievements(achievements) ? TROPHY : ""}${achievements.earned}/${achievements.total}`]);
     }
     return `<dl class="detail">` + rows.map(([k, v]) =>
       `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`).join("") + `</dl>`;
@@ -472,7 +476,7 @@
         <button class="row__head" aria-expanded="false">
           ${cover(g)}
           <div>
-            <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}${hasPlatinum(g) ? PLAT : ""}</div>
+            <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}${hasTrophy(g) ? TROPHY : ""}</div>
           </div>
           <div class="hrs"><b>${fmtH(g.hours)}h</b>${g.hours ? "" : "<span>never played</span>"}</div>
         </button>
