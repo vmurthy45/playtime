@@ -336,8 +336,14 @@
       if (a) { aEarned += a.earned; aTotal += a.total; if (allAchievements(a)) full++; }
     }
     const pct = (e, t) => (t ? Math.round(e / t * 100) + "%" : "—");
+    // Averaged over games actually played — a third of the library has never
+    // been started, and including those understates the rest.
+    const playedGames = state.groups.filter((g) => g.hours > 0);
+    const perGame = playedGames.length ? totalH / playedGames.length : 0;
+
     fill("#tilesCompletion", [
       [`${TROPHY}${platinums + full}`, "games completed"],
+      [fmtH(perGame) + "h", "average per game played"],
       [platinums, "platinum trophies"],
       [full, "Steam games at 100%"],
       [pct(tEarned, tTotal), `trophies earned (${tEarned.toLocaleString()} of ${tTotal.toLocaleString()})`],
