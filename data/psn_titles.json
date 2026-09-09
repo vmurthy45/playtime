@@ -1,7 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-09T02:23:35+00:00",
+ "syncedAt": "2026-09-09T03:06:06+00:00",
+ "trophySummary": {
+  "platinums": 63,
+  "titles": 309
+ },
  "games": [
   {
    "id": "psn_CUSA02624_00",

@@ -12,7 +12,7 @@
 
   // entries = one record per game per platform. groups = the same game merged
   // across platforms, which is what the lists actually show.
-  const state = { entries: [], groups: [], snapshots: [], aliases: {}, synced: [] };
+  const state = { entries: [], groups: [], snapshots: [], aliases: {}, synced: [], trophySummary: null };
 
   const $ = (sel) => document.querySelector(sel);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -74,6 +74,7 @@
         state.entries.push(g);
       }
       if (f.syncedAt) state.synced.push({ source: f.source, at: f.syncedAt });
+      if (f.trophySummary) state.trophySummary = f.trophySummary;
     });
 
     if (!state.entries.length) {
@@ -329,28 +330,26 @@
     fill("#tilesTime", timeTiles);
 
     // Completion: a platinum or a full achievement sweep both mean finished.
-    let platinums = 0, full = 0, tEarned = 0, tTotal = 0, aEarned = 0, aTotal = 0;
+    let platinums = 0, full = 0;
     for (const g of state.groups) {
       const t = bestTrophies(g), a = bestAchievements(g);
-      if (t) { tEarned += t.earned; tTotal += t.total; if (t.platinum) platinums++; }
-      if (a) { aEarned += a.earned; aTotal += a.total; if (allAchievements(a)) full++; }
+      if (t && t.platinum) platinums++;
+      if (allAchievements(a)) full++;
     }
-    const pct = (e, t) => (t ? Math.round(e / t * 100) + "%" : "—");
-    // Averaged over games actually played — a third of the library has never
-    // been started, and including those understates the rest.
-    const playedGames = state.groups.filter((g) => g.hours > 0);
-    const perGame = playedGames.length ? totalH / playedGames.length : 0;
+    // The platinum count comes from the trophy list itself, not from games
+    // that matched one: PS3 and Vita titles never appear in the play-time
+    // API, and a collection hides several trophy sets behind one title.
+    const summary = state.trophySummary;
+    const platinumTotal = summary ? summary.platinums : platinums;
 
     fill("#tilesCompletion", [
-      [`${TROPHY}${platinums + full}`, "games completed"],
-      [fmtH(perGame) + "h", "average per game played"],
-      [platinums, "platinum trophies"],
+      [`${TROPHY}${platinumTotal + full}`, "games completed"],
+      [platinumTotal, "platinum trophies"],
       [full, "Steam games at 100%"],
-      [pct(tEarned, tTotal), `trophies earned (${tEarned.toLocaleString()} of ${tTotal.toLocaleString()})`],
-      [pct(aEarned, aTotal), `achievements earned (${aEarned.toLocaleString()} of ${aTotal.toLocaleString()})`],
     ]);
-    $("#completionNote").textContent =
-      `Counted across ${state.groups.filter((g) => bestTrophies(g) || bestAchievements(g)).length} games that have trophies or achievements.`;
+    $("#completionNote").textContent = summary && summary.platinums > platinums
+      ? `${summary.platinums - platinums} of these are PS3, Vita or collection titles, which have trophies but no play time to track.`
+      : "";
 
     // New games per year: each game counted once, in the year it was first
     // played. Horizontal bars — twelve rows fit a phone; twelve columns did

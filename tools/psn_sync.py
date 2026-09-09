@@ -85,14 +85,23 @@ def load_dotenv(path):
 
 
 def fetch_trophies(client):
-    """Trophy counts per title, keyed by normalised name.
+    """Per-title trophy counts, plus an account-level summary.
 
     One paginated call covers the whole account. PSN gives no title id on
-    these records, so matching is by name — the same normalisation the app
-    uses to merge a game across platforms.
+    these records, so per-game matching is by name — the same normalisation
+    the app uses to merge a game across platforms.
+
+    The summary is counted from the trophy list itself rather than from what
+    matched, because plenty legitimately cannot match: PS3 and Vita games
+    are absent from the play-time API entirely, and a collection carries
+    several trophy sets behind a single playable title.
     """
     counts = {}
+    summary = {"platinums": 0, "titles": 0}
     for t in client.trophy_titles():
+        summary["titles"] += 1
+        if t.earned_trophies.platinum:
+            summary["platinums"] += 1
         earned, defined = t.earned_trophies, t.defined_trophies
         total = defined.bronze + defined.silver + defined.gold + defined.platinum
         got = earned.bronze + earned.silver + earned.gold + earned.platinum
@@ -102,7 +111,7 @@ def fetch_trophies(client):
         # A game can appear once per platform; keep the furthest progressed.
         if key not in counts or got > counts[key]["earned"]:
             counts[key] = {"earned": got, "total": total, "platinum": earned.platinum > 0}
-    return counts
+    return counts, summary
 
 
 def fetch_titles(npsso):
@@ -126,7 +135,7 @@ def fetch_titles(npsso):
                 "cover": t.image_url,
             }
         )
-    trophies = fetch_trophies(client)
+    trophies, summary = fetch_trophies(client)
     matched = 0
     for game in titles:
         found = trophies.get(normalize(game["title"]))
@@ -135,7 +144,7 @@ def fetch_titles(npsso):
             matched += 1
 
     titles.sort(key=lambda g: -g["hours"])
-    return client.online_id, titles, matched
+    return client.online_id, titles, matched, summary
 
 
 # Sony's own id scheme: PS4 titles are CUSA…, PS5 titles PPSA…
@@ -216,7 +225,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     try:
-        online_id, titles, matched = fetch_titles(npsso)
+        online_id, titles, matched, summary = fetch_titles(npsso)
     except Exception as exc:  # noqa: BLE001 — the cause matters more than the type
         sys.exit(
             f"PSN fetch failed: {exc}\n"
@@ -233,14 +242,15 @@ def main():
         "source": SOURCE,
         "onlineId": online_id,
         "syncedAt": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "trophySummary": summary,
         "games": titles,
     }
     (out / "psn_titles.json").write_text(json.dumps(payload, indent=1))
 
     total = sum(g["hours"] for g in titles)
     print(f"{online_id}: {len(titles)} titles, {total:,.1f} hours total")
-    plats = sum(1 for g in titles if g.get("trophies", {}).get("platinum"))
-    print(f"  trophies matched for {matched} titles, {plats} platinums")
+    print(f"  trophies matched for {matched} titles; account has "
+          f"{summary['platinums']} platinums across {summary['titles']} trophy sets")
 
     gained = update_snapshots(out / "snapshots.json", titles, today)
     if gained is None:
