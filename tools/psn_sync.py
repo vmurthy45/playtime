@@ -50,7 +50,7 @@ import os
 import pathlib
 import sys
 
-from filters import split_games
+from filters import normalize, split_games
 
 SOURCE = "psn"
 
@@ -84,6 +84,27 @@ def load_dotenv(path):
         os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
 
 
+def fetch_trophies(client):
+    """Trophy counts per title, keyed by normalised name.
+
+    One paginated call covers the whole account. PSN gives no title id on
+    these records, so matching is by name — the same normalisation the app
+    uses to merge a game across platforms.
+    """
+    counts = {}
+    for t in client.trophy_titles():
+        earned, defined = t.earned_trophies, t.defined_trophies
+        total = defined.bronze + defined.silver + defined.gold + defined.platinum
+        got = earned.bronze + earned.silver + earned.gold + earned.platinum
+        if not total:
+            continue
+        key = normalize(t.title_name)
+        # A game can appear once per platform; keep the furthest progressed.
+        if key not in counts or got > counts[key]["earned"]:
+            counts[key] = {"earned": got, "total": total, "platinum": earned.platinum > 0}
+    return counts
+
+
 def fetch_titles(npsso):
     from psnawp_api import PSNAWP
 
@@ -105,8 +126,16 @@ def fetch_titles(npsso):
                 "cover": t.image_url,
             }
         )
+    trophies = fetch_trophies(client)
+    matched = 0
+    for game in titles:
+        found = trophies.get(normalize(game["title"]))
+        if found:
+            game["trophies"] = found
+            matched += 1
+
     titles.sort(key=lambda g: -g["hours"])
-    return client.online_id, titles
+    return client.online_id, titles, matched
 
 
 # Sony's own id scheme: PS4 titles are CUSA…, PS5 titles PPSA…
@@ -187,7 +216,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     try:
-        online_id, titles = fetch_titles(npsso)
+        online_id, titles, matched = fetch_titles(npsso)
     except Exception as exc:  # noqa: BLE001 — the cause matters more than the type
         sys.exit(
             f"PSN fetch failed: {exc}\n"
@@ -210,6 +239,8 @@ def main():
 
     total = sum(g["hours"] for g in titles)
     print(f"{online_id}: {len(titles)} titles, {total:,.1f} hours total")
+    plats = sum(1 for g in titles if g.get("trophies", {}).get("platinum"))
+    print(f"  trophies matched for {matched} titles, {plats} platinums")
 
     gained = update_snapshots(out / "snapshots.json", titles, today)
     if gained is None:

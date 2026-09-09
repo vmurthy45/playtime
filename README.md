@@ -119,6 +119,15 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
   but the split across those days is an even guess. Those bars are drawn hatched
   and labelled estimated.
 
+**Trophies and achievements.** PSN trophy counts come from one paginated call
+covering the whole account, matched to games by normalised title (PSN gives no
+title id on those records). A platinum shows as a badge on the row. Steam
+achievements need one call per game, so they are cached in `steam_titles.json`
+and only re-fetched when a game's play time moves — a first run sweeps ~180
+games, after that it is a handful a day. Games with no achievement schema
+(early access, mostly) make Steam return a 500; that "checked, has none"
+result is cached too, so they are not retried daily.
+
 `play_count` counts launches, not sessions in a strict sense — a game suspended
 and resumed can count again, so "average session" runs short on games you dip in
 and out of. Steam reports no launch count at all, so session figures are

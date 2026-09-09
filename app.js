@@ -249,14 +249,16 @@
       // Bars are scaled within the list on show, not against the all-time top.
       const max = Math.max(...rows.map((g) => g.hours), 1);
       $("#topList").innerHTML = rows.length ? rows.map((g) => `
-        <li>
-          ${cover(g)}
-          <div>
-            <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}</div>
-            <div class="meta">${metaLine(g)}</div>
-            <div class="barwrap">${splitBar(g, max)}</div>
-          </div>
-          <div class="hrs">${fmtH(g.hours)}h</div>
+        <li class="row">
+          <button class="row__head" aria-expanded="false">
+            ${cover(g)}
+            <div>
+              <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}${hasPlatinum(g) ? PLAT : ""}</div>
+              <div class="barwrap">${splitBar(g, max)}</div>
+            </div>
+            <div class="hrs">${fmtH(g.hours)}h</div>
+          </button>
+          <div class="row__detail" hidden>${detailHTML(g)}</div>
         </li>`).join("") : `<li class="empty">Nothing played on ${esc(platform || "any platform")} yet.</li>`;
     };
 
@@ -381,12 +383,34 @@
       `</div>`;
   }
 
-  const metaLine = (g) => {
-    const bits = [];
-    if (g.lastPlayed) bits.push(fmtDate(g.lastPlayed));
-    if (g.hasSessions) bits.push(sessionLabel(g));
-    if (g.platforms.length > 1) bits.push(g.parts.map((p) => `${p.console} ${fmtH(p.hours)}h`).join(" + "));
-    return esc(bits.join(" · "));
+  const PLAT = `<img class="plat" src="platinum.png" alt="Platinum" title="Platinum earned">`;
+  // Trophies belong to the game, not to each platform entry — PSN reports the
+  // same set against a PS4 and PS5 copy, so take the best and show it once.
+  const bestTrophies = (g) =>
+    g.parts.map((p) => p.trophies).filter(Boolean).sort((a, b) => b.earned - a.earned)[0] || null;
+  const bestAchievements = (g) =>
+    g.parts.map((p) => p.achievements).filter(Boolean).sort((a, b) => b.earned - a.earned)[0] || null;
+  const hasPlatinum = (g) => g.parts.some((p) => p.trophies && p.trophies.platinum);
+
+  // Everything that used to crowd the row, shown only when it is opened.
+  const detailHTML = (g) => {
+    const rows = [];
+    if (g.firstPlayed) rows.push(["Played", `${fmtDate(g.firstPlayed)} → ${fmtDate(g.lastPlayed)}`]);
+    else if (g.lastPlayed) rows.push(["Last played", fmtDate(g.lastPlayed)]);
+    if (g.hasSessions) rows.push(["Sessions", sessionLabel(g)]);
+    for (const p of g.parts) {
+      rows.push([g.parts.length > 1 ? p.console : "Hours", `${fmtH(p.hours)}h`]);
+    }
+    const trophies = bestTrophies(g);
+    if (trophies) {
+      rows.push(["Trophies", `${trophies.platinum ? PLAT : ""}${trophies.earned}/${trophies.total}`]);
+    }
+    const achievements = bestAchievements(g);
+    if (achievements) {
+      rows.push(["Achievements", `${achievements.earned}/${achievements.total}`]);
+    }
+    return `<dl class="detail">` + rows.map(([k, v]) =>
+      `<div><dt>${esc(k)}</dt><dd>${v}</dd></div>`).join("") + `</dl>`;
   };
 
   // One bar per platform, so a cross-platform game shows its split in place.
@@ -444,19 +468,15 @@
     $("#gamesCount").textContent = `${list.length} of ${state.groups.length} games · ${fmtH(shown)} hours`;
 
     $("#gameList").innerHTML = list.length ? list.map((g) => `
-      <li class="card">
-        ${cover(g)}
-        <div>
-          <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}</div>
-          <div class="meta">
-            ${g.hasSessions ? sessionLabel(g) + "<br>" : ""}
-            ${g.firstPlayed
-              ? fmtDate(g.firstPlayed) + " → " + fmtDate(g.lastPlayed)
-              : g.lastPlayed ? "last played " + fmtDate(g.lastPlayed) : ""}
-            ${g.platforms.length > 1 ? "<br>" + esc(g.parts.map((p) => `${p.console} ${fmtH(p.hours)}h`).join(" + ")) : ""}
+      <li class="row">
+        <button class="row__head" aria-expanded="false">
+          ${cover(g)}
+          <div>
+            <div class="name"><span class="name__t">${esc(g.title)}</span>${pills(g)}${hasPlatinum(g) ? PLAT : ""}</div>
           </div>
-        </div>
-        <div class="hrs"><b>${fmtH(g.hours)}h</b><span>${g.hours ? "" : "never played"}</span></div>
+          <div class="hrs"><b>${fmtH(g.hours)}h</b>${g.hours ? "" : "<span>never played</span>"}</div>
+        </button>
+        <div class="row__detail" hidden>${detailHTML(g)}</div>
       </li>`).join("") : `<li class="empty">No games match.</li>`;
   }
 
@@ -706,6 +726,18 @@
         </div>
         <div class="barrow__val">${fmtH(it.value)}${it.suffix || ""}</div>
       </div>`).join("");
+  }
+
+  // One handler for both lists: rows are rendered closed and open in place.
+  for (const id of ["#topList", "#gameList"]) {
+    $(id).addEventListener("click", (e) => {
+      const head = e.target.closest(".row__head");
+      if (!head) return;
+      const open = head.getAttribute("aria-expanded") === "true";
+      head.setAttribute("aria-expanded", open ? "false" : "true");
+      head.parentElement.classList.toggle("is-open", !open);
+      head.nextElementSibling.hidden = open;
+    });
   }
 
   /* ---------------------------------------------------------------- tabs */

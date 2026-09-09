@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-09T01:13:16+00:00",
+ "syncedAt": "2026-09-09T02:23:35+00:00",
  "games": [
   {
    "id": "psn_CUSA02624_00",
@@ -13,7 +13,12 @@
    "sessions": 280,
    "firstPlayed": "2015-11-06",
    "lastPlayed": "2021-05-09",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02624_00/6/i_c215706b64aaf3a61d26f8496a19ff5e4151fa30f504c8510ff66c7561965ec3/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02624_00/6/i_c215706b64aaf3a61d26f8496a19ff5e4151fa30f504c8510ff66c7561965ec3/i/icon0.png",
+   "trophies": {
+    "earned": 13,
+    "total": 99,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA13385_00",
@@ -37,7 +42,12 @@
    "sessions": 165,
    "firstPlayed": "2016-05-28",
    "lastPlayed": "2017-06-26",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2921/a213c057a3adc5c341911157e461954a97500126e4e2acef.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2921/a213c057a3adc5c341911157e461954a97500126e4e2acef.png",
+   "trophies": {
+    "earned": 44,
+    "total": 92,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01923_00",
@@ -61,7 +71,12 @@
    "sessions": 162,
    "firstPlayed": "2015-07-08",
    "lastPlayed": "2024-01-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/0221/277e59721466f3501c675e2420eb16824ccda13b106e6da8.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/0221/277e59721466f3501c675e2420eb16824ccda13b106e6da8.png",
+   "trophies": {
+    "earned": 41,
+    "total": 88,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA00791_00",
@@ -73,7 +88,12 @@
    "sessions": 114,
    "firstPlayed": "2015-07-29",
    "lastPlayed": "2021-11-05",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00791_00/2/i_bbefc370c407b6afc73d6b5e57229ff6eee60f7b8f633862e35eca5d109e459f/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00791_00/2/i_bbefc370c407b6afc73d6b5e57229ff6eee60f7b8f633862e35eca5d109e459f/i/icon0.png",
+   "trophies": {
+    "earned": 27,
+    "total": 27,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA15545_00",
@@ -85,7 +105,12 @@
    "sessions": 78,
    "firstPlayed": "2019-11-03",
    "lastPlayed": "2021-05-11",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA15545_00/5/i_f0884483a8e433de9dacbbd95ac58e02c18b95d9bd95e622866d9320cd1bb467/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA15545_00/5/i_f0884483a8e433de9dacbbd95ac58e02c18b95d9bd95e622866d9320cd1bb467/i/icon0_01.png",
+   "trophies": {
+    "earned": 12,
+    "total": 32,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA07950_00",
@@ -109,7 +134,12 @@
    "sessions": 129,
    "firstPlayed": "2016-11-10",
    "lastPlayed": "2021-11-04",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05379_00/2/i_4cfad262816af629a9b660a48e85411efdc6eab4d7d90c6c13e7808f87e80ba7/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05379_00/2/i_4cfad262816af629a9b660a48e85411efdc6eab4d7d90c6c13e7808f87e80ba7/i/icon0.png",
+   "trophies": {
+    "earned": 51,
+    "total": 51,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA01490_00",
@@ -121,7 +151,12 @@
    "sessions": 103,
    "firstPlayed": "2021-08-06",
    "lastPlayed": "2022-01-03",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202006/1520/EDtkdijFRwbmGKk1G9lrDoEF.png",
+   "trophies": {
+    "earned": 51,
+    "total": 93,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA09303_00",
@@ -133,7 +168,12 @@
    "sessions": 63,
    "firstPlayed": "2020-09-06",
    "lastPlayed": "2021-03-28",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09303_00/3/i_d6b485c473b4b3d739197a5f020aeb7428f69d6c29e0dda514f6db41916dc3b6/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09303_00/3/i_d6b485c473b4b3d739197a5f020aeb7428f69d6c29e0dda514f6db41916dc3b6/i/icon0.png",
+   "trophies": {
+    "earned": 51,
+    "total": 94,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA02126_00",
@@ -145,7 +185,12 @@
    "sessions": 64,
    "firstPlayed": "2015-09-27",
    "lastPlayed": "2015-10-29",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02126_00/4/i_eaaff46a4916aa5c7ad26991c535ad5cf668ab1c56f4e1daa658e5499dcb8383/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02126_00/4/i_eaaff46a4916aa5c7ad26991c535ad5cf668ab1c56f4e1daa658e5499dcb8383/i/icon0.png",
+   "trophies": {
+    "earned": 40,
+    "total": 49,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA11608_00",
@@ -157,7 +202,12 @@
    "sessions": 55,
    "firstPlayed": "2019-06-17",
    "lastPlayed": "2022-03-04",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0_01.png",
+   "trophies": {
+    "earned": 18,
+    "total": 42,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA05625_00",
@@ -169,7 +219,12 @@
    "sessions": 49,
    "firstPlayed": "2020-04-16",
    "lastPlayed": "2020-08-29",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05625_00/3/i_1918d4f78a3ed7521b7936984d525927a03a03e241bdd3d748bfd23c104d45db/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05625_00/3/i_1918d4f78a3ed7521b7936984d525927a03a03e241bdd3d748bfd23c104d45db/i/icon0.png",
+   "trophies": {
+    "earned": 51,
+    "total": 68,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA15277_00",
@@ -181,7 +236,12 @@
    "sessions": 67,
    "firstPlayed": "2019-10-24",
    "lastPlayed": "2020-10-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1917/OS18LBxAVpQ1iPeGWAqSnxem.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1917/OS18LBxAVpQ1iPeGWAqSnxem.png",
+   "trophies": {
+    "earned": 27,
+    "total": 28,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA01506_00",
@@ -193,7 +253,12 @@
    "sessions": 33,
    "firstPlayed": "2021-07-22",
    "lastPlayed": "2021-08-03",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202008/1708/IU319rd7ohrXUZTCQt5OWdct.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202008/1708/IU319rd7ohrXUZTCQt5OWdct.png",
+   "trophies": {
+    "earned": 51,
+    "total": 69,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA08630_00",
@@ -205,7 +270,12 @@
    "sessions": 42,
    "firstPlayed": "2017-11-05",
    "lastPlayed": "2019-09-19",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08630_00/2/i_35cd932aef94645fe0612672cd98b4a8cdd31918627571069b99491d30ba781c/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08630_00/2/i_35cd932aef94645fe0612672cd98b4a8cdd31918627571069b99491d30ba781c/i/icon0.png",
+   "trophies": {
+    "earned": 8,
+    "total": 91,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00128_00",
@@ -217,7 +287,12 @@
    "sessions": 42,
    "firstPlayed": "2015-05-25",
    "lastPlayed": "2017-01-22",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00170_00/4/i_0fad41f8ac50ce1a0b75fdc32cce4491724d0e6fadb4a1814e0c551119a465b5/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00170_00/4/i_0fad41f8ac50ce1a0b75fdc32cce4491724d0e6fadb4a1814e0c551119a465b5/i/icon0.png",
+   "trophies": {
+    "earned": 20,
+    "total": 42,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00049_00",
@@ -241,7 +316,12 @@
    "sessions": 21,
    "firstPlayed": "2019-01-24",
    "lastPlayed": "2020-04-25",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09663_00/3/i_071c7355f8a27edd89a6fbc5b8cce867ebf35f851bb6232fadb63f2f1baf33ff/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09663_00/3/i_071c7355f8a27edd89a6fbc5b8cce867ebf35f851bb6232fadb63f2f1baf33ff/i/icon0.png",
+   "trophies": {
+    "earned": 33,
+    "total": 33,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA01021_00",
@@ -253,7 +333,12 @@
    "sessions": 21,
    "firstPlayed": "2018-01-20",
    "lastPlayed": "2020-04-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0221/vC7trMorHJgbImp8PCQvpI0p.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0221/vC7trMorHJgbImp8PCQvpI0p.png",
+   "trophies": {
+    "earned": 56,
+    "total": 79,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA11993_00",
@@ -265,7 +350,12 @@
    "sessions": 15,
    "firstPlayed": "2018-09-29",
    "lastPlayed": "2018-10-07",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202011/0402/C784xeOFo2wViCf4m5bxgoeH.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202011/0402/C784xeOFo2wViCf4m5bxgoeH.png",
+   "trophies": {
+    "earned": 51,
+    "total": 74,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA03214_00",
@@ -277,7 +367,12 @@
    "sessions": 32,
    "firstPlayed": "2017-01-30",
    "lastPlayed": "2018-06-04",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA03214_00/3/i_cd00abb73fe3462759baa4e79ed52d7f4c7f4940ef53c2e1f3a74adb66af71c7/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA03214_00/3/i_cd00abb73fe3462759baa4e79ed52d7f4c7f4940ef53c2e1f3a74adb66af71c7/i/icon0_01.png",
+   "trophies": {
+    "earned": 27,
+    "total": 45,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA24267_00",
@@ -289,7 +384,12 @@
    "sessions": 44,
    "firstPlayed": "2020-12-24",
    "lastPlayed": "2021-07-20",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202112/0618/cFLNC3xYfEdDl7D1Wvu4MVb1.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202112/0618/cFLNC3xYfEdDl7D1Wvu4MVb1.png",
+   "trophies": {
+    "earned": 3,
+    "total": 48,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA25009_00",
@@ -301,7 +401,12 @@
    "sessions": 21,
    "firstPlayed": "2025-04-10",
    "lastPlayed": "2025-04-22",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202502/1222/155cec2bad7676df9a1aa7e96cdd9f363e117c1650a43c34.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202502/1222/155cec2bad7676df9a1aa7e96cdd9f363e117c1650a43c34.png",
+   "trophies": {
+    "earned": 2,
+    "total": 17,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA17599_00",
@@ -313,7 +418,12 @@
    "sessions": 26,
    "firstPlayed": "2025-04-27",
    "lastPlayed": "2025-06-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202501/2217/e5833a53529ff9879e87689f1e8b04d45ba7e6c97fa791e2.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202501/2217/e5833a53529ff9879e87689f1e8b04d45ba7e6c97fa791e2.png",
+   "trophies": {
+    "earned": 27,
+    "total": 56,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA21567_00",
@@ -325,7 +435,12 @@
    "sessions": 39,
    "firstPlayed": "2024-09-12",
    "lastPlayed": "2024-11-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202406/0500/8f15268257b878597757fcc5f2c9545840867bc71fc863b1.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202406/0500/8f15268257b878597757fcc5f2c9545840867bc71fc863b1.png",
+   "trophies": {
+    "earned": 44,
+    "total": 63,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA08338_00",
@@ -337,7 +452,12 @@
    "sessions": 21,
    "firstPlayed": "2026-08-27",
    "lastPlayed": "2026-09-06",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png",
+   "trophies": {
+    "earned": 42,
+    "total": 43,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA00917_00",
@@ -349,7 +469,12 @@
    "sessions": 29,
    "firstPlayed": "2016-05-14",
    "lastPlayed": "2019-12-03",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2000/gTUWTlvPHzxFJ2JAxtDyI2eS.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2000/gTUWTlvPHzxFJ2JAxtDyI2eS.png",
+   "trophies": {
+    "earned": 16,
+    "total": 101,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA12443_00",
@@ -361,7 +486,12 @@
    "sessions": 30,
    "firstPlayed": "2018-10-12",
    "lastPlayed": "2021-09-24",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12443_00/3/i_574d91bf4cf0e6167042e5ffcf3c2b2e3b1f1e770922a54dcdec404095aa7060/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12443_00/3/i_574d91bf4cf0e6167042e5ffcf3c2b2e3b1f1e770922a54dcdec404095aa7060/i/icon0.png",
+   "trophies": {
+    "earned": 4,
+    "total": 103,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00851_00",
@@ -373,7 +503,12 @@
    "sessions": 37,
    "firstPlayed": "2015-03-10",
    "lastPlayed": "2017-06-28",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00851_00/5/i_f3cd09be39e293d6a642c78a6e8d9e99bc066d23a11ef3a03b8a52964a88e172/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00851_00/5/i_f3cd09be39e293d6a642c78a6e8d9e99bc066d23a11ef3a03b8a52964a88e172/i/icon0.png",
+   "trophies": {
+    "earned": 39,
+    "total": 91,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA07875_00",
@@ -385,7 +520,12 @@
    "sessions": 6,
    "firstPlayed": "2017-09-29",
    "lastPlayed": "2017-10-04",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2000/gTUWTlvPHzxFJ2JAxtDyI2eS.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2000/gTUWTlvPHzxFJ2JAxtDyI2eS.png",
+   "trophies": {
+    "earned": 16,
+    "total": 101,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01316_00",
@@ -397,7 +537,12 @@
    "sessions": 29,
    "firstPlayed": "2026-06-04",
    "lastPlayed": "2026-08-27",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
+   "trophies": {
+    "earned": 18,
+    "total": 54,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA07904_00",
@@ -409,7 +554,12 @@
    "sessions": 40,
    "firstPlayed": "2020-08-14",
    "lastPlayed": "2022-01-30",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07904_00/1/i_0da7aba5e7706bd220b4f36dfc6e361b3d3b00f6b5ea0898c325e3b8795d2c82/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07904_00/1/i_0da7aba5e7706bd220b4f36dfc6e361b3d3b00f6b5ea0898c325e3b8795d2c82/i/icon0.png",
+   "trophies": {
+    "earned": 51,
+    "total": 51,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA04029_00",
@@ -421,7 +571,12 @@
    "sessions": 37,
    "firstPlayed": "2022-02-17",
    "lastPlayed": "2026-06-04",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
+   "trophies": {
+    "earned": 10,
+    "total": 58,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA07410_00",
@@ -433,7 +588,12 @@
    "sessions": 15,
    "firstPlayed": "2018-08-27",
    "lastPlayed": "2023-12-26",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1021/X3WIAh63yKhRRiMohLoJMeQu.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1021/X3WIAh63yKhRRiMohLoJMeQu.png",
+   "trophies": {
+    "earned": 17,
+    "total": 37,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA02199_00",
@@ -445,7 +605,12 @@
    "sessions": 32,
    "firstPlayed": "2022-01-15",
    "lastPlayed": "2022-05-02",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202012/1013/DKYIpVhskEQ4jbzr1PVxsO0Z.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202012/1013/DKYIpVhskEQ4jbzr1PVxsO0Z.png",
+   "trophies": {
+    "earned": 40,
+    "total": 40,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA02230_00",
@@ -457,7 +622,12 @@
    "sessions": 12,
    "firstPlayed": "2015-08-31",
    "lastPlayed": "2015-09-06",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2915/QuZ0uTTjDv0mnib4OUffTNxI.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2915/QuZ0uTTjDv0mnib4OUffTNxI.png",
+   "trophies": {
+    "earned": 17,
+    "total": 81,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA16342_00",
@@ -469,7 +639,12 @@
    "sessions": 21,
    "firstPlayed": "2024-06-25",
    "lastPlayed": "2024-12-31",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202309/0813/81ab4b5e5fc8aeba84d3ce3fb7aeede9f00bbab93d9c9c60.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202309/0813/81ab4b5e5fc8aeba84d3ce3fb7aeede9f00bbab93d9c9c60.png",
+   "trophies": {
+    "earned": 8,
+    "total": 27,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA12552_00",
@@ -505,7 +680,12 @@
    "sessions": 13,
    "firstPlayed": "2017-10-12",
    "lastPlayed": "2020-01-02",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA03281_00/2/i_1fda105dce19a1b835399e3a796a1f4de3e1aca21816d5fd3a918130897ce67b/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA03281_00/2/i_1fda105dce19a1b835399e3a796a1f4de3e1aca21816d5fd3a918130897ce67b/i/icon0.png",
+   "trophies": {
+    "earned": 49,
+    "total": 53,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA00860_00",
@@ -517,7 +697,12 @@
    "sessions": 10,
    "firstPlayed": "2017-02-24",
    "lastPlayed": "2018-03-08",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202102/1520/rjKGCwbSyZOZEcWgtOLcvtN7.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202102/1520/rjKGCwbSyZOZEcWgtOLcvtN7.png",
+   "trophies": {
+    "earned": 36,
+    "total": 36,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA01411_00",
@@ -529,7 +714,12 @@
    "sessions": 23,
    "firstPlayed": "2021-12-01",
    "lastPlayed": "2022-01-14",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202008/1020/T45iRN1bhiWcJUzST6UFGBvO.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202008/1020/T45iRN1bhiWcJUzST6UFGBvO.png",
+   "trophies": {
+    "earned": 50,
+    "total": 50,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA03282_00",
@@ -541,7 +731,12 @@
    "sessions": 11,
    "firstPlayed": "2020-01-02",
    "lastPlayed": "2020-01-06",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA03282_00/3/i_6239477cd3ee8ef7742fc8506b1fca1c930f1bc44e206bba919262e7b265c182/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA03282_00/3/i_6239477cd3ee8ef7742fc8506b1fca1c930f1bc44e206bba919262e7b265c182/i/icon0.png",
+   "trophies": {
+    "earned": 54,
+    "total": 59,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA00552_00",
@@ -553,7 +748,12 @@
    "sessions": 9,
    "firstPlayed": "2015-10-17",
    "lastPlayed": "2015-11-04",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1020/FKgazVvG7BcWouCr39mIiXkW.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1020/FKgazVvG7BcWouCr39mIiXkW.png",
+   "trophies": {
+    "earned": 3,
+    "total": 50,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA09417_00",
@@ -565,7 +765,12 @@
    "sessions": 12,
    "firstPlayed": "2019-08-04",
    "lastPlayed": "2020-01-07",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/2119/wl4DB5QGzlEHAXy1KLUVgOAu.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/2119/wl4DB5QGzlEHAXy1KLUVgOAu.png",
+   "trophies": {
+    "earned": 43,
+    "total": 49,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA08519_00",
@@ -577,7 +782,12 @@
    "sessions": 17,
    "firstPlayed": "2018-10-25",
    "lastPlayed": "2025-08-31",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08519_00/12/i_3da1cf7c41dc7652f9b639e1680d96436773658668c7dc3930c441291095713b/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08519_00/12/i_3da1cf7c41dc7652f9b639e1680d96436773658668c7dc3930c441291095713b/i/icon0.png",
+   "trophies": {
+    "earned": 4,
+    "total": 52,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00462_00",
@@ -589,7 +799,12 @@
    "sessions": 20,
    "firstPlayed": "2015-06-21",
    "lastPlayed": "2017-08-05",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202205/1100/XW13uDJAOI4GoMIqmfaJc7ru.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202205/1100/XW13uDJAOI4GoMIqmfaJc7ru.png",
+   "trophies": {
+    "earned": 8,
+    "total": 58,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA27360_00",
@@ -613,7 +828,12 @@
    "sessions": 29,
    "firstPlayed": "2019-03-24",
    "lastPlayed": "2021-04-16",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10851_00/3/i_49aab34aa5e61ab92ac7f976dc444559cd73d4a28a51b54fb257386b8c358aa0/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10851_00/3/i_49aab34aa5e61ab92ac7f976dc444559cd73d4a28a51b54fb257386b8c358aa0/i/icon0.png",
+   "trophies": {
+    "earned": 52,
+    "total": 95,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01011_00",
@@ -637,7 +857,12 @@
    "sessions": 7,
    "firstPlayed": "2020-03-19",
    "lastPlayed": "2020-03-28",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09155_00/1/i_a2e731f3d67f1d3faa4162b699a775c71a8caa4d03826947bef5fe59ef911a93/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09155_00/1/i_a2e731f3d67f1d3faa4162b699a775c71a8caa4d03826947bef5fe59ef911a93/i/icon0.png",
+   "trophies": {
+    "earned": 31,
+    "total": 31,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA28176_00",
@@ -649,7 +874,12 @@
    "sessions": 19,
    "firstPlayed": "2025-08-05",
    "lastPlayed": "2025-08-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202507/2217/7fb7a918a4b9dd1c98de342ec3adfe1421d06627f60397b9.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202507/2217/7fb7a918a4b9dd1c98de342ec3adfe1421d06627f60397b9.png",
+   "trophies": {
+    "earned": 0,
+    "total": 54,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA22519_00",
@@ -661,7 +891,12 @@
    "sessions": 10,
    "firstPlayed": "2024-05-10",
    "lastPlayed": "2024-05-14",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202301/2820/Y8w6KlhWQKXFPgTuHcR40RPy.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202301/2820/Y8w6KlhWQKXFPgTuHcR40RPy.png",
+   "trophies": {
+    "earned": 13,
+    "total": 21,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01521_00",
@@ -673,7 +908,12 @@
    "sessions": 20,
    "firstPlayed": "2023-03-04",
    "lastPlayed": "2026-08-27",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/2915/kifM3lnke5lExwRd96mIDojQ.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/2915/kifM3lnke5lExwRd96mIDojQ.png",
+   "trophies": {
+    "earned": 16,
+    "total": 80,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01073_00",
@@ -685,7 +925,12 @@
    "sessions": 24,
    "firstPlayed": "2018-03-09",
    "lastPlayed": "2021-10-22",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1020/2sD70skhUEhaf3gwCWJsEfGt.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1020/2sD70skhUEhaf3gwCWJsEfGt.png",
+   "trophies": {
+    "earned": 33,
+    "total": 47,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00076_00",
@@ -697,7 +942,12 @@
    "sessions": 18,
    "firstPlayed": "2015-03-06",
    "lastPlayed": "2020-01-07",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/2621/LSToXWZ9UvC5NBaruzxKbp4W.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/2621/LSToXWZ9UvC5NBaruzxKbp4W.png",
+   "trophies": {
+    "earned": 18,
+    "total": 22,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA02343_00",
@@ -721,7 +971,12 @@
    "sessions": 20,
    "firstPlayed": "2025-06-28",
    "lastPlayed": "2026-05-30",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202311/2816/6a8e9cca68894033f83c2994933badd089bd33591a8f20eb.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202311/2816/6a8e9cca68894033f83c2994933badd089bd33591a8f20eb.png",
+   "trophies": {
+    "earned": 12,
+    "total": 50,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00135_00",
@@ -733,7 +988,12 @@
    "sessions": 15,
    "firstPlayed": "2016-09-10",
    "lastPlayed": "2021-12-29",
-   "cover": "https://image.api.playstation.com/gs2-sec/acpkgo/prod/CUSA00133_00/374/i_21516ca32977519346e7b5cbf52fcadf722998b0d0a781fbeeea687cd3dca173/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/acpkgo/prod/CUSA00133_00/374/i_21516ca32977519346e7b5cbf52fcadf722998b0d0a781fbeeea687cd3dca173/i/icon0.png",
+   "trophies": {
+    "earned": 6,
+    "total": 110,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01210_00",
@@ -745,7 +1005,12 @@
    "sessions": 21,
    "firstPlayed": "2017-02-20",
    "lastPlayed": "2022-02-06",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01210_00/6/i_d0b1607bc07a416ce656360c9dff11b19f32b4831403073b5b45a605378d01b5/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01210_00/6/i_d0b1607bc07a416ce656360c9dff11b19f32b4831403073b5b45a605378d01b5/i/icon0.png",
+   "trophies": {
+    "earned": 21,
+    "total": 49,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA14002_00",
@@ -757,7 +1022,12 @@
    "sessions": 10,
    "firstPlayed": "2026-02-08",
    "lastPlayed": "2026-03-05",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/ba706e54d68d10a0eb6ab7c36cdad9178c58b7fb7bb03d28.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/ba706e54d68d10a0eb6ab7c36cdad9178c58b7fb7bb03d28.png",
+   "trophies": {
+    "earned": 6,
+    "total": 55,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA20397_00",
@@ -769,7 +1039,12 @@
    "sessions": 14,
    "firstPlayed": "2025-12-11",
    "lastPlayed": "2026-06-02",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202502/2422/3b21599d6dea076afc4e1e4a80fcca3fc5c19c57a196e619.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202502/2422/3b21599d6dea076afc4e1e4a80fcca3fc5c19c57a196e619.png",
+   "trophies": {
+    "earned": 14,
+    "total": 76,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA16283_00",
@@ -781,7 +1056,12 @@
    "sessions": 21,
    "firstPlayed": "2020-11-09",
    "lastPlayed": "2022-04-02",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA20027_00/3/i_d55efc67598c1cf55e998d4a9a358cbec0a3bf600c48753f081a0e402be98463/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA20027_00/3/i_d55efc67598c1cf55e998d4a9a358cbec0a3bf600c48753f081a0e402be98463/i/icon0.png",
+   "trophies": {
+    "earned": 10,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA14392_00",
@@ -817,7 +1097,12 @@
    "sessions": 8,
    "firstPlayed": "2015-12-05",
    "lastPlayed": "2020-04-04",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01009_00/4/i_6efe059b013e55b4da55f0c3e9964d063143dfe4ff6c2e1fd55aa2e4ea505a46/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01009_00/4/i_6efe059b013e55b4da55f0c3e9964d063143dfe4ff6c2e1fd55aa2e4ea505a46/i/icon0.png",
+   "trophies": {
+    "earned": 36,
+    "total": 36,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA01474_00",
@@ -829,7 +1114,12 @@
    "sessions": 13,
    "firstPlayed": "2023-08-17",
    "lastPlayed": "2023-12-24",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202101/2921/DwVjpbKOsFOyPdNzmSTSWuxG.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202101/2921/DwVjpbKOsFOyPdNzmSTSWuxG.png",
+   "trophies": {
+    "earned": 30,
+    "total": 47,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01010_00",
@@ -841,7 +1131,12 @@
    "sessions": 7,
    "firstPlayed": "2017-03-06",
    "lastPlayed": "2017-05-03",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01010_00/3/i_f5c0ea7f009f8fbbcde532c31f16b7c40bb49e4619a55c074cdb01bf1e51fdb6/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01010_00/3/i_f5c0ea7f009f8fbbcde532c31f16b7c40bb49e4619a55c074cdb01bf1e51fdb6/i/icon0.png",
+   "trophies": {
+    "earned": 40,
+    "total": 40,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA05603_00",
@@ -853,7 +1148,12 @@
    "sessions": 7,
    "firstPlayed": "2018-02-23",
    "lastPlayed": "2018-02-25",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05603_00/4/i_df9d89015883755aad18dc935828e1ab1d957c4500ec812888ac93b3a197b7b4/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05603_00/4/i_df9d89015883755aad18dc935828e1ab1d957c4500ec812888ac93b3a197b7b4/i/icon0.png",
+   "trophies": {
+    "earned": 31,
+    "total": 31,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA05986_00",
@@ -865,7 +1165,12 @@
    "sessions": 22,
    "firstPlayed": "2020-10-09",
    "lastPlayed": "2021-07-15",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202210/3122/P3Apt9Q4oXtXArsrnl0R6XTh.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202210/3122/P3Apt9Q4oXtXArsrnl0R6XTh.png",
+   "trophies": {
+    "earned": 15,
+    "total": 58,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA33764_00",
@@ -877,7 +1182,12 @@
    "sessions": 6,
    "firstPlayed": "2026-08-08",
    "lastPlayed": "2026-08-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
+   "trophies": {
+    "earned": 6,
+    "total": 13,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA13885_00",
@@ -889,7 +1199,12 @@
    "sessions": 12,
    "firstPlayed": "2020-05-28",
    "lastPlayed": "2021-06-14",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA13885_00/2/i_26f5de10bfd55ff9d0bbbb6f253ef91fa6cb93dad780eb8a2f002aa3f6e9e5a0/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA13885_00/2/i_26f5de10bfd55ff9d0bbbb6f253ef91fa6cb93dad780eb8a2f002aa3f6e9e5a0/i/icon0.png",
+   "trophies": {
+    "earned": 15,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA03603_00",
@@ -901,7 +1216,12 @@
    "sessions": 15,
    "firstPlayed": "2017-05-24",
    "lastPlayed": "2024-10-11",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2918/1UfdyQmXpeSdoFE104sNkLd4.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2918/1UfdyQmXpeSdoFE104sNkLd4.png",
+   "trophies": {
+    "earned": 7,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA08330_00",
@@ -913,7 +1233,12 @@
    "sessions": 15,
    "firstPlayed": "2024-11-23",
    "lastPlayed": "2026-07-31",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202503/2016/b69c06fb108299866057126b0d3a0530bdf96a39d2ce1cb9.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202503/2016/b69c06fb108299866057126b0d3a0530bdf96a39d2ce1cb9.png",
+   "trophies": {
+    "earned": 5,
+    "total": 48,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA10872_00",
@@ -925,7 +1250,12 @@
    "sessions": 5,
    "firstPlayed": "2021-01-09",
    "lastPlayed": "2021-10-12",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10872_00/6/i_bf48f37e880368d90e7d619b254088edb96086a63ce0554a1c227701e6e5f357/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10872_00/6/i_bf48f37e880368d90e7d619b254088edb96086a63ce0554a1c227701e6e5f357/i/icon0.png",
+   "trophies": {
+    "earned": 7,
+    "total": 100,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA02436_00",
@@ -937,7 +1267,12 @@
    "sessions": 7,
    "firstPlayed": "2019-09-23",
    "lastPlayed": "2020-10-31",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02436_00/4/i_e20260be2c066615408b809ec34824067a915453e0b399cd4ae729b3cf08643a/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02436_00/4/i_e20260be2c066615408b809ec34824067a915453e0b399cd4ae729b3cf08643a/i/icon0.png",
+   "trophies": {
+    "earned": 8,
+    "total": 10,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA17217_00",
@@ -949,7 +1284,12 @@
    "sessions": 14,
    "firstPlayed": "2019-09-12",
    "lastPlayed": "2019-09-23",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1917/OS18LBxAVpQ1iPeGWAqSnxem.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1917/OS18LBxAVpQ1iPeGWAqSnxem.png",
+   "trophies": {
+    "earned": 27,
+    "total": 28,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA03308_00",
@@ -961,7 +1301,12 @@
    "sessions": 30,
    "firstPlayed": "2015-08-20",
    "lastPlayed": "2015-08-24",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02624_00/6/i_c215706b64aaf3a61d26f8496a19ff5e4151fa30f504c8510ff66c7561965ec3/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02624_00/6/i_c215706b64aaf3a61d26f8496a19ff5e4151fa30f504c8510ff66c7561965ec3/i/icon0.png",
+   "trophies": {
+    "earned": 13,
+    "total": 99,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01439_00",
@@ -973,7 +1318,12 @@
    "sessions": 9,
    "firstPlayed": "2016-01-20",
    "lastPlayed": "2021-03-02",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202211/1412/5YlA3POEEpaAJsUq3eg6U8d6.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202211/1412/5YlA3POEEpaAJsUq3eg6U8d6.png",
+   "trophies": {
+    "earned": 2,
+    "total": 79,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00342_00",
@@ -985,7 +1335,12 @@
    "sessions": 8,
    "firstPlayed": "2019-03-30",
    "lastPlayed": "2019-09-25",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00342_00/8/i_c1b3e89fddc8293efbeec8cac797f56bf58ed4c38d11ecb04a1aa2b040650a9e/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00342_00/8/i_c1b3e89fddc8293efbeec8cac797f56bf58ed4c38d11ecb04a1aa2b040650a9e/i/icon0.png",
+   "trophies": {
+    "earned": 49,
+    "total": 49,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA05282_00",
@@ -997,7 +1352,12 @@
    "sessions": 21,
    "firstPlayed": "2016-11-11",
    "lastPlayed": "2019-11-03",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05282_00/2/i_0c05cf0c4b4f8af425c718faed3ee943fd87e5d5cf51e7e1fc8f26ffc29a2627/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05282_00/2/i_0c05cf0c4b4f8af425c718faed3ee943fd87e5d5cf51e7e1fc8f26ffc29a2627/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 89,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA10249_00",
@@ -1009,7 +1369,12 @@
    "sessions": 14,
    "firstPlayed": "2020-07-08",
    "lastPlayed": "2022-05-04",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png",
+   "trophies": {
+    "earned": 5,
+    "total": 28,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA02015_00",
@@ -1021,7 +1386,12 @@
    "sessions": 12,
    "firstPlayed": "2026-01-15",
    "lastPlayed": "2026-02-20",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2115/ae183c63bbeb38d05ecce96aa7f693b4a3769a1835020b63.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2115/ae183c63bbeb38d05ecce96aa7f693b4a3769a1835020b63.png",
+   "trophies": {
+    "earned": 10,
+    "total": 55,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA06507_00",
@@ -1033,7 +1403,12 @@
    "sessions": 1,
    "firstPlayed": "2019-07-17",
    "lastPlayed": "2019-07-17",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA06507_00/5/i_8157f20f1b60c72bf25c0b639e40e097f9886c920daf3e6446e9e7b9abb587da/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA06507_00/5/i_8157f20f1b60c72bf25c0b639e40e097f9886c920daf3e6446e9e7b9abb587da/i/icon0.png",
+   "trophies": {
+    "earned": 11,
+    "total": 18,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA05031_00",
@@ -1045,7 +1420,12 @@
    "sessions": 12,
    "firstPlayed": "2023-08-16",
    "lastPlayed": "2025-04-08",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0222/niMUubpU9y1PxNvYmDfb8QFD.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0222/niMUubpU9y1PxNvYmDfb8QFD.png",
+   "trophies": {
+    "earned": 6,
+    "total": 77,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA05684_00",
@@ -1057,7 +1437,12 @@
    "sessions": 11,
    "firstPlayed": "2024-04-21",
    "lastPlayed": "2025-02-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2000/gTUWTlvPHzxFJ2JAxtDyI2eS.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2000/gTUWTlvPHzxFJ2JAxtDyI2eS.png",
+   "trophies": {
+    "earned": 16,
+    "total": 101,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA08004_00",
@@ -1069,7 +1454,12 @@
    "sessions": 7,
    "firstPlayed": "2018-04-02",
    "lastPlayed": "2020-07-19",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08004_00/3/i_7001e8db890d1a56573af505dc412a20d1cce9cf5dc4ba913f2a127810a5343e/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08004_00/3/i_7001e8db890d1a56573af505dc412a20d1cce9cf5dc4ba913f2a127810a5343e/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 15,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01866_00",
@@ -1081,7 +1471,12 @@
    "sessions": 11,
    "firstPlayed": "2019-09-13",
    "lastPlayed": "2020-04-13",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01866_00/5/i_8da3e78c79bdea01cf3a5f1f19080934f035222d562066ecc7d375eed333c096/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01866_00/5/i_8da3e78c79bdea01cf3a5f1f19080934f035222d562066ecc7d375eed333c096/i/icon0_01.png",
+   "trophies": {
+    "earned": 8,
+    "total": 46,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA05716_00",
@@ -1093,7 +1488,12 @@
    "sessions": 17,
    "firstPlayed": "2017-10-05",
    "lastPlayed": "2025-12-09",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05716_00/3/i_8d554b8e828fb0b49e8f79f55ff9f1e7ab01c979d4009b001a3615935be3a127/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05716_00/3/i_8d554b8e828fb0b49e8f79f55ff9f1e7ab01c979d4009b001a3615935be3a127/i/icon0.png",
+   "trophies": {
+    "earned": 10,
+    "total": 125,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01325_00",
@@ -1105,7 +1505,12 @@
    "sessions": 9,
    "firstPlayed": "2021-07-09",
    "lastPlayed": "2021-10-26",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202502/1908/3d17c33239dab88c7e2f24af50140b3f6fa555e6030d5704.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202502/1908/3d17c33239dab88c7e2f24af50140b3f6fa555e6030d5704.png",
+   "trophies": {
+    "earned": 46,
+    "total": 51,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA21402_00",
@@ -1117,7 +1522,12 @@
    "sessions": 14,
    "firstPlayed": "2025-05-27",
    "lastPlayed": "2025-06-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202401/2211/07b7236708c1c0791eb7aaa6601d014f6a2b5b69b0bcda9f.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202401/2211/07b7236708c1c0791eb7aaa6601d014f6a2b5b69b0bcda9f.png",
+   "trophies": {
+    "earned": 18,
+    "total": 32,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA05045_00",
@@ -1129,7 +1539,12 @@
    "sessions": 6,
    "firstPlayed": "2020-02-07",
    "lastPlayed": "2022-09-10",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05045_00/1/i_81abec2fe26de87419de7c64c4413a82d7922b4c85060d7e12d5f3b5d1c4f8f2/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05045_00/1/i_81abec2fe26de87419de7c64c4413a82d7922b4c85060d7e12d5f3b5d1c4f8f2/i/icon0.png",
+   "trophies": {
+    "earned": 6,
+    "total": 10,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA16746_00",
@@ -1153,7 +1568,12 @@
    "sessions": 4,
    "firstPlayed": "2018-08-03",
    "lastPlayed": "2018-08-06",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12443_00/3/i_574d91bf4cf0e6167042e5ffcf3c2b2e3b1f1e770922a54dcdec404095aa7060/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12443_00/3/i_574d91bf4cf0e6167042e5ffcf3c2b2e3b1f1e770922a54dcdec404095aa7060/i/icon0.png",
+   "trophies": {
+    "earned": 4,
+    "total": 103,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA34501_00",
@@ -1165,7 +1585,12 @@
    "sessions": 7,
    "firstPlayed": "2026-07-09",
    "lastPlayed": "2026-09-09",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/2618/ee7d4a20243804f08a3c4a4eb1b4346dbe29dbce0fb59751.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/2618/ee7d4a20243804f08a3c4a4eb1b4346dbe29dbce0fb59751.png",
+   "trophies": {
+    "earned": 50,
+    "total": 71,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA03073_00",
@@ -1177,7 +1602,12 @@
    "sessions": 9,
    "firstPlayed": "2024-01-23",
    "lastPlayed": "2024-02-06",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/1804/51aba58072e55f50d98061563deb9610226e0f18ba149787.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/1804/51aba58072e55f50d98061563deb9610226e0f18ba149787.png",
+   "trophies": {
+    "earned": 10,
+    "total": 17,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA02387_00",
@@ -1189,7 +1619,12 @@
    "sessions": 5,
    "firstPlayed": "2021-07-13",
    "lastPlayed": "2022-05-15",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10812_00/3/i_a4d09cfb51b390c3d5f3ea77531bc847294e59386ed520f6edeb6ef377a3b4d7/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10812_00/3/i_a4d09cfb51b390c3d5f3ea77531bc847294e59386ed520f6edeb6ef377a3b4d7/i/icon0.png",
+   "trophies": {
+    "earned": 9,
+    "total": 36,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00605_00",
@@ -1201,7 +1636,12 @@
    "sessions": 9,
    "firstPlayed": "2016-04-03",
    "lastPlayed": "2016-04-21",
-   "cover": "https://image.api.playstation.com/cdn/UP0001/CUSA00663_00/o1pTr4XjsCODz0vZadpH4zyxgMj7I7ga.png"
+   "cover": "https://image.api.playstation.com/cdn/UP0001/CUSA00663_00/o1pTr4XjsCODz0vZadpH4zyxgMj7I7ga.png",
+   "trophies": {
+    "earned": 8,
+    "total": 58,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00168_00",
@@ -1213,7 +1653,12 @@
    "sessions": 11,
    "firstPlayed": "2017-01-15",
    "lastPlayed": "2017-05-02",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00168_00/5/i_2637b7a92d8b09615c9b919a27546c7a1b52102ceaee6a0354fc6f5f671b4aec/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00168_00/5/i_2637b7a92d8b09615c9b919a27546c7a1b52102ceaee6a0354fc6f5f671b4aec/i/icon0_01.png",
+   "trophies": {
+    "earned": 2,
+    "total": 26,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA05378_00",
@@ -1225,7 +1670,12 @@
    "sessions": 4,
    "firstPlayed": "2016-10-21",
    "lastPlayed": "2016-10-25",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05282_00/2/i_0c05cf0c4b4f8af425c718faed3ee943fd87e5d5cf51e7e1fc8f26ffc29a2627/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05282_00/2/i_0c05cf0c4b4f8af425c718faed3ee943fd87e5d5cf51e7e1fc8f26ffc29a2627/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 89,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00897_00",
@@ -1237,7 +1687,12 @@
    "sessions": 10,
    "firstPlayed": "2016-03-18",
    "lastPlayed": "2016-04-01",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00897_00/2/i_539fefc183c2c78c12eab11fbafc63838a0fc76e8bc9442eed93f16bcf5696ae/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00897_00/2/i_539fefc183c2c78c12eab11fbafc63838a0fc76e8bc9442eed93f16bcf5696ae/i/icon0.png",
+   "trophies": {
+    "earned": 8,
+    "total": 25,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA10326_00",
@@ -1249,7 +1704,12 @@
    "sessions": 5,
    "firstPlayed": "2019-12-20",
    "lastPlayed": "2020-01-11",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/2413/d1b2bc237dc9b35e0d592a994ef8c7c3b9697680f8e410e1.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/2413/d1b2bc237dc9b35e0d592a994ef8c7c3b9697680f8e410e1.png",
+   "trophies": {
+    "earned": 8,
+    "total": 44,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00230_00",
@@ -1261,7 +1721,12 @@
    "sessions": 8,
    "firstPlayed": "2015-04-25",
    "lastPlayed": "2015-05-31",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00230_00/3/i_8094f2429d28b9ed0544c436ab6e9bf3294452acd1f827c9a38bcb18ecc2647d/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00230_00/3/i_8094f2429d28b9ed0544c436ab6e9bf3294452acd1f827c9a38bcb18ecc2647d/i/icon0.png",
+   "trophies": {
+    "earned": 3,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA03685_00",
@@ -1273,7 +1738,12 @@
    "sessions": 7,
    "firstPlayed": "2024-04-21",
    "lastPlayed": "2025-11-24",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202008/2818/4xjRkRmOm9wklCdSWXVMaXBi.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202008/2818/4xjRkRmOm9wklCdSWXVMaXBi.png",
+   "trophies": {
+    "earned": 5,
+    "total": 45,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA02009_00",
@@ -1285,7 +1755,12 @@
    "sessions": 7,
    "firstPlayed": "2020-05-21",
    "lastPlayed": "2022-09-10",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02009_00/2/i_01d97173875497eee84a10db23f35b6daefb13f4a999b3fa477051ecb725d116/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02009_00/2/i_01d97173875497eee84a10db23f35b6daefb13f4a999b3fa477051ecb725d116/i/icon0.png",
+   "trophies": {
+    "earned": 11,
+    "total": 28,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04117_00",
@@ -1297,7 +1772,12 @@
    "sessions": 5,
    "firstPlayed": "2018-09-12",
    "lastPlayed": "2019-05-04",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA04117_00/2/i_1c13a99dff0c58ef48c3e65faae22bb1c828d17fab5870a627d510e04b78ac9a/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA04117_00/2/i_1c13a99dff0c58ef48c3e65faae22bb1c828d17fab5870a627d510e04b78ac9a/i/icon0.png",
+   "trophies": {
+    "earned": 17,
+    "total": 17,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA17218_00",
@@ -1309,7 +1789,12 @@
    "sessions": 4,
    "firstPlayed": "2019-08-23",
    "lastPlayed": "2019-08-24",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1917/OS18LBxAVpQ1iPeGWAqSnxem.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1917/OS18LBxAVpQ1iPeGWAqSnxem.png",
+   "trophies": {
+    "earned": 27,
+    "total": 28,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA02387_00",
@@ -1321,7 +1806,12 @@
    "sessions": 8,
    "firstPlayed": "2017-12-17",
    "lastPlayed": "2018-09-20",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02387_00/4/i_4f0735372ec946403df8905f3f520cfcec79b433a7fe90758500a025c3401d34/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02387_00/4/i_4f0735372ec946403df8905f3f520cfcec79b433a7fe90758500a025c3401d34/i/icon0_01.png",
+   "trophies": {
+    "earned": 5,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04036_00",
@@ -1333,7 +1823,12 @@
    "sessions": 1,
    "firstPlayed": "2017-02-19",
    "lastPlayed": "2017-02-19",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA04036_00/4/i_0fe518ebfc22e076e222c29b0fa76c2aef4cbf09f653988ebd0754a6340c1c84/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA04036_00/4/i_0fe518ebfc22e076e222c29b0fa76c2aef4cbf09f653988ebd0754a6340c1c84/i/icon0.png",
+   "trophies": {
+    "earned": 23,
+    "total": 23,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA12085_00",
@@ -1357,7 +1852,12 @@
    "sessions": 7,
    "firstPlayed": "2020-04-14",
    "lastPlayed": "2021-06-20",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01004_00/3/i_e19df39dce5f6e1b44cf87bb4eb475f2670535709feebcc19f552bd5233514b9/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01004_00/3/i_e19df39dce5f6e1b44cf87bb4eb475f2670535709feebcc19f552bd5233514b9/i/icon0.png",
+   "trophies": {
+    "earned": 26,
+    "total": 60,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04961_00",
@@ -1369,7 +1869,12 @@
    "sessions": 6,
    "firstPlayed": "2016-05-06",
    "lastPlayed": "2016-05-09",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2921/a213c057a3adc5c341911157e461954a97500126e4e2acef.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2921/a213c057a3adc5c341911157e461954a97500126e4e2acef.png",
+   "trophies": {
+    "earned": 44,
+    "total": 92,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA04444_00",
@@ -1381,7 +1886,12 @@
    "sessions": 4,
    "firstPlayed": "2025-01-31",
    "lastPlayed": "2025-01-31",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/2116/59jHCjMBRhuRhPUKUUy2gkNd.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/2116/59jHCjMBRhuRhPUKUUy2gkNd.png",
+   "trophies": {
+    "earned": 1,
+    "total": 72,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA02343_00",
@@ -1405,7 +1915,12 @@
    "sessions": 7,
    "firstPlayed": "2016-05-12",
    "lastPlayed": "2019-08-19",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00031_00/1/i_de7f2d4471d56be1911987fdae0711e95cd6f21b0ae43c57c70d0bf785ae4acb/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00031_00/1/i_de7f2d4471d56be1911987fdae0711e95cd6f21b0ae43c57c70d0bf785ae4acb/i/icon0.png",
+   "trophies": {
+    "earned": 3,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA09175_00",
@@ -1417,7 +1932,12 @@
    "sessions": 4,
    "firstPlayed": "2021-03-29",
    "lastPlayed": "2021-05-13",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1204/wYL4v2r8uMQFvVTJlfuj8ICk.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/1204/wYL4v2r8uMQFvVTJlfuj8ICk.png",
+   "trophies": {
+    "earned": 4,
+    "total": 61,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA11882_00",
@@ -1441,7 +1961,12 @@
    "sessions": 3,
    "firstPlayed": "2026-05-17",
    "lastPlayed": "2026-05-25",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202305/1610/a63668c38fbe4c31f62d77a2863300dcf26c3e50576d75e2.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202305/1610/a63668c38fbe4c31f62d77a2863300dcf26c3e50576d75e2.png",
+   "trophies": {
+    "earned": 15,
+    "total": 56,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA04609_00",
@@ -1453,7 +1978,12 @@
    "sessions": 7,
    "firstPlayed": "2025-07-11",
    "lastPlayed": "2025-07-14",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202107/0902/fS3Hhaq06TqLrbjMVplA8MaY.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202107/0902/fS3Hhaq06TqLrbjMVplA8MaY.png",
+   "trophies": {
+    "earned": 0,
+    "total": 42,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01968_00",
@@ -1477,7 +2007,12 @@
    "sessions": 4,
    "firstPlayed": "2024-01-15",
    "lastPlayed": "2024-01-19",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/3012/c5lbBOxHj17DQXhDFhINGLcL.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/3012/c5lbBOxHj17DQXhDFhINGLcL.png",
+   "trophies": {
+    "earned": 24,
+    "total": 24,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA00016_00",
@@ -1489,7 +2024,12 @@
    "sessions": 6,
    "firstPlayed": "2015-03-22",
    "lastPlayed": "2016-01-23",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00016_00/3/i_36e2b7c37c766c3c8028a3740918af1bec0cd873f2583ffc0264aeae38683cca/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00016_00/3/i_36e2b7c37c766c3c8028a3740918af1bec0cd873f2583ffc0264aeae38683cca/i/icon0.png",
+   "trophies": {
+    "earned": 1,
+    "total": 50,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA08670_00",
@@ -1501,7 +2041,12 @@
    "sessions": 6,
    "firstPlayed": "2021-05-22",
    "lastPlayed": "2021-09-05",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08670_00/2/i_bd313fa35615ab7418c1f552f24bc3af1a93992965e4729df39262ab37ed8880/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08670_00/2/i_bd313fa35615ab7418c1f552f24bc3af1a93992965e4729df39262ab37ed8880/i/icon0_01.png",
+   "trophies": {
+    "earned": 4,
+    "total": 22,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA06407_00",
@@ -1525,7 +2070,12 @@
    "sessions": 2,
    "firstPlayed": "2019-12-25",
    "lastPlayed": "2019-12-25",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09549_00/2/i_d89cd8a2f783bab9ed8251513cdfbf87682542ccd24a5a57d2c4af3ed9b55ff8/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09549_00/2/i_d89cd8a2f783bab9ed8251513cdfbf87682542ccd24a5a57d2c4af3ed9b55ff8/i/icon0.png",
+   "trophies": {
+    "earned": 25,
+    "total": 25,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA01154_00",
@@ -1537,7 +2087,12 @@
    "sessions": 2,
    "firstPlayed": "2018-08-22",
    "lastPlayed": "2018-08-27",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0205/dyvo9eGUf7WTZx49eTpQyDuL.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0205/dyvo9eGUf7WTZx49eTpQyDuL.png",
+   "trophies": {
+    "earned": 3,
+    "total": 43,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA08237_00",
@@ -1549,7 +2104,12 @@
    "sessions": 5,
    "firstPlayed": "2024-04-12",
    "lastPlayed": "2024-04-14",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202303/3011/8d91b74b4bcadc659b2c0dc4ccfcef035447be4d7668ee04.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202303/3011/8d91b74b4bcadc659b2c0dc4ccfcef035447be4d7668ee04.png",
+   "trophies": {
+    "earned": 4,
+    "total": 48,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA09264_00",
@@ -1561,7 +2121,12 @@
    "sessions": 4,
    "firstPlayed": "2021-01-09",
    "lastPlayed": "2021-01-29",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09264_00/4/i_a3cd3cb44398c38b29e1b0dd57589638e63f188c542fb59567c9d42d1bc89269/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09264_00/4/i_a3cd3cb44398c38b29e1b0dd57589638e63f188c542fb59567c9d42d1bc89269/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 61,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01836_00",
@@ -1573,7 +2138,12 @@
    "sessions": 2,
    "firstPlayed": "2017-01-12",
    "lastPlayed": "2017-01-15",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01836_00/4/i_2e31af57d066567e9f399333853c57d865707613d5ef903c9bc93ec7086d7fce/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01836_00/4/i_2e31af57d066567e9f399333853c57d865707613d5ef903c9bc93ec7086d7fce/i/icon0.png",
+   "trophies": {
+    "earned": 1,
+    "total": 82,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA03711_00",
@@ -1585,7 +2155,12 @@
    "sessions": 4,
    "firstPlayed": "2023-10-11",
    "lastPlayed": "2026-05-10",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202104/0517/9AcM3vy5t77zPiJyKHwRfnNT.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202104/0517/9AcM3vy5t77zPiJyKHwRfnNT.png",
+   "trophies": {
+    "earned": 2,
+    "total": 50,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA08779_00",
@@ -1597,7 +2172,12 @@
    "sessions": 6,
    "firstPlayed": "2019-05-04",
    "lastPlayed": "2021-04-11",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2920/mUjmWOusNIcAENORucmAnj1k.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2920/mUjmWOusNIcAENORucmAnj1k.png",
+   "trophies": {
+    "earned": 2,
+    "total": 31,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA06016_00",
@@ -1609,7 +2189,12 @@
    "sessions": 2,
    "firstPlayed": "2024-09-26",
    "lastPlayed": "2024-10-06",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/0517/6d1f643eec5087e543287e54a123277ec3bcda956d5d5158.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/0517/6d1f643eec5087e543287e54a123277ec3bcda956d5d5158.png",
+   "trophies": {
+    "earned": 5,
+    "total": 39,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00633_00",
@@ -1633,7 +2218,12 @@
    "sessions": 3,
    "firstPlayed": "2017-02-24",
    "lastPlayed": "2019-05-20",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01427_00/13/i_69cf426c6987a08a06bf6658798f9220074942b025a70d3bd0457cc6a2b912c1/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01427_00/13/i_69cf426c6987a08a06bf6658798f9220074942b025a70d3bd0457cc6a2b912c1/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 49,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04027_00",
@@ -1657,7 +2247,12 @@
    "sessions": 2,
    "firstPlayed": "2017-08-09",
    "lastPlayed": "2017-08-13",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02747_00/4/i_b221b78b181d6f70171c4ecdf08a09afa4c1bf37eae5f19626e608ba386de8b6/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02747_00/4/i_b221b78b181d6f70171c4ecdf08a09afa4c1bf37eae5f19626e608ba386de8b6/i/icon0.png",
+   "trophies": {
+    "earned": 3,
+    "total": 67,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA02532_00",
@@ -1669,7 +2264,12 @@
    "sessions": 2,
    "firstPlayed": "2018-03-08",
    "lastPlayed": "2022-06-22",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02532_00/2/i_8f9d4df827c01582b93dfe8bed44e754b000e42c408b39cbf05dd70ccef74b45/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02532_00/2/i_8f9d4df827c01582b93dfe8bed44e754b000e42c408b39cbf05dd70ccef74b45/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 26,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA10907_00",
@@ -1681,7 +2281,12 @@
    "sessions": 4,
    "firstPlayed": "2020-04-13",
    "lastPlayed": "2020-04-18",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10907_00/2/i_b6c4690980e3f199d55058670237b7d00fe25b4664c9b1b141a4eec2d831c785/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10907_00/2/i_b6c4690980e3f199d55058670237b7d00fe25b4664c9b1b141a4eec2d831c785/i/icon0.png",
+   "trophies": {
+    "earned": 12,
+    "total": 12,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA02369_00",
@@ -1693,7 +2298,12 @@
    "sessions": 2,
    "firstPlayed": "2019-03-01",
    "lastPlayed": "2020-01-11",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02369_00/3/i_2c97ed4eeabb3e426f3fafa12dc38b9fa9e335baacec73ab394139b9e79bf5ef/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02369_00/3/i_2c97ed4eeabb3e426f3fafa12dc38b9fa9e335baacec73ab394139b9e79bf5ef/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 69,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00004_00",
@@ -1705,7 +2315,12 @@
    "sessions": 4,
    "firstPlayed": "2016-04-30",
    "lastPlayed": "2018-10-11",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/0700/enLAr4eVGBxWjrHh5nLTUSnn.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/0700/enLAr4eVGBxWjrHh5nLTUSnn.png",
+   "trophies": {
+    "earned": 1,
+    "total": 48,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04051_00",
@@ -1717,7 +2332,12 @@
    "sessions": 4,
    "firstPlayed": "2016-03-05",
    "lastPlayed": "2016-03-06",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2000/gTUWTlvPHzxFJ2JAxtDyI2eS.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2000/gTUWTlvPHzxFJ2JAxtDyI2eS.png",
+   "trophies": {
+    "earned": 16,
+    "total": 101,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA02055_00",
@@ -1753,7 +2373,12 @@
    "sessions": 3,
    "firstPlayed": "2025-02-24",
    "lastPlayed": "2025-02-25",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202211/2222/l8QTN7ThQK3lRBHhB3nX1s7h.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202211/2222/l8QTN7ThQK3lRBHhB3nX1s7h.png",
+   "trophies": {
+    "earned": 1,
+    "total": 54,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00003_00",
@@ -1765,7 +2390,12 @@
    "sessions": 5,
    "firstPlayed": "2015-11-04",
    "lastPlayed": "2020-11-08",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00003_00/20/i_54ce0ebbc21f325364819a5e56ef19264803b3935e8442c4bccbda99abef8605/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00003_00/20/i_54ce0ebbc21f325364819a5e56ef19264803b3935e8442c4bccbda99abef8605/i/icon0.png",
+   "trophies": {
+    "earned": 5,
+    "total": 128,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA02384_00",
@@ -1777,7 +2407,12 @@
    "sessions": 2,
    "firstPlayed": "2025-06-21",
    "lastPlayed": "2025-06-21",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA16745_00/1/i_7b2f4e6eb77ae1f364b1c3be21ea7326c6baaa7c12cd5351fddaf756a0029a47/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA16745_00/1/i_7b2f4e6eb77ae1f364b1c3be21ea7326c6baaa7c12cd5351fddaf756a0029a47/i/icon0_01.png",
+   "trophies": {
+    "earned": 1,
+    "total": 63,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA12414_00",
@@ -1789,7 +2424,12 @@
    "sessions": 2,
    "firstPlayed": "2019-01-06",
    "lastPlayed": "2019-01-07",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12414_00/2/i_b370c5dff005744ec640dab6d344ea80be9284f376fd6f69da658d2bb85fa82a/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12414_00/2/i_b370c5dff005744ec640dab6d344ea80be9284f376fd6f69da658d2bb85fa82a/i/icon0.png",
+   "trophies": {
+    "earned": 8,
+    "total": 125,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA02101_00",
@@ -1801,7 +2441,12 @@
    "sessions": 4,
    "firstPlayed": "2025-11-08",
    "lastPlayed": "2025-11-10",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0300/E2vZwVaDJbhLZpJo7Q10IyYo.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0300/E2vZwVaDJbhLZpJo7Q10IyYo.png",
+   "trophies": {
+    "earned": 4,
+    "total": 25,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA08595_00",
@@ -1813,7 +2458,12 @@
    "sessions": 3,
    "firstPlayed": "2025-07-03",
    "lastPlayed": "2025-07-06",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202405/3123/1abfc0f37be11993bd5e67fcb1a9e2c0d656142ace2f232e.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202405/3123/1abfc0f37be11993bd5e67fcb1a9e2c0d656142ace2f232e.png",
+   "trophies": {
+    "earned": 0,
+    "total": 46,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00634_00",
@@ -1849,7 +2499,12 @@
    "sessions": 3,
    "firstPlayed": "2024-06-03",
    "lastPlayed": "2024-10-11",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0301/KSalsBYWb0IuDrdD1SbptAd6.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0301/KSalsBYWb0IuDrdD1SbptAd6.png",
+   "trophies": {
+    "earned": 5,
+    "total": 37,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA06092_00",
@@ -1861,7 +2516,12 @@
    "sessions": 3,
    "firstPlayed": "2025-11-08",
    "lastPlayed": "2025-11-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202310/2017/8a82705c49371fd0d03d4323d3e2b55b27581b407a551cb8.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202310/2017/8a82705c49371fd0d03d4323d3e2b55b27581b407a551cb8.png",
+   "trophies": {
+    "earned": 2,
+    "total": 27,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01870_00",
@@ -1897,7 +2557,12 @@
    "sessions": 4,
    "firstPlayed": "2023-02-05",
    "lastPlayed": "2023-09-22",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202102/2307/kQzDCY5RCrSXCeeFjPGUzkGI.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202102/2307/kQzDCY5RCrSXCeeFjPGUzkGI.png",
+   "trophies": {
+    "earned": 2,
+    "total": 42,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00465_00",
@@ -1909,7 +2574,12 @@
    "sessions": 5,
    "firstPlayed": "2015-04-19",
    "lastPlayed": "2021-12-22",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00465_00/1/i_7b04291d62115939a2ed3361c0b7fb8c6ab5fdda8ce692f7fbe87c01bee1c880/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00465_00/1/i_7b04291d62115939a2ed3361c0b7fb8c6ab5fdda8ce692f7fbe87c01bee1c880/i/icon0.png",
+   "trophies": {
+    "earned": 3,
+    "total": 14,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA06397_00",
@@ -1921,7 +2591,12 @@
    "sessions": 2,
    "firstPlayed": "2017-03-05",
    "lastPlayed": "2017-03-05",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09386_00/2/i_3ba59fa0f758363b236373c546b6c549ca1d5a4a3dc3c888319993ba958ed86d/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09386_00/2/i_3ba59fa0f758363b236373c546b6c549ca1d5a4a3dc3c888319993ba958ed86d/i/icon0.png",
+   "trophies": {
+    "earned": 51,
+    "total": 51,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA00806_00",
@@ -1933,7 +2608,12 @@
    "sessions": 4,
    "firstPlayed": "2015-08-23",
    "lastPlayed": "2015-08-30",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00806_00/4/i_ea00b7ffe085340616ab8bd23b6771ca7868962f7592a857676c08ab946062c0/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00806_00/4/i_ea00b7ffe085340616ab8bd23b6771ca7868962f7592a857676c08ab946062c0/i/icon0.png",
+   "trophies": {
+    "earned": 1,
+    "total": 12,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01488_00",
@@ -1945,7 +2625,12 @@
    "sessions": 1,
    "firstPlayed": "2023-05-28",
    "lastPlayed": "2023-05-28",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202007/0200/ohDfr1TcylLqbwva38ONyLHO.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202007/0200/ohDfr1TcylLqbwva38ONyLHO.png",
+   "trophies": {
+    "earned": 1,
+    "total": 50,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01761_00",
@@ -1957,7 +2642,12 @@
    "sessions": 1,
    "firstPlayed": "2024-02-13",
    "lastPlayed": "2024-02-13",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01761_00/5/i_85387478d5b1585a262d86e95450935846ab7aa4a455052ae13054a13410a324/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01761_00/5/i_85387478d5b1585a262d86e95450935846ab7aa4a455052ae13054a13410a324/i/icon0.png",
+   "trophies": {
+    "earned": 1,
+    "total": 111,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA11454_00",
@@ -1969,7 +2659,12 @@
    "sessions": 3,
    "firstPlayed": "2020-06-27",
    "lastPlayed": "2022-04-22",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202102/0111/feFiOE59b8t3dKE25z85OJLV.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202102/0111/feFiOE59b8t3dKE25z85OJLV.png",
+   "trophies": {
+    "earned": 2,
+    "total": 68,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA07708_00",
@@ -2005,7 +2700,12 @@
    "sessions": 3,
    "firstPlayed": "2018-09-06",
    "lastPlayed": "2018-09-23",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/0808/a0b12dbede049aedfb7650056f4eda03b924ac524482388b.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/0808/a0b12dbede049aedfb7650056f4eda03b924ac524482388b.png",
+   "trophies": {
+    "earned": 1,
+    "total": 58,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA20073_00",
@@ -2017,7 +2717,12 @@
    "sessions": 4,
    "firstPlayed": "2020-09-17",
    "lastPlayed": "2020-10-10",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202112/0618/cFLNC3xYfEdDl7D1Wvu4MVb1.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202112/0618/cFLNC3xYfEdDl7D1Wvu4MVb1.png",
+   "trophies": {
+    "earned": 3,
+    "total": 48,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA10408_00",
@@ -2029,7 +2734,12 @@
    "sessions": 1,
    "firstPlayed": "2023-01-21",
    "lastPlayed": "2023-01-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202211/1412/5YlA3POEEpaAJsUq3eg6U8d6.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202211/1412/5YlA3POEEpaAJsUq3eg6U8d6.png",
+   "trophies": {
+    "earned": 2,
+    "total": 79,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA09104_00",
@@ -2041,7 +2751,12 @@
    "sessions": 1,
    "firstPlayed": "2017-09-25",
    "lastPlayed": "2017-09-25",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/0808/a0b12dbede049aedfb7650056f4eda03b924ac524482388b.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/0808/a0b12dbede049aedfb7650056f4eda03b924ac524482388b.png",
+   "trophies": {
+    "earned": 1,
+    "total": 58,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA26492_00",
@@ -2053,7 +2768,12 @@
    "sessions": 1,
    "firstPlayed": "2025-05-03",
    "lastPlayed": "2025-05-03",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/2705/d952ca52ade1a5fee87e4508061b62d915725e476bde671c.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/2705/d952ca52ade1a5fee87e4508061b62d915725e476bde671c.png",
+   "trophies": {
+    "earned": 0,
+    "total": 21,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA06517_00",
@@ -2077,7 +2797,12 @@
    "sessions": 4,
    "firstPlayed": "2015-05-10",
    "lastPlayed": "2015-08-09",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3004/ZKYzTfaw4UrsLLt6VjYGwh5r.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3004/ZKYzTfaw4UrsLLt6VjYGwh5r.png",
+   "trophies": {
+    "earned": 2,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA09415_00",
@@ -2089,7 +2814,12 @@
    "sessions": 2,
    "firstPlayed": "2023-11-26",
    "lastPlayed": "2023-12-02",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09415_00/1/i_652ed6bafdc8ce49695cfb86a88faedfa2f31cfc4b34f4815b8b2d6ecdd330d9/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09415_00/1/i_652ed6bafdc8ce49695cfb86a88faedfa2f31cfc4b34f4815b8b2d6ecdd330d9/i/icon0.png",
+   "trophies": {
+    "earned": 7,
+    "total": 30,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00411_00",
@@ -2113,7 +2843,12 @@
    "sessions": 4,
    "firstPlayed": "2019-04-07",
    "lastPlayed": "2019-12-01",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA03239_00/2/i_d94ef53f31525d517607fb84a79400e23ac748965952c0e3b6fb6ef394e018ca/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA03239_00/2/i_d94ef53f31525d517607fb84a79400e23ac748965952c0e3b6fb6ef394e018ca/i/icon0.png",
+   "trophies": {
+    "earned": 1,
+    "total": 20,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01140_00",
@@ -2125,7 +2860,12 @@
    "sessions": 1,
    "firstPlayed": "2016-01-21",
    "lastPlayed": "2016-01-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0205/dyvo9eGUf7WTZx49eTpQyDuL.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0205/dyvo9eGUf7WTZx49eTpQyDuL.png",
+   "trophies": {
+    "earned": 3,
+    "total": 43,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01463_00",
@@ -2137,7 +2877,12 @@
    "sessions": 1,
    "firstPlayed": "2024-08-05",
    "lastPlayed": "2024-08-05",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08025_00/2/i_282052c0284d44dfc8a1c011fde114ea1a280f9f387f1be3bd204a65b5be322e/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08025_00/2/i_282052c0284d44dfc8a1c011fde114ea1a280f9f387f1be3bd204a65b5be322e/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 81,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA21669_00",
@@ -2149,7 +2894,12 @@
    "sessions": 1,
    "firstPlayed": "2024-12-17",
    "lastPlayed": "2024-12-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/1008/aeb816655b966f6e96a0fc4929afba02da754badf872f10f.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/1008/aeb816655b966f6e96a0fc4929afba02da754badf872f10f.png",
+   "trophies": {
+    "earned": 2,
+    "total": 41,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA07023_00",
@@ -2161,7 +2911,12 @@
    "sessions": 1,
    "firstPlayed": "2024-08-17",
    "lastPlayed": "2024-08-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/1621/OEZOTYnG11FGrewAwYdJ3EQF.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202206/1621/OEZOTYnG11FGrewAwYdJ3EQF.png",
+   "trophies": {
+    "earned": 2,
+    "total": 41,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA06465_00",
@@ -2173,7 +2928,12 @@
    "sessions": 1,
    "firstPlayed": "2024-08-28",
    "lastPlayed": "2024-08-28",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202512/1518/ea3296f59652aea59db01dd6668c93f1dd23102f84d18807.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202512/1518/ea3296f59652aea59db01dd6668c93f1dd23102f84d18807.png",
+   "trophies": {
+    "earned": 5,
+    "total": 57,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA07974_00",
@@ -2185,7 +2945,12 @@
    "sessions": 1,
    "firstPlayed": "2025-07-24",
    "lastPlayed": "2025-07-24",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07974_00/2/i_6d88053a890f153b51fc3c805b4ecb0b5332f19dd6b1aa5c062f0f182870eae6/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07974_00/2/i_6d88053a890f153b51fc3c805b4ecb0b5332f19dd6b1aa5c062f0f182870eae6/i/icon0.png",
+   "trophies": {
+    "earned": 0,
+    "total": 9,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00659_00",
@@ -2197,7 +2962,12 @@
    "sessions": 3,
    "firstPlayed": "2017-03-06",
    "lastPlayed": "2017-07-21",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00565_00/5/i_284db2ce4368d16e92a2caa88de99c1aa8a77ab8e8ef9a0583e9fac699a2f41a/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00565_00/5/i_284db2ce4368d16e92a2caa88de99c1aa8a77ab8e8ef9a0583e9fac699a2f41a/i/icon0.png",
+   "trophies": {
+    "earned": 14,
+    "total": 63,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01715_00",
@@ -2209,7 +2979,12 @@
    "sessions": 2,
    "firstPlayed": "2018-09-24",
    "lastPlayed": "2019-11-29",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/0711/p8JCvA8692BICXAPoyylh7ed.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202011/0711/p8JCvA8692BICXAPoyylh7ed.png",
+   "trophies": {
+    "earned": 1,
+    "total": 35,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA19534_00",
@@ -2221,7 +2996,12 @@
    "sessions": 1,
    "firstPlayed": "2025-11-27",
    "lastPlayed": "2025-11-27",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202507/2217/7fb7a918a4b9dd1c98de342ec3adfe1421d06627f60397b9.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202507/2217/7fb7a918a4b9dd1c98de342ec3adfe1421d06627f60397b9.png",
+   "trophies": {
+    "earned": 0,
+    "total": 54,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA09519_00",
@@ -2233,7 +3013,12 @@
    "sessions": 1,
    "firstPlayed": "2026-05-10",
    "lastPlayed": "2026-05-10",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202504/0311/b3f7ebea4f31c2b33cb8119f893f07f5ad9c605137b06b8d.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202504/0311/b3f7ebea4f31c2b33cb8119f893f07f5ad9c605137b06b8d.png",
+   "trophies": {
+    "earned": 2,
+    "total": 40,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01911_00",
@@ -2245,7 +3030,12 @@
    "sessions": 3,
    "firstPlayed": "2024-05-07",
    "lastPlayed": "2024-06-08",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07187_00/5/i_3a90c0e006f2193b1adc12b9424372f4044439cadd6d91fda06c0a86c9c6acf2/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07187_00/5/i_3a90c0e006f2193b1adc12b9424372f4044439cadd6d91fda06c0a86c9c6acf2/i/icon0.png",
+   "trophies": {
+    "earned": 4,
+    "total": 63,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA10637_00",
@@ -2257,7 +3047,12 @@
    "sessions": 1,
    "firstPlayed": "2020-07-10",
    "lastPlayed": "2020-07-10",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10637_00/2/i_0a0c8e44fbfa3076b2c3483c33571e835312137d8f6466b7ea94c1438fd445e7/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10637_00/2/i_0a0c8e44fbfa3076b2c3483c33571e835312137d8f6466b7ea94c1438fd445e7/i/icon0.png",
+   "trophies": {
+    "earned": 14,
+    "total": 14,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA00054_00",
@@ -2269,7 +3064,12 @@
    "sessions": 1,
    "firstPlayed": "2018-06-04",
    "lastPlayed": "2018-06-04",
-   "cover": "https://image.api.playstation.com/vulcan/img/cfn/11307IbgHh2pcO27P3C8ugtI74-pMOtv-2aLB1TU3h2VvTS8ng6oJmD6s1bpocUIcDJBjsMxI7ey9SNaCGvB09hAWxw0czIh.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/cfn/11307IbgHh2pcO27P3C8ugtI74-pMOtv-2aLB1TU3h2VvTS8ng6oJmD6s1bpocUIcDJBjsMxI7ey9SNaCGvB09hAWxw0czIh.png",
+   "trophies": {
+    "earned": 1,
+    "total": 50,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01603_00",
@@ -2281,7 +3081,12 @@
    "sessions": 3,
    "firstPlayed": "2025-04-18",
    "lastPlayed": "2025-04-26",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202503/2716/ce2e7f5896365b4e35a192b1f7592b590fee98827644ddb4.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202503/2716/ce2e7f5896365b4e35a192b1f7592b590fee98827644ddb4.png",
+   "trophies": {
+    "earned": 1,
+    "total": 46,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA07231_00",
@@ -2293,7 +3098,12 @@
    "sessions": 1,
    "firstPlayed": "2025-07-07",
    "lastPlayed": "2025-07-07",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
+   "trophies": {
+    "earned": 1,
+    "total": 62,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA07188_00",
@@ -2305,7 +3115,12 @@
    "sessions": 1,
    "firstPlayed": "2019-01-16",
    "lastPlayed": "2019-01-16",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07188_00/4/i_1fae0651fc66e7b64cdea20046081cb7d7253044423a93f3aed0eb1f4fddfd19/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07188_00/4/i_1fae0651fc66e7b64cdea20046081cb7d7253044423a93f3aed0eb1f4fddfd19/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 61,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA24157_00",
@@ -2329,7 +3144,12 @@
    "sessions": 1,
    "firstPlayed": "2025-10-09",
    "lastPlayed": "2025-10-09",
-   "cover": "https://image.api.playstation.com/vulcan/img/cfn/11307EpeGgrOHYSTbO0fUFAX-o-1DXYphr85aibwepdkiufo-Zhx0fXIPx0OvNl1AeoF9alAjB2_7BlyVZFUnwxJI_8dO4M6.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/cfn/11307EpeGgrOHYSTbO0fUFAX-o-1DXYphr85aibwepdkiufo-Zhx0fXIPx0OvNl1AeoF9alAjB2_7BlyVZFUnwxJI_8dO4M6.png",
+   "trophies": {
+    "earned": 0,
+    "total": 64,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01934_00",
@@ -2365,7 +3185,12 @@
    "sessions": 2,
    "firstPlayed": "2019-12-29",
    "lastPlayed": "2024-01-08",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA04530_00/7/i_27d717076b039d472179aa5e58824e5821c1ae5f0271bb269f1d1141072a3c6a/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA04530_00/7/i_27d717076b039d472179aa5e58824e5821c1ae5f0271bb269f1d1141072a3c6a/i/icon0.png",
+   "trophies": {
+    "earned": 1,
+    "total": 81,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA20512_00",
@@ -2377,7 +3202,12 @@
    "sessions": 1,
    "firstPlayed": "2021-12-16",
    "lastPlayed": "2021-12-17",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA20512_00/2/i_7d7921c2c48eddd7bd078c581e9e257163a0d26baf1b35314e0fe42ad2fd3802/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA20512_00/2/i_7d7921c2c48eddd7bd078c581e9e257163a0d26baf1b35314e0fe42ad2fd3802/i/icon0.png",
+   "trophies": {
+    "earned": 14,
+    "total": 14,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA02228_00",
@@ -2389,7 +3219,12 @@
    "sessions": 1,
    "firstPlayed": "2025-04-25",
    "lastPlayed": "2025-04-25",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1310/GFLsfwBt7faG9b9WsIwDRrad.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/1310/GFLsfwBt7faG9b9WsIwDRrad.png",
+   "trophies": {
+    "earned": 1,
+    "total": 19,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00040_00",
@@ -2413,7 +3248,12 @@
    "sessions": 1,
    "firstPlayed": "2025-03-02",
    "lastPlayed": "2025-03-02",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202109/2814/oFU2rGbmW14Pu1cOKGTbU0ye.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202109/2814/oFU2rGbmW14Pu1cOKGTbU0ye.png",
+   "trophies": {
+    "earned": 6,
+    "total": 43,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01372_00",
@@ -2425,7 +3265,12 @@
    "sessions": 2,
    "firstPlayed": "2024-02-14",
    "lastPlayed": "2024-03-04",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202604/2218/fc8820f3fac783a3d1cf0d08ef96431b1f5a51bbfc282db3.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202604/2218/fc8820f3fac783a3d1cf0d08ef96431b1f5a51bbfc282db3.png",
+   "trophies": {
+    "earned": 1,
+    "total": 35,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA07202_00",
@@ -2437,7 +3282,12 @@
    "sessions": 2,
    "firstPlayed": "2025-06-27",
    "lastPlayed": "2025-06-28",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07202_00/4/i_27e8211b463ec94c70e8e8c04cc652fe8d58389ad41f4aea0d0d0e86f9d4cd7e/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07202_00/4/i_27e8211b463ec94c70e8e8c04cc652fe8d58389ad41f4aea0d0d0e86f9d4cd7e/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 50,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04584_00",
@@ -2461,7 +3311,12 @@
    "sessions": 1,
    "firstPlayed": "2017-03-13",
    "lastPlayed": "2017-03-13",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07970_00/1/i_cc5c7963f80a7dde4096166b7131526e4c9944cacca44b48393bf22a464e2e5c/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07970_00/1/i_cc5c7963f80a7dde4096166b7131526e4c9944cacca44b48393bf22a464e2e5c/i/icon0.png",
+   "trophies": {
+    "earned": 3,
+    "total": 12,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA12554_00",
@@ -2473,7 +3328,12 @@
    "sessions": 1,
    "firstPlayed": "2020-04-30",
    "lastPlayed": "2020-04-30",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12554_00/3/i_8d718d423a61d0650dde68a4bb7cf32652532dd55e142478e902026e52103759/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA12554_00/3/i_8d718d423a61d0650dde68a4bb7cf32652532dd55e142478e902026e52103759/i/icon0.png",
+   "trophies": {
+    "earned": 14,
+    "total": 14,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA05083_00",
@@ -2485,7 +3345,12 @@
    "sessions": 1,
    "firstPlayed": "2023-08-22",
    "lastPlayed": "2023-08-23",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/1000/EkWOuhbsGniVo4Ok1bpG8Wdw.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/1000/EkWOuhbsGniVo4Ok1bpG8Wdw.png",
+   "trophies": {
+    "earned": 3,
+    "total": 13,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA26116_00",
@@ -2497,7 +3362,12 @@
    "sessions": 2,
    "firstPlayed": "2025-03-18",
    "lastPlayed": "2025-03-18",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202105/2006/UQ0eSe7Rx4K0sXkO1nR7Iq9k.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202105/2006/UQ0eSe7Rx4K0sXkO1nR7Iq9k.png",
+   "trophies": {
+    "earned": 2,
+    "total": 39,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04281_00",
@@ -2521,7 +3391,12 @@
    "sessions": 1,
    "firstPlayed": "2019-12-23",
    "lastPlayed": "2019-12-23",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA14535_00/1/i_c8c34fc732139712b1144f1fa7e3ca7c98c3bd44d3564e91ec6a90a37bb044b3/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA14535_00/1/i_c8c34fc732139712b1144f1fa7e3ca7c98c3bd44d3564e91ec6a90a37bb044b3/i/icon0.png",
+   "trophies": {
+    "earned": 17,
+    "total": 17,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA10264_00",
@@ -2533,7 +3408,12 @@
    "sessions": 1,
    "firstPlayed": "2025-07-25",
    "lastPlayed": "2025-07-25",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0107/8c754c3cd3fdda0cca46b71b6dc07a98cfea943613a01f08.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202306/0107/8c754c3cd3fdda0cca46b71b6dc07a98cfea943613a01f08.png",
+   "trophies": {
+    "earned": 3,
+    "total": 22,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA04929_00",
@@ -2545,7 +3425,12 @@
    "sessions": 1,
    "firstPlayed": "2024-01-04",
    "lastPlayed": "2024-01-04",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA17438_00/3/i_f9e7e34cb31a231de831a87875360b2fe3b5dfe2ec508fe55ddd3ad531701979/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA17438_00/3/i_f9e7e34cb31a231de831a87875360b2fe3b5dfe2ec508fe55ddd3ad531701979/i/icon0.png",
+   "trophies": {
+    "earned": 0,
+    "total": 38,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04099_00",
@@ -2569,7 +3454,12 @@
    "sessions": 2,
    "firstPlayed": "2015-10-24",
    "lastPlayed": "2015-10-25",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10511_00/4/i_fc637afd6d7da8cc85c3cfad65f3cb30ea073de3b76b769b99178ceb6a88111c/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10511_00/4/i_fc637afd6d7da8cc85c3cfad65f3cb30ea073de3b76b769b99178ceb6a88111c/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 13,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA14390_00",
@@ -2581,7 +3471,12 @@
    "sessions": 1,
    "firstPlayed": "2024-05-25",
    "lastPlayed": "2024-05-25",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202109/0713/yde6GT9WPbcAUL1QyqjumHs9.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202109/0713/yde6GT9WPbcAUL1QyqjumHs9.png",
+   "trophies": {
+    "earned": 0,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA03131_00",
@@ -2593,7 +3488,12 @@
    "sessions": 1,
    "firstPlayed": "2024-01-04",
    "lastPlayed": "2024-01-04",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202104/2909/fYka67cdczJPdp6LwQrLuZ3Y.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202104/2909/fYka67cdczJPdp6LwQrLuZ3Y.png",
+   "trophies": {
+    "earned": 2,
+    "total": 44,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA04217_00",
@@ -2617,7 +3517,12 @@
    "sessions": 1,
    "firstPlayed": "2024-08-04",
    "lastPlayed": "2024-08-04",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202205/2700/HNT7Av8LkRN6M3OiFe0DRq8T.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202205/2700/HNT7Av8LkRN6M3OiFe0DRq8T.png",
+   "trophies": {
+    "earned": 1,
+    "total": 72,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA12405_00",
@@ -2629,7 +3534,12 @@
    "sessions": 1,
    "firstPlayed": "2023-12-25",
    "lastPlayed": "2023-12-25",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/0710/3a3a173929cb41559808b789fe9cb56f106e94bae0f548f4.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/0710/3a3a173929cb41559808b789fe9cb56f106e94bae0f548f4.png",
+   "trophies": {
+    "earned": 3,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA05140_00",
@@ -2689,7 +3599,12 @@
    "sessions": 3,
    "firstPlayed": "2025-10-03",
    "lastPlayed": "2025-11-18",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202604/2122/41d5a3beff5a2b0b9ac56b9b23869dad7821df71a60f4b02.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202604/2122/41d5a3beff5a2b0b9ac56b9b23869dad7821df71a60f4b02.png",
+   "trophies": {
+    "earned": 1,
+    "total": 22,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA08766_00",
@@ -2701,7 +3616,12 @@
    "sessions": 1,
    "firstPlayed": "2025-11-01",
    "lastPlayed": "2025-11-01",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202308/0320/edce2d3e20cb874ad82bbf54f00c9e2a3adf7f5bf77665ca.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202308/0320/edce2d3e20cb874ad82bbf54f00c9e2a3adf7f5bf77665ca.png",
+   "trophies": {
+    "earned": 2,
+    "total": 18,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA15508_00",
@@ -2713,7 +3633,12 @@
    "sessions": 1,
    "firstPlayed": "2024-01-22",
    "lastPlayed": "2024-01-22",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png",
+   "trophies": {
+    "earned": 5,
+    "total": 28,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00513_00",
@@ -2725,7 +3650,12 @@
    "sessions": 2,
    "firstPlayed": "2018-09-20",
    "lastPlayed": "2018-09-20",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00267_00/7/i_1256bd04612dfada764ffaef182b137b074e933ae7ea280f0d6584b5e2c8f2f9/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00267_00/7/i_1256bd04612dfada764ffaef182b137b074e933ae7ea280f0d6584b5e2c8f2f9/i/icon0.png",
+   "trophies": {
+    "earned": 3,
+    "total": 46,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA05526_00",
@@ -2737,7 +3667,12 @@
    "sessions": 1,
    "firstPlayed": "2019-01-07",
    "lastPlayed": "2019-01-07",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05526_00/2/i_c8094d5d5778a7deb586d35a39a606beec8e8faf120802182960a69a51fcd45a/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05526_00/2/i_c8094d5d5778a7deb586d35a39a606beec8e8faf120802182960a69a51fcd45a/i/icon0.png",
+   "trophies": {
+    "earned": 1,
+    "total": 48,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01696_00",
@@ -2749,7 +3684,12 @@
    "sessions": 1,
    "firstPlayed": "2024-02-14",
    "lastPlayed": "2024-02-14",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202011/1900/sSZEg1DFAUrfWsA7ltLwpCdu.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202011/1900/sSZEg1DFAUrfWsA7ltLwpCdu.png",
+   "trophies": {
+    "earned": 2,
+    "total": 94,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA22121_00",
@@ -2761,7 +3701,12 @@
    "sessions": 2,
    "firstPlayed": "2025-06-04",
    "lastPlayed": "2025-06-04",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202406/0521/e8ef2a542e532c17d91215173917798c5dbca0e8f5b0fc9c.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202406/0521/e8ef2a542e532c17d91215173917798c5dbca0e8f5b0fc9c.png",
+   "trophies": {
+    "earned": 0,
+    "total": 47,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA18471_00",
@@ -2773,7 +3718,12 @@
    "sessions": 1,
    "firstPlayed": "2024-05-16",
    "lastPlayed": "2024-05-16",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1418/a1770e205050415ae3e5e7a61fc3265712bbd35c3309fe47.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202311/1418/a1770e205050415ae3e5e7a61fc3265712bbd35c3309fe47.png",
+   "trophies": {
+    "earned": 1,
+    "total": 20,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA04402_00",
@@ -2809,7 +3759,12 @@
    "sessions": 3,
    "firstPlayed": "2025-07-06",
    "lastPlayed": "2025-07-07",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202501/2114/ab9eef7826dbffec8130ff89355c4ed2e881a922e7031042.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202501/2114/ab9eef7826dbffec8130ff89355c4ed2e881a922e7031042.png",
+   "trophies": {
+    "earned": 0,
+    "total": 25,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA25414_00",
@@ -2821,7 +3776,12 @@
    "sessions": 1,
    "firstPlayed": "2026-05-23",
    "lastPlayed": "2026-05-23",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202409/1611/b3c75af796ea9931524b4c5f9500e801bb49be5664d52c17.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202409/1611/b3c75af796ea9931524b4c5f9500e801bb49be5664d52c17.png",
+   "trophies": {
+    "earned": 0,
+    "total": 36,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA05244_00",
@@ -2833,7 +3793,12 @@
    "sessions": 3,
    "firstPlayed": "2016-09-02",
    "lastPlayed": "2016-09-02",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02387_00/4/i_4f0735372ec946403df8905f3f520cfcec79b433a7fe90758500a025c3401d34/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02387_00/4/i_4f0735372ec946403df8905f3f520cfcec79b433a7fe90758500a025c3401d34/i/icon0_01.png",
+   "trophies": {
+    "earned": 5,
+    "total": 51,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA02187_00",
@@ -2869,7 +3834,12 @@
    "sessions": 1,
    "firstPlayed": "2025-08-13",
    "lastPlayed": "2025-08-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202305/2308/06b354c8015b3c71e54f43aa883aab4641285d4a91734681.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202305/2308/06b354c8015b3c71e54f43aa883aab4641285d4a91734681.png",
+   "trophies": {
+    "earned": 2,
+    "total": 54,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01394_00",
@@ -2881,7 +3851,12 @@
    "sessions": 4,
    "firstPlayed": "2015-04-20",
    "lastPlayed": "2015-04-26",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01394_00/5/i_45404234edb76c9ca966a6a60594fcd4f710723c575a2f79150ff2f44d48d690/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01394_00/5/i_45404234edb76c9ca966a6a60594fcd4f710723c575a2f79150ff2f44d48d690/i/icon0.png",
+   "trophies": {
+    "earned": 3,
+    "total": 19,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA20230_00",
@@ -2929,7 +3904,12 @@
    "sessions": 1,
    "firstPlayed": "2024-04-21",
    "lastPlayed": "2024-04-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/1407/2JSde8PFCF6B4nO2EECrcR1m.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/1407/2JSde8PFCF6B4nO2EECrcR1m.png",
+   "trophies": {
+    "earned": 1,
+    "total": 70,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA02325_00",
@@ -2941,7 +3921,12 @@
    "sessions": 0,
    "firstPlayed": "2022-10-08",
    "lastPlayed": "2022-10-08",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202102/0813/kiJhC325Kns3OaBzJeFWmENK.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202102/0813/kiJhC325Kns3OaBzJeFWmENK.png",
+   "trophies": {
+    "earned": 5,
+    "total": 54,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA11651_00",
@@ -2953,7 +3938,12 @@
    "sessions": 1,
    "firstPlayed": "2020-04-30",
    "lastPlayed": "2020-04-30",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11651_00/2/i_34989d58ee8486056f9fbd5a595f042ca552f0056f84aadc1613bbb87f24e156/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11651_00/2/i_34989d58ee8486056f9fbd5a595f042ca552f0056f84aadc1613bbb87f24e156/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 14,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA01288_00",
@@ -2965,7 +3955,12 @@
    "sessions": 1,
    "firstPlayed": "2024-04-21",
    "lastPlayed": "2024-04-21",
-   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/1614/TJiBEQMJ9qa93lWBu4sKScY9.png"
+   "cover": "https://image.api.playstation.com/vulcan/img/rnd/202010/1614/TJiBEQMJ9qa93lWBu4sKScY9.png",
+   "trophies": {
+    "earned": 0,
+    "total": 46,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA03985_00",
@@ -2989,7 +3984,12 @@
    "sessions": 2,
    "firstPlayed": "2024-05-19",
    "lastPlayed": "2024-05-19",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2916/PYBd6ybdJLLcDJsd6F9dElnW.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2916/PYBd6ybdJLLcDJsd6F9dElnW.png",
+   "trophies": {
+    "earned": 2,
+    "total": 34,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA11875_00",
@@ -3001,7 +4001,12 @@
    "sessions": 1,
    "firstPlayed": "2021-03-08",
    "lastPlayed": "2021-03-08",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11875_00/1/i_b172e4c72af06ad2eb876eb489da281899736c80cb1b1990911f106855657ae8/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11875_00/1/i_b172e4c72af06ad2eb876eb489da281899736c80cb1b1990911f106855657ae8/i/icon0.png",
+   "trophies": {
+    "earned": 0,
+    "total": 56,
+    "platinum": false
+   }
   },
   {
    "id": "psn_PPSA37414_00",
@@ -3049,7 +4054,12 @@
    "sessions": 1,
    "firstPlayed": "2016-05-06",
    "lastPlayed": "2016-05-06",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01498_00/7/i_1507d4c30ff42cb5c3db741f0575c2bdc1aaad7ab4308e8694e753950dc6a010/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA01498_00/7/i_1507d4c30ff42cb5c3db741f0575c2bdc1aaad7ab4308e8694e753950dc6a010/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 37,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA02502_00",
@@ -3073,7 +4083,12 @@
    "sessions": 1,
    "firstPlayed": "2025-06-20",
    "lastPlayed": "2025-06-20",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09869_00/3/i_e85f85f323e2f23bd2eef6f34eac9aa4c41cd1963c86bf96a28d802690da3f34/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA09869_00/3/i_e85f85f323e2f23bd2eef6f34eac9aa4c41cd1963c86bf96a28d802690da3f34/i/icon0.png",
+   "trophies": {
+    "earned": 0,
+    "total": 40,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA02189_00",
@@ -3109,7 +4124,12 @@
    "sessions": 1,
    "firstPlayed": "2020-04-30",
    "lastPlayed": "2020-04-30",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA15064_00/3/i_9c66475c94a99d50f12ad55efa26d931f3d71ddebd779288b43aef84bbd5a066/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA15064_00/3/i_9c66475c94a99d50f12ad55efa26d931f3d71ddebd779288b43aef84bbd5a066/i/icon0.png",
+   "trophies": {
+    "earned": 5,
+    "total": 12,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01959_00",
@@ -3133,7 +4153,12 @@
    "sessions": 1,
    "firstPlayed": "2023-12-25",
    "lastPlayed": "2023-12-25",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1623/Zofebh60Ue7Zt5sC10UAtU3D.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1623/Zofebh60Ue7Zt5sC10UAtU3D.png",
+   "trophies": {
+    "earned": 0,
+    "total": 32,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA39320_00",
@@ -3145,7 +4170,12 @@
    "sessions": 1,
    "firstPlayed": "2024-04-26",
    "lastPlayed": "2024-04-26",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202210/0709/ZiracDNncqG62JTOCzxidPsr.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202210/0709/ZiracDNncqG62JTOCzxidPsr.png",
+   "trophies": {
+    "earned": 12,
+    "total": 12,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA01123_00",
@@ -3169,7 +4199,12 @@
    "sessions": 2,
    "firstPlayed": "2018-09-06",
    "lastPlayed": "2018-09-06",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08670_00/2/i_bd313fa35615ab7418c1f552f24bc3af1a93992965e4729df39262ab37ed8880/i/icon0_01.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08670_00/2/i_bd313fa35615ab7418c1f552f24bc3af1a93992965e4729df39262ab37ed8880/i/icon0_01.png",
+   "trophies": {
+    "earned": 4,
+    "total": 22,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA08234_00",
@@ -3193,7 +4228,12 @@
    "sessions": 0,
    "firstPlayed": "2021-08-06",
    "lastPlayed": "2021-08-06",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202103/2211/DYJU20RBJXrdYesIDysfBgXy.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202103/2211/DYJU20RBJXrdYesIDysfBgXy.png",
+   "trophies": {
+    "earned": 14,
+    "total": 14,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA07010_00",
@@ -3217,7 +4257,12 @@
    "sessions": 1,
    "firstPlayed": "2021-08-22",
    "lastPlayed": "2021-08-22",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202103/2211/DYJU20RBJXrdYesIDysfBgXy.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202103/2211/DYJU20RBJXrdYesIDysfBgXy.png",
+   "trophies": {
+    "earned": 14,
+    "total": 14,
+    "platinum": true
+   }
   },
   {
    "id": "psn_PPSA02050_00",
@@ -3229,7 +4274,12 @@
    "sessions": 1,
    "firstPlayed": "2021-11-02",
    "lastPlayed": "2021-11-02",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202112/0618/cFLNC3xYfEdDl7D1Wvu4MVb1.png"
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202112/0618/cFLNC3xYfEdDl7D1Wvu4MVb1.png",
+   "trophies": {
+    "earned": 3,
+    "total": 48,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA01446_00",
@@ -3277,7 +4327,12 @@
    "sessions": 0,
    "firstPlayed": "2021-11-18",
    "lastPlayed": "2021-11-18",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA14233_00/1/i_8e95c2b57c78d27cc0eb508cc0da02b501161b08f8a986aa14ee9084717a0323/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA14233_00/1/i_8e95c2b57c78d27cc0eb508cc0da02b501161b08f8a986aa14ee9084717a0323/i/icon0.png",
+   "trophies": {
+    "earned": 12,
+    "total": 12,
+    "platinum": true
+   }
   },
   {
    "id": "psn_CUSA00053_00",
@@ -3289,7 +4344,12 @@
    "sessions": 4,
    "firstPlayed": "2015-09-07",
    "lastPlayed": "2015-09-07",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00053_00/5/i_9cfbf49ba8841d02495fca9ad0e0d065a4bc4d1113b7f51c9bfe21fccdf9d719/i/icon0.png"
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00053_00/5/i_9cfbf49ba8841d02495fca9ad0e0d065a4bc4d1113b7f51c9bfe21fccdf9d719/i/icon0.png",
+   "trophies": {
+    "earned": 2,
+    "total": 75,
+    "platinum": false
+   }
   }
  ]
 }

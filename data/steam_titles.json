@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-09-09T01:13:16+00:00",
+ "syncedAt": "2026-09-09T02:28:29+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -20,7 +20,12 @@
     "linux": 212.25,
     "deck": 212.25
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/646570/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/646570/header.jpg",
+   "achievements": {
+    "earned": 46,
+    "total": 46
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_255710",
@@ -36,7 +41,12 @@
    "devices": {
     "windows": 210.75
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/255710/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/255710/header.jpg",
+   "achievements": {
+    "earned": 50,
+    "total": 135
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_2379780",
@@ -54,7 +64,12 @@
     "linux": 193.95,
     "deck": 193.95
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2379780/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2379780/header.jpg",
+   "achievements": {
+    "earned": 31,
+    "total": 31
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_2868840",
@@ -72,7 +87,8 @@
     "linux": 86.15,
     "deck": 86.15
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_3590",
@@ -86,7 +102,12 @@
    "lastPlayed": "2017-07-01",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/3590/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/3590/header.jpg",
+   "achievements": {
+    "earned": 21,
+    "total": 21
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1942280",
@@ -103,7 +124,12 @@
     "linux": 69.683,
     "deck": 69.683
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
+   "achievements": {
+    "earned": 139,
+    "total": 179
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1030300",
@@ -120,7 +146,12 @@
     "linux": 61.417,
     "deck": 61.417
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1030300/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1030300/header.jpg",
+   "achievements": {
+    "earned": 22,
+    "total": 52
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_367520",
@@ -137,7 +168,12 @@
     "linux": 54.417,
     "deck": 54.417
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg",
+   "achievements": {
+    "earned": 31,
+    "total": 63
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_105600",
@@ -154,7 +190,12 @@
     "linux": 0.167,
     "deck": 0.167
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 137
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_440",
@@ -168,7 +209,12 @@
    "lastPlayed": "2012-09-12",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg",
+   "achievements": {
+    "earned": 63,
+    "total": 520
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_2008920",
@@ -185,7 +231,12 @@
     "linux": 25.117,
     "deck": 25.117
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2008920/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2008920/header.jpg",
+   "achievements": {
+    "earned": 5,
+    "total": 20
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_620",
@@ -201,7 +252,12 @@
    "devices": {
     "windows": 0.283
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/620/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/620/header.jpg",
+   "achievements": {
+    "earned": 38,
+    "total": 51
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_10190",
@@ -217,7 +273,8 @@
    "devices": {
     "windows": 0.233
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/10190/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/10190/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_504230",
@@ -234,7 +291,12 @@
     "linux": 14.933,
     "deck": 14.933
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/504230/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/504230/header.jpg",
+   "achievements": {
+    "earned": 15,
+    "total": 32
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_2754380",
@@ -245,12 +307,17 @@
    "hours": 14.067,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-03-27",
+   "lastPlayed": "2025-03-28",
    "recentHours": 0.0,
    "devices": {
     "mac": 14.067
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2754380/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2754380/header.jpg",
+   "achievements": {
+    "earned": 11,
+    "total": 22
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_232910",
@@ -264,7 +331,8 @@
    "lastPlayed": "2017-12-29",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/232910/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/232910/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_24740",
@@ -278,7 +346,8 @@
    "lastPlayed": "2018-01-10",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/24740/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/24740/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_12210",
@@ -292,7 +361,12 @@
    "lastPlayed": "2015-02-19",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/12210/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/12210/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 55
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1145350",
@@ -309,7 +383,12 @@
     "linux": 13.267,
     "deck": 13.267
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145350/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145350/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 50
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_8400",
@@ -323,7 +402,8 @@
    "lastPlayed": "2015-02-01",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/8400/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/8400/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_35140",
@@ -334,13 +414,18 @@
    "hours": 11.967,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-12-24",
+   "lastPlayed": "2025-12-25",
    "recentHours": 0.0,
    "devices": {
     "linux": 4.933,
     "deck": 4.933
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/35140/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/35140/header.jpg",
+   "achievements": {
+    "earned": 15,
+    "total": 47
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_42690",
@@ -356,7 +441,8 @@
    "devices": {
     "windows": 0.033
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/42690/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/42690/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_24240",
@@ -370,7 +456,12 @@
    "lastPlayed": "2014-11-10",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/24240/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/24240/header.jpg",
+   "achievements": {
+    "earned": 6,
+    "total": 56
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_212680",
@@ -384,7 +475,12 @@
    "lastPlayed": "2017-12-17",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/212680/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/212680/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 51
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_730",
@@ -400,7 +496,12 @@
    "devices": {
     "windows": 3.883
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 1
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_391220",
@@ -417,7 +518,12 @@
     "linux": 10.967,
     "deck": 10.967
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/391220/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/391220/header.jpg",
+   "achievements": {
+    "earned": 20,
+    "total": 143
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_2742830",
@@ -428,13 +534,18 @@
    "hours": 10.283,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-06-13",
+   "lastPlayed": "2025-06-14",
    "recentHours": 0.0,
    "devices": {
     "linux": 10.283,
     "deck": 10.283
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2742830/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2742830/header.jpg",
+   "achievements": {
+    "earned": 11,
+    "total": 59
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_271590",
@@ -451,7 +562,12 @@
     "linux": 10.267,
     "deck": 10.267
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg",
+   "achievements": {
+    "earned": 4,
+    "total": 77
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_214560",
@@ -468,7 +584,12 @@
     "linux": 0.067,
     "deck": 0.067
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/214560/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/214560/header.jpg",
+   "achievements": {
+    "earned": 14,
+    "total": 38
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1293830",
@@ -479,13 +600,18 @@
    "hours": 9.6,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-05-11",
+   "lastPlayed": "2026-05-12",
    "recentHours": 0.0,
    "devices": {
     "linux": 9.6,
     "deck": 9.6
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1293830/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1293830/header.jpg",
+   "achievements": {
+    "earned": 14,
+    "total": 178
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_205100",
@@ -499,7 +625,12 @@
    "lastPlayed": "2013-12-28",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/205100/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/205100/header.jpg",
+   "achievements": {
+    "earned": 12,
+    "total": 80
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_686060",
@@ -516,7 +647,12 @@
     "linux": 9.167,
     "deck": 9.167
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/686060/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/686060/header.jpg",
+   "achievements": {
+    "earned": 9,
+    "total": 281
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_550",
@@ -532,7 +668,12 @@
    "devices": {
     "windows": 0.05
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg",
+   "achievements": {
+    "earned": 9,
+    "total": 101
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1238860",
@@ -543,12 +684,17 @@
    "hours": 8.867,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2021-10-13",
+   "lastPlayed": "2021-10-14",
    "recentHours": 0.0,
    "devices": {
     "windows": 8.867
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1238860/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1238860/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 67
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_110800",
@@ -565,7 +711,12 @@
     "linux": 0.733,
     "deck": 0.733
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/110800/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/110800/header.jpg",
+   "achievements": {
+    "earned": 7,
+    "total": 60
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_10180",
@@ -579,7 +730,12 @@
    "lastPlayed": "2013-05-09",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg",
+   "achievements": {
+    "earned": 26,
+    "total": 50
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_207610",
@@ -593,7 +749,12 @@
    "lastPlayed": "2013-01-25",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/207610/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/207610/header.jpg",
+   "achievements": {
+    "earned": 20,
+    "total": 48
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_397460",
@@ -610,7 +771,12 @@
     "windows": 2.867,
     "mac": 2.417
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/397460/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/397460/header.jpg",
+   "achievements": {
+    "earned": 7,
+    "total": 20
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_613100",
@@ -621,13 +787,18 @@
    "hours": 6.533,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-12-31",
+   "lastPlayed": "2025-01-01",
    "recentHours": 0.0,
    "devices": {
     "linux": 6.533,
     "deck": 6.533
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/613100/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/613100/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 96
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1574580",
@@ -638,13 +809,18 @@
    "hours": 6.517,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-06-28",
+   "lastPlayed": "2026-06-29",
    "recentHours": 0.0,
    "devices": {
     "linux": 6.517,
     "deck": 6.517
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1574580/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1574580/header.jpg",
+   "achievements": {
+    "earned": 12,
+    "total": 18
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_222880",
@@ -658,7 +834,12 @@
    "lastPlayed": "2015-01-24",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/222880/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/222880/header.jpg",
+   "achievements": {
+    "earned": 9,
+    "total": 100
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_28050",
@@ -674,7 +855,12 @@
    "devices": {
     "windows": 0.267
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/28050/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/28050/header.jpg",
+   "achievements": {
+    "earned": 7,
+    "total": 49
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1318690",
@@ -685,14 +871,19 @@
    "hours": 5.833,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-07-21",
+   "lastPlayed": "2025-07-22",
    "recentHours": 0.0,
    "devices": {
     "mac": 5.683,
     "linux": 0.15,
     "deck": 0.15
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1318690/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1318690/header.jpg",
+   "achievements": {
+    "earned": 9,
+    "total": 45
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_427520",
@@ -710,7 +901,12 @@
     "linux": 0.083,
     "deck": 0.083
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 88
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_750920",
@@ -727,7 +923,12 @@
     "linux": 5.417,
     "deck": 5.417
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/750920/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/750920/header.jpg",
+   "achievements": {
+    "earned": 11,
+    "total": 99
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1086940",
@@ -745,7 +946,12 @@
     "linux": 4.75,
     "deck": 4.75
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 54
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1233070",
@@ -762,7 +968,12 @@
     "linux": 5.133,
     "deck": 5.133
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1233070/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1233070/header.jpg",
+   "achievements": {
+    "earned": 5,
+    "total": 21
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_990630",
@@ -779,7 +990,12 @@
     "linux": 4.75,
     "deck": 4.75
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/990630/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/990630/header.jpg",
+   "achievements": {
+    "earned": 17,
+    "total": 22
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_227580",
@@ -793,7 +1009,12 @@
    "lastPlayed": "2013-02-18",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/227580/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/227580/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 14
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_99700",
@@ -807,7 +1028,12 @@
    "lastPlayed": "2012-01-10",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/99700/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/99700/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 22
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_49520",
@@ -824,7 +1050,12 @@
     "linux": 1.667,
     "deck": 1.667
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/49520/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/49520/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 75
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_209000",
@@ -838,7 +1069,12 @@
    "lastPlayed": "2015-01-19",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/209000/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/209000/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 60
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_590380",
@@ -856,7 +1092,12 @@
     "linux": 0.3,
     "deck": 0.3
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/590380/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/590380/header.jpg",
+   "achievements": {
+    "earned": 10,
+    "total": 70
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_17300",
@@ -870,7 +1111,8 @@
    "lastPlayed": "2012-10-18",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/17300/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/17300/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_40800",
@@ -887,7 +1129,12 @@
     "linux": 0.25,
     "deck": 0.25
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/40800/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/40800/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 48
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_209690",
@@ -901,7 +1148,12 @@
    "lastPlayed": "2014-09-13",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/209690/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/209690/header.jpg",
+   "achievements": {
+    "earned": 14,
+    "total": 93
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_235600",
@@ -918,7 +1170,12 @@
     "linux": 2.483,
     "deck": 2.483
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/235600/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/235600/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 28
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_8190",
@@ -932,7 +1189,12 @@
    "lastPlayed": "2015-01-02",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/8190/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/8190/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 50
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_632470",
@@ -949,7 +1211,12 @@
     "linux": 3.5,
     "deck": 3.5
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/632470/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/632470/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 45
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1237970",
@@ -966,7 +1233,12 @@
     "linux": 3.283,
     "deck": 3.283
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1237970/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1237970/header.jpg",
+   "achievements": {
+    "earned": 11,
+    "total": 50
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_42710",
@@ -982,7 +1254,12 @@
    "devices": {
     "windows": 1.117
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/42710/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/42710/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 3
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_736260",
@@ -999,7 +1276,12 @@
     "linux": 3.167,
     "deck": 3.167
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/736260/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/736260/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 18
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_460930",
@@ -1010,13 +1292,18 @@
    "hours": 3.083,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-08-21",
+   "lastPlayed": "2026-08-22",
    "recentHours": 0.0,
    "devices": {
     "linux": 3.083,
     "deck": 3.083
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/460930/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/460930/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 57
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_63710",
@@ -1030,7 +1317,12 @@
    "lastPlayed": "2012-06-24",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/63710/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/63710/header.jpg",
+   "achievements": {
+    "earned": 8,
+    "total": 26
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_601360",
@@ -1047,7 +1339,12 @@
     "linux": 3.067,
     "deck": 3.067
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/601360/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/601360/header.jpg",
+   "achievements": {
+    "earned": 5,
+    "total": 21
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_19900",
@@ -1061,7 +1358,8 @@
    "lastPlayed": "2015-02-16",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/19900/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/19900/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_11020",
@@ -1077,7 +1375,8 @@
    "devices": {
     "windows": 2.933
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/11020/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/11020/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_240",
@@ -1091,7 +1390,12 @@
    "lastPlayed": "2012-06-12",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/240/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/240/header.jpg",
+   "achievements": {
+    "earned": 25,
+    "total": 147
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_8870",
@@ -1105,7 +1409,12 @@
    "lastPlayed": "2014-06-21",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/8870/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/8870/header.jpg",
+   "achievements": {
+    "earned": 5,
+    "total": 80
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_209660",
@@ -1119,7 +1428,12 @@
    "lastPlayed": "2014-12-28",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/209660/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/209660/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 45
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1102190",
@@ -1130,13 +1444,18 @@
    "hours": 2.75,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-03-18",
+   "lastPlayed": "2025-03-19",
    "recentHours": 0.0,
    "devices": {
     "linux": 2.75,
     "deck": 2.75
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1102190/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1102190/header.jpg",
+   "achievements": {
+    "earned": 12,
+    "total": 53
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_282440",
@@ -1150,7 +1469,12 @@
    "lastPlayed": "2014-09-22",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/282440/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/282440/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 58
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_289070",
@@ -1168,7 +1492,12 @@
     "linux": 1.633,
     "deck": 1.633
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/289070/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/289070/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 320
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_107310",
@@ -1182,7 +1511,8 @@
    "lastPlayed": "2012-09-08",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/107310/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/107310/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_204100",
@@ -1196,7 +1526,12 @@
    "lastPlayed": "2013-03-25",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/204100/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/204100/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 67
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1218210",
@@ -1213,7 +1548,12 @@
     "linux": 2.583,
     "deck": 2.583
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1218210/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1218210/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 80
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_3083300",
@@ -1230,7 +1570,12 @@
     "linux": 2.567,
     "deck": 2.567
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/3083300/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/3083300/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 94
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_2084000",
@@ -1241,13 +1586,18 @@
    "hours": 2.433,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-08-01",
+   "lastPlayed": "2025-08-02",
    "recentHours": 0.0,
    "devices": {
     "linux": 2.433,
     "deck": 2.433
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 36
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_341800",
@@ -1264,7 +1614,12 @@
     "linux": 2.417,
     "deck": 2.417
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/341800/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/341800/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 10
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_262450",
@@ -1275,10 +1630,15 @@
    "hours": 2.367,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2015-01-25",
+   "lastPlayed": "2015-01-26",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/262450/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/262450/header.jpg",
+   "achievements": {
+    "earned": 11,
+    "total": 20
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_400",
@@ -1292,7 +1652,12 @@
    "lastPlayed": "2012-07-01",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/400/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/400/header.jpg",
+   "achievements": {
+    "earned": 4,
+    "total": 15
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_502500",
@@ -1309,7 +1674,12 @@
     "linux": 2.217,
     "deck": 2.217
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/502500/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/502500/header.jpg",
+   "achievements": {
+    "earned": 8,
+    "total": 49
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_218620",
@@ -1323,7 +1693,12 @@
    "lastPlayed": "2015-01-10",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/218620/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/218620/header.jpg",
+   "achievements": {
+    "earned": 8,
+    "total": 1328
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_17410",
@@ -1341,7 +1716,8 @@
     "linux": 0.033,
     "deck": 0.033
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/17410/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/17410/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_50620",
@@ -1355,7 +1731,12 @@
    "lastPlayed": "2012-09-16",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/50620/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/50620/header.jpg",
+   "achievements": {
+    "earned": 5,
+    "total": 43
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_288160",
@@ -1372,7 +1753,12 @@
     "linux": 2.1,
     "deck": 2.1
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/288160/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/288160/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 5
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_40930",
@@ -1386,7 +1772,12 @@
    "lastPlayed": "2012-11-23",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/40930/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/40930/header.jpg",
+   "achievements": {
+    "earned": 5,
+    "total": 12
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_312280",
@@ -1402,7 +1793,12 @@
    "devices": {
     "windows": 0.117
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/312280/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/312280/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 11
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1336490",
@@ -1419,7 +1815,12 @@
     "linux": 2.033,
     "deck": 2.033
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1336490/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1336490/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 80
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_40700",
@@ -1433,7 +1834,12 @@
    "lastPlayed": "2012-03-19",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/40700/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/40700/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 12
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_17430",
@@ -1447,7 +1853,8 @@
    "lastPlayed": "2012-06-11",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/17430/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/17430/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_201790",
@@ -1461,7 +1868,12 @@
    "lastPlayed": "2013-07-25",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/201790/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/201790/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 27
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_57400",
@@ -1475,7 +1887,12 @@
    "lastPlayed": "2014-03-12",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/57400/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/57400/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 64
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_107100",
@@ -1489,7 +1906,12 @@
    "lastPlayed": "2012-06-11",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/107100/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/107100/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 24
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_219890",
@@ -1503,7 +1925,8 @@
    "lastPlayed": "2014-09-16",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/219890/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/219890/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_41500",
@@ -1517,7 +1940,12 @@
    "lastPlayed": "2012-12-24",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/41500/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/41500/header.jpg",
+   "achievements": {
+    "earned": 5,
+    "total": 66
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_683320",
@@ -1534,7 +1962,12 @@
     "linux": 1.6,
     "deck": 1.6
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/683320/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/683320/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 17
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_2751000",
@@ -1551,7 +1984,12 @@
     "linux": 1.583,
     "deck": 1.583
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2751000/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2751000/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 40
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_219150",
@@ -1565,7 +2003,12 @@
    "lastPlayed": "2014-05-18",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/219150/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/219150/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 35
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1055540",
@@ -1576,13 +2019,18 @@
    "hours": 1.5,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-11-12",
+   "lastPlayed": "2024-11-13",
    "recentHours": 0.0,
    "devices": {
     "linux": 1.5,
     "deck": 1.5
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1055540/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1055540/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 12
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_227300",
@@ -1593,13 +2041,18 @@
    "hours": 1.483,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-01-10",
+   "lastPlayed": "2025-01-11",
    "recentHours": 0.0,
    "devices": {
     "linux": 1.483,
     "deck": 1.483
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/227300/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/227300/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 106
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_70300",
@@ -1613,7 +2066,12 @@
    "lastPlayed": "2012-03-19",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/70300/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/70300/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 19
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_38600",
@@ -1627,7 +2085,12 @@
    "lastPlayed": "2012-06-23",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/38600/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/38600/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 30
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_237930",
@@ -1643,7 +2106,12 @@
    "devices": {
     "windows": 1.1
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/237930/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/237930/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 33
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_55230",
@@ -1657,7 +2125,12 @@
    "lastPlayed": "2013-01-01",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/55230/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/55230/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 83
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_48000",
@@ -1671,7 +2144,12 @@
    "lastPlayed": "2012-06-19",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/48000/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/48000/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 13
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_63380",
@@ -1685,7 +2163,12 @@
    "lastPlayed": "2015-02-12",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/63380/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/63380/header.jpg",
+   "achievements": {
+    "earned": 6,
+    "total": 47
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_234710",
@@ -1701,7 +2184,12 @@
    "devices": {
     "windows": 0.017
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/234710/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/234710/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 18
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_753640",
@@ -1718,7 +2206,12 @@
     "linux": 1.233,
     "deck": 1.233
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/753640/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/753640/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 31
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_63700",
@@ -1729,10 +2222,15 @@
    "hours": 1.217,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2014-09-12",
+   "lastPlayed": "2014-09-13",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/63700/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/63700/header.jpg",
+   "achievements": {
+    "earned": 8,
+    "total": 26
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_368260",
@@ -1749,7 +2247,12 @@
     "linux": 1.183,
     "deck": 1.183
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/368260/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/368260/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 72
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_239030",
@@ -1767,7 +2270,12 @@
     "linux": 0.283,
     "deck": 0.283
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/239030/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/239030/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 13
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_22300",
@@ -1781,7 +2289,8 @@
    "lastPlayed": "2012-06-01",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/22300/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/22300/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_113200",
@@ -1795,7 +2304,12 @@
    "lastPlayed": "2012-08-30",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/113200/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/113200/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 99
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_219740",
@@ -1811,7 +2325,8 @@
    "devices": {
     "windows": 0.9
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/219740/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/219740/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_6120",
@@ -1827,7 +2342,12 @@
    "devices": {
     "windows": 0.25
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/6120/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/6120/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 12
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_6100",
@@ -1841,7 +2361,8 @@
    "lastPlayed": "2012-09-01",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/6100/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/6100/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_960090",
@@ -1858,7 +2379,12 @@
     "linux": 0.9,
     "deck": 0.9
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/960090/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/960090/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 156
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_220780",
@@ -1872,7 +2398,12 @@
    "lastPlayed": "2014-09-28",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/220780/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/220780/header.jpg",
+   "achievements": {
+    "earned": 6,
+    "total": 35
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_225080",
@@ -1883,13 +2414,18 @@
    "hours": 0.883,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-06-13",
+   "lastPlayed": "2024-06-14",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.017,
     "deck": 0.017
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/225080/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/225080/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 12
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_213850",
@@ -1903,7 +2439,12 @@
    "lastPlayed": "2014-08-23",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/213850/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/213850/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 38
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1840",
@@ -1917,7 +2458,8 @@
    "lastPlayed": "2012-07-12",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1840/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1840/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_403640",
@@ -1934,7 +2476,12 @@
     "linux": 0.8,
     "deck": 0.8
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/403640/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/403640/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 50
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_26800",
@@ -1948,7 +2495,12 @@
    "lastPlayed": "2011-11-29",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/26800/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/26800/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 12
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_42700",
@@ -1962,7 +2514,12 @@
    "lastPlayed": "2014-06-22",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/42700/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/42700/header.jpg",
+   "achievements": {
+    "earned": 4,
+    "total": 68
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_209650",
@@ -1976,7 +2533,12 @@
    "lastPlayed": "2014-12-28",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/209650/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/209650/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 45
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_671860",
@@ -1987,12 +2549,13 @@
    "hours": 0.783,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2023-07-09",
+   "lastPlayed": "2023-07-10",
    "recentHours": 0.0,
    "devices": {
     "windows": 0.783
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/671860/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/671860/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_108800",
@@ -2006,7 +2569,8 @@
    "lastPlayed": "2015-02-07",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/108800/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/108800/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_237110",
@@ -2020,7 +2584,12 @@
    "lastPlayed": "2014-06-30",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/237110/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/237110/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 50
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_48190",
@@ -2034,7 +2603,8 @@
    "lastPlayed": "2012-11-28",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/48190/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/48190/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_200010",
@@ -2048,7 +2618,12 @@
    "lastPlayed": "2012-07-21",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/200010/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/200010/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 25
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_861540",
@@ -2065,7 +2640,12 @@
     "linux": 0.733,
     "deck": 0.733
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/861540/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/861540/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 53
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_356190",
@@ -2076,13 +2656,18 @@
    "hours": 0.717,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-07-29",
+   "lastPlayed": "2024-07-30",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.717,
     "deck": 0.717
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/356190/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/356190/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 72
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_238460",
@@ -2099,7 +2684,12 @@
     "linux": 0.1,
     "deck": 0.1
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/238460/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/238460/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 30
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_21170",
@@ -2113,7 +2703,8 @@
    "lastPlayed": "2012-09-20",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/21170/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/21170/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_22000",
@@ -2127,7 +2718,12 @@
    "lastPlayed": "2012-06-11",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/22000/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/22000/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 8
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_200260",
@@ -2138,12 +2734,17 @@
    "hours": 0.583,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2022-06-10",
+   "lastPlayed": "2022-06-11",
    "recentHours": 0.0,
    "devices": {
     "windows": 0.583
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/200260/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/200260/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 64
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_207080",
@@ -2157,7 +2758,12 @@
    "lastPlayed": "2013-01-14",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/207080/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/207080/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 7
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_108500",
@@ -2168,10 +2774,15 @@
    "hours": 0.517,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2014-03-11",
+   "lastPlayed": "2014-03-12",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/108500/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/108500/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 20
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1794680",
@@ -2188,7 +2799,12 @@
     "linux": 0.467,
     "deck": 0.467
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1794680/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1794680/header.jpg",
+   "achievements": {
+    "earned": 7,
+    "total": 243
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_588650",
@@ -2199,13 +2815,18 @@
    "hours": 0.45,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2024-08-22",
+   "lastPlayed": "2024-08-23",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.45,
     "deck": 0.45
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/588650/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/588650/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 121
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_658850",
@@ -2222,7 +2843,12 @@
     "linux": 0.433,
     "deck": 0.433
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/658850/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/658850/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 33
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1902490",
@@ -2239,7 +2865,8 @@
     "linux": 0.433,
     "deck": 0.433
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1902490/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1902490/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_111400",
@@ -2253,7 +2880,12 @@
    "lastPlayed": "2012-06-19",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/111400/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/111400/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 57
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_923260",
@@ -2269,7 +2901,12 @@
    "devices": {
     "mac": 0.417
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/923260/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/923260/header.jpg",
+   "achievements": {
+    "earned": 3,
+    "total": 12
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_91200",
@@ -2283,7 +2920,12 @@
    "lastPlayed": "2015-01-02",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/91200/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/91200/header.jpg",
+   "achievements": {
+    "earned": 4,
+    "total": 42
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_206190",
@@ -2294,12 +2936,17 @@
    "hours": 0.4,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2023-08-06",
+   "lastPlayed": "2023-08-07",
    "recentHours": 0.0,
    "devices": {
     "windows": 0.4
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/206190/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/206190/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 42
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_32460",
@@ -2313,7 +2960,12 @@
    "lastPlayed": "2013-01-06",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/32460/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/32460/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 12
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_972660",
@@ -2330,7 +2982,12 @@
     "linux": 0.383,
     "deck": 0.383
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/972660/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/972660/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 39
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_55100",
@@ -2344,7 +3001,12 @@
    "lastPlayed": "2013-05-03",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/55100/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/55100/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 47
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_231160",
@@ -2361,7 +3023,12 @@
     "linux": 0.35,
     "deck": 0.35
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/231160/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/231160/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 10
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_20920",
@@ -2372,10 +3039,15 @@
    "hours": 0.333,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2014-07-12",
+   "lastPlayed": "2014-07-13",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/20920/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/20920/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 52
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_203160",
@@ -2392,7 +3064,12 @@
     "linux": 0.333,
     "deck": 0.333
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/203160/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/203160/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 50
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_522210",
@@ -2409,7 +3086,12 @@
     "linux": 0.333,
     "deck": 0.333
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/522210/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/522210/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 28
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_570",
@@ -2423,7 +3105,8 @@
    "lastPlayed": "2013-02-02",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/570/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_105300",
@@ -2434,10 +3117,15 @@
    "hours": 0.317,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2014-09-12",
+   "lastPlayed": "2014-09-13",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/105300/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/105300/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 27
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_1092790",
@@ -2448,13 +3136,18 @@
    "hours": 0.317,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-12-14",
+   "lastPlayed": "2025-12-15",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.317,
     "deck": 0.317
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1092790/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1092790/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 40
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_7670",
@@ -2468,7 +3161,8 @@
    "lastPlayed": "2012-08-11",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/7670/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/7670/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_252410",
@@ -2485,7 +3179,12 @@
     "linux": 0.283,
     "deck": 0.283
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/252410/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/252410/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 24
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_534550",
@@ -2502,7 +3201,12 @@
     "linux": 0.283,
     "deck": 0.283
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/534550/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/534550/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 49
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_94200",
@@ -2516,7 +3220,12 @@
    "lastPlayed": "2012-01-02",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/94200/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/94200/header.jpg",
+   "achievements": {
+    "earned": 5,
+    "total": 42
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_102840",
@@ -2533,7 +3242,12 @@
     "linux": 0.25,
     "deck": 0.25
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/102840/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/102840/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 20
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_35720",
@@ -2547,7 +3261,12 @@
    "lastPlayed": "2014-12-28",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/35720/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/35720/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 97
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_3700",
@@ -2561,7 +3280,8 @@
    "lastPlayed": "2012-04-19",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/3700/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/3700/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_262060",
@@ -2577,7 +3297,12 @@
    "devices": {
     "mac": 0.217
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/262060/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/262060/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 126
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_95300",
@@ -2591,7 +3316,12 @@
    "lastPlayed": "2012-05-29",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/95300/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/95300/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 18
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_108710",
@@ -2605,7 +3335,12 @@
    "lastPlayed": "2012-11-28",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/108710/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/108710/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 67
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_425580",
@@ -2616,13 +3351,18 @@
    "hours": 0.167,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-08-14",
+   "lastPlayed": "2026-08-15",
    "recentHours": 0.0,
    "devices": {
     "linux": 0.167,
     "deck": 0.167
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/425580/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/425580/header.jpg",
+   "achievements": {
+    "earned": 1,
+    "total": 7
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_4077500",
@@ -2639,7 +3379,8 @@
     "linux": 0.167,
     "deck": 0.167
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/4077500/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/4077500/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_234650",
@@ -2653,7 +3394,8 @@
    "lastPlayed": "2014-12-11",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/234650/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/234650/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_207250",
@@ -2667,7 +3409,12 @@
    "lastPlayed": "2015-02-14",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/207250/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/207250/header.jpg",
+   "achievements": {
+    "earned": 8,
+    "total": 44
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_25500",
@@ -2681,7 +3428,8 @@
    "lastPlayed": "2011-11-29",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/25500/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/25500/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_228380",
@@ -2698,7 +3446,12 @@
     "linux": 0.1,
     "deck": 0.1
    },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/228380/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/228380/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 20
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_500",
@@ -2712,7 +3465,12 @@
    "lastPlayed": "2011-12-17",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/500/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/500/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 73
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_98100",
@@ -2726,7 +3484,8 @@
    "lastPlayed": "2011-12-02",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/98100/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/98100/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_98600",
@@ -2740,7 +3499,12 @@
    "lastPlayed": "2011-12-24",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/98600/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/98600/header.jpg",
+   "achievements": {
+    "earned": 2,
+    "total": 37
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_3830",
@@ -2754,7 +3518,12 @@
    "lastPlayed": "2012-07-16",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/3830/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/3830/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 37
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_23490",
@@ -2768,7 +3537,8 @@
    "lastPlayed": "2013-07-19",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/23490/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/23490/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_42680",
@@ -2782,7 +3552,12 @@
    "lastPlayed": "2013-12-28",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/42680/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/42680/header.jpg",
+   "achievements": {
+    "earned": 0,
+    "total": 76
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_47790",
@@ -2796,7 +3571,8 @@
    "lastPlayed": "2014-08-07",
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/47790/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/47790/header.jpg",
+   "achievementsChecked": true
   },
   {
    "id": "steam_220",

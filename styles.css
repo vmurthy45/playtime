@@ -91,13 +91,26 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
             font-size: 13.5px; padding: 6px 13px; border-radius: 7px; cursor: pointer; white-space: nowrap; }
 .seg__btn.is-active { background: var(--surface); color: var(--text); font-weight: 600; box-shadow: var(--shadow); }
 
-/* ---------- top list ---------- */
+/* ---------- rows shared by both lists ---------- */
 .toplist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.toplist li {
-  display: grid; grid-template-columns: 80px 1fr auto; gap: 13px; align-items: center;
+.toplist li, .cards li {
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 8px 12px; box-shadow: var(--shadow);
+  border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
 }
+/* The row is a button: everything beyond the essentials opens on tap. */
+.row__head {
+  display: grid; grid-template-columns: 80px 1fr auto; gap: 13px; align-items: center;
+  width: 100%; padding: 8px 12px; border: 0; background: none; font: inherit;
+  color: inherit; text-align: left; cursor: pointer;
+}
+.row.is-open .row__head { background: var(--surface-2); }
+.row__detail { padding: 2px 12px 12px; border-top: 1px solid var(--line); }
+.detail { margin: 10px 0 0; display: grid; gap: 7px; }
+.detail > div { display: grid; grid-template-columns: 92px 1fr; gap: 10px; align-items: baseline; }
+.detail dt { color: var(--muted); font-size: 12.5px; }
+.detail dd { margin: 0; font-size: 13.5px; display: flex; align-items: center; gap: 6px; }
+.plat { width: 17px; height: 17px; flex: none; vertical-align: -3px; }
+.name .plat { margin-left: 2px; }
 .cover {
   position: relative; width: 80px; height: 45px; border-radius: 7px;
   background: var(--surface-2); border: 1px solid var(--line);
@@ -106,8 +119,8 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
 .cover span { color: var(--muted); font-weight: 650; font-size: 16px; }
 .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* One line: the title gives way, the platform pills never do. */
-.toplist li > div, .card > div { min-width: 0; }   /* let the middle column shrink */
-.toplist .name, .card .name { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.row__head > div { min-width: 0; }   /* let the middle column shrink */
+.name { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .name__t { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .toplist .name { font-weight: 550; }
 .toplist .meta { color: var(--muted); font-size: 12.5px; }
@@ -175,17 +188,12 @@ input[type="search"] { flex: 1 1 220px; }
 input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 .cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.card {
-  display: grid; grid-template-columns: 92px 1fr auto; gap: 13px; align-items: center;
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 10px 12px; box-shadow: var(--shadow);
-}
-.card .cover { width: 92px; height: 52px; }
-.card .name { font-weight: 550; margin-bottom: 2px; }
-.card .meta { color: var(--muted); font-size: 12.5px; }
-.card .hrs { text-align: right; font-variant-numeric: tabular-nums; }
-.card .hrs b { display: block; font-size: 16px; }
-.card .hrs span { color: var(--muted); font-size: 12px; }
+#gameList .row__head { grid-template-columns: 92px 1fr auto; padding: 10px 12px; }
+#gameList .cover { width: 92px; height: 52px; }
+#gameList .name { font-weight: 550; }
+#gameList .hrs { text-align: right; font-variant-numeric: tabular-nums; }
+#gameList .hrs b { display: block; font-size: 16px; }
+#gameList .hrs span { color: var(--muted); font-size: 12px; }
 .pill {
   flex: none; font-size: 11px; padding: 1px 7px; border-radius: 999px;
   border: 1px solid var(--line); color: var(--muted); white-space: nowrap;
@@ -273,10 +281,11 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
   .pf__btn { font-size: 12px; padding: 5px 10px; }
   /* The swatch is what does not fit; an active pill still shows its colour. */
   .pf__btn i { display: none; }
-  .toplist li { grid-template-columns: 68px 1fr auto; gap: 11px; }
+  .row__head { grid-template-columns: 68px 1fr auto; gap: 11px; }
   .cover { width: 68px; height: 38px; }
-  .card { grid-template-columns: 76px 1fr auto; gap: 11px; }
-  .card .cover { width: 76px; height: 43px; }
+  #gameList .row__head { grid-template-columns: 76px 1fr auto; gap: 11px; }
+  #gameList .cover { width: 76px; height: 43px; }
+  .detail > div { grid-template-columns: 84px 1fr; }
   .tl { --namecol: 178px; }
   .tlrow__name { font-size: 11px; padding-left: 10px; }
   .tl__lines { right: 8px; }

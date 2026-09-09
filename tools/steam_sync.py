@@ -143,6 +143,57 @@ def to_model(g):
     }
 
 
+ACHIEVEMENTS_URL = "https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/"
+
+
+def fetch_achievements(key, steamid, appid):
+    """(earned, total) for one game, or None if it has no achievements.
+
+    One call per game, so this is only worth making when a game's play time
+    has actually moved — see attach_achievements.
+    """
+    params = urllib.parse.urlencode({"key": key, "steamid": steamid, "appid": appid})
+    req = urllib.request.Request(f"{ACHIEVEMENTS_URL}?{params}",
+                                 headers={"User-Agent": "playtime/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            stats = (json.loads(resp.read().decode("utf-8")).get("playerstats") or {})
+    except Exception:  # noqa: BLE001 — one game's stats are not worth failing the sync
+        return None
+    achievements = stats.get("achievements")
+    if not achievements:
+        return None
+    return sum(1 for a in achievements if a.get("achieved")), len(achievements)
+
+
+def attach_achievements(key, steamid, games, previous):
+    """Carry cached counts forward; refetch only where play time changed.
+
+    A full sweep is ~180 requests, so after the first run this settles down
+    to a handful a day.
+    """
+    fetched = 0
+    for game in games:
+        was = previous.get(game["id"]) or {}
+        unchanged = abs(was.get("hours", -1) - game["hours"]) < 0.001
+        # "Checked" is remembered separately from "has any", so the games with
+        # no achievement schema (Steam answers those with a 500) are not
+        # re-queried every single day.
+        if unchanged and was.get("achievementsChecked"):
+            if was.get("achievements"):
+                game["achievements"] = was["achievements"]
+            game["achievementsChecked"] = True
+            continue
+        if game["hours"] <= 0:
+            continue
+        result = fetch_achievements(key, steamid, game["appid"])
+        fetched += 1
+        game["achievementsChecked"] = True
+        if result:
+            game["achievements"] = {"earned": result[0], "total": result[1]}
+    return fetched
+
+
 def carry_first_played(previous_path, games, today):
     """Keep known first-played dates; stamp today on games that just started.
 
@@ -235,6 +286,15 @@ def main():
     titles_path = out / "steam_titles.json"
     started = carry_first_played(titles_path, games, today)
 
+    previous = {}
+    if titles_path.exists():
+        try:
+            previous = {g["id"]: g for g in json.loads(titles_path.read_text()).get("games", [])}
+        except json.JSONDecodeError:
+            previous = {}
+    fetched = attach_achievements(key, steamid, games, previous)
+    with_ach = sum(1 for g in games if g.get("achievements"))
+
     payload = {
         "source": SOURCE,
         "steamId": steamid,
@@ -251,6 +311,7 @@ def main():
         print(f"  of which {deck:,.1f}h on Steam Deck")
     if started:
         print(f"  {started} game(s) started for the first time today")
+    print(f"  achievements: {with_ach} games have them ({fetched} looked up this run)")
 
     gained = update_snapshots(out / "snapshots.json", games, today)
     if gained is None:
