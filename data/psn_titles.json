@@ -1,10 +1,10 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-09T03:06:06+00:00",
+ "syncedAt": "2026-09-09T16:25:28+00:00",
  "trophySummary": {
   "platinums": 63,
-  "titles": 309
+  "titles": 310
  },
  "games": [
   {
@@ -1563,6 +1563,23 @@
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202012/0815/0Xqi1LgRoEtJ5zlFprpd54Vu.png"
   },
   {
+   "id": "psn_PPSA34501_00",
+   "titleId": "PPSA34501_00",
+   "title": "Call of Duty\u00ae: Black Ops",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 5.305,
+   "sessions": 7,
+   "firstPlayed": "2026-07-09",
+   "lastPlayed": "2026-09-09",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/2618/ee7d4a20243804f08a3c4a4eb1b4346dbe29dbce0fb59751.png",
+   "trophies": {
+    "earned": 50,
+    "total": 71,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA13233_00",
    "titleId": "CUSA13233_00",
    "title": "Call of Duty\u00ae: Black Ops 4",
@@ -1576,23 +1593,6 @@
    "trophies": {
     "earned": 4,
     "total": 103,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA34501_00",
-   "titleId": "PPSA34501_00",
-   "title": "Call of Duty\u00ae: Black Ops",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 4.98,
-   "sessions": 7,
-   "firstPlayed": "2026-07-09",
-   "lastPlayed": "2026-09-09",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/2618/ee7d4a20243804f08a3c4a4eb1b4346dbe29dbce0fb59751.png",
-   "trophies": {
-    "earned": 50,
-    "total": 71,
     "platinum": false
    }
   },
@@ -3777,9 +3777,9 @@
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 0.328,
-   "sessions": 1,
+   "sessions": 2,
    "firstPlayed": "2026-05-23",
-   "lastPlayed": "2026-05-23",
+   "lastPlayed": "2026-09-09",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202409/1611/b3c75af796ea9931524b4c5f9500e801bb49be5664d52c17.png",
    "trophies": {
     "earned": 0,
@@ -4192,6 +4192,23 @@
    "firstPlayed": "2020-04-04",
    "lastPlayed": "2020-04-04",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0510/G3L3e6yPKIO2NjADDVBUBmpx.png"
+  },
+  {
+   "id": "psn_PPSA04451_00",
+   "titleId": "PPSA04451_00",
+   "title": "Warhammer 40,000: Space Marine 2",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 0.057,
+   "sessions": 2,
+   "firstPlayed": "2026-09-09",
+   "lastPlayed": "2026-09-09",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/0711/MKweDX2LQpXiPcU6Jitg9KAg.png",
+   "trophies": {
+    "earned": 0,
+    "total": 50,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA13212_00",
