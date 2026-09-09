@@ -472,8 +472,8 @@
     // Ranges are windows on the calendar, not a cap on how many games show.
     $("#timelineRange").innerHTML = [
       `<option value="7d">Last 7 days</option>`,
-      `<option value="30d">Last 30 days</option>`,
-      `<option value="y:${years[0]}" selected>This year (${years[0]})</option>`,
+      `<option value="30d" selected>Last 30 days</option>`,
+      `<option value="y:${years[0]}">This year (${years[0]})</option>`,
       years[1] ? `<option value="y:${years[1]}">Last year (${years[1]})</option>` : "",
       `<option value="all">All time</option>`,
       years.length > 2
@@ -538,16 +538,20 @@
 
     // Every tick gets room and the chart scrolls sideways, rather than
     // dropping labels until they fit.
-    const ticks = tickMarks(minD, maxD);
-    const plotW = Math.max(560, ticks.length * 85);
+    const { lines: gridDays, labels: ticks, daily } = tickMarks(minD, maxD);
+    const plotW = daily
+      // A column per day: wide enough to read, narrow enough that a month
+      // still fits a laptop without scrolling.
+      ? Math.round(gridDays.length * Math.max(20, Math.min(64, 800 / gridDays.length)))
+      : Math.max(560, gridDays.length * 85);
     const axis = ticks.map(([t, label]) => {
       const x = pct(t);
       // Centred labels fall off the ends; the first and last anchor inward.
       const align = x < 3 ? "left:0;transform:none" : x > 97 ? "right:0;left:auto;transform:none" : `left:${x.toFixed(2)}%`;
       return `<span class="tl__tick" style="${align}">${esc(label)}</span>`;
     }).join("");
-    const lines = ticks.map(([t]) =>
-      `<span class="tl__line" style="left:${pct(t).toFixed(2)}%"></span>`).join("");
+    const lines = gridDays.map((t) =>
+      `<span class="tl__line" style="left:${pct(t).toFixed(3)}%"></span>`).join("");
 
     // A bar spanning first-played to last-played, clipped to the window. It
     // means the game was in rotation across that stretch, not that it was
@@ -589,29 +593,43 @@
       `</div>`;
   }
 
-  // Tick spacing follows the window: years for a decade, months for a year,
-  // weeks for a month.
+  // Tick spacing follows the window: a line per day for a month or less,
+  // months for a year, years for a decade. Lines and labels are separate —
+  // a gridline every day is useful, a label every day is noise.
   function tickMarks(minD, maxD) {
-    const span = maxD - minD;
-    const ticks = [];
-    if (span > 3 * 365) {
-      for (let y = +fromDay(minD).slice(0, 4); y <= +fromDay(maxD).slice(0, 4); y++)
-        ticks.push([toDay(`${y}-01-01`), String(y)]);
-    } else if (span > 45) {
+    const span = maxD - minD + 1;
+
+    if (span <= 45) {
+      const lines = [];
+      for (let t = minD; t <= maxD; t++) lines.push(t);
+      const every = Math.max(1, Math.ceil(span / 9));
+      const labels = lines
+        .filter((_, i) => i % every === 0)
+        .map((t) => {
+          const iso = fromDay(t);
+          return [t, `${+iso.slice(8)} ${MONTHS[+iso.slice(5, 7) - 1]}`];
+        });
+      return { lines, labels, daily: true };
+    }
+
+    if (span <= 3 * 365) {
+      const lines = [];
       const d = new Date(fromDay(minD) + "T00:00:00");
       d.setDate(1);
       while (toDay(d.toISOString().slice(0, 10)) <= maxD) {
-        const iso = d.toISOString().slice(0, 10);
-        ticks.push([toDay(iso), MONTHS[d.getMonth()]]);
+        const t = toDay(d.toISOString().slice(0, 10));
+        if (t >= minD) lines.push([t, MONTHS[d.getMonth()]]);
         d.setMonth(d.getMonth() + 1);
       }
-    } else {
-      for (let t = minD; t <= maxD; t += 7) {
-        const iso = fromDay(t);
-        ticks.push([t, `${+iso.slice(8)} ${MONTHS[+iso.slice(5, 7) - 1]}`]);
-      }
+      return { lines: lines.map(([t]) => t), labels: lines, daily: false };
     }
-    return ticks.filter(([t]) => t >= minD && t <= maxD);
+
+    const lines = [];
+    for (let y = +fromDay(minD).slice(0, 4); y <= +fromDay(maxD).slice(0, 4); y++) {
+      const t = toDay(`${y}-01-01`);
+      if (t >= minD && t <= maxD) lines.push([t, String(y)]);
+    }
+    return { lines: lines.map(([t]) => t), labels: lines, daily: false };
   }
 
   /* --- daily --- */
@@ -619,13 +637,16 @@
   function renderDaily() {
     const { days, since, snapshotCount } = dailySeries();
 
-    if (!days.length) {
+    // Two snapshots taken hours apart with no play between them produce a
+    // day of zero, which draws as a blank box and reads as "broken".
+    const anyHours = days.some((d) => d.hours > 0.005);
+    if (!days.length || !anyHours) {
       $("#dailyHint").innerHTML = snapshotCount < 2
         ? `Only one snapshot so far${since ? " (" + fmtDate(since) + ")" : ""}. Both platforms report
-           lifetime totals, so a day-by-day breakdown needs two syncs to compare — this fills in
-           from tomorrow.`
-        : `No play time recorded between snapshots yet.`;
-      $("#dailyChart").innerHTML = `<p class="empty">Nothing to plot yet.</p>`;
+           lifetime totals, so a day-by-day breakdown needs two syncs to compare.`
+        : `No play time between the syncs so far — the totals were identical. The first real day
+           appears after a sync that follows an evening of play.`;
+      $("#dailyChart").innerHTML = `<p class="empty">Nothing played yet between syncs.</p>`;
       $("#dailyBreakdown").innerHTML = "";
       return;
     }

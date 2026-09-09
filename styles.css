@@ -211,7 +211,7 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 /* ---------- timeline ---------- */
 .chartbox--tl { padding: 0; overflow: hidden; }
 .tl {
-  --namecol: 210px;
+  --namecol: 250px;
   font-variant-numeric: tabular-nums;
   /* Explicit width, or the rows stay viewport-wide and the sticky name
      column runs out of travel part-way through a horizontal scroll. */
@@ -277,7 +277,7 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
   .cover { width: 68px; height: 38px; }
   .card { grid-template-columns: 76px 1fr auto; gap: 11px; }
   .card .cover { width: 76px; height: 43px; }
-  .tl { --namecol: 140px; }
+  .tl { --namecol: 178px; }
   .tlrow__name { font-size: 11px; padding-left: 10px; }
   .tl__lines { right: 8px; }
   .tlrow__plot { margin-right: 8px; }
