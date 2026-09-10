@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-09T16:25:28+00:00",
+ "syncedAt": "2026-09-10T16:14:59+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 310
@@ -3782,7 +3782,7 @@
    "lastPlayed": "2026-09-09",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202409/1611/b3c75af796ea9931524b4c5f9500e801bb49be5664d52c17.png",
    "trophies": {
-    "earned": 0,
+    "earned": 1,
     "total": 36,
     "platinum": false
    }
