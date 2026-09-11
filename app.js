@@ -933,7 +933,15 @@
   /* --- top 5 generator --- */
 
   const T5_KEY = "playtime.top5";
+  const ICON = (d) => `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const ICON_UPLOAD = ICON(`<path d="M12 15V4"/><path d="m7 9 5-5 5 5"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/>`);
+  const ICON_PASTE = ICON(`<rect x="8" y="3" width="8" height="4" rx="1"/><path d="M16 5h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1"/>`);
   const PS_PATH = new Path2D("M8.984 2.596v17.547l3.915 1.261V6.688c0-.69.304-1.151.794-.991.636.18.76.814.76 1.505v5.875c2.441 1.193 4.362-.002 4.362-3.152 0-3.237-1.126-4.675-4.438-5.827-1.307-.448-3.728-1.186-5.39-1.502zm4.656 16.241l6.296-2.275c.715-.258.826-.625.246-.818-.586-.192-1.637-.139-2.357.123l-4.205 1.5V14.98l.24-.085s1.201-.42 2.913-.615c1.696-.18 3.785.03 5.437.661 1.848.601 2.04 1.472 1.576 2.072-.465.6-1.622 1.036-1.622 1.036l-8.544 3.107V18.86zM1.807 18.6c-1.9-.545-2.214-1.668-1.352-2.32.801-.586 2.16-1.052 2.16-1.052l5.615-2.013v2.313L4.205 17c-.705.271-.825.632-.239.826.586.195 1.637.15 2.343-.12L8.247 17v2.074c-.12.03-.256.044-.39.073-1.939.331-3.996.196-6.038-.479z");
+  const SWITCH_PATH = new Path2D("M14.176 24h3.674c3.376 0 6.15-2.774 6.15-6.15V6.15C24 2.775 21.226 0 17.85 0H14.1c-.074 0-.15.074-.15.15v23.7c-.001.076.075.15.226.15zm4.574-13.199c1.351 0 2.399 1.125 2.399 2.398 0 1.352-1.125 2.4-2.399 2.4-1.35 0-2.4-1.049-2.4-2.4-.075-1.349 1.05-2.398 2.4-2.398zM11.4 0H6.15C2.775 0 0 2.775 0 6.15v11.7C0 21.226 2.775 24 6.15 24h5.25c.074 0 .15-.074.15-.149V.15c.001-.076-.075-.15-.15-.15zM9.676 22.051H6.15c-2.326 0-4.201-1.875-4.201-4.201V6.15c0-2.326 1.875-4.201 4.201-4.201H9.6l.076 20.102zM3.75 7.199c0 1.275.975 2.25 2.25 2.25s2.25-.975 2.25-2.25c0-1.273-.975-2.25-2.25-2.25s-2.25.977-2.25 2.25z");
+  const GOG_PATH = new Path2D("M7.15 15.24H4.36a.4.4 0 0 0-.4.4v2c0 .21.18.4.4.4h2.8v1.32h-3.5c-.56 0-1.02-.46-1.02-1.03v-3.39c0-.56.46-1.02 1.03-1.02h3.48v1.32zM8.16 11.54c0 .58-.47 1.05-1.05 1.05H2.63v-1.35h3.78a.4.4 0 0 0 .4-.4V6.39a.4.4 0 0 0-.4-.4H4.39a.4.4 0 0 0-.41.4v2.02c0 .23.18.4.4.4H6v1.35H3.68c-.58 0-1.05-.46-1.05-1.04V5.68c0-.57.47-1.04 1.05-1.04H7.1c.58 0 1.05.47 1.05 1.04v5.86zM21.36 19.36h-1.32v-4.12h-.93a.4.4 0 0 0-.4.4v3.72h-1.33v-4.12h-.93a.4.4 0 0 0-.4.4v3.72h-1.33v-4.42c0-.56.46-1.02 1.03-1.02h5.61v5.44zM21.37 11.54c0 .58-.47 1.05-1.05 1.05h-4.48v-1.35h3.78a.4.4 0 0 0 .4-.4V6.39a.4.4 0 0 0-.4-.4h-2.03a.4.4 0 0 0-.4.4v2.02c0 .23.18.4.4.4h1.62v1.35H16.9c-.58 0-1.05-.46-1.05-1.04V5.68c0-.57.47-1.04 1.05-1.04h3.43c.58 0 1.05.47 1.05 1.04v5.86zM13.72 4.64h-3.44c-.58 0-1.04.47-1.04 1.04v3.44c0 .58.46 1.04 1.04 1.04h3.44c.57 0 1.04-.46 1.04-1.04V5.68c0-.57-.47-1.04-1.04-1.04m-.3 1.75v2.02a.4.4 0 0 1-.4.4h-2.03a.4.4 0 0 1-.4-.4V6.4c0-.22.17-.4.4-.4H13c.23 0 .4.18.4.4zM12.63 13.92H9.24c-.57 0-1.03.46-1.03 1.02v3.39c0 .57.46 1.03 1.03 1.03h3.39c.57 0 1.03-.46 1.03-1.03v-3.39c0-.56-.46-1.02-1.03-1.02m-.3 1.72v2a.4.4 0 0 1-.4.4v-.01H9.94a.4.4 0 0 1-.4-.4v-1.99c0-.22.18-.4.4-.4h2c.22 0 .4.18.4.4zM23.49 1.1a1.74 1.74 0 0 0-1.24-.52H1.75A1.74 1.74 0 0 0 0 2.33v19.34a1.74 1.74 0 0 0 1.75 1.75h20.5A1.74 1.74 0 0 0 24 21.67V2.33c0-.48-.2-.92-.51-1.24m0 20.58a1.23 1.23 0 0 1-1.24 1.24H1.75A1.23 1.23 0 0 1 .5 21.67V2.33a1.23 1.23 0 0 1 1.24-1.24h20.5a1.24 1.24 0 0 1 1.24 1.24v19.34z");
+  // Platforms a typed-in game can be on. Ones without a logo get a text badge.
+  const T5_PLATFORMS = ["Switch", "GOG", "Xbox", "PC", "PlayStation", "Steam", "Other"];
   const STEAM_PATH = new Path2D("M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z");
   const T5_THEMES = {
     slate:    { name: "Slate",    bg: ["#a9bcc1", "#6d8389"], banner: "#1f3f4f", text: "#f3eee4", title: "#17394a", shadow: ["#35d6d6", "#d23bd0"], sign: "#17394a" },
@@ -960,18 +968,32 @@
 
   const groupByKey = (key) => state.groups.find((g) => g.key === key) || null;
 
+  // A slot holds a library game's key, or a game typed in by hand — one from
+  // Switch, GOG or anywhere else the tracker cannot see. Either way the
+  // poster wants the same things: a title, hours if known, platforms.
+  function slotGame(i) {
+    const v = t5.slots[i];
+    if (!v) return null;
+    if (typeof v === "object") {
+      return { title: v.title, hours: v.hours, platforms: [v.platform || "Other"], group: null };
+    }
+    const g = groupByKey(v);
+    return g ? { title: g.title, hours: g.hours, platforms: g.platforms, group: g } : null;
+  }
+
   // Poster art. Steam has portrait art with CORS; Sony's CDN sends no CORS
   // header, which blocks exporting a canvas that contains it, so PlayStation
   // art comes through an image proxy that adds one. An uploaded cover wins.
   function coverUrl(g, slot) {
     if (t5.uploads[slot]) return t5.uploads[slot];
+    if (!g) return null;
     const steam = g.parts.find((p) => p.platform === "Steam" && p.appid);
     if (steam) return `https://cdn.cloudflare.steamstatic.com/steam/apps/${steam.appid}/library_600x900.jpg`;
     const src = g.parts.find((p) => p.cover) ;
     return src ? `https://wsrv.nl/?url=${encodeURIComponent(src.cover)}&w=600&h=900&fit=cover&output=jpg` : null;
   }
   const fallbackUrl = (g) => {
-    const p = g.parts.find((x) => x.cover);
+    const p = g && g.parts.find((x) => x.cover);
     return p ? `https://wsrv.nl/?url=${encodeURIComponent(p.cover)}&w=600&h=900&fit=cover&output=jpg` : null;
   };
 
@@ -1021,24 +1043,76 @@
   }
 
   function drawSlots() {
-    $("#t5Slots").innerHTML = t5.slots.map((key, i) => {
-      const g = key && groupByKey(key);
-      const meta = g ? `${fmtH(g.hours)}h · ${g.platforms.join(" + ")}` : "empty";
+    $("#t5Slots").innerHTML = t5.slots.map((v, i) => {
+      const sg = slotGame(i);
+      const custom = v && typeof v === "object";
+      const meta = !sg ? "empty"
+        : custom ? (t5.uploads[i] ? "your game · custom cover" : "your game · add a cover")
+        : `${fmtH(sg.hours)}h · ${sg.platforms.join(" + ")}${t5.uploads[i] ? " · custom cover" : ""}`;
+      const extra = custom ? `
+          <div class="t5slot__custom">
+            <input type="number" min="0" step="1" inputmode="numeric" placeholder="Hours" value="${v.hours ?? ""}"
+              data-act="hours" aria-label="Hours for ${esc(v.title)}">
+            <select data-act="platform" aria-label="Platform for ${esc(v.title)}">
+              ${T5_PLATFORMS.map((p) => `<option${p === (v.platform || "Other") ? " selected" : ""}>${p}</option>`).join("")}
+            </select>
+          </div>` : "";
       return `<li class="t5slot" data-i="${i}">
         <span class="t5slot__n">${i + 1}</span>
         <div class="t5slot__pick">
-          <input list="t5Games" placeholder="Pick a game…" value="${g ? esc(g.title) : ""}" aria-label="Game in position ${i + 1}">
-          <span class="t5slot__meta">${esc(meta)}${t5.uploads[i] ? " · custom cover" : ""}</span>
+          <input list="t5Games" placeholder="Pick or type a game…" value="${sg ? esc(sg.title) : ""}" aria-label="Game in position ${i + 1}">
+          ${extra}
+          <span class="t5slot__meta">${esc(meta)}</span>
         </div>
         <div class="t5slot__btns">
           <button type="button" data-act="up" aria-label="Move up" ${i === 0 ? "disabled" : ""}>↑</button>
           <button type="button" data-act="down" aria-label="Move down" ${i === 4 ? "disabled" : ""}>↓</button>
-          <label class="t5slot__upload" title="Use your own cover">🖼<input type="file" accept="image/*" data-act="upload"></label>
+          <label class="t5slot__upload" title="Upload a cover" aria-label="Upload a cover">${ICON_UPLOAD}<input type="file" accept="image/*" data-act="upload"></label>
+          <button type="button" data-act="paste" title="Paste a cover from the clipboard" aria-label="Paste a cover">${ICON_PASTE}</button>
           <button type="button" data-act="clear" aria-label="Clear">×</button>
         </div>
       </li>`;
     }).join("");
   }
+
+  function setCover(i, blob) {
+    if (t5.uploads[i]) URL.revokeObjectURL(t5.uploads[i]);
+    t5.uploads[i] = URL.createObjectURL(blob);
+    $("#t5Note").textContent = "";
+    drawSlots(); drawTop5();
+  }
+
+  // Paste: the button reads the clipboard directly (iOS shows its own
+  // "Paste" bubble). Where the browser refuses, fall back to the keyboard —
+  // the next ⌘V / Ctrl+V with an image lands in the slot that asked.
+  let pasteTarget = null;
+  async function pasteInto(i) {
+    if (navigator.clipboard && navigator.clipboard.read) {
+      try {
+        for (const item of await navigator.clipboard.read()) {
+          const type = item.types.find((t) => t.startsWith("image/"));
+          if (type) { setCover(i, await item.getType(type)); return; }
+        }
+        $("#t5Note").textContent = "There's no image on the clipboard.";
+        return;
+      } catch (_) { /* denied or unsupported — use the keyboard instead */ }
+    }
+    pasteTarget = i;
+    $("#t5Note").textContent = `Press ⌘V / Ctrl+V to paste into #${i + 1}.`;
+  }
+
+  document.addEventListener("paste", (e) => {
+    if (!$("#sub-top5").classList.contains("is-active")) return;
+    const item = [...((e.clipboardData && e.clipboardData.items) || [])].find((x) => x.type.startsWith("image/"));
+    if (!item) return;                       // plain text pastes behave normally
+    const focused = document.activeElement && document.activeElement.closest(".t5slot");
+    const i = focused ? +focused.dataset.i
+      : pasteTarget !== null ? pasteTarget
+      : Math.max(0, t5.slots.findIndex((k, n) => k && !t5.uploads[n]));
+    e.preventDefault();
+    pasteTarget = null;
+    setCover(i, item.getAsFile());
+  });
 
   $("#t5Slots").addEventListener("change", (e) => {
     const li = e.target.closest(".t5slot");
@@ -1046,11 +1120,26 @@
     const i = +li.dataset.i;
     if (e.target.dataset.act === "upload") {
       const file = e.target.files && e.target.files[0];
-      if (file) t5.uploads[i] = URL.createObjectURL(file);
+      if (file) setCover(i, file);
+      return;
     } else if (e.target.matches("input[list]")) {
-      const g = state.groups.find((x) => x.title === e.target.value);
-      t5.slots[i] = g ? g.key : null;
-      delete t5.uploads[i];
+      const typed = e.target.value.trim();
+      const g = state.groups.find((x) => x.title === typed);
+      const was = t5.slots[i];
+      if (g) t5.slots[i] = g.key;
+      else if (typed) {
+        // Not in the library: keep it as the user's own entry, carrying over
+        // hours and platform if they are only correcting the name.
+        const prev = was && typeof was === "object" ? was : {};
+        t5.slots[i] = { title: typed, hours: prev.hours ?? null, platform: prev.platform || "Switch" };
+      } else t5.slots[i] = null;
+      if (!(was && typeof was === "object" && typeof t5.slots[i] === "object")) delete t5.uploads[i];
+    } else if (e.target.dataset.act === "hours" || e.target.dataset.act === "platform") {
+      const v = t5.slots[i];
+      if (v && typeof v === "object") {
+        if (e.target.dataset.act === "hours") v.hours = e.target.value === "" ? null : Math.max(0, +e.target.value);
+        else v.platform = e.target.value;
+      }
     }
     saveT5(); drawSlots(); drawTop5();
   });
@@ -1064,6 +1153,7 @@
     };
     if (btn.dataset.act === "up" && i > 0) swap(i, i - 1);
     if (btn.dataset.act === "down" && i < 4) swap(i, i + 1);
+    if (btn.dataset.act === "paste") { pasteInto(i); return; }
     if (btn.dataset.act === "clear") { t5.slots[i] = null; delete t5.uploads[i]; }
     saveT5(); drawSlots(); drawTop5();
   });
@@ -1106,10 +1196,10 @@
     const font = '"Bebas Neue", "Impact", "Arial Narrow", sans-serif';
     try { await document.fonts.load(`100px "Bebas Neue"`); } catch (_) {}
 
-    const games = t5.slots.map((k) => (k ? groupByKey(k) : null));
-    const imgs = await Promise.all(games.map(async (g, i) => {
-      if (!g) return null;
-      return (await loadImage(coverUrl(g, i))) || (await loadImage(fallbackUrl(g)));
+    const games = t5.slots.map((_, i) => slotGame(i));
+    const imgs = await Promise.all(games.map(async (sg, i) => {
+      if (!sg) return null;
+      return (await loadImage(coverUrl(sg.group, i))) || (await loadImage(fallbackUrl(sg.group)));
     }));
     if (run !== t5Drawing) return;   // a newer draw started while images loaded
 
@@ -1150,7 +1240,7 @@
         ctx.drawImage(img, (img.width - sw) / 2, (img.height - sh) / 2, sw, sh, x, top, cw, ch);
       } else {
         ctx.fillStyle = th.text; ctx.globalAlpha = 0.5;
-        ctx.font = `40px ${font}`; ctx.fillText(g ? "NO ART" : `#${i + 1}`, cx, top + ch / 2);
+        ctx.font = `40px ${font}`; ctx.fillText(g ? "ADD A COVER" : `#${i + 1}`, cx, top + ch / 2);
         ctx.globalAlpha = 1;
       }
       if (t5.ranks && g) {
@@ -1171,13 +1261,19 @@
       ctx.font = `36px ${font}`;
       const lines = wrapLines(ctx, g.title.replace(/[™®©]/g, ""), cw - 24, 2);
       lines.forEach((ln, k) => ctx.fillText(ln, cx, by + 38 + k * 34));
-      ctx.fillText(`${Math.round(g.hours)}H`, cx, by + 38 + 2 * 34);
+      if (g.hours != null && g.hours !== "") ctx.fillText(`${Math.round(g.hours)}H`, cx, by + 38 + 2 * 34);
 
-      // platform logos along the foot
-      const logos = [];
-      if (g.parts.some((p) => p.platform === "PlayStation")) logos.push(PS_PATH);
-      if (g.parts.some((p) => p.platform === "Steam")) logos.push(STEAM_PATH);
-      logos.forEach((path, k) => drawLogo(ctx, path, cx + (k - (logos.length - 1) / 2) * 38, by + bh + 4, 30, th.text));
+      // platform logos along the foot; platforms without one get a word
+      const LOGOS = { PlayStation: PS_PATH, Steam: STEAM_PATH, Switch: SWITCH_PATH, GOG: GOG_PATH };
+      const marks = g.platforms.map((p) => LOGOS[p] || p.toUpperCase());
+      const gap = 40;
+      marks.forEach((m, k) => {
+        const mx = cx + (k - (marks.length - 1) / 2) * gap, my = by + bh + 4;
+        if (typeof m === "string") {
+          ctx.font = `26px ${font}`; ctx.textBaseline = "middle";
+          ctx.fillText(m, mx, my + 1); ctx.textBaseline = "alphabetic";
+        } else drawLogo(ctx, m, mx, my, 30, th.text);
+      });
     });
 
     // signature

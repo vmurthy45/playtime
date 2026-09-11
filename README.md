@@ -113,8 +113,12 @@ those show as "tracked" once they exist.
 
 The **Top 5 Generator** draws a 1080×1350 poster — title, five covers, hours
 and platform logos, signature — and saves it as a PNG (the share sheet on a
-phone). Pick any game for any position, reorder with the arrows, or upload
-your own cover for a slot. "Fill from year" seeds it with that year's
+phone). Pick any game for any position, reorder with the arrows, and upload
+or paste your own cover for a slot (the paste button reads the clipboard; where
+a browser won't allow that, ⌘V / Ctrl+V pastes into the focused slot). A name
+that isn't in the library — a Switch or GOG game, say — becomes your own entry
+with its own hours and platform (Switch and GOG get logos, others a word); it
+needs an uploaded or pasted cover. "Fill from year" seeds it with that year's
 most-played new games as a starting point. Steam covers load straight from
 Steam, which allows it. Sony's image server sends no CORS header, and a canvas
 holding such an image cannot be exported, so PlayStation covers come through

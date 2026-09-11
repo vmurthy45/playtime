@@ -1,7 +1,7 @@
 /* Bump CACHE here AND the ?v= on styles.css/app.js in index.html on every
    deploy. The query makes a new page fetch a matching stylesheet and script
    instead of pairing with an old copy from any cache. */
-const CACHE = "playtime-v67";
+const CACHE = "playtime-v69";
 const SHELL = ["./", "index.html", "styles.css", "app.js", "manifest.webmanifest",
                "favicon-32.png", "favicon-64.png", "apple-touch-icon.png", "icon-192.png",
                "trophy.png"];

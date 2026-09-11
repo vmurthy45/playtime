@@ -350,14 +350,26 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
   width: 100%; min-width: 0; font: inherit; font-size: 14px; color: var(--text);
   background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px;
 }
+.t5slot__custom { display: grid; grid-template-columns: 90px 1fr; gap: 6px; }
+.t5slot__custom input, .t5slot__custom select {
+  width: 100%; min-width: 0; font: inherit; font-size: 14px; color: var(--text);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px;
+}
 .t5slot__meta { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .t5slot__btns { display: flex; gap: 4px; }
 .t5slot__btns button, .t5slot__upload {
+  color: var(--muted);
   appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--text);
   border-radius: 8px; width: 32px; height: 32px; display: grid; place-items: center;
   font: inherit; font-size: 15px; cursor: pointer;
 }
 .t5slot__btns button:disabled { opacity: .35; cursor: default; }
+.t5slot__btns button:not(:disabled):hover, .t5slot__upload:hover { color: var(--accent); border-color: var(--accent); }
+@media (max-width: 760px) {
+  /* Five buttons crowd the game name on a phone; give them their own row. */
+  .t5slot { grid-template-columns: 26px 1fr; }
+  .t5slot__btns { grid-column: 2; justify-content: flex-start; }
+}
 .t5slot__upload input { display: none; }
 .t5__save {
   appearance: none; border: 0; border-radius: 10px; padding: 12px 16px; cursor: pointer;
@@ -374,5 +386,5 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
   .t5__preview { position: static; order: -1; }
   .yir__game { grid-template-columns: 22px 68px 1fr auto; gap: 9px; }
   .yir__title { font-size: 44px; }
-  .t5slot__pick input { font-size: 16px; }   /* no iOS zoom on focus */
+  .t5slot__pick input, .t5slot__custom select { font-size: 16px; }   /* no iOS zoom on focus */
 }
