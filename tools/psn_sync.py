@@ -167,7 +167,18 @@ def _console(category, title_id):
 
 
 def _date(value):
-    return value.date().isoformat() if value else None
+    """Sony's UTC timestamp as the calendar date where it was played.
+
+    Taking .date() straight off a UTC datetime put any NZ session before
+    midday on the previous day.
+    """
+    if not value:
+        return None
+    try:
+        from zoneinfo import ZoneInfo
+        return value.astimezone(ZoneInfo(TZ)).date().isoformat()
+    except Exception:  # noqa: BLE001
+        return value.date().isoformat()
 
 
 def update_snapshots(path, titles, today):

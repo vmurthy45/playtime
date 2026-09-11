@@ -133,9 +133,15 @@ and resumed can count again, so "average session" runs short on games you dip in
 and out of. Steam reports no launch count at all, so session figures are
 PlayStation-only.
 
-Steam has no first-played field either. `steam_sync.py` derives one by watching
-for a game going from zero hours to non-zero between syncs; games already played
-before the first sync keep an empty start date and stay off the Timeline.
+Steam has no first-played field either. On the Timeline a Steam game starts at
+the first day the snapshots saw it gain hours, or failing that its last-played
+date, and its bar is squared off at the left to say the real start is earlier
+and unrecorded. `steam_sync.py` also stamps a true first-played date when it
+catches a game going from zero hours to non-zero.
+
+All dates are calendar dates in NZ time. Sony and Steam both report UTC, and
+the CI runner is on UTC, so both collectors convert before storing — otherwise
+anything played before midday NZ lands on the previous day.
 
 ### What counts as a game
 

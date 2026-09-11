@@ -70,6 +70,19 @@ def local_today():
         return dt.date.today().isoformat()
 
 
+def local_date(timestamp):
+    """A Steam timestamp as a calendar date where it was played.
+
+    The CI runner is on UTC, so a plain fromtimestamp() dated a Friday
+    morning NZ session to Thursday.
+    """
+    try:
+        from zoneinfo import ZoneInfo
+        return dt.datetime.fromtimestamp(timestamp, ZoneInfo(TZ)).date().isoformat()
+    except Exception:  # noqa: BLE001
+        return dt.date.fromtimestamp(timestamp).isoformat()
+
+
 OWNED_URL = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/"
 CDN = "https://cdn.cloudflare.steamstatic.com/steam/apps"
 
@@ -136,7 +149,7 @@ def to_model(g):
         "hours": hours,
         "sessions": None,  # Steam does not report launch counts
         "firstPlayed": None,  # derived below, once a 0 -> >0 transition is seen
-        "lastPlayed": dt.date.fromtimestamp(last_ts).isoformat() if last_ts else None,
+        "lastPlayed": local_date(last_ts) if last_ts else None,
         "recentHours": round(g.get("playtime_2weeks", 0) / 60, 2),
         "devices": {k: v for k, v in devices.items() if v},
         "cover": f"{CDN}/{appid}/header.jpg",

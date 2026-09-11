@@ -34,8 +34,16 @@
   const sourceName = (s) => SOURCE_NAMES[s] || s;
   const year = (iso) => (iso ? iso.slice(0, 4) : null);
   const dayMs = 86400000;
-  const toDay = (iso) => Math.floor(new Date(iso + "T00:00:00").getTime() / dayMs);
+  // Calendar dates as whole-day indices, in UTC on both sides. Parsing
+  // "2026-09-09" as *local* midnight put it on 8 Sep in UTC for anyone east of
+  // Greenwich, so every date round-tripped through here came back a day early.
+  const toDay = (iso) => Math.floor(Date.parse(iso.slice(0, 10) + "T00:00:00Z") / dayMs);
   const fromDay = (d) => new Date(d * dayMs).toISOString().slice(0, 10);
+  // Today is the viewer's calendar date. The UTC date is yesterday in NZ
+  // until midday.
+  const pad2 = (n) => String(n).padStart(2, "0");
+  const localDate = (d = new Date()) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+  const todayISO = () => localDate();
   const minDate = (a, b) => (!a ? b : !b ? a : a < b ? a : b);
   const maxDate = (a, b) => (!a ? b : !b ? a : a > b ? a : b);
 
@@ -161,13 +169,22 @@
   // snapshots. Each source is diffed on its own, then summed per day. A gap
   // between syncs gives a known total over an unknown split — those days are
   // marked estimated rather than silently drawn as fact.
+  //
+  // Alongside the daily totals this records, per game, the first and last day
+  // the snapshots saw it gain hours. Steam supplies no first-played date, so
+  // that observed activity is the only evidence of when a Steam game was
+  // played — the timeline depends on it.
   function dailySeries() {
+    const consoleOf = {};
+    for (const e of state.entries) consoleOf[e.id] = e.console || "Other";
+
     const bySource = {};
     for (const s of state.snapshots) (bySource[s.source] ||= []).push(s);
 
     const byDate = {};
+    const activity = {};
     let earliest = null;
-    for (const [source, list] of Object.entries(bySource)) {
+    for (const list of Object.values(bySource)) {
       list.sort((a, b) => a.date.localeCompare(b.date));
       earliest = minDate(earliest, list[0].date);
       for (let i = 1; i < list.length; i++) {
@@ -181,20 +198,29 @@
         // The hours were earned between the two snapshots, so they belong to
         // the days from the earlier one up to (not including) the later one.
         // With a midnight sync that is exactly the day that just ended.
-        const from = toDay(prev.date), to = toDay(cur.date) - 1;
-        const span = Math.max(1, to - from + 1);
+        const from = toDay(prev.date), to = Math.max(from, toDay(cur.date) - 1);
+        const span = to - from + 1;
+
+        for (const id of Object.keys(perGame)) {
+          const a = (activity[id] ||= { first: null, last: null });
+          a.first = minDate(a.first, fromDay(from));
+          a.last = maxDate(a.last, fromDay(to));
+        }
         for (let d = from; d <= to; d++) {
           const date = fromDay(d);
-          const slot = (byDate[date] ||= { date, hours: 0, estimated: false, perGame: {}, sources: {} });
+          const slot = (byDate[date] ||= { date, hours: 0, estimated: false, perGame: {}, byConsole: {} });
           slot.hours += gained / span;
-          slot.sources[source] = (slot.sources[source] || 0) + gained / span;
+          for (const [id, h] of Object.entries(perGame)) {
+            const c = consoleOf[id] || "Other";
+            slot.byConsole[c] = (slot.byConsole[c] || 0) + h / span;
+          }
           if (span > 1) slot.estimated = true;
           else for (const [id, h] of Object.entries(perGame)) slot.perGame[id] = (slot.perGame[id] || 0) + h;
         }
       }
     }
     const days = Object.values(byDate).sort((a, b) => a.date.localeCompare(b.date));
-    return { days, since: earliest, snapshotCount: state.snapshots.length };
+    return { days, since: earliest, snapshotCount: state.snapshots.length, activity };
   }
 
   /* ------------------------------------------------------------- render */
@@ -208,10 +234,10 @@
       `${state.groups.length} games, ${fmtH(totalH)} hours.` +
       (known.length ? ` Since ${known[0].slice(0, 4)}` : "");
     // A source that quietly stops syncing should look wrong, not just old.
-    const todayD = toDay(new Date().toISOString().slice(0, 10));
+    const todayD = toDay(todayISO());
     $("#syncedAt").innerHTML = state.synced
       .map((s) => {
-        const age = todayD - toDay(s.at.slice(0, 10));
+        const age = todayD - toDay(localDate(new Date(s.at)));
         const label = `${sourceName(s.source)} synced ${fmtStamp(s.at)}`;
         return age > 2 ? `<span class="stale">${esc(label)} · ${age} days ago</span>` : esc(label);
       })
@@ -299,7 +325,7 @@
     // was last played — ignoring that dated the library from 2015, not 2011.
     const known = entries.map((x) => x.firstPlayed || x.lastPlayed).filter(Boolean).sort();
     const years = known.length && dates.length ? (toDay(dates[dates.length - 1]) - toDay(known[0])) / 365.25 : 0;
-    const cutoff = fromDay(toDay(new Date().toISOString().slice(0, 10)) - 365);
+    const cutoff = fromDay(toDay(todayISO()) - 365);
     const activeYear = state.groups.filter((g) => g.lastPlayed && g.lastPlayed >= cutoff);
     const multi = state.groups.filter((g) => g.platforms.length > 1);
 
@@ -515,10 +541,27 @@
 
   /* --- timeline --- */
 
+  // When each entry was in rotation. PSN gives a real first-played date.
+  // Steam gives none, so a Steam game starts at the first day the snapshots
+  // saw it played, or failing that its last-played date — and is flagged so
+  // the bar can show that its true start is earlier than drawn.
+  function timelineSpans() {
+    const { activity } = dailySeries();
+    const spans = new Map();
+    for (const e of state.entries) {
+      const seen = activity[e.id];
+      const start = e.firstPlayed || (seen && seen.first) || e.lastPlayed;
+      const end = maxDate(e.lastPlayed, seen && seen.last) || start;
+      if (start && end) spans.set(e.id, { start, end: maxDate(start, end), startKnown: !!e.firstPlayed });
+    }
+    return spans;
+  }
+
   function renderTimeline() {
-    const dated = state.entries.filter((x) => x.firstPlayed && x.lastPlayed);
-    const today = new Date().toISOString().slice(0, 10);
-    const earliest = dated.reduce((m, x) => minDate(m, x.firstPlayed), today);
+    state.spans = timelineSpans();
+    const today = todayISO();
+    let earliest = today;
+    for (const sp of state.spans.values()) earliest = minDate(earliest, sp.start);
     const years = [];
     for (let y = +today.slice(0, 4); y >= +earliest.slice(0, 4); y--) years.push(y);
 
@@ -540,15 +583,12 @@
     drawTimeline();
   }
 
-  function rangeWindow(value, dated) {
-    const today = new Date().toISOString().slice(0, 10);
+  function rangeWindow(value) {
+    const today = todayISO();
     if (value === "all") {
-      return {
-        start: dated.reduce((m, x) => minDate(m, x.firstPlayed), today),
-        end: dated.reduce((m, x) => maxDate(m, x.lastPlayed), today),
-        label: "all time",
-        padded: false,
-      };
+      let start = today, end = today;
+      for (const sp of state.spans.values()) { start = minDate(start, sp.start); end = maxDate(end, sp.end); }
+      return { start, end, label: "all time", padded: false };
     }
     if (value.startsWith("y:")) {
       const y = value.slice(2);
@@ -559,14 +599,15 @@
   }
 
   function drawTimeline() {
-    const dated = state.entries.filter((x) => x.firstPlayed && x.lastPlayed);
+    const spanOf = (x) => state.spans.get(x.id);
+    const dated = state.entries.filter(spanOf);
     const q = $("#timelineSearch").value.trim().toLowerCase();
-    const win = rangeWindow($("#timelineRange").value || "all", dated);
+    const win = rangeWindow($("#timelineRange").value || "all");
 
     const matches = q ? dated.filter((x) => x.title.toLowerCase().includes(q)) : dated;
-    const inWindow = (x) => x.lastPlayed >= win.start && x.firstPlayed <= win.end;
+    const inWindow = (x) => spanOf(x).end >= win.start && spanOf(x).start <= win.end;
     let rows = matches.filter(inWindow);
-    rows.sort((a, b) => b.lastPlayed.localeCompare(a.lastPlayed) || b.hours - a.hours);
+    rows.sort((a, b) => spanOf(b).end.localeCompare(spanOf(a).end) || b.hours - a.hours);
 
     const elsewhere = matches.length - rows.length;
     $("#timelineNote").innerHTML =
@@ -611,14 +652,20 @@
     // played every day in it.
     const body = rows.map((g) => {
       const colour = tint(g.console);
-      const first = toDay(g.firstPlayed), last = toDay(g.lastPlayed);
+      const sp = spanOf(g);
+      const first = toDay(sp.start), last = toDay(sp.end);
       const from = Math.max(first, minD), to = Math.min(last, maxD);
       const left = pct(from);
       const width = Math.max(0.35, pct(to) - left);
-      // A squared-off end means the bar runs past the edge of what is drawn.
-      const cut = (first < minD ? " tlbar--cutL" : "") + (last > maxD ? " tlbar--cutR" : "");
+      // A squared-off end means the game ran past what is drawn — either the
+      // window edge, or (for Steam) a start date nobody recorded.
+      const cut = (first < minD || !sp.startKnown ? " tlbar--cutL" : "") + (last > maxD ? " tlbar--cutR" : "");
+      const when = sp.startKnown
+        ? `${fmtDate(sp.start)} → ${fmtDate(sp.end)}`
+        : `seen ${fmtDate(sp.start)} → ${fmtDate(sp.end)} · started earlier, date unknown`;
 
-      const bar = `<span class="tlbar${cut}" style="left:${left.toFixed(3)}%;width:${width.toFixed(3)}%;background:${colour}"></span>`;
+      const bar = `<span class="tlbar${cut}" title="${esc(g.title)} — ${when}"
+        style="left:${left.toFixed(3)}%;width:${width.toFixed(3)}%;background:${colour}"></span>`;
 
       const n = typeof g.sessions === "number" && g.sessions ? g.sessions : null;
       // Platform reads as a colour chip; the title stays in body colour so it
@@ -667,12 +714,13 @@
 
     if (span <= 3 * 365) {
       const lines = [];
-      const d = new Date(fromDay(minD) + "T00:00:00");
-      d.setDate(1);
-      while (toDay(d.toISOString().slice(0, 10)) <= maxD) {
-        const t = toDay(d.toISOString().slice(0, 10));
-        if (t >= minD) lines.push([t, MONTHS[d.getMonth()]]);
-        d.setMonth(d.getMonth() + 1);
+      // Walk months in UTC too, or month boundaries slip a day east of GMT.
+      const d = new Date(fromDay(minD) + "T00:00:00Z");
+      d.setUTCDate(1);
+      while (toDay(d.toISOString()) <= maxD) {
+        const t = toDay(d.toISOString());
+        if (t >= minD) lines.push([t, MONTHS[d.getUTCMonth()]]);
+        d.setUTCMonth(d.getUTCMonth() + 1);
       }
       return { lines: lines.map(([t]) => t), labels: lines, daily: false };
     }
@@ -705,34 +753,12 @@
     }
 
     const recent = days.slice(-60);
-    $("#dailyHint").innerHTML =
-      `Derived by comparing daily snapshots, so it starts at ${fmtDate(since)} — anything before that is
-       genuinely unknown, not zero. Hatched bars are windows where two syncs were more than a day apart:
-       the total is real, the split across those days is an even guess.`;
-
-    const max = Math.max(...recent.map((d) => d.hours), 0.5);
-    const w = 1000, h = 180, pad = 18;
-    const bw = (w - pad * 2) / recent.length;
-    const bars = recent.map((d, i) => {
-      const bh = (d.hours / max) * (h - pad * 2);
-      const x = pad + i * bw, y = h - pad - bh;
-      const fill = d.hours === 0 ? "var(--nodata)" : "var(--accent)";
-      const style = d.estimated ? ` opacity="0.45" stroke="var(--accent)" stroke-dasharray="2 2"` : "";
-      const per = Object.entries(d.sources).map(([s, hrs]) => `${sourceName(s)} ${fmtH(hrs)}h`).join(", ");
-      return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${Math.max(1, bw - 1.5).toFixed(1)}"
-        height="${Math.max(d.hours ? 1.5 : 0.8, bh).toFixed(1)}" rx="2" fill="${fill}"${style}>
-        <title>${fmtDate(d.date)} — ${fmtH(d.hours)}h${per ? " (" + per + ")" : ""}${d.estimated ? " · estimated across a multi-day gap" : ""}</title></rect>`;
-    }).join("");
+    const anyEstimated = recent.some((d) => d.estimated);
+    $("#dailyHint").textContent = `Tracked since ${fmtDate(since)}. Earlier days are unknown, not zero.`;
+    $("#dailyChart").innerHTML = stackedDays(recent) +
+      (anyEstimated ? `<div class="gapnote"><span class="hatch"></span> faded: a gap between syncs — total is real, daily split estimated</div>` : "");
 
     const total = recent.reduce((s, d) => s + d.hours, 0);
-    $("#dailyChart").innerHTML =
-      `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Hours per day">
-         <line x1="${pad}" y1="${h - pad}" x2="${w - pad}" y2="${h - pad}" stroke="var(--line)"/>
-         ${bars}
-         <text x="${pad}" y="12" font-size="11" fill="var(--muted)">${fmtH(max)}h peak</text>
-       </svg>
-       <div class="gapnote"><span class="hatch"></span> estimated across a gap between syncs</div>`;
-
     const perGame = {};
     for (const d of recent) for (const [id, hrs] of Object.entries(d.perGame)) perGame[id] = (perGame[id] || 0) + hrs;
     const rows = Object.entries(perGame).sort((a, b) => b[1] - a[1]).slice(0, 10)
@@ -747,6 +773,69 @@
   }
 
   /* ------------------------------------------------------- chart helpers */
+
+  // A round step that gives about four gridlines at whatever scale the data is.
+  function niceStep(max) {
+    for (const step of [0.25, 0.5, 1, 2, 3, 4, 5, 10, 20]) if (max / step <= 4) return step;
+    return Math.ceil(max / 4);
+  }
+
+  // Hours per day, one bar per day stacked by console (PS4 at the bottom,
+  // Steam on top), with an hours axis and dates underneath.
+  function stackedDays(days) {
+    const ORDER = ["PS4", "PS5", "Steam", "Other"];
+    // SVG text scales with the viewBox, so a 1000-wide chart squeezed onto a
+    // phone rendered its axis labels at 5px. Match the coordinate space to
+    // the screen and the text stays the size it is written as.
+    const narrow = window.innerWidth <= 640;
+    const w = narrow ? 380 : 1000, h = narrow ? 210 : 230;
+    const padL = 42, padR = 8, padT = 12, padB = 28;
+    const plotW = w - padL - padR, plotH = h - padT - padB;
+
+    const max = Math.max(...days.map((d) => d.hours), 0.25);
+    const step = niceStep(max);
+    const top = Math.ceil(max / step) * step;
+    const y = (v) => padT + plotH - (v / top) * plotH;
+
+    let grid = "";
+    for (let v = 0; v <= top + 1e-9; v += step) {
+      const gy = y(v).toFixed(1);
+      grid += `<line x1="${padL}" y1="${gy}" x2="${w - padR}" y2="${gy}" stroke="var(--line)"${v ? ' stroke-dasharray="3 4"' : ""}/>` +
+              `<text x="${padL - 8}" y="${(+gy + 4).toFixed(1)}" font-size="12" fill="var(--muted)" text-anchor="end">${+v.toFixed(2)}h</text>`;
+    }
+
+    const slot = plotW / days.length;
+    // A few days of data should read as bars, not slabs.
+    const bw = Math.min(44, slot * 0.72);
+    const every = Math.max(1, Math.ceil(days.length / 8));
+
+    const bars = days.map((d, i) => {
+      const cx = padL + slot * (i + 0.5);
+      const x = (cx - bw / 2).toFixed(1);
+      let cum = 0, stack = "";
+      for (const c of ORDER) {
+        const v = d.byConsole[c] || 0;
+        if (v <= 0.001) continue;
+        const y1 = y(cum + v), y0 = y(cum);
+        stack += `<rect x="${x}" y="${y1.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(1, y0 - y1).toFixed(1)}" fill="${tint(c)}"/>`;
+        cum += v;
+      }
+      const parts = ORDER.filter((c) => d.byConsole[c] > 0.001).map((c) => `${c} ${fmtH(d.byConsole[c])}h`).join(", ");
+      const tip = `${fmtDate(d.date)} — ${fmtH(d.hours)}h${parts ? " (" + parts + ")" : ""}${d.estimated ? " · estimated across a gap" : ""}`;
+      const iso = d.date;
+      const label = i % every === 0
+        ? `<text x="${cx.toFixed(1)}" y="${h - 10}" font-size="12" fill="var(--muted)" text-anchor="middle">${+iso.slice(8)} ${MONTHS[+iso.slice(5, 7) - 1]}</text>`
+        : "";
+      // A full-height transparent strip, so the tooltip works even on a zero day.
+      return `<g${d.estimated ? ' opacity="0.45"' : ""}><title>${esc(tip)}</title>
+        <rect x="${(cx - slot / 2).toFixed(1)}" y="${padT}" width="${slot.toFixed(1)}" height="${plotH}" fill="transparent"/>
+        ${stack}</g>${label}`;
+    }).join("");
+
+    const present = ORDER.filter((c) => days.some((d) => d.byConsole[c] > 0.001));
+    return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Hours played per day, by platform">${grid}${bars}</svg>
+      <div class="legend">${present.map((c) => `<span><i style="background:${tint(c)}"></i>${esc(c)}</span>`).join("")}</div>`;
+  }
 
   function barRows(items) {
     if (!items.length) return `<p class="empty">No data.</p>`;
