@@ -151,8 +151,8 @@ same day count as one, so it errs low. A game not played since tracking began
 shows no count rather than x0.
 
 Slay the Spire 2 was backfilled once from the separate STS2 run tracker —
-141 archived runs grouped into 114 sittings (a break of over an hour starts a
-new one), plus a real first-played date of 6 Mar 2026. That lives in
+each of its 141 archived runs counts as a session — plus a real first-played
+date of 6 Mar 2026. That lives in
 `data/backfill.json`, written by `tools/backfill_sts2.py`, which only runs on
 the Mac holding the run archive. Tracked sessions after the backfill's last
 day are added on top, so the count keeps climbing.

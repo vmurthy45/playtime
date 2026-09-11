@@ -6,8 +6,7 @@ Steam reports play time but never a session count or a first-played date.
 The run tracker (a separate project on this Mac) archives every finished run
 with its start time and duration, which is enough to reconstruct both:
 
-  sessions      runs grouped into sittings — a run starting more than an
-                hour after the previous one ended begins a new sitting
+  sessions      one per archived run — each run is counted as a session
   firstPlayed   the date of the earliest run
   through       the date of the latest run; after it, the app adds one
                 session per day the daily snapshots see the game played
@@ -29,7 +28,6 @@ import pathlib
 
 ARCHIVE = pathlib.Path.home() / "Library/Application Support/sts2-run-tracker/data/runs"
 ENTRY_ID = "steam_2868840"          # Slay the Spire 2 in steam_titles.json
-GAP_MINUTES = 60                     # a longer break starts a new sitting
 TZ = "Pacific/Auckland"
 
 
@@ -50,11 +48,7 @@ def main():
         raise SystemExit(f"No runs found under {ARCHIVE}")
     runs.sort()
 
-    sessions, prev_end = 0, None
-    for start, duration in runs:
-        if prev_end is None or start - prev_end > GAP_MINUTES * 60:
-            sessions += 1
-        prev_end = max(prev_end or 0, start + duration)
+    sessions = len(runs)
 
     days = sorted({local_date(start) for start, _ in runs})
     record = {
