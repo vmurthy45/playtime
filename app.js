@@ -266,8 +266,11 @@
         return age > 2 ? `<span class="stale">${esc(label)} · ${age} days ago</span>` : esc(label);
       })
       .join(" · ");
+    state.spans = timelineSpans();
     renderOverview();
     renderStats(totalH);
+    renderYir();
+    renderTop5();
     renderGames();
     renderTimeline();
     renderDaily();
@@ -582,7 +585,6 @@
   }
 
   function renderTimeline() {
-    state.spans = timelineSpans();
     const today = todayISO();
     let earliest = today;
     for (const sp of state.spans.values()) earliest = minDate(earliest, sp.start);
@@ -794,6 +796,423 @@
       ? `<h2 class="h">What those hours went into</h2><div class="chartbox">${barRows(rows)}</div>
          <p class="hint" style="margin-top:10px">${fmtH(total)} hours across the last ${recent.length} days.</p>`
       : "";
+  }
+
+
+  /* --- stats sub-tabs --- */
+
+  $("#statsNav").addEventListener("click", (e) => {
+    const btn = e.target.closest(".seg__btn");
+    if (!btn) return;
+    document.querySelectorAll("#statsNav .seg__btn").forEach((b) => b.classList.toggle("is-active", b === btn));
+    document.querySelectorAll("#panel-stats .subpanel")
+      .forEach((p) => p.classList.toggle("is-active", p.id === "sub-" + btn.dataset.sub));
+    if (btn.dataset.sub === "top5") drawTop5();
+  });
+
+  // A group's play span from its platform entries: overall first/last, plus
+  // the earliest start that was actually recorded (Steam's often is not).
+  function groupSpan(g) {
+    let start = null, end = null, knownStart = null;
+    for (const p of g.parts) {
+      const sp = state.spans.get(p.id);
+      if (!sp) continue;
+      start = minDate(start, sp.start);
+      end = maxDate(end, sp.end);
+      if (sp.startKnown) knownStart = minDate(knownStart, sp.start);
+    }
+    return start ? { start, end, knownStart } : null;
+  }
+
+  const groupsFor = (platform) =>
+    platform ? groupEntries(state.entries.filter((e) => e.platform === platform)) : state.groups;
+
+  // Games of a year. "New" needs a recorded start in the year; "played" is
+  // any overlap. Hours are lifetime hours — what the platforms report — not
+  // hours inside the year, which only the daily snapshots know.
+  function yearGames(y, platform) {
+    const from = `${y}-01-01`, to = `${y}-12-31`;
+    const fresh = [], back = [];
+    for (const g of groupsFor(platform)) {
+      const sp = groupSpan(g);
+      if (!sp || sp.end < from || sp.start > to) continue;
+      (sp.knownStart && year(sp.knownStart) === String(y) ? fresh : back).push({ g, sp });
+    }
+    fresh.sort((a, b) => b.g.hours - a.g.hours);
+    back.sort((a, b) => b.g.hours - a.g.hours);
+    return { fresh, back };
+  }
+
+  function activeYears() {
+    const now = +todayISO().slice(0, 4);
+    let first = now;
+    for (const sp of state.spans.values()) first = Math.min(first, +sp.start.slice(0, 4));
+    const ys = [];
+    for (let y = now; y >= first; y--) ys.push(y);
+    return ys;
+  }
+
+  /* --- year in review --- */
+
+  function renderYir() {
+    $("#yirYear").innerHTML = activeYears().map((y) => `<option>${y}</option>`).join("");
+    $("#yirYear").addEventListener("change", drawYir);
+    $("#yirPlatform").addEventListener("click", (e) => {
+      const btn = e.target.closest(".seg__btn");
+      if (!btn) return;
+      document.querySelectorAll("#yirPlatform .seg__btn").forEach((b) => b.classList.toggle("is-active", b === btn));
+      drawYir();
+    });
+    drawYir();
+  }
+
+  function drawYir() {
+    const y = +$("#yirYear").value;
+    const platform = $("#yirPlatform .is-active").dataset.platform;
+    const { fresh, back } = yearGames(y, platform);
+    const played = fresh.length + back.length;
+
+    // Exact hours inside the year exist only for days the snapshots cover.
+    const consoles = platform === "Steam" ? ["Steam"] : platform === "PlayStation" ? ["PS4", "PS5", "Other"] : null;
+    let tracked = 0;
+    for (const d of dailySeries().days) {
+      if (d.date.slice(0, 4) !== String(y)) continue;
+      tracked += consoles ? consoles.reduce((s, c) => s + (d.byConsole[c] || 0), 0) : d.hours;
+    }
+
+    const newHours = fresh.reduce((s, x) => s + x.g.hours, 0);
+    const completed = fresh.filter((x) => hasTrophy(x.g)).length;
+    const tiles = [
+      [played, "games played"],
+      [fresh.length, "new games"],
+      [back.length, "returning games"],
+      [fmtH(newHours), "hours in new games"],
+      [`${TROPHY}${completed}`, "new games completed"],
+    ];
+    if (tracked > 0.05) tiles.push([fmtH(tracked) + "h", `tracked in ${y}`]);
+
+    const byMonth = Array(12).fill(0);
+    for (const x of fresh) byMonth[+x.sp.knownStart.slice(5, 7) - 1]++;
+    const peak = Math.max(...byMonth, 1);
+
+    const card = (x, i) => `
+      <li class="yir__game">
+        <span class="yir__rank">${i + 1}</span>
+        ${cover(x.g)}
+        <div class="yir__game-main">
+          <div class="name"><span class="name__t">${esc(x.g.title)}</span>${pills(x.g)}${hasTrophy(x.g) ? TROPHY : ""}</div>
+          <div class="meta">${x.sp.knownStart ? "started " + fmtDate(x.sp.knownStart) : "last played " + fmtDate(x.sp.end)}</div>
+        </div>
+        <b class="yir__hrs">${fmtH(x.g.hours)}h</b>
+      </li>`;
+
+    const label = platform || "All platforms";
+    $("#yir").innerHTML = played ? `
+      <div class="yir__hero">
+        <span class="yir__eyebrow">${esc(label)}</span>
+        <h2 class="yir__title">${y} in Review</h2>
+      </div>
+      <div class="tiles">${tiles.map(([v, l]) => `<div class="tile"><b>${v}</b><span>${esc(l)}</span></div>`).join("")}</div>
+
+      ${fresh.length ? `<h3 class="h">Top new games of ${y}</h3>
+        <ol class="yir__list">${fresh.slice(0, 10).map(card).join("")}</ol>` : ""}
+
+      ${fresh.length ? `<h3 class="h">When you started them</h3>
+        <div class="chartbox yir__months">${byMonth.map((n, i) => `
+          <div class="yir__month"><span class="yir__bar" style="height:${(n / peak * 100).toFixed(0)}%"></span>
+            <b>${n || ""}</b><i>${MONTHS[i][0]}</i></div>`).join("")}</div>` : ""}
+
+      ${back.length ? `<h3 class="h">Returned to</h3>
+        <ol class="yir__list">${back.slice(0, 10).map(card).join("")}</ol>
+        ${back.length > 10 ? `<p class="hint">…and ${back.length - 10} more.</p>` : ""}` : ""}
+
+      ${platform === "Steam" ? `<p class="hint">Steam start dates exist only since tracking began, and for Slay the Spire 2.</p>` : ""}
+    ` : `<p class="empty">Nothing on ${esc(label)} in ${y}.</p>`;
+  }
+
+  /* --- top 5 generator --- */
+
+  const T5_KEY = "playtime.top5";
+  const PS_PATH = new Path2D("M8.984 2.596v17.547l3.915 1.261V6.688c0-.69.304-1.151.794-.991.636.18.76.814.76 1.505v5.875c2.441 1.193 4.362-.002 4.362-3.152 0-3.237-1.126-4.675-4.438-5.827-1.307-.448-3.728-1.186-5.39-1.502zm4.656 16.241l6.296-2.275c.715-.258.826-.625.246-.818-.586-.192-1.637-.139-2.357.123l-4.205 1.5V14.98l.24-.085s1.201-.42 2.913-.615c1.696-.18 3.785.03 5.437.661 1.848.601 2.04 1.472 1.576 2.072-.465.6-1.622 1.036-1.622 1.036l-8.544 3.107V18.86zM1.807 18.6c-1.9-.545-2.214-1.668-1.352-2.32.801-.586 2.16-1.052 2.16-1.052l5.615-2.013v2.313L4.205 17c-.705.271-.825.632-.239.826.586.195 1.637.15 2.343-.12L8.247 17v2.074c-.12.03-.256.044-.39.073-1.939.331-3.996.196-6.038-.479z");
+  const STEAM_PATH = new Path2D("M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z");
+  const T5_THEMES = {
+    slate:    { name: "Slate",    bg: ["#a9bcc1", "#6d8389"], banner: "#1f3f4f", text: "#f3eee4", title: "#17394a", shadow: ["#35d6d6", "#d23bd0"], sign: "#17394a" },
+    amethyst: { name: "Amethyst", bg: ["#6c43a8", "#2b1850"], banner: "#3a2266", text: "#f4eefc", title: "#ffffff", shadow: ["#b88cff", "#2b1850"], sign: "#ffffff" },
+    midnight: { name: "Midnight", bg: ["#23355a", "#0b1220"], banner: "#16233c", text: "#eef3ff", title: "#ffffff", shadow: ["#6d95ff", "#d23b3b"], sign: "#6d95ff" },
+    ember:    { name: "Ember",    bg: ["#e0703a", "#5a1d1d"], banner: "#3a1414", text: "#fff4ec", title: "#fff4ec", shadow: ["#ffcf6b", "#3a1414"], sign: "#fff4ec" },
+  };
+
+  const t5 = { title: "", sign: "VIGZ", theme: "slate", ranks: false, slots: [null, null, null, null, null], uploads: {} };
+  const t5Images = new Map();
+  let t5Blob = null;
+
+  function loadT5() {
+    try { Object.assign(t5, JSON.parse(localStorage.getItem(T5_KEY)) || {}); } catch (_) {}
+    t5.uploads = {};   // uploaded covers are session-only: too big for storage
+    t5.slots = Array.from({ length: 5 }, (_, i) => t5.slots[i] || null);
+  }
+  function saveT5() {
+    try {
+      const { uploads, ...keep } = t5;
+      localStorage.setItem(T5_KEY, JSON.stringify(keep));
+    } catch (_) {}
+  }
+
+  const groupByKey = (key) => state.groups.find((g) => g.key === key) || null;
+
+  // Poster art. Steam has portrait art with CORS; Sony's CDN sends no CORS
+  // header, which blocks exporting a canvas that contains it, so PlayStation
+  // art comes through an image proxy that adds one. An uploaded cover wins.
+  function coverUrl(g, slot) {
+    if (t5.uploads[slot]) return t5.uploads[slot];
+    const steam = g.parts.find((p) => p.platform === "Steam" && p.appid);
+    if (steam) return `https://cdn.cloudflare.steamstatic.com/steam/apps/${steam.appid}/library_600x900.jpg`;
+    const src = g.parts.find((p) => p.cover) ;
+    return src ? `https://wsrv.nl/?url=${encodeURIComponent(src.cover)}&w=600&h=900&fit=cover&output=jpg` : null;
+  }
+  const fallbackUrl = (g) => {
+    const p = g.parts.find((x) => x.cover);
+    return p ? `https://wsrv.nl/?url=${encodeURIComponent(p.cover)}&w=600&h=900&fit=cover&output=jpg` : null;
+  };
+
+  function loadImage(url) {
+    if (!url) return Promise.resolve(null);
+    if (t5Images.has(url)) return t5Images.get(url);
+    const p = new Promise((resolve) => {
+      const img = new Image();
+      if (!url.startsWith("blob:") && !url.startsWith("data:")) img.crossOrigin = "anonymous";
+      img.onload = () => resolve(img);
+      img.onerror = () => resolve(null);
+      img.src = url;
+    });
+    t5Images.set(url, p);
+    return p;
+  }
+
+  function renderTop5() {
+    loadT5();
+    const years = activeYears();
+    $("#t5Year").innerHTML = `<option value="">—</option>` + years.map((y) => `<option>${y}</option>`).join("");
+    $("#t5Theme").innerHTML = Object.entries(T5_THEMES).map(([k, v]) => `<option value="${k}">${v.name}</option>`).join("");
+    $("#t5Games").innerHTML = state.groups.map((g) => `<option value="${esc(g.title)}"></option>`).join("");
+    if (!t5.title) t5.title = `TOP 5 GAMES OF ${years[0]}`;
+    $("#t5Title").value = t5.title;
+    $("#t5Sign").value = t5.sign;
+    $("#t5Theme").value = t5.theme;
+    $("#t5Ranks").checked = !!t5.ranks;
+
+    $("#t5Title").addEventListener("input", (e) => { t5.title = e.target.value; saveT5(); drawTop5(); });
+    $("#t5Sign").addEventListener("input", (e) => { t5.sign = e.target.value; saveT5(); drawTop5(); });
+    $("#t5Theme").addEventListener("change", (e) => { t5.theme = e.target.value; saveT5(); drawTop5(); });
+    $("#t5Ranks").addEventListener("change", (e) => { t5.ranks = e.target.checked; saveT5(); drawTop5(); });
+    $("#t5Year").addEventListener("change", (e) => {
+      const y = e.target.value;
+      if (!y) return;
+      // A starting point, not a verdict: the five most-played new games.
+      const picks = yearGames(+y, "").fresh.slice(0, 5).map((x) => x.g.key);
+      t5.slots = Array.from({ length: 5 }, (_, i) => picks[i] || null);
+      t5.uploads = {};
+      t5.title = `TOP 5 GAMES OF ${y}`;
+      $("#t5Title").value = t5.title;
+      saveT5(); drawSlots(); drawTop5();
+    });
+    $("#t5Save").addEventListener("click", exportTop5);
+    drawSlots();
+  }
+
+  function drawSlots() {
+    $("#t5Slots").innerHTML = t5.slots.map((key, i) => {
+      const g = key && groupByKey(key);
+      const meta = g ? `${fmtH(g.hours)}h · ${g.platforms.join(" + ")}` : "empty";
+      return `<li class="t5slot" data-i="${i}">
+        <span class="t5slot__n">${i + 1}</span>
+        <div class="t5slot__pick">
+          <input list="t5Games" placeholder="Pick a game…" value="${g ? esc(g.title) : ""}" aria-label="Game in position ${i + 1}">
+          <span class="t5slot__meta">${esc(meta)}${t5.uploads[i] ? " · custom cover" : ""}</span>
+        </div>
+        <div class="t5slot__btns">
+          <button type="button" data-act="up" aria-label="Move up" ${i === 0 ? "disabled" : ""}>↑</button>
+          <button type="button" data-act="down" aria-label="Move down" ${i === 4 ? "disabled" : ""}>↓</button>
+          <label class="t5slot__upload" title="Use your own cover">🖼<input type="file" accept="image/*" data-act="upload"></label>
+          <button type="button" data-act="clear" aria-label="Clear">×</button>
+        </div>
+      </li>`;
+    }).join("");
+  }
+
+  $("#t5Slots").addEventListener("change", (e) => {
+    const li = e.target.closest(".t5slot");
+    if (!li) return;
+    const i = +li.dataset.i;
+    if (e.target.dataset.act === "upload") {
+      const file = e.target.files && e.target.files[0];
+      if (file) t5.uploads[i] = URL.createObjectURL(file);
+    } else if (e.target.matches("input[list]")) {
+      const g = state.groups.find((x) => x.title === e.target.value);
+      t5.slots[i] = g ? g.key : null;
+      delete t5.uploads[i];
+    }
+    saveT5(); drawSlots(); drawTop5();
+  });
+  $("#t5Slots").addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-act]");
+    if (!btn) return;
+    const i = +btn.closest(".t5slot").dataset.i;
+    const swap = (a, b) => {
+      [t5.slots[a], t5.slots[b]] = [t5.slots[b], t5.slots[a]];
+      [t5.uploads[a], t5.uploads[b]] = [t5.uploads[b], t5.uploads[a]];
+    };
+    if (btn.dataset.act === "up" && i > 0) swap(i, i - 1);
+    if (btn.dataset.act === "down" && i < 4) swap(i, i + 1);
+    if (btn.dataset.act === "clear") { t5.slots[i] = null; delete t5.uploads[i]; }
+    saveT5(); drawSlots(); drawTop5();
+  });
+
+  function wrapLines(ctx, text, maxW, maxLines) {
+    const words = text.split(/\s+/);
+    const lines = [];
+    let line = "";
+    for (const w of words) {
+      const test = line ? line + " " + w : w;
+      if (ctx.measureText(test).width <= maxW || !line) line = test;
+      else { lines.push(line); line = w; }
+    }
+    if (line) lines.push(line);
+    if (lines.length > maxLines) {
+      lines.length = maxLines;
+      while (ctx.measureText(lines[maxLines - 1] + "…").width > maxW && lines[maxLines - 1].includes(" "))
+        lines[maxLines - 1] = lines[maxLines - 1].replace(/\s+\S+$/, "");
+      lines[maxLines - 1] += "…";
+    }
+    return lines;
+  }
+
+  function drawLogo(ctx, path, cx, cy, size, color) {
+    ctx.save();
+    ctx.translate(cx - size / 2, cy - size / 2);
+    ctx.scale(size / 24, size / 24);
+    ctx.fillStyle = color;
+    ctx.fill(path);
+    ctx.restore();
+  }
+
+  let t5Drawing = 0;
+  async function drawTop5() {
+    const run = ++t5Drawing;
+    const canvas = $("#t5Canvas");
+    const ctx = canvas.getContext("2d");
+    const W = 1080, H = 1350;
+    const th = T5_THEMES[t5.theme] || T5_THEMES.slate;
+    const font = '"Bebas Neue", "Impact", "Arial Narrow", sans-serif';
+    try { await document.fonts.load(`100px "Bebas Neue"`); } catch (_) {}
+
+    const games = t5.slots.map((k) => (k ? groupByKey(k) : null));
+    const imgs = await Promise.all(games.map(async (g, i) => {
+      if (!g) return null;
+      return (await loadImage(coverUrl(g, i))) || (await loadImage(fallbackUrl(g)));
+    }));
+    if (run !== t5Drawing) return;   // a newer draw started while images loaded
+
+    // Background: soft two-tone gradient, a vignette, and fine grain.
+    const bg = ctx.createRadialGradient(W * 0.3, H * 0.2, 100, W / 2, H / 2, H * 0.85);
+    bg.addColorStop(0, th.bg[0]); bg.addColorStop(1, th.bg[1]);
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+    let seed = 7;
+    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    for (let i = 0; i < 9000; i++) {
+      ctx.fillStyle = `rgba(${rnd() > 0.5 ? "255,255,255" : "0,0,0"},${(rnd() * 0.05).toFixed(3)})`;
+      ctx.fillRect(rnd() * W, rnd() * H, 2, 2);
+    }
+
+    // Title with an offset two-colour shadow.
+    ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+    let size = 150;
+    ctx.font = `${size}px ${font}`;
+    while (ctx.measureText(t5.title).width > W - 120 && size > 60) ctx.font = `${(size -= 4)}px ${font}`;
+    ctx.fillStyle = th.shadow[0]; ctx.fillText(t5.title, W / 2 - 5, 158);
+    ctx.fillStyle = th.shadow[1]; ctx.fillText(t5.title, W / 2 + 5, 164);
+    ctx.fillStyle = th.title;     ctx.fillText(t5.title, W / 2, 161);
+
+    // Three cards over two, as in the originals.
+    const cw = 256, ch = 384;
+    const spots = [[190, 205], [540, 205], [890, 205], [365, 790], [715, 790]];
+    spots.forEach(([cx, top], i) => {
+      const g = games[i];
+      const x = cx - cw / 2;
+      // cover with a white border
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(x - 6, top - 6, cw + 12, ch + 12);
+      ctx.fillStyle = "rgba(0,0,0,.25)"; ctx.fillRect(x, top, cw, ch);
+      const img = imgs[i];
+      if (img) {
+        // cover-fit into the 2:3 frame
+        const r = Math.max(cw / img.width, ch / img.height);
+        const sw = cw / r, sh = ch / r;
+        ctx.drawImage(img, (img.width - sw) / 2, (img.height - sh) / 2, sw, sh, x, top, cw, ch);
+      } else {
+        ctx.fillStyle = th.text; ctx.globalAlpha = 0.5;
+        ctx.font = `40px ${font}`; ctx.fillText(g ? "NO ART" : `#${i + 1}`, cx, top + ch / 2);
+        ctx.globalAlpha = 1;
+      }
+      if (t5.ranks && g) {
+        ctx.fillStyle = th.banner; ctx.beginPath(); ctx.arc(x + 4, top + 4, 34, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = th.text; ctx.font = `46px ${font}`; ctx.textBaseline = "middle";
+        ctx.fillText(String(i + 1), x + 4, top + 7); ctx.textBaseline = "alphabetic";
+      }
+
+      // banner with a pointed foot
+      const by = top + ch + 6, bh = 118, point = 34;
+      ctx.fillStyle = th.banner;
+      ctx.beginPath();
+      ctx.moveTo(x, by); ctx.lineTo(x + cw, by); ctx.lineTo(x + cw, by + bh);
+      ctx.lineTo(cx, by + bh + point); ctx.lineTo(x, by + bh); ctx.closePath(); ctx.fill();
+      if (!g) return;
+
+      ctx.fillStyle = th.text;
+      ctx.font = `36px ${font}`;
+      const lines = wrapLines(ctx, g.title.replace(/[™®©]/g, ""), cw - 24, 2);
+      lines.forEach((ln, k) => ctx.fillText(ln, cx, by + 38 + k * 34));
+      ctx.fillText(`${Math.round(g.hours)}H`, cx, by + 38 + 2 * 34);
+
+      // platform logos along the foot
+      const logos = [];
+      if (g.parts.some((p) => p.platform === "PlayStation")) logos.push(PS_PATH);
+      if (g.parts.some((p) => p.platform === "Steam")) logos.push(STEAM_PATH);
+      logos.forEach((path, k) => drawLogo(ctx, path, cx + (k - (logos.length - 1) / 2) * 38, by + bh + 4, 30, th.text));
+    });
+
+    // signature
+    if (t5.sign) {
+      ctx.textAlign = "right"; ctx.font = `96px ${font}`;
+      ctx.fillStyle = th.shadow[0]; ctx.fillText(t5.sign, W - 44, H - 42);
+      ctx.fillStyle = th.sign;      ctx.fillText(t5.sign, W - 48, H - 46);
+    }
+
+    // Keep an export ready, so the Save tap can share it straight away —
+    // iOS only allows sharing inside the tap itself.
+    t5Blob = null;
+    try {
+      canvas.toBlob((b) => { if (run === t5Drawing) t5Blob = b; }, "image/png");
+      $("#t5Note").textContent = "";
+    } catch (_) {
+      $("#t5Note").textContent = "A cover could not be exported — upload that cover instead.";
+    }
+  }
+
+  async function exportTop5() {
+    const name = (t5.title || "top-5").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + ".png";
+    if (!t5Blob) {
+      $("#t5Note").textContent = "Still drawing — try again in a second.";
+      return;
+    }
+    const file = new File([t5Blob], name, { type: "image/png" });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try { await navigator.share({ files: [file], title: t5.title }); return; } catch (_) { /* cancelled */ return; }
+    }
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(t5Blob);
+    a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
   }
 
   /* ------------------------------------------------------- chart helpers */

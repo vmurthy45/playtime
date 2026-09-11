@@ -101,6 +101,25 @@ The middle fills in with real dots as daily syncing accumulates.
 
 The site renders in light mode only.
 
+### Year in Review and the Top 5 Generator
+
+Both live under Stats. **Year in Review** picks a year and a platform (All,
+PlayStation or Steam): games played, new games, returning games, hours in the
+new games, completions, and the top new games with when each was started. A
+game is "new" in a year only if its start was actually recorded, so Steam
+games mostly appear as returning until tracking has seen them begin. Hours
+are lifetime hours; only the daily snapshots know hours inside a year, and
+those show as "tracked" once they exist.
+
+The **Top 5 Generator** draws a 1080×1350 poster — title, five covers, hours
+and platform logos, signature — and saves it as a PNG (the share sheet on a
+phone). Pick any game for any position, reorder with the arrows, or upload
+your own cover for a slot. "Fill from year" seeds it with that year's
+most-played new games as a starting point. Steam covers load straight from
+Steam, which allows it. Sony's image server sends no CORS header, and a canvas
+holding such an image cannot be exported, so PlayStation covers come through
+the free wsrv.nl image proxy. If it is ever down, upload the cover instead.
+
 ## How the numbers are derived
 
 PSN reports **lifetime totals per title**, never a per-day breakdown. So:

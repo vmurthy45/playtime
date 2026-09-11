@@ -1,5 +1,7 @@
-/* Bump CACHE on every deploy so clients pick up new code. */
-const CACHE = "playtime-v65";
+/* Bump CACHE here AND the ?v= on styles.css/app.js in index.html on every
+   deploy. The query makes a new page fetch a matching stylesheet and script
+   instead of pairing with an old copy from any cache. */
+const CACHE = "playtime-v67";
 const SHELL = ["./", "index.html", "styles.css", "app.js", "manifest.webmanifest",
                "favicon-32.png", "favicon-64.png", "apple-touch-icon.png", "icon-192.png",
                "trophy.png"];
@@ -27,8 +29,12 @@ self.addEventListener("fetch", (e) => {
   // deploy served the old version and only the second load was current —
   // on a phone that reads as "it didn't deploy". The cache is now the
   // offline fallback, refreshed on every successful fetch.
+  // "no-cache" makes the browser revalidate with the server (a cheap 304
+  // when nothing changed). Without it the HTTP cache — 10 minutes on GitHub
+  // Pages — could answer with an old stylesheet next to a new script.
+  const fresh = new Request(e.request.url, { cache: "no-cache", credentials: "same-origin" });
   e.respondWith(
-    fetch(e.request)
+    fetch(fresh)
       .then((res) => {
         const copy = res.clone();
         caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});

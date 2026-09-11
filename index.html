@@ -12,7 +12,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+<link rel="stylesheet" href="styles.css?v=67">
 </head>
 <body>
 
@@ -90,6 +93,13 @@
   </section>
   <!-- STATS -->
   <section id="panel-stats" class="panel">
+    <div class="seg seg--sub" id="statsNav" role="tablist">
+      <button class="seg__btn is-active" data-sub="summary" role="tab">Summary</button>
+      <button class="seg__btn" data-sub="yir" role="tab">Year in Review</button>
+      <button class="seg__btn" data-sub="top5" role="tab">Top 5 Generator</button>
+    </div>
+
+    <div class="subpanel is-active" id="sub-summary">
     <h2 class="h">Library</h2>
     <div class="tiles" id="tilesLibrary"></div>
 
@@ -107,6 +117,44 @@
     <p class="hint">PlayStation for now — Steam joins as tracking runs.</p>
     <div id="startedChart" class="chartbox chartbox--rows"></div>
     <div id="yearGames"></div>
+    </div>
+
+    <!-- YEAR IN REVIEW -->
+    <div class="subpanel" id="sub-yir">
+      <div class="controls yir__controls">
+        <select id="yirYear" aria-label="Year"></select>
+        <div class="seg" id="yirPlatform" role="tablist">
+          <button class="seg__btn is-active" data-platform="">All</button>
+          <button class="seg__btn" data-platform="PlayStation">PlayStation</button>
+          <button class="seg__btn" data-platform="Steam">Steam</button>
+        </div>
+      </div>
+      <div id="yir"></div>
+    </div>
+
+    <!-- TOP 5 GENERATOR -->
+    <div class="subpanel" id="sub-top5">
+      <div class="t5">
+        <div class="t5__form">
+          <div class="t5__row">
+            <label>Title <input type="text" id="t5Title" autocomplete="off"></label>
+          </div>
+          <div class="t5__row t5__row--split">
+            <label>Signature <input type="text" id="t5Sign" autocomplete="off"></label>
+            <label>Theme <select id="t5Theme"></select></label>
+          </div>
+          <div class="t5__row t5__row--split">
+            <label>Fill from year <select id="t5Year"></select></label>
+            <label class="t5__check"><input type="checkbox" id="t5Ranks"> Show rank numbers</label>
+          </div>
+          <ol class="t5__slots" id="t5Slots"></ol>
+          <datalist id="t5Games"></datalist>
+          <button class="t5__save" id="t5Save" type="button">Save as PNG</button>
+          <p class="hint" id="t5Note"></p>
+        </div>
+        <div class="t5__preview"><canvas id="t5Canvas" width="1080" height="1350"></canvas></div>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -114,6 +162,6 @@
   <span id="syncedAt"></span>
 </footer>
 
-<script src="app.js"></script>
+<script src="app.js?v=67"></script>
 </body>
 </html>
