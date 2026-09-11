@@ -48,6 +48,7 @@ import datetime as dt
 import json
 import os
 import pathlib
+import re
 import sys
 
 from filters import normalize, split_games
@@ -84,37 +85,81 @@ def load_dotenv(path):
         os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
 
 
-def fetch_trophies(client):
-    """Per-title trophy counts, plus an account-level summary.
+def _counts(earned, defined):
+    """(earned, total, platinum) from either a TrophySet or a plain dict."""
+    get = (lambda o, k: o[k]) if isinstance(earned, dict) else getattr
+    got = sum(get(earned, k) for k in ("bronze", "silver", "gold", "platinum"))
+    total = sum(get(defined, k) for k in ("bronze", "silver", "gold", "platinum"))
+    return got, total, get(earned, "platinum") > 0
 
-    One paginated call covers the whole account. PSN gives no title id on
-    these records, so per-game matching is by name — the same normalisation
-    the app uses to merge a game across platforms.
 
-    The summary is counted from the trophy list itself rather than from what
-    matched, because plenty legitimately cannot match: PS3 and Vita games
-    are absent from the play-time API entirely, and a collection carries
-    several trophy sets behind a single playable title.
+def trophy_key(name):
+    """Looser name key, used only when a title id resolves to nothing.
+
+    Sony names some PS5 lists "<Game> Trophies" or "<Game> Trophy Set", puts
+    platform tags on others, and spaces digits inconsistently ("DIRT5").
     """
-    counts = {}
+    n = normalize(name)
+    n = re.sub(r"\s+(trophies|trophy set|trophy)$", "", n)
+    n = re.sub(r"\s+(ps4|ps5)(\s+(and\s+)?(ps4|ps5))*$", "", n)
+    return n.replace(" ", "")
+
+
+def fetch_trophies(client):
+    """Every trophy list on the account, keyed by its communication id.
+
+    One paginated call. The summary is counted from the list itself, not from
+    what matched a game: PS3 and Vita titles never appear in the play-time
+    API, so their platinums would otherwise vanish.
+    """
+    lists, by_name = {}, {}
     summary = {"platinums": 0, "titles": 0}
     for t in client.trophy_titles():
         summary["titles"] += 1
-        if t.earned_trophies.platinum:
+        got, total, plat = _counts(t.earned_trophies, t.defined_trophies)
+        if plat:
             summary["platinums"] += 1
-        earned, defined = t.earned_trophies, t.defined_trophies
-        total = defined.bronze + defined.silver + defined.gold + defined.platinum
-        got = earned.bronze + earned.silver + earned.gold + earned.platinum
         if not total:
             continue
-        key = normalize(t.title_name)
-        # A game can appear once per platform; keep the furthest progressed.
-        if key not in counts or got > counts[key]["earned"]:
-            counts[key] = {"earned": got, "total": total, "platinum": earned.platinum > 0}
-    return counts, summary
+        lists[t.np_communication_id] = {"earned": got, "total": total, "platinum": plat}
+        key = trophy_key(t.title_name)
+        if key not in by_name or got > by_name[key]["earned"]:
+            by_name[key] = lists[t.np_communication_id]
+    return lists, by_name, summary
 
 
-def fetch_titles(npsso):
+def resolve_trophy_lists(client, games, previous):
+    """Map each game's own title id to its trophy list(s), cached across runs.
+
+    Matching by name missed a quarter of the library — Sony titles some lists
+    "EA SPORTS FC 24 Trophies" — so the play-time title id is looked up
+    directly instead. A collection resolves to several lists (the Nathan
+    Drake Collection is three). Re-checked only when a game's hours change,
+    so a daily run makes a handful of calls rather than one per game.
+    """
+    need = []
+    for game in games:
+        was = previous.get(game["id"]) or {}
+        unchanged = abs(was.get("hours", -1) - game["hours"]) < 0.001
+        if unchanged and "trophyLists" in was:
+            game["trophyLists"] = was["trophyLists"]
+        else:
+            need.append(game)
+    for i in range(0, len(need), 5):          # the endpoint takes five ids at a time
+        batch = need[i:i + 5]
+        found = {}
+        try:
+            for t in client.trophy_titles_for_title(title_ids=[g["titleId"] for g in batch]):
+                found.setdefault(t.np_title_id, set()).add(t.np_communication_id)
+        except Exception as exc:  # noqa: BLE001 — a failed batch just stays unresolved
+            print(f"  trophy lookup failed for a batch: {exc}", file=sys.stderr)
+            continue
+        for game in batch:
+            game["trophyLists"] = sorted(found.get(game["titleId"], []))
+    return len(need)
+
+
+def fetch_titles(npsso, previous, out):
     from psnawp_api import PSNAWP
 
     client = PSNAWP(npsso).me()
@@ -135,16 +180,30 @@ def fetch_titles(npsso):
                 "cover": t.image_url,
             }
         )
-    trophies, summary = fetch_trophies(client)
+    lists, by_name, summary = fetch_trophies(client)
+    # Media apps go before the trophy lookup, or they are re-queried every
+    # day: they never make it into the saved file, so nothing is cached.
+    titles, dropped = split_games(titles, out)
+    looked_up = resolve_trophy_lists(client, titles, previous)
     matched = 0
     for game in titles:
-        found = trophies.get(normalize(game["title"]))
-        if found:
-            game["trophies"] = found
-            matched += 1
+        sets = [lists[c] for c in game.get("trophyLists", []) if c in lists]
+        if sets:
+            # A collection's lists are separate games' worth of trophies; add them.
+            game["trophies"] = {
+                "earned": sum(x["earned"] for x in sets),
+                "total": sum(x["total"] for x in sets),
+                "platinum": any(x["platinum"] for x in sets),
+            }
+        elif trophy_key(game["title"]) in by_name:
+            game["trophies"] = by_name[trophy_key(game["title"])]
+        else:
+            continue
+        matched += 1
+    summary["lookedUp"] = looked_up
 
     titles.sort(key=lambda g: -g["hours"])
-    return client.online_id, titles, matched, summary
+    return client.online_id, titles, matched, summary, dropped
 
 
 # Sony's own id scheme: PS4 titles are CUSA…, PS5 titles PPSA…
@@ -236,7 +295,14 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     try:
-        online_id, titles, matched, summary = fetch_titles(npsso)
+        previous = {}
+        prev_path = out / "psn_titles.json"
+        if prev_path.exists():
+            try:
+                previous = {g["id"]: g for g in json.loads(prev_path.read_text()).get("games", [])}
+            except json.JSONDecodeError:
+                previous = {}
+        online_id, titles, matched, summary, dropped = fetch_titles(npsso, previous, out)
     except Exception as exc:  # noqa: BLE001 — the cause matters more than the type
         sys.exit(
             f"PSN fetch failed: {exc}\n"
@@ -244,7 +310,6 @@ def main():
             "(they last ~60 days). Get a fresh one and update PSN_NPSSO."
         )
 
-    titles, dropped = split_games(titles, out)
     if dropped:
         print(f"skipped {len(dropped)} non-game titles: " + ", ".join(g["title"] for g in dropped[:6]))
 
@@ -260,7 +325,8 @@ def main():
 
     total = sum(g["hours"] for g in titles)
     print(f"{online_id}: {len(titles)} titles, {total:,.1f} hours total")
-    print(f"  trophies matched for {matched} titles; account has "
+    print(f"  trophies found for {matched} of {len(titles)} titles "
+          f"({summary.pop('lookedUp')} looked up by title id this run); account has "
           f"{summary['platinums']} platinums across {summary['titles']} trophy sets")
 
     gained = update_snapshots(out / "snapshots.json", titles, today)
