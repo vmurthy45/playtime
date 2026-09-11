@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-09-11T00:13:57+00:00",
+ "syncedAt": "2026-09-11T16:18:31+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -77,15 +77,15 @@
    "title": "Slay the Spire 2",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 124.283,
+   "hours": 125.983,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-09-09",
-   "recentHours": 4.22,
+   "lastPlayed": "2026-09-12",
+   "recentHours": 4.57,
    "devices": {
-    "mac": 38.117,
-    "linux": 86.15,
-    "deck": 86.15
+    "mac": 39.067,
+    "linux": 86.9,
+    "deck": 86.9
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg",
    "achievementsChecked": true
@@ -2690,6 +2690,28 @@
     "total": 30
    },
    "achievementsChecked": true
+  },
+  {
+   "id": "steam_1465360",
+   "appid": 1465360,
+   "title": "SnowRunner",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.683,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-09-11",
+   "recentHours": 0.68,
+   "devices": {
+    "linux": 0.683,
+    "deck": 0.683
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1465360/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 1,
+    "total": 37
+   }
   },
   {
    "id": "steam_21170",

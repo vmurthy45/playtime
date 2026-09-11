@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-11T00:41:16+00:00",
+ "syncedAt": "2026-09-11T16:18:30+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 310,
-  "lookedUp": 0
+  "lookedUp": 3
  },
  "games": [
   {
@@ -2191,6 +2191,26 @@
    }
   },
   {
+   "id": "psn_PPSA04609_00",
+   "titleId": "PPSA04609_00",
+   "title": "ELDEN RING",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 3.605,
+   "sessions": 8,
+   "firstPlayed": "2025-07-11",
+   "lastPlayed": "2026-09-11",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202107/0902/fS3Hhaq06TqLrbjMVplA8MaY.png",
+   "trophyLists": [
+    "NPWR25067_00"
+   ],
+   "trophies": {
+    "earned": 0,
+    "total": 42,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA04036_00",
    "titleId": "CUSA04036_00",
    "title": "Coffin Dodgers",
@@ -2376,26 +2396,6 @@
    "trophies": {
     "earned": 15,
     "total": 56,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA04609_00",
-   "titleId": "PPSA04609_00",
-   "title": "ELDEN RING",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 2.824,
-   "sessions": 7,
-   "firstPlayed": "2025-07-11",
-   "lastPlayed": "2025-07-14",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202107/0902/fS3Hhaq06TqLrbjMVplA8MaY.png",
-   "trophyLists": [
-    "NPWR25067_00"
-   ],
-   "trophies": {
-    "earned": 0,
-    "total": 42,
     "platinum": false
    }
   },
@@ -2977,6 +2977,26 @@
    }
   },
   {
+   "id": "psn_PPSA25414_00",
+   "titleId": "PPSA25414_00",
+   "title": "Nine Sols",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 1.355,
+   "sessions": 2,
+   "firstPlayed": "2026-05-23",
+   "lastPlayed": "2026-09-09",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202409/1611/b3c75af796ea9931524b4c5f9500e801bb49be5664d52c17.png",
+   "trophyLists": [
+    "NPWR47049_00"
+   ],
+   "trophies": {
+    "earned": 1,
+    "total": 36,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA00634_00",
    "titleId": "CUSA00634_00",
    "title": "STAR WARS\u2122 Battlefront\u2122",
@@ -3506,7 +3526,7 @@
    "sessions": 1,
    "firstPlayed": "2024-12-17",
    "lastPlayed": "2024-12-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/1008/aeb816655b966f6e96a0fc4929afba02da754badf872f10f.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/1008/3d85937370ce5d1fe39c9541e7cdc14455798fed56dc2390.png",
    "trophyLists": [
     "NPWR44165_00"
    ],
@@ -3773,6 +3793,26 @@
    "trophies": {
     "earned": 2,
     "total": 61,
+    "platinum": false
+   }
+  },
+  {
+   "id": "psn_PPSA04451_00",
+   "titleId": "PPSA04451_00",
+   "title": "Warhammer 40,000: Space Marine 2",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 0.768,
+   "sessions": 3,
+   "firstPlayed": "2026-09-09",
+   "lastPlayed": "2026-09-11",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/0711/MKweDX2LQpXiPcU6Jitg9KAg.png",
+   "trophyLists": [
+    "NPWR25220_00"
+   ],
+   "trophies": {
+    "earned": 1,
+    "total": 50,
     "platinum": false
    }
   },
@@ -4533,26 +4573,6 @@
    }
   },
   {
-   "id": "psn_PPSA25414_00",
-   "titleId": "PPSA25414_00",
-   "title": "Nine Sols",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 0.328,
-   "sessions": 2,
-   "firstPlayed": "2026-05-23",
-   "lastPlayed": "2026-09-09",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202409/1611/b3c75af796ea9931524b4c5f9500e801bb49be5664d52c17.png",
-   "trophyLists": [
-    "NPWR47049_00"
-   ],
-   "trophies": {
-    "earned": 1,
-    "total": 36,
-    "platinum": false
-   }
-  },
-  {
    "id": "psn_CUSA05244_00",
    "titleId": "CUSA05244_00",
    "title": "Battlefield\u2122 1",
@@ -5011,26 +5031,6 @@
    "lastPlayed": "2020-04-05",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0510/G3L3e6yPKIO2NjADDVBUBmpx.png",
    "trophyLists": []
-  },
-  {
-   "id": "psn_PPSA04451_00",
-   "titleId": "PPSA04451_00",
-   "title": "Warhammer 40,000: Space Marine 2",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 0.057,
-   "sessions": 2,
-   "firstPlayed": "2026-09-09",
-   "lastPlayed": "2026-09-09",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202212/0711/MKweDX2LQpXiPcU6Jitg9KAg.png",
-   "trophyLists": [
-    "NPWR25220_00"
-   ],
-   "trophies": {
-    "earned": 0,
-    "total": 50,
-    "platinum": false
-   }
   },
   {
    "id": "psn_CUSA13212_00",
