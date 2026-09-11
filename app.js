@@ -56,11 +56,12 @@
     fetch(url, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
 
   async function load() {
-    const [files, snaps, aliases, nonGames] = await Promise.all([
+    const [files, snaps, aliases, nonGames, backfill] = await Promise.all([
       Promise.all(SOURCES.map((s) => getJSON(s.file))),
       getJSON("data/snapshots.json"),
       getJSON("data/aliases.json"),
       getJSON("data/non_games.json"),
+      getJSON("data/backfill.json"),
     ]);
 
     // Consoles count Netflix and friends as titles with play time. The
@@ -94,8 +95,30 @@
       return;
     }
 
+    applySessions(backfill);
     state.groups = groupEntries(state.entries);
     render();
+  }
+
+  // Steam never reports launches, so its session counts are built here.
+  // Rule: each snapshot interval in which a game gained hours is one session
+  // — at most one sitting per game per sync, which errs low and is close
+  // enough. Where a backfill exists (tools/backfill_*.py, e.g. STS2 run
+  // history) it supplies the count up to its last day, and only intervals
+  // after that are added. A game with no evidence either way stays unknown
+  // rather than showing x0, which would claim it was never launched.
+  function applySessions(backfill) {
+    const { activity } = dailySeries();
+    for (const e of state.entries) {
+      if (typeof e.sessions === "number") continue;   // PSN counts its own
+      const b = backfill && backfill[e.id];
+      const seen = activity[e.id];
+      const later = seen ? seen.intervals.filter((d) => !b || d > b.through) : [];
+      if (!b && !later.length) continue;
+      e.sessions = (b ? b.sessions : 0) + later.length;
+      e.sessionsFrom = b ? "run history" : "tracking";
+      if (b && !e.firstPlayed) e.firstPlayed = b.firstPlayed;
+    }
   }
 
   /* --------------------------------------------------------------- group */
@@ -202,9 +225,10 @@
         const span = to - from + 1;
 
         for (const id of Object.keys(perGame)) {
-          const a = (activity[id] ||= { first: null, last: null });
+          const a = (activity[id] ||= { first: null, last: null, intervals: [] });
           a.first = minDate(a.first, fromDay(from));
           a.last = maxDate(a.last, fromDay(to));
+          a.intervals.push(fromDay(from));
         }
         for (let d = from; d <= to; d++) {
           const date = fromDay(d);

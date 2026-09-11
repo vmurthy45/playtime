@@ -143,6 +143,20 @@ All dates are calendar dates in NZ time. Sony and Steam both report UTC, and
 the CI runner is on UTC, so both collectors convert before storing — otherwise
 anything played before midday NZ lands on the previous day.
 
+### Session counts for Steam
+
+Steam never reports launches, so the app builds a count: each snapshot in
+which a Steam game gained hours counts as one session. Two sittings on the
+same day count as one, so it errs low. A game not played since tracking began
+shows no count rather than x0.
+
+Slay the Spire 2 was backfilled once from the separate STS2 run tracker —
+141 archived runs grouped into 114 sittings (a break of over an hour starts a
+new one), plus a real first-played date of 6 Mar 2026. That lives in
+`data/backfill.json`, written by `tools/backfill_sts2.py`, which only runs on
+the Mac holding the run archive. Tracked sessions after the backfill's last
+day are added on top, so the count keeps climbing.
+
 ### What counts as a game
 
 Consoles report Netflix, YouTube, Disney+, Plex and the like as titles with play
