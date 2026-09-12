@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-11T16:18:30+00:00",
+ "syncedAt": "2026-09-12T15:24:45+00:00",
  "trophySummary": {
   "platinums": 63,
-  "titles": 310,
-  "lookedUp": 3
+  "titles": 311,
+  "lookedUp": 1
  },
  "games": [
   {
@@ -3266,6 +3266,26 @@
    "lastPlayed": "2020-04-06",
    "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA07708_00/4/i_f67bf14d3e83d266c618db72087c180869334fbbbc1b972936848e2489190681/i/icon0.png",
    "trophyLists": []
+  },
+  {
+   "id": "psn_PPSA17232_00",
+   "titleId": "PPSA17232_00",
+   "title": "Sniper Elite: Resistance",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 1.018,
+   "sessions": 1,
+   "firstPlayed": "2026-09-12",
+   "lastPlayed": "2026-09-12",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202408/1309/05d041f5216b1cd55a4587729534ce8ac8c557877b4d1483.png",
+   "trophyLists": [
+    "NPWR40813_00"
+   ],
+   "trophies": {
+    "earned": 2,
+    "total": 71,
+    "platinum": false
+   }
   },
   {
    "id": "psn_CUSA00319_00",
