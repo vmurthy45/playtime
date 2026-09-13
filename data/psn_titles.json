@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-12T15:24:45+00:00",
+ "syncedAt": "2026-09-13T16:03:11+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -1857,6 +1857,26 @@
    }
   },
   {
+   "id": "psn_PPSA04609_00",
+   "titleId": "PPSA04609_00",
+   "title": "ELDEN RING",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 5.844,
+   "sessions": 10,
+   "firstPlayed": "2025-07-11",
+   "lastPlayed": "2026-09-13",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202107/0902/fS3Hhaq06TqLrbjMVplA8MaY.png",
+   "trophyLists": [
+    "NPWR25067_00"
+   ],
+   "trophies": {
+    "earned": 1,
+    "total": 42,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA05045_00",
    "titleId": "CUSA05045_00",
    "title": "Drawful 2",
@@ -2187,26 +2207,6 @@
    "trophies": {
     "earned": 5,
     "total": 51,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA04609_00",
-   "titleId": "PPSA04609_00",
-   "title": "ELDEN RING",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 3.605,
-   "sessions": 8,
-   "firstPlayed": "2025-07-11",
-   "lastPlayed": "2026-09-11",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202107/0902/fS3Hhaq06TqLrbjMVplA8MaY.png",
-   "trophyLists": [
-    "NPWR25067_00"
-   ],
-   "trophies": {
-    "earned": 0,
-    "total": 42,
     "platinum": false
    }
   },
