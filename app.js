@@ -224,6 +224,32 @@
         const from = toDay(prev.date), to = Math.max(from, toDay(cur.date) - 1);
         const span = to - from + 1;
 
+        // A game last played before this interval began gained hours that
+        // were uploaded late (a session cut off from the network, a Deck in
+        // offline mode). They belong wholly to the day it was played — as
+        // long as tracking had started by then.
+        const played = cur.played || {};
+        const late = {};
+        for (const id of Object.keys(perGame)) {
+          const day = played[id];
+          if (day && toDay(day) < from && day >= list[0].date) {
+            late[id] = day;
+            gained -= perGame[id];
+          }
+        }
+        for (const [id, day] of Object.entries(late)) {
+          const slot = (byDate[day] ||= { date: day, hours: 0, estimated: false, gap: null, perGame: {}, byConsole: {} });
+          const c = consoleOf[id] || (id.startsWith("steam_") ? "Steam" : "Other");
+          slot.hours += perGame[id];
+          slot.byConsole[c] = (slot.byConsole[c] || 0) + perGame[id];
+          slot.perGame[id] = (slot.perGame[id] || 0) + perGame[id];
+          const a = (activity[id] ||= { first: null, last: null, intervals: [] });
+          a.first = minDate(a.first, day);
+          a.last = maxDate(a.last, day);
+          a.intervals.push(day);
+          delete perGame[id];
+        }
+
         for (const id of Object.keys(perGame)) {
           const a = (activity[id] ||= { first: null, last: null, intervals: [] });
           a.first = minDate(a.first, fromDay(from));

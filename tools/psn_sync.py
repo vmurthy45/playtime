@@ -240,6 +240,25 @@ def _date(value):
         return value.date().isoformat()
 
 
+def last_played_of_gains(snapshots, titles, today):
+    """Last-played date of each game that gained hours since the last snapshot.
+
+    A session cut off from the network uploads its time days later, so the
+    gain shows up in a later interval than the one it was played in. Kept
+    with the snapshot, the date lets the app credit the hours to the day they
+    were actually played instead of the day they arrived.
+    """
+    previous = [s for s in snapshots if s.get("source") == SOURCE and s.get("date", "") < today]
+    if not previous:
+        return {}
+    before = max(previous, key=lambda s: s["date"])["hours"]
+    return {
+        g["id"]: g["lastPlayed"]
+        for g in titles
+        if g.get("lastPlayed") and g["hours"] - before.get(g["id"], 0) > 0.005
+    }
+
+
 def update_snapshots(path, titles, today):
     """Append today's totals; replace the entry if today already ran."""
     snapshots = []
@@ -249,12 +268,15 @@ def update_snapshots(path, titles, today):
         except json.JSONDecodeError:
             print(f"! {path} is unreadable — starting a fresh history", file=sys.stderr)
 
+    snapshots = [s for s in snapshots if not (s.get("date") == today and s.get("source") == SOURCE)]
     entry = {
         "date": today,
         "source": SOURCE,
         "hours": {g["id"]: g["hours"] for g in titles},
     }
-    snapshots = [s for s in snapshots if not (s.get("date") == today and s.get("source") == SOURCE)]
+    played = last_played_of_gains(snapshots, titles, today)
+    if played:
+        entry["played"] = played
     snapshots.append(entry)
     snapshots.sort(key=lambda s: (s.get("date", ""), s.get("source", "")))
     path.write_text(json.dumps(snapshots, indent=1))

@@ -143,6 +143,12 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
 - When two syncs land more than a day apart, the total for that window is real
   but the split across those days is an even guess. Those bars are drawn hatched
   and labelled estimated.
+- **Late uploads go to the day they were played.** A session cut off from the
+  network, or Steam Deck play in offline mode, uploads its time days later.
+  Each snapshot records the last-played date of every game that gained hours
+  (`played`), and a gain whose game was last played before the interval began
+  is credited to that day instead of the day it arrived — provided tracking had
+  started by then.
 
 **Trophies and achievements.** PSN trophy counts come from one paginated call
 covering the whole account, matched to games by normalised title (PSN gives no

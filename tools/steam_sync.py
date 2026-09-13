@@ -263,6 +263,25 @@ def carry_departed(previous, games, today, data_dir):
     return gone
 
 
+def last_played_of_gains(snapshots, games, today):
+    """Last-played date of each game that gained hours since the last snapshot.
+
+    Steam Deck play in offline mode uploads when the Deck is next online, so
+    the gain lands in a later interval than the one it was played in. Kept
+    with the snapshot, the date lets the app credit the hours to the day they
+    were actually played. Same as psn_sync.
+    """
+    previous = [s for s in snapshots if s.get("source") == SOURCE and s.get("date", "") < today]
+    if not previous:
+        return {}
+    before = max(previous, key=lambda s: s["date"])["hours"]
+    return {
+        g["id"]: g["lastPlayed"]
+        for g in games
+        if g.get("lastPlayed") and g["hours"] - before.get(g["id"], 0) > 0.005
+    }
+
+
 def update_snapshots(path, games, today):
     snapshots = []
     if path.exists():
@@ -271,14 +290,17 @@ def update_snapshots(path, games, today):
         except json.JSONDecodeError:
             print(f"! {path} is unreadable — starting a fresh history", file=sys.stderr)
 
+    snapshots = [
+        s for s in snapshots if not (s.get("date") == today and s.get("source") == SOURCE)
+    ]
     entry = {
         "date": today,
         "source": SOURCE,
         "hours": {g["id"]: g["hours"] for g in games},
     }
-    snapshots = [
-        s for s in snapshots if not (s.get("date") == today and s.get("source") == SOURCE)
-    ]
+    played = last_played_of_gains(snapshots, games, today)
+    if played:
+        entry["played"] = played
     snapshots.append(entry)
     snapshots.sort(key=lambda s: (s.get("date", ""), s.get("source", "")))
     path.write_text(json.dumps(snapshots, indent=1))
