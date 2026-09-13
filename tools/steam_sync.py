@@ -222,10 +222,19 @@ def carry_first_played(previous_path, games, today):
         return 0
 
     before = {g["id"]: g for g in old.get("games", [])}
+    last_sync = old.get("syncedAt")
+    last_sync = local_date(dt.datetime.fromisoformat(last_sync).timestamp()) if last_sync else None
     started = 0
     for game in games:
         prev = before.get(game["id"])
         if not prev:
+            # New to the library since the last sync and already played there
+            # since: that is its first play. One last played before the sync
+            # (a family-shared game back again) has an unknown start.
+            lp = game.get("lastPlayed")
+            if game["hours"] > 0 and lp and last_sync and lp >= last_sync:
+                game["firstPlayed"] = lp
+                started += 1
             continue
         if prev.get("firstPlayed"):
             game["firstPlayed"] = prev["firstPlayed"]
@@ -233,6 +242,25 @@ def carry_first_played(previous_path, games, today):
             game["firstPlayed"] = today
             started += 1
     return started
+
+
+def carry_departed(previous, games, today, data_dir):
+    """Keep played games that have left the library.
+
+    A free weekend ending, a family-shared game withdrawn or a refund drops a
+    game from GetOwnedGames, but its hours were still played. Without this it
+    vanishes from the app, and if it ever returned its whole total would count
+    as new play on the day it came back.
+    """
+    current = {g["id"] for g in games}
+    gone = [
+        dict(g, recentHours=0, leftLibrary=g.get("leftLibrary") or today)
+        for gid, g in previous.items()
+        if gid not in current and g.get("hours", 0) > 0
+    ]
+    gone, _ = split_games(gone, data_dir)
+    games.extend(gone)
+    return gone
 
 
 def update_snapshots(path, games, today):
@@ -307,6 +335,8 @@ def main():
             previous = {}
     fetched = attach_achievements(key, steamid, games, previous)
     with_ach = sum(1 for g in games if g.get("achievements"))
+    gone = carry_departed(previous, games, today, out)
+    games.sort(key=lambda g: -g["hours"])
 
     payload = {
         "source": SOURCE,
@@ -324,6 +354,9 @@ def main():
         print(f"  of which {deck:,.1f}h on Steam Deck")
     if started:
         print(f"  {started} game(s) started for the first time today")
+    if gone:
+        print(f"  kept {len(gone)} played game(s) no longer in the library: "
+              + ", ".join(g["title"] for g in gone[:6]))
     print(f"  achievements: {with_ach} games have them ({fetched} looked up this run)")
 
     gained = update_snapshots(out / "snapshots.json", games, today)

@@ -88,7 +88,9 @@ shell from cache.
   (last 7 days, last 30 days, this year, last year, all time, or any single
   year) and searchable by title. Tick spacing follows the window: weeks for a
   month, months for a year, years for a decade.
-- **Daily** — hours per day, derived from snapshot diffs.
+- **Daily** — hours per day, derived from snapshot diffs. Tap a bar to see
+  that day on its own: total and hours per platform, and the games that made
+  it up. Step through days with the arrows; *All days* goes back to the window.
 - **Stats** — totals, games started per year, where the hours went.
 
 ### Why the Timeline is dots, not bars
@@ -160,7 +162,13 @@ Steam has no first-played field either. On the Timeline a Steam game starts at
 the first day the snapshots saw it gain hours, or failing that its last-played
 date, and its bar is squared off at the left to say the real start is earlier
 and unrecorded. `steam_sync.py` also stamps a true first-played date when it
-catches a game going from zero hours to non-zero.
+catches a game going from zero hours to non-zero, or a game new to the
+library that was already played since the last sync.
+
+A played game that leaves the Steam library — a free weekend ending, a
+family-shared game withdrawn, a refund — is kept, stamped `leftLibrary`, with
+its hours as they were. Otherwise it would vanish from the app, and if it came
+back its whole total would count as new play on the day it returned.
 
 All dates are calendar dates in NZ time. Sony and Steam both report UTC, and
 the CI runner is on UTC, so both collectors convert before storing — otherwise

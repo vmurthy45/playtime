@@ -232,14 +232,17 @@
         }
         for (let d = from; d <= to; d++) {
           const date = fromDay(d);
-          const slot = (byDate[date] ||= { date, hours: 0, estimated: false, perGame: {}, byConsole: {} });
+          const slot = (byDate[date] ||= { date, hours: 0, estimated: false, gap: null, perGame: {}, byConsole: {} });
           slot.hours += gained / span;
+          // Across a gap each game gets the same even split as the total, so
+          // a day's games always add up to its bar.
           for (const [id, h] of Object.entries(perGame)) {
-            const c = consoleOf[id] || "Other";
+            // A game no longer in the data still has a source in its id.
+            const c = consoleOf[id] || (id.startsWith("steam_") ? "Steam" : "Other");
             slot.byConsole[c] = (slot.byConsole[c] || 0) + h / span;
+            slot.perGame[id] = (slot.perGame[id] || 0) + h / span;
           }
-          if (span > 1) slot.estimated = true;
-          else for (const [id, h] of Object.entries(perGame)) slot.perGame[id] = (slot.perGame[id] || 0) + h;
+          if (span > 1) { slot.estimated = true; slot.gap = [fromDay(from), fromDay(to)]; }
         }
       }
     }
@@ -761,6 +764,11 @@
 
   /* --- daily --- */
 
+  // PS4 at the bottom of each bar, Steam on top; the summary uses the same order.
+  const DAY_ORDER = ["PS4", "PS5", "Steam", "Other"];
+  const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let dailyPick = null;   // the tapped day, or null for the whole window
+
   function renderDaily() {
     const { days, since, snapshotCount } = dailySeries();
 
@@ -779,24 +787,76 @@
     }
 
     const recent = days.slice(-60);
+    const picked = recent.find((d) => d.date === dailyPick) || null;
+    if (!picked) dailyPick = null;
     const anyEstimated = recent.some((d) => d.estimated);
-    $("#dailyHint").textContent = `Tracked since ${fmtDate(since)}. Earlier days are unknown, not zero.`;
-    $("#dailyChart").innerHTML = stackedDays(recent) +
+    $("#dailyHint").textContent = `Tracked since ${fmtDate(since)}. Earlier days are unknown, not zero. Tap a bar for that day.`;
+    $("#dailyChart").innerHTML = stackedDays(recent, dailyPick) +
       (anyEstimated ? `<div class="gapnote"><span class="hatch"></span> faded: a gap between syncs — total is real, daily split estimated</div>` : "");
 
-    const total = recent.reduce((s, d) => s + d.hours, 0);
-    const perGame = {};
-    for (const d of recent) for (const [id, hrs] of Object.entries(d.perGame)) perGame[id] = (perGame[id] || 0) + hrs;
-    const rows = Object.entries(perGame).sort((a, b) => b[1] - a[1]).slice(0, 10)
+    // One day, or the whole window when nothing is picked.
+    const scope = picked ? [picked] : recent;
+    const total = scope.reduce((s, d) => s + d.hours, 0);
+    const perGame = {}, byConsole = {};
+    for (const d of scope) {
+      for (const [id, hrs] of Object.entries(d.perGame)) perGame[id] = (perGame[id] || 0) + hrs;
+      for (const [c, hrs] of Object.entries(d.byConsole)) byConsole[c] = (byConsole[c] || 0) + hrs;
+    }
+    const rows = Object.entries(perGame).sort((a, b) => b[1] - a[1]).slice(0, picked ? Infinity : 10)
       .map(([id, hrs]) => {
         const e = state.entries.find((x) => x.id === id);
-        return { label: e ? e.title : id, value: hrs, color: tint(e && e.console), suffix: "h" };
+        const steam = id.startsWith("steam_");
+        return {
+          label: e ? e.title : steam ? `Steam app ${id.slice(6)}` : "Unknown game",
+          value: hrs, color: tint(e ? e.console : steam ? "Steam" : null), suffix: "h",
+        };
       });
+    const chips = `<div class="dsum">
+        <div class="dsum__item dsum__item--total"><b>${fmtH(total)}h</b><span>Total</span></div>
+        ${DAY_ORDER.filter((c) => byConsole[c] > 0.001).map((c) => `
+          <div class="dsum__item"><b>${fmtH(byConsole[c])}h</b><span><i style="background:${tint(c)}"></i>${esc(c)}</span></div>`).join("")}
+      </div>`;
+
+    if (picked) {
+      const i = recent.indexOf(picked);
+      const note = picked.estimated
+        ? `Estimated — ${fmtDate(picked.gap[0])} to ${fmtDate(picked.gap[1])} synced as one gap, so this is an even share of it.`
+        : "";
+      $("#dailyBreakdown").innerHTML = `
+        <div class="dday">
+          <button class="dday__step" data-step="-1" aria-label="Previous day"${i ? "" : " disabled"}>‹</button>
+          <h2 class="h dday__title">${WEEKDAYS[new Date(picked.date + "T00:00:00Z").getUTCDay()]} ${fmtDate(picked.date)}</h2>
+          <button class="dday__step" data-step="1" aria-label="Next day"${i < recent.length - 1 ? "" : " disabled"}>›</button>
+          <button class="dday__all" data-clear>All days</button>
+        </div>
+        ${chips}
+        ${note ? `<p class="hint">${note}</p>` : ""}
+        <div class="chartbox">${rows.length ? barRows(rows) : `<p class="empty">Nothing played this day.</p>`}</div>`;
+      return;
+    }
     $("#dailyBreakdown").innerHTML = rows.length
-      ? `<h2 class="h">What those hours went into</h2><div class="chartbox">${barRows(rows)}</div>
+      ? `<h2 class="h">What those hours went into</h2>${chips}<div class="chartbox">${barRows(rows)}</div>
          <p class="hint" style="margin-top:10px">${fmtH(total)} hours across the last ${recent.length} days.</p>`
       : "";
   }
+
+  $("#dailyChart").addEventListener("click", (e) => {
+    const bar = e.target.closest("[data-date]");
+    if (!bar) return;
+    dailyPick = bar.dataset.date === dailyPick ? null : bar.dataset.date;
+    renderDaily();
+  });
+  $("#dailyBreakdown").addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    if (btn.hasAttribute("data-clear")) dailyPick = null;
+    else if (btn.dataset.step) {
+      const days = dailySeries().days.slice(-60);
+      const i = days.findIndex((d) => d.date === dailyPick) + +btn.dataset.step;
+      if (days[i]) dailyPick = days[i].date;
+    }
+    renderDaily();
+  });
 
 
   /* --- stats sub-tabs --- */
@@ -1321,8 +1381,8 @@
 
   // Hours per day, one bar per day stacked by console (PS4 at the bottom,
   // Steam on top), with an hours axis and dates underneath.
-  function stackedDays(days) {
-    const ORDER = ["PS4", "PS5", "Steam", "Other"];
+  function stackedDays(days, picked) {
+    const ORDER = DAY_ORDER;
     // SVG text scales with the viewBox, so a 1000-wide chart squeezed onto a
     // phone rendered its axis labels at 5px. Match the coordinate space to
     // the screen and the text stays the size it is written as.
@@ -1347,6 +1407,7 @@
     // A few days of data should read as bars, not slabs.
     const bw = Math.min(44, slot * 0.72);
     const every = Math.max(1, Math.ceil(days.length / 8));
+    const pickedAt = days.findIndex((d) => d.date === picked);
 
     const bars = days.map((d, i) => {
       const cx = padL + slot * (i + 0.5);
@@ -1362,12 +1423,20 @@
       const parts = ORDER.filter((c) => d.byConsole[c] > 0.001).map((c) => `${c} ${fmtH(d.byConsole[c])}h`).join(", ");
       const tip = `${fmtDate(d.date)} — ${fmtH(d.hours)}h${parts ? " (" + parts + ")" : ""}${d.estimated ? " · estimated across a gap" : ""}`;
       const iso = d.date;
-      const label = i % every === 0
-        ? `<text x="${cx.toFixed(1)}" y="${h - 10}" font-size="12" fill="var(--muted)" text-anchor="middle">${+iso.slice(8)} ${MONTHS[+iso.slice(5, 7) - 1]}</text>`
+      const on = iso === picked;
+      // The picked day always gets its date, and its neighbours give way.
+      const showLabel = on || (i % every === 0 && !(pickedAt >= 0 && Math.abs(i - pickedAt) < every));
+      const label = showLabel
+        ? `<text x="${cx.toFixed(1)}" y="${h - 10}" font-size="12" fill="${on ? "var(--accent)" : "var(--muted)"}"${on ? ' font-weight="700"' : ""} text-anchor="middle">${+iso.slice(8)} ${MONTHS[+iso.slice(5, 7) - 1]}</text>`
         : "";
-      // A full-height transparent strip, so the tooltip works even on a zero day.
-      return `<g${d.estimated ? ' opacity="0.45"' : ""}><title>${esc(tip)}</title>
+      // A full-height strip, so the tooltip and the tap work even on a zero
+      // day, plus a band hugging the bar that shades in on hover or when
+      // that day is the one picked.
+      const fade = (d.estimated ? 0.45 : 1) * (picked && !on ? 0.35 : 1);
+      const hw = Math.min(slot, bw + 16);
+      return `<g class="dbar${on ? " is-on" : ""}" data-date="${iso}"${fade < 1 ? ` opacity="${fade.toFixed(2)}"` : ""}><title>${esc(tip)}</title>
         <rect x="${(cx - slot / 2).toFixed(1)}" y="${padT}" width="${slot.toFixed(1)}" height="${plotH}" fill="transparent"/>
+        <rect class="dbar__hl" x="${(cx - hw / 2).toFixed(1)}" y="${padT}" width="${hw.toFixed(1)}" height="${plotH}" rx="5"/>
         ${stack}</g>${label}`;
     }).join("");
 

@@ -2692,6 +2692,29 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_1465360",
+   "appid": 1465360,
+   "title": "SnowRunner",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.683,
+   "sessions": null,
+   "firstPlayed": "2026-09-11",
+   "lastPlayed": "2026-09-11",
+   "recentHours": 0,
+   "devices": {
+    "linux": 0.683,
+    "deck": 0.683
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1465360/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 1,
+    "total": 37
+   },
+   "leftLibrary": "2026-09-13"
+  },
+  {
    "id": "steam_21170",
    "appid": 21170,
    "title": "Gotham City Impostors",

@@ -12,6 +12,7 @@
   --steam: #d23b3b; /* red        */
   --other: #8b93a5;
   --nodata: #b6bdc9;
+  --pick: #e3eaff;  /* the tapped day on the Daily chart */
   --radius: 12px;
   --page: 1060px;
   --gut: 22px;
@@ -217,6 +218,38 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 /* ---------- daily ---------- */
 .gapnote { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12.5px; margin-top: 10px; }
 .hatch { width: 22px; height: 12px; border-radius: 3px; border: 1px dashed var(--nodata); }
+#dailyChart .dbar { cursor: pointer; }
+#dailyChart .dbar__hl { fill: transparent; }
+#dailyChart .dbar:hover .dbar__hl { fill: var(--surface-2); }
+#dailyChart .dbar.is-on .dbar__hl { fill: var(--pick); }
+#dailyChart .dbar[opacity] { transition: opacity .15s; }
+
+/* The picked day: a header you can step through, then hours per platform. */
+.dday { display: flex; align-items: center; gap: 6px; margin: 22px 0 10px; }
+.dday__title { margin: 0 4px; font-variant-numeric: tabular-nums; }
+.dday__step, .dday__all {
+  font: inherit; font-size: 13px; color: var(--text); cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+}
+.dday__step { width: 32px; height: 32px; font-size: 18px; line-height: 1; padding: 0 0 2px; }
+.dday__step:disabled { opacity: .35; cursor: default; }
+.dday__all { margin-left: auto; padding: 6px 12px; }
+.dsum { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.dsum__item {
+  flex: 1 1 0; min-width: 0; padding: 9px 12px; border-radius: 10px;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.dsum__item b { display: block; font-size: 18px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.dsum__item span { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+.dsum__item i { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 5px; vertical-align: -.5px; }
+.dsum__item--total { background: var(--surface-2); border-color: transparent; }
+/* Up to five on one row at phone width: total, PS4, PS5, Steam, Other. */
+@media (max-width: 480px) {
+  .dsum { gap: 6px; }
+  .dsum__item { padding: 8px 9px; }
+  .dsum__item b { font-size: 16px; }
+  .dsum__item span { font-size: 12px; }
+}
 
 .stale { color: #b45309; font-weight: 600; }
 .foot { text-align: center; color: var(--muted); font-size: 12px; padding: 0 var(--gut) 32px; }
