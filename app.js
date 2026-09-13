@@ -940,6 +940,19 @@
     return { fresh, back };
   }
 
+  // Hours a game got inside year y. The platforms only report lifetime
+  // totals, so they are spread evenly from first play to last: exact when
+  // that whole stretch is inside the year, an estimate otherwise. Null when
+  // the start was never recorded (most Steam games) — those hours cannot be
+  // placed in any year.
+  function hoursInYear(x, y) {
+    if (!x.sp.knownStart) return null;
+    const a = toDay(x.sp.knownStart), b = Math.max(a, toDay(x.sp.end));
+    const lo = Math.max(a, toDay(`${y}-01-01`)), hi = Math.min(b, toDay(`${y}-12-31`));
+    if (hi < lo) return { hours: 0, exact: false };
+    return { hours: x.g.hours * (hi - lo + 1) / (b - a + 1), exact: lo === a && hi === b };
+  }
+
   function activeYears() {
     const now = +todayISO().slice(0, 4);
     let first = now;
@@ -1000,8 +1013,17 @@
           <div class="name"><span class="name__t">${esc(x.g.title)}</span>${pills(x.g)}${hasTrophy(x.g) ? TROPHY : ""}</div>
           <div class="meta">${x.sp.knownStart ? "started " + fmtDate(x.sp.knownStart) : "last played " + fmtDate(x.sp.end)}</div>
         </div>
-        <b class="yir__hrs">${fmtH(x.g.hours)}h</b>
+        <b class="yir__hrs">${x.inYear ? (x.inYear.exact ? "" : "~") + fmtH(x.inYear.hours) : fmtH(x.g.hours)}h</b>
       </li>`;
+
+    // Ranked by hours inside the year, not lifetime — otherwise a game with
+    // years of history tops every year it was touched.
+    const most = [...fresh, ...back]
+      .map((x) => ({ ...x, inYear: hoursInYear(x, y) }))
+      .filter((x) => x.inYear && x.inYear.hours > 0.05)
+      .sort((a, b) => b.inYear.hours - a.inYear.hours)
+      .slice(0, 5);
+    const unplaced = [...fresh, ...back].filter((x) => !x.sp.knownStart).length;
 
     const label = platform || "All platforms";
     $("#yir").innerHTML = played ? `
@@ -1011,8 +1033,12 @@
       </div>
       <div class="tiles">${tiles.map(([v, l]) => `<div class="tile"><b>${v}</b><span>${esc(l)}</span></div>`).join("")}</div>
 
+      ${most.length ? `<h3 class="h">Most played in ${y}</h3>
+        <p class="hint">Hours in ${y}; ~ is an estimate.${unplaced ? " Steam games with no start date aren't ranked." : ""}</p>
+        <ol class="yir__list">${most.map(card).join("")}</ol>` : ""}
+
       ${fresh.length ? `<h3 class="h">Top new games of ${y}</h3>
-        <ol class="yir__list">${fresh.slice(0, 10).map(card).join("")}</ol>` : ""}
+        <ol class="yir__list">${fresh.slice(0, 5).map(card).join("")}</ol>` : ""}
 
       ${fresh.length ? `<h3 class="h">When you started them</h3>
         <div class="chartbox yir__months">${byMonth.map((n, i) => `

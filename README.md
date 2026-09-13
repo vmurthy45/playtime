@@ -109,7 +109,15 @@ The site renders in light mode only.
 
 Both live under Stats. **Year in Review** picks a year and a platform (All,
 PlayStation or Steam): games played, new games, returning games, hours in the
-new games, completions, and the top new games with when each was started. A
+new games, completions, the five most-played games of the year, then the top
+five new games with when each was started.
+
+*Most played* ranks by hours **inside the year**, not lifetime — otherwise a
+game with years of history tops every year it was touched. The platforms only
+report lifetime totals, so a game's hours are spread evenly from its first
+play to its last: exact when that whole stretch falls in the year, marked ~
+otherwise. A Steam game with no recorded start can't be placed in any year, so
+it isn't ranked there. A
 game is "new" in a year only if its start was actually recorded, so Steam
 games mostly appear as returning until tracking has seen them begin. Hours
 are lifetime hours; only the daily snapshots know hours inside a year, and
