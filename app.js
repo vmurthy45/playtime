@@ -16,7 +16,14 @@
 
   const $ = (sel) => document.querySelector(sel);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const fmtH = (h) => (h >= 100 ? Math.round(h).toLocaleString() : h >= 10 ? h.toFixed(1) : h.toFixed(2).replace(/0$/, ""));
+  // Hours to one decimal everywhere, with thousands separators.
+  const fmtH = (h) => (+h || 0).toLocaleString("en-NZ", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  // A play time with its unit: minutes under an hour ("45m"), else hours.
+  // Anything that rounds to the hour mark reads as 1.0h, not 60m.
+  const fmtDur = (h) => {
+    const m = Math.round(h * 60);
+    return m < 60 ? `${Math.max(1, m)}m` : `${fmtH(h)}h`;
+  };
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   // DD MMM YY throughout — one date style, and never the locale's "Sept".
   const fmtDate = (iso) => {
@@ -834,13 +841,17 @@
         const steam = id.startsWith("steam_");
         return {
           label: e ? e.title : steam ? `Steam app ${id.slice(6)}` : "Unknown game",
-          value: hrs, color: tint(e ? e.console : steam ? "Steam" : null), suffix: "h",
+          value: hrs, color: tint(e ? e.console : steam ? "Steam" : null),
         };
       });
+    // Every calendar day in the window counts, played or not, so a day off
+    // pulls the average down.
+    const spanDays = toDay(recent[recent.length - 1].date) - toDay(recent[0].date) + 1;
     const chips = `<div class="dsum">
-        <div class="dsum__item dsum__item--total"><b>${fmtH(total)}h</b><span>Total</span></div>
+        <div class="dsum__item dsum__item--total"><b>${fmtDur(total)}</b><span>Total</span></div>
+        ${picked ? "" : `<div class="dsum__item dsum__item--total"><b>${fmtDur(total / spanDays)}</b><span>Daily avg</span></div>`}
         ${DAY_ORDER.filter((c) => byConsole[c] > 0.001).map((c) => `
-          <div class="dsum__item"><b>${fmtH(byConsole[c])}h</b><span><i style="background:${tint(c)}"></i>${esc(c)}</span></div>`).join("")}
+          <div class="dsum__item"><b>${fmtDur(byConsole[c])}</b><span><i style="background:${tint(c)}"></i>${esc(c)}</span></div>`).join("")}
       </div>`;
 
     if (picked) {
@@ -857,12 +868,12 @@
         </div>
         ${chips}
         ${note ? `<p class="hint">${note}</p>` : ""}
-        <div class="chartbox">${rows.length ? barRows(rows) : `<p class="empty">Nothing played this day.</p>`}</div>`;
+        <div class="chartbox">${rows.length ? barRows(rows, fmtDur) : `<p class="empty">Nothing played this day.</p>`}</div>`;
       return;
     }
     $("#dailyBreakdown").innerHTML = rows.length
-      ? `<h2 class="h">What those hours went into</h2>${chips}<div class="chartbox">${barRows(rows)}</div>
-         <p class="hint" style="margin-top:10px">${fmtH(total)} hours across the last ${recent.length} days.</p>`
+      ? `<h2 class="h">What those hours went into</h2>${chips}<div class="chartbox">${barRows(rows, fmtDur)}</div>
+         <p class="hint" style="margin-top:10px">${fmtDur(total)} across the last ${spanDays} days.</p>`
       : "";
   }
 
@@ -1401,7 +1412,8 @@
 
   // A round step that gives about four gridlines at whatever scale the data is.
   function niceStep(max) {
-    for (const step of [0.25, 0.5, 1, 2, 3, 4, 5, 10, 20]) if (max / step <= 4) return step;
+    // No 0.25: a quarter hour can't be written to one decimal.
+    for (const step of [0.5, 1, 2, 3, 4, 5, 10, 20]) if (max / step <= 4) return step;
     return Math.ceil(max / 4);
   }
 
@@ -1426,7 +1438,7 @@
     for (let v = 0; v <= top + 1e-9; v += step) {
       const gy = y(v).toFixed(1);
       grid += `<line x1="${padL}" y1="${gy}" x2="${w - padR}" y2="${gy}" stroke="var(--line)"${v ? ' stroke-dasharray="3 4"' : ""}/>` +
-              `<text x="${padL - 8}" y="${(+gy + 4).toFixed(1)}" font-size="12" fill="var(--muted)" text-anchor="end">${+v.toFixed(2)}h</text>`;
+              `<text x="${padL - 8}" y="${(+gy + 4).toFixed(1)}" font-size="12" fill="var(--muted)" text-anchor="end">${+v.toFixed(1)}h</text>`;
     }
 
     const slot = plotW / days.length;
@@ -1446,8 +1458,8 @@
         stack += `<rect x="${x}" y="${y1.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(1, y0 - y1).toFixed(1)}" fill="${tint(c)}"/>`;
         cum += v;
       }
-      const parts = ORDER.filter((c) => d.byConsole[c] > 0.001).map((c) => `${c} ${fmtH(d.byConsole[c])}h`).join(", ");
-      const tip = `${fmtDate(d.date)} — ${fmtH(d.hours)}h${parts ? " (" + parts + ")" : ""}${d.estimated ? " · estimated across a gap" : ""}`;
+      const parts = ORDER.filter((c) => d.byConsole[c] > 0.001).map((c) => `${c} ${fmtDur(d.byConsole[c])}`).join(", ");
+      const tip = `${fmtDate(d.date)} — ${d.hours > 0.005 ? fmtDur(d.hours) : "nothing played"}${parts ? " (" + parts + ")" : ""}${d.estimated ? " · estimated across a gap" : ""}`;
       const iso = d.date;
       const on = iso === picked;
       // The picked day always gets its date, and its neighbours give way.
@@ -1471,7 +1483,7 @@
       <div class="legend">${present.map((c) => `<span><i style="background:${tint(c)}"></i>${esc(c)}</span>`).join("")}</div>`;
   }
 
-  function barRows(items) {
+  function barRows(items, fmt = (v) => fmtH(v)) {
     if (!items.length) return `<p class="empty">No data.</p>`;
     const max = Math.max(...items.map((i) => i.value));
     return items.map((it) => `
@@ -1480,7 +1492,7 @@
           <div class="barrow__label">${esc(it.label)}${it.extra ? ` <span style="color:var(--muted)">· ${esc(it.extra)}</span>` : ""}</div>
           <div class="barrow__bar" style="background:${it.color || "var(--accent)"};width:${(it.value / max * 100).toFixed(1)}%"></div>
         </div>
-        <div class="barrow__val">${fmtH(it.value)}${it.suffix || ""}</div>
+        <div class="barrow__val">${fmt(it.value)}${it.suffix || ""}</div>
       </div>`).join("");
   }
 

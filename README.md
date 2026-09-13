@@ -90,7 +90,9 @@ shell from cache.
   month, months for a year, years for a decade.
 - **Daily** — hours per day, derived from snapshot diffs. Tap a bar to see
   that day on its own: total and hours per platform, and the games that made
-  it up. Step through days with the arrows; *All days* goes back to the window.
+  it up. Step through days with the arrows; *All days* goes back to the window,
+  with a daily average that counts every day in it, played or not. Times under
+  an hour show in minutes here; everywhere else hours are to one decimal.
 - **Stats** — totals, games started per year, where the hours went.
 
 ### Why the Timeline is dots, not bars

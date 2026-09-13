@@ -243,9 +243,10 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 .dsum__item span { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
 .dsum__item i { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 5px; vertical-align: -.5px; }
 .dsum__item--total { background: var(--surface-2); border-color: transparent; }
-/* Up to five on one row at phone width: total, PS4, PS5, Steam, Other. */
+/* Four to a row at phone width; a fifth or sixth (PS4, Other) wraps into
+   the same columns rather than squeezing the row. */
 @media (max-width: 480px) {
-  .dsum { gap: 6px; }
+  .dsum { display: grid; grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)); gap: 6px; }
   .dsum__item { padding: 8px 9px; }
   .dsum__item b { font-size: 16px; }
   .dsum__item span { font-size: 12px; }
