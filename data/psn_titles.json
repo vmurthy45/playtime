@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-13T16:03:11+00:00",
+ "syncedAt": "2026-09-14T18:00:36+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 1
+  "lookedUp": 0
  },
  "games": [
   {
@@ -792,7 +792,7 @@
   {
    "id": "psn_CUSA12552_00",
    "titleId": "CUSA12552_00",
-   "title": "Apex Legends\u2122",
+   "title": "Apex Legends\u2122\u200e",
    "platform": "PlayStation",
    "console": "PS4",
    "hours": 21.42,
@@ -2662,7 +2662,7 @@
    "sessions": 5,
    "firstPlayed": "2019-05-05",
    "lastPlayed": "2019-08-04",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00633_00/5/i_972f4d4cac23c4d5f584b2b527941d53a8c9df80935c3e564622013c3e989135/i/icon0_01.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00633_00/5/i_972f4d4cac23c4d5f584b2b527941d53a8c9df80935c3e564622013c3e989135/i/icon0.png",
    "trophyLists": [
     "NPWR06693_00"
    ],
