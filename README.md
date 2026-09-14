@@ -116,8 +116,9 @@ five new games with when each was started.
 game with years of history tops every year it was touched. The platforms only
 report lifetime totals, so a game's hours are spread evenly from its first
 play to its last: exact when that whole stretch falls in the year, marked ~
-otherwise. A Steam game with no recorded start can't be placed in any year, so
-it isn't ranked there. A
+otherwise. A Steam game with no recorded start can't be spread that way, so it
+counts the hours the daily snapshots saw it gain in the year — exact, but only
+from when tracking began, so before 2026 such games don't appear. A
 game is "new" in a year only if its start was actually recorded, so Steam
 games mostly appear as returning until tracking has seen them begin. Hours
 are lifetime hours; only the daily snapshots know hours inside a year, and

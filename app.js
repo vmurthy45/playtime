@@ -985,9 +985,11 @@
     // Exact hours inside the year exist only for days the snapshots cover.
     const consoles = platform === "Steam" ? ["Steam"] : platform === "PlayStation" ? ["PS4", "PS5", "Other"] : null;
     let tracked = 0;
+    const trackedById = {};
     for (const d of dailySeries().days) {
       if (d.date.slice(0, 4) !== String(y)) continue;
       tracked += consoles ? consoles.reduce((s, c) => s + (d.byConsole[c] || 0), 0) : d.hours;
+      for (const [id, h] of Object.entries(d.perGame)) trackedById[id] = (trackedById[id] || 0) + h;
     }
 
     const newHours = fresh.reduce((s, x) => s + x.g.hours, 0);
@@ -1018,12 +1020,20 @@
 
     // Ranked by hours inside the year, not lifetime — otherwise a game with
     // years of history tops every year it was touched.
+    // A game with no recorded start (most Steam games) can't be spread
+    // across years, so it counts the hours the daily snapshots saw in the
+    // year — exact, but only from when tracking began.
+    const snapshotHours = (x) => {
+      const hours = x.g.parts.reduce((s, p) => s + (trackedById[p.id] || 0), 0);
+      return { hours, exact: true };
+    };
     const most = [...fresh, ...back]
-      .map((x) => ({ ...x, inYear: hoursInYear(x, y) }))
-      .filter((x) => x.inYear && x.inYear.hours > 0.05)
+      .map((x) => ({ ...x, inYear: hoursInYear(x, y) || snapshotHours(x) }))
+      .filter((x) => x.inYear.hours > 0.05)
       .sort((a, b) => b.inYear.hours - a.inYear.hours)
       .slice(0, 5);
-    const unplaced = [...fresh, ...back].filter((x) => !x.sp.knownStart).length;
+    const unplaced = [...fresh, ...back].some((x) => !x.sp.knownStart);
+    const since = dailySeries().since;
 
     const label = platform || "All platforms";
     $("#yir").innerHTML = played ? `
@@ -1034,7 +1044,9 @@
       <div class="tiles">${tiles.map(([v, l]) => `<div class="tile"><b>${v}</b><span>${esc(l)}</span></div>`).join("")}</div>
 
       ${most.length ? `<h3 class="h">Most played in ${y}</h3>
-        <p class="hint">Hours in ${y}; ~ is an estimate.${unplaced ? " Steam games with no start date aren't ranked." : ""}</p>
+        <p class="hint">Hours in ${y}; ~ is an estimate.${!unplaced || !since ? ""
+          : y >= +year(since) ? ` Steam games with no start date count hours tracked since ${fmtDate(since)}.`
+          : ` Steam games with no start date aren't ranked before tracking began (${fmtDate(since)}).`}</p>
         <ol class="yir__list">${most.map(card).join("")}</ol>` : ""}
 
       ${fresh.length ? `<h3 class="h">Top new games of ${y}</h3>
