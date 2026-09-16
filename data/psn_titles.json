@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-15T16:46:29+00:00",
+ "syncedAt": "2026-09-16T16:39:08+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 1
+  "lookedUp": 0
  },
  "games": [
   {
@@ -1953,19 +1953,6 @@
     "total": 103,
     "platinum": false
    }
-  },
-  {
-   "id": "psn_CUSA02012_00",
-   "titleId": "CUSA02012_00",
-   "title": "Leitor de multim\u00e9dia",
-   "platform": "PlayStation",
-   "console": "PS4",
-   "hours": 5.024,
-   "sessions": 8,
-   "firstPlayed": "2021-04-19",
-   "lastPlayed": "2021-06-18",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02012_00/1/i_018d3114f496346e1705e2165d8980995ee1253dc9a85c8cc1bfb8ffff1856cb/i/icon0.png",
-   "trophyLists": []
   },
   {
    "id": "psn_PPSA03073_00",
