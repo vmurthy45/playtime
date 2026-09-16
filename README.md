@@ -159,7 +159,9 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
   Each snapshot records the last-played date of every game that gained hours
   (`played`), and a gain whose game was last played before the interval began
   is credited to that day instead of the day it arrived — provided tracking had
-  started by then.
+  started by then. If that day predates tracking, the hours are history the
+  platform only just started reporting — a title appearing in the data for the
+  first time with a lifetime total — and are credited to no day at all.
 
 **Trophies and achievements.** PSN trophy counts come from one paginated call
 covering the whole account, matched to games by normalised title (PSN gives no
@@ -210,8 +212,11 @@ day are added on top, so the count keeps climbing.
 Consoles report Netflix, YouTube, Disney+, Plex and the like as titles with play
 time — on this account that was 67 hours of "play". They are dropped by both
 collectors and hidden by the app, using the list in `data/non_games.json`.
-Matching is on the normalised title, so add a name to that file to hide anything
-else (or an id under `ids` for a title a name cannot catch). Steam's separate
+Matching is on the normalised title (accents stripped, so Sony's localised
+"Leitor de multimédia" matches "leitor de multimedia"), so add a name to that
+file to hide anything else (or an id under `ids` for a title a name cannot
+catch). Hidden ids are skipped in the daily diffs too, or their hours would
+come back as "Other". Steam's separate
 `- Multiplayer` entries are genuine game components and are kept.
 
 ### Same game, two platforms

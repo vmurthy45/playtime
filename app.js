@@ -12,7 +12,7 @@
 
   // entries = one record per game per platform. groups = the same game merged
   // across platforms, which is what the lists actually show.
-  const state = { entries: [], groups: [], snapshots: [], aliases: {}, synced: [], trophySummary: null };
+  const state = { entries: [], groups: [], snapshots: [], aliases: {}, synced: [], trophySummary: null, hidden: new Set() };
 
   const $ = (sel) => document.querySelector(sel);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -76,6 +76,9 @@
     const skipNames = new Set((nonGames && nonGames.names) || []);
     const skipIds = new Set((nonGames && nonGames.ids) || []);
     const isGame = (g) => !skipNames.has(normalize(g.title)) && !skipIds.has(g.id);
+    // Snapshots hold hours by id, so the daily diffs need the ids too —
+    // otherwise a hidden media app's hours come back as "Other".
+    state.hidden = new Set(skipIds);
 
     // Keys starting with "_" are notes in the file, not mappings.
     state.aliases = Object.fromEntries(
@@ -85,7 +88,7 @@
       if (!f) return;
       // Older syncs wrote the raw enum name; "Other" is what the UI shows.
       for (const g of f.games || []) {
-        if (!isGame(g)) continue;
+        if (!isGame(g)) { state.hidden.add(g.id); continue; }
         if (g.console === "UNKNOWN" || !g.console) g.console = "Other";
         state.entries.push(g);
       }
@@ -137,6 +140,9 @@
   function normalize(title) {
     return title
       .toLowerCase()
+      // Accents first: PSN localises system apps, and without this
+      // "multimédia" became "multim dia" and matched nothing.
+      .normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
       .replace(/[™®©]/g, "")
       .replace(/[‘’']/g, "")
       .replace(/[^a-z0-9]+/g, " ")
@@ -222,6 +228,7 @@
         let gained = 0;
         const perGame = {};
         for (const [id, hours] of Object.entries(cur.hours)) {
+          if (state.hidden.has(id)) continue;
           const delta = hours - (prev.hours[id] || 0);
           if (delta > 0.005) { gained += delta; perGame[id] = delta; }
         }
@@ -232,17 +239,20 @@
         const span = to - from + 1;
 
         // A game last played before this interval began gained hours that
-        // were uploaded late (a session cut off from the network, a Deck in
-        // offline mode). They belong wholly to the day it was played — as
-        // long as tracking had started by then.
+        // were not played in it: a session cut off from the network, a Deck
+        // in offline mode, or a title the platform only just started
+        // reporting (PSN served up a 2021 media app with 5h one morning).
+        // They belong to the day they were played, and if that predates
+        // tracking they belong to no day here at all — crediting them to the
+        // interval would invent an evening of play.
         const played = cur.played || {};
         const late = {};
         for (const id of Object.keys(perGame)) {
           const day = played[id];
-          if (day && toDay(day) < from && day >= list[0].date) {
-            late[id] = day;
-            gained -= perGame[id];
-          }
+          if (!day || toDay(day) >= from) continue;
+          gained -= perGame[id];
+          if (day >= list[0].date) late[id] = day;
+          else delete perGame[id];
         }
         for (const [id, day] of Object.entries(late)) {
           const slot = (byDate[day] ||= { date: day, hours: 0, estimated: false, gap: null, perGame: {}, byConsole: {} });

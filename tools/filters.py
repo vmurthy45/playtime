@@ -8,6 +8,7 @@ applies the same list to anything already collected.
 
 import json
 import re
+import unicodedata
 
 DEFAULT = {
     "names": [
@@ -28,7 +29,10 @@ DEFAULT = {
 
 def normalize(title):
     """Same normalisation the app uses, so both sides agree on a match."""
-    t = title.lower()
+    # Accents first: PSN localises system apps, and without this
+    # "multimédia" became "multim dia" and matched nothing.
+    t = unicodedata.normalize("NFKD", title.lower())
+    t = "".join(c for c in t if not unicodedata.combining(c))
     for ch in "™®©":
         t = t.replace(ch, "")
     t = re.sub(r"[‘’']", "", t)

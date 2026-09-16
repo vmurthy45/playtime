@@ -1,5 +1,5 @@
 {
- "_comment": "Titles hidden from Playtime: media apps, system apps, and software that is not a game. Matched on the normalised title \u2014 lowercase, punctuation stripped, leading 'the' removed. Use 'ids' for one-offs a name cannot catch (e.g. 'steam_431960').",
+ "_comment": "Titles hidden from Playtime: media apps, system apps, and software that is not a game. Matched on the normalised title — lowercase, punctuation stripped, leading 'the' removed. Use 'ids' for one-offs a name cannot catch (e.g. 'steam_431960').",
  "names": [
   "netflix",
   "youtube",
@@ -35,7 +35,16 @@
   "wallpaper engine",
   "steamvr",
   "steam linux runtime",
-  "proton experimental"
+  "proton experimental",
+  "leitor de multimedia",
+  "reproductor multimedia",
+  "lecteur multimedia",
+  "lettore multimediale",
+  "medienplayer",
+  "mediaspeler",
+  "mediaspelare"
  ],
- "ids": []
+ "ids": [
+  "psn_CUSA02012_00"
+ ]
 }
