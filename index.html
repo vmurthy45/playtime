@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
-<link rel="stylesheet" href="styles.css?v=78">
+<link rel="stylesheet" href="styles.css?v=79">
 </head>
 <body>
 
@@ -26,10 +26,10 @@
     <p id="subtitle" class="subtitle">Loading…</p>
   </div>
   <nav class="tabs" id="tabs">
-    <button class="tab is-active" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="overview">Overview</button>
     <button class="tab" data-tab="games">Games</button>
     <button class="tab" data-tab="timeline">Timeline</button>
-    <button class="tab" data-tab="daily">Daily</button>
+    <button class="tab is-active" data-tab="daily">Daily</button>
     <button class="tab" data-tab="stats">Stats</button>
   </nav>
  </div>
@@ -39,7 +39,7 @@
   <p id="loadError" class="notice notice--error" hidden></p>
 
   <!-- OVERVIEW -->
-  <section id="panel-overview" class="panel is-active">
+  <section id="panel-overview" class="panel">
     <div class="ovhead">
       <div class="seg" id="listToggle" role="tablist">
         <button class="seg__btn is-active" data-list="recent" role="tab">Most Recent</button>
@@ -85,7 +85,7 @@
   </section>
 
   <!-- DAILY -->
-  <section id="panel-daily" class="panel">
+  <section id="panel-daily" class="panel is-active">
     <h2 class="h">Hours per day</h2>
     <p class="hint" id="dailyHint"></p>
     <div id="dailyChart" class="chartbox"></div>
@@ -162,6 +162,6 @@
   <span id="syncedAt"></span>
 </footer>
 
-<script src="app.js?v=78"></script>
+<script src="app.js?v=79"></script>
 </body>
 </html>
