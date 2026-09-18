@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-17T16:46:21+00:00",
+ "syncedAt": "2026-09-18T16:14:58+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -872,7 +872,7 @@
   {
    "id": "psn_PPSA01411_00",
    "titleId": "PPSA01411_00",
-   "title": "Marvel's Spider-Man: Miles Morales",
+   "title": "Marvel\u2019s Spider-Man: Miles Morales",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 20.145,
@@ -1290,6 +1290,26 @@
    }
   },
   {
+   "id": "psn_PPSA33764_00",
+   "titleId": "PPSA33764_00",
+   "title": "Big Walk",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 12.309,
+   "sessions": 7,
+   "firstPlayed": "2026-08-08",
+   "lastPlayed": "2026-09-18",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
+   "trophyLists": [
+    "NPWR56487_00"
+   ],
+   "trophies": {
+    "earned": 7,
+    "total": 13,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA16283_00",
    "titleId": "CUSA16283_00",
    "title": "F1\u00ae 2020",
@@ -1437,26 +1457,6 @@
    "trophies": {
     "earned": 15,
     "total": 58,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA33764_00",
-   "titleId": "PPSA33764_00",
-   "title": "Big Walk",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 10.25,
-   "sessions": 6,
-   "firstPlayed": "2026-08-08",
-   "lastPlayed": "2026-08-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
-   "trophyLists": [
-    "NPWR56487_00"
-   ],
-   "trophies": {
-    "earned": 6,
-    "total": 13,
     "platinum": false
    }
   },
@@ -4370,7 +4370,7 @@
    "sessions": 3,
    "firstPlayed": "2017-09-25",
    "lastPlayed": "2018-03-09",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/2000/2c7ee56fbf89ace584ee82e74ec198d061a3e035d9f8ee7f.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/1519/82cb6c66d3c7dcb2bfd6486bb352cc72b1c417ffccc597da.png",
    "trophyLists": []
   },
   {
@@ -5190,7 +5190,7 @@
    "sessions": 0,
    "firstPlayed": "2023-01-21",
    "lastPlayed": "2023-01-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/2402/icByXGm1W5mQmol84yMxEgD2.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/2402/x0TZ7gTngEzFGOAsuyi8yAsO.png",
    "trophyLists": []
   },
   {
