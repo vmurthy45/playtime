@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-18T16:14:58+00:00",
+ "syncedAt": "2026-09-19T15:45:48+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -872,7 +872,7 @@
   {
    "id": "psn_PPSA01411_00",
    "titleId": "PPSA01411_00",
-   "title": "Marvel\u2019s Spider-Man: Miles Morales",
+   "title": "Marvel's Spider-Man: Miles Morales",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 20.145,
@@ -3457,6 +3457,26 @@
    }
   },
   {
+   "id": "psn_PPSA01603_00",
+   "titleId": "PPSA01603_00",
+   "title": "Hogwarts Legacy",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 0.899,
+   "sessions": 4,
+   "firstPlayed": "2025-04-18",
+   "lastPlayed": "2026-09-19",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202503/2716/ce2e7f5896365b4e35a192b1f7592b590fee98827644ddb4.png",
+   "trophyLists": [
+    "NPWR21175_00"
+   ],
+   "trophies": {
+    "earned": 1,
+    "total": 46,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA00411_00",
    "titleId": "CUSA00411_00",
    "title": "Grand Theft Auto V (PlayStation\u00ae5)",
@@ -3753,26 +3773,6 @@
    "trophies": {
     "earned": 1,
     "total": 50,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA01603_00",
-   "titleId": "PPSA01603_00",
-   "title": "Hogwarts Legacy",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 0.788,
-   "sessions": 3,
-   "firstPlayed": "2025-04-18",
-   "lastPlayed": "2025-04-27",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202503/2716/ce2e7f5896365b4e35a192b1f7592b590fee98827644ddb4.png",
-   "trophyLists": [
-    "NPWR21175_00"
-   ],
-   "trophies": {
-    "earned": 1,
-    "total": 46,
     "platinum": false
    }
   },
@@ -5190,7 +5190,7 @@
    "sessions": 0,
    "firstPlayed": "2023-01-21",
    "lastPlayed": "2023-01-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/2402/x0TZ7gTngEzFGOAsuyi8yAsO.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/2402/icByXGm1W5mQmol84yMxEgD2.png",
    "trophyLists": []
   },
   {
