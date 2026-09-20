@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-19T15:45:48+00:00",
+ "syncedAt": "2026-09-20T15:54:00+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 1
+  "lookedUp": 2
  },
  "games": [
   {
@@ -78,7 +78,7 @@
    "sessions": 186,
    "firstPlayed": "2024-01-12",
    "lastPlayed": "2025-11-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/2000/2c7ee56fbf89ace584ee82e74ec198d061a3e035d9f8ee7f.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/1519/82cb6c66d3c7dcb2bfd6486bb352cc72b1c417ffccc597da.png",
    "trophyLists": [
     "NPWR22022_00"
    ],
@@ -1190,6 +1190,26 @@
    }
   },
   {
+   "id": "psn_PPSA33764_00",
+   "titleId": "PPSA33764_00",
+   "title": "Big Walk",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 14.258,
+   "sessions": 8,
+   "firstPlayed": "2026-08-08",
+   "lastPlayed": "2026-09-20",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
+   "trophyLists": [
+    "NPWR56487_00"
+   ],
+   "trophies": {
+    "earned": 9,
+    "total": 13,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA09802_00",
    "titleId": "PPSA09802_00",
    "title": "F1\u00ae 23",
@@ -1286,26 +1306,6 @@
    "trophies": {
     "earned": 14,
     "total": 76,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA33764_00",
-   "titleId": "PPSA33764_00",
-   "title": "Big Walk",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 12.309,
-   "sessions": 7,
-   "firstPlayed": "2026-08-08",
-   "lastPlayed": "2026-09-18",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
-   "trophyLists": [
-    "NPWR56487_00"
-   ],
-   "trophies": {
-    "earned": 7,
-    "total": 13,
     "platinum": false
    }
   },
@@ -2173,6 +2173,26 @@
    }
   },
   {
+   "id": "psn_PPSA08237_00",
+   "titleId": "PPSA08237_00",
+   "title": "Immortals of Aveum\u2122",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 3.777,
+   "sessions": 7,
+   "firstPlayed": "2024-04-12",
+   "lastPlayed": "2026-09-20",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202303/3011/8d91b74b4bcadc659b2c0dc4ccfcef035447be4d7668ee04.png",
+   "trophyLists": [
+    "NPWR32095_00"
+   ],
+   "trophies": {
+    "earned": 5,
+    "total": 48,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA17218_00",
    "titleId": "CUSA17218_00",
    "title": "Call of Duty\u00ae: Modern Warfare\u00ae",
@@ -2529,26 +2549,6 @@
    "trophies": {
     "earned": 3,
     "total": 43,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA08237_00",
-   "titleId": "PPSA08237_00",
-   "title": "Immortals of Aveum\u2122",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 2.349,
-   "sessions": 5,
-   "firstPlayed": "2024-04-12",
-   "lastPlayed": "2024-04-15",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202303/3011/8d91b74b4bcadc659b2c0dc4ccfcef035447be4d7668ee04.png",
-   "trophyLists": [
-    "NPWR32095_00"
-   ],
-   "trophies": {
-    "earned": 4,
-    "total": 48,
     "platinum": false
    }
   },
