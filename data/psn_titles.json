@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-20T15:54:00+00:00",
+ "syncedAt": "2026-09-21T18:08:51+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 2
+  "lookedUp": 1
  },
  "games": [
   {
@@ -1148,6 +1148,26 @@
    }
   },
   {
+   "id": "psn_PPSA33764_00",
+   "titleId": "PPSA33764_00",
+   "title": "Big Walk",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 15.801,
+   "sessions": 9,
+   "firstPlayed": "2026-08-08",
+   "lastPlayed": "2026-09-21",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
+   "trophyLists": [
+    "NPWR56487_00"
+   ],
+   "trophies": {
+    "earned": 9,
+    "total": 13,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA00076_00",
    "titleId": "CUSA00076_00",
    "title": "The Order: 1886",
@@ -1187,26 +1207,6 @@
     "earned": 153,
     "total": 166,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA33764_00",
-   "titleId": "PPSA33764_00",
-   "title": "Big Walk",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 14.258,
-   "sessions": 8,
-   "firstPlayed": "2026-08-08",
-   "lastPlayed": "2026-09-20",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
-   "trophyLists": [
-    "NPWR56487_00"
-   ],
-   "trophies": {
-    "earned": 9,
-    "total": 13,
-    "platinum": false
    }
   },
   {
