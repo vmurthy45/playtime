@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-09-21T18:08:51+00:00",
+ "syncedAt": "2026-09-22T16:44:53+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -77,15 +77,15 @@
    "title": "Slay the Spire 2",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 132.267,
+   "hours": 133.25,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-09-21",
-   "recentHours": 8.68,
+   "lastPlayed": "2026-09-22",
+   "recentHours": 9.67,
    "devices": {
     "mac": 42.383,
-    "linux": 89.883,
-    "deck": 89.883
+    "linux": 90.85,
+    "deck": 90.85
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg",
    "achievementsChecked": true

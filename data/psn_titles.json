@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-09-21T18:08:51+00:00",
+ "syncedAt": "2026-09-22T16:44:52+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -78,7 +78,7 @@
    "sessions": 186,
    "firstPlayed": "2024-01-12",
    "lastPlayed": "2025-11-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/1519/82cb6c66d3c7dcb2bfd6486bb352cc72b1c417ffccc597da.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202608/2000/2c7ee56fbf89ace584ee82e74ec198d061a3e035d9f8ee7f.png",
    "trophyLists": [
     "NPWR22022_00"
    ],
@@ -1030,6 +1030,26 @@
    }
   },
   {
+   "id": "psn_PPSA33764_00",
+   "titleId": "PPSA33764_00",
+   "title": "Big Walk",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 17.852,
+   "sessions": 10,
+   "firstPlayed": "2026-08-08",
+   "lastPlayed": "2026-09-22",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
+   "trophyLists": [
+    "NPWR56487_00"
+   ],
+   "trophies": {
+    "earned": 11,
+    "total": 13,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA01011_00",
    "titleId": "CUSA01011_00",
    "title": "The Walking Dead: Season 1",
@@ -1144,26 +1164,6 @@
    "trophies": {
     "earned": 33,
     "total": 47,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA33764_00",
-   "titleId": "PPSA33764_00",
-   "title": "Big Walk",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 15.801,
-   "sessions": 9,
-   "firstPlayed": "2026-08-08",
-   "lastPlayed": "2026-09-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202602/0421/fe1c88d7fe0aecfb99948e04096ed2e59479d65add3044e7.png",
-   "trophyLists": [
-    "NPWR56487_00"
-   ],
-   "trophies": {
-    "earned": 9,
-    "total": 13,
     "platinum": false
    }
   },
