@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-01T18:20:39+00:00",
+ "syncedAt": "2026-10-02T17:46:16+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -77,13 +77,13 @@
    "title": "Slay the Spire 2",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 137.233,
+   "hours": 138.183,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-01",
-   "recentHours": 6.75,
+   "lastPlayed": "2026-10-02",
+   "recentHours": 7.7,
    "devices": {
-    "mac": 43.817,
+    "mac": 44.767,
     "linux": 93.4,
     "deck": 93.383
    },
@@ -115,13 +115,13 @@
    "title": "Brotato",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 70.7,
+   "hours": 71.517,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-01",
-   "recentHours": 1.0,
+   "lastPlayed": "2026-10-02",
+   "recentHours": 1.82,
    "devices": {
-    "linux": 70.7,
+    "linux": 71.517,
     "deck": 70.217
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
@@ -1202,21 +1202,21 @@
    "title": "Disco Elysium",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 3.5,
+   "hours": 3.567,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-08-05",
-   "recentHours": 0.0,
+   "lastPlayed": "2026-10-02",
+   "recentHours": 0.05,
    "devices": {
-    "linux": 3.5,
+    "linux": 3.567,
     "deck": 3.5
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/632470/header.jpg",
+   "achievementsChecked": true,
    "achievements": {
     "earned": 0,
     "total": 45
-   },
-   "achievementsChecked": true
+   }
   },
   {
    "id": "steam_1237970",
@@ -1586,8 +1586,8 @@
    "hours": 2.433,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2025-08-02",
-   "recentHours": 0.0,
+   "lastPlayed": "2026-10-02",
+   "recentHours": 0.02,
    "devices": {
     "linux": 2.433,
     "deck": 2.433
