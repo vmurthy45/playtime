@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-04T16:45:59+00:00",
+ "syncedAt": "2026-10-05T20:14:47+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -81,7 +81,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-04",
-   "recentHours": 9.43,
+   "recentHours": 8.65,
    "devices": {
     "mac": 46.533,
     "linux": 94.4,
@@ -115,19 +115,19 @@
    "title": "Brotato",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 74.433,
+   "hours": 76.85,
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-05",
-   "recentHours": 4.73,
+   "recentHours": 7.15,
    "devices": {
-    "linux": 74.433,
-    "deck": 73.133
+    "linux": 76.85,
+    "deck": 74.9
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
    "achievementsChecked": true,
    "achievements": {
-    "earned": 146,
+    "earned": 150,
     "total": 179
    }
   },
@@ -299,6 +299,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_1145350",
+   "appid": 1145350,
+   "title": "Hades II",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 14.383,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-06",
+   "recentHours": 1.12,
+   "devices": {
+    "linux": 14.383,
+    "deck": 14.383
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145350/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 4,
+    "total": 50
+   }
+  },
+  {
    "id": "steam_2754380",
    "appid": 2754380,
    "title": "The Roottrees are Dead",
@@ -365,28 +387,6 @@
    "achievements": {
     "earned": 0,
     "total": 55
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_1145350",
-   "appid": 1145350,
-   "title": "Hades II",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 13.267,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-05-15",
-   "recentHours": 0.0,
-   "devices": {
-    "linux": 13.267,
-    "deck": 13.267
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145350/header.jpg",
-   "achievements": {
-    "earned": 3,
-    "total": 50
    },
    "achievementsChecked": true
   },
@@ -2133,6 +2133,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_368260",
+   "appid": 368260,
+   "title": "Marvel's Midnight Suns",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 1.4,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-05",
+   "recentHours": 0.22,
+   "devices": {
+    "linux": 1.4,
+    "deck": 1.4
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/368260/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 2,
+    "total": 72
+   }
+  },
+  {
    "id": "steam_48000",
    "appid": 48000,
    "title": "LIMBO",
@@ -2229,28 +2251,6 @@
    "achievements": {
     "earned": 8,
     "total": 26
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_368260",
-   "appid": 368260,
-   "title": "Marvel's Midnight Suns",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 1.183,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-04-30",
-   "recentHours": 0.0,
-   "devices": {
-    "linux": 1.183,
-    "deck": 1.183
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/368260/header.jpg",
-   "achievements": {
-    "earned": 2,
-    "total": 72
    },
    "achievementsChecked": true
   },
@@ -2713,6 +2713,27 @@
     "total": 37
    },
    "leftLibrary": "2026-09-13"
+  },
+  {
+   "id": "steam_709920",
+   "appid": 709920,
+   "title": "Tametsi",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.633,
+   "sessions": null,
+   "firstPlayed": "2026-10-05",
+   "lastPlayed": "2026-10-05",
+   "recentHours": 0.63,
+   "devices": {
+    "linux": 0.633
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/709920/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 1,
+    "total": 19
+   }
   },
   {
    "id": "steam_21170",

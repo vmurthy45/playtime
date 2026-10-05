@@ -7,7 +7,10 @@ on:
   schedule:
     # 12:00 UTC = midnight in Auckland (1am while daylight saving is on).
     # Cron cannot follow DST, so the boundary drifts by an hour in summer.
-    - cron: "0 12 * * *"
+    # Not on the hour: GitHub queues every :00 job in the world at once, and
+    # a scheduled run that waits too long is dropped, not queued — which is
+    # how 5 and 6 Oct 2026 went missing. Runs here still land 4-6h late.
+    - cron: "37 11 * * *"
   workflow_dispatch: {}    # run on demand from the Actions tab
 
 permissions:
