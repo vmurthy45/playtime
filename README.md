@@ -93,7 +93,8 @@ shell from cache.
   it up. Step through days with the arrows; *All days* goes back to the window,
   with a daily average that counts every day in it, played or not. Times under
   an hour show in minutes here; everywhere else hours are to one decimal.
-- **Stats** — totals, games started per year, where the hours went.
+- **Stats** — totals, hours played per year (tap a year for its games),
+  games started per year, where the hours went.
 
 ### Why the Timeline is dots, not bars
 
@@ -136,6 +137,16 @@ most-played new games as a starting point. Steam covers load straight from
 Steam, which allows it. Sony's image server sends no CORS header, and a canvas
 holding such an image cannot be exported, so PlayStation covers come through
 the free wsrv.nl image proxy. If it is ever down, upload the cover instead.
+
+### Hours per year
+
+Neither platform reports hours by year, so Stats and Year in Review share one
+reckoning (`yearPlay`): a game's lifetime hours spread evenly between its first
+and last play, exact when that whole stretch is inside the year and marked ~
+otherwise, and measured straight from the daily snapshots for a game with no
+recorded start. The column therefore adds up to less than the library total,
+and the note says by how much — the remainder is Steam play with no date to
+place it.
 
 ## How the numbers are derived
 

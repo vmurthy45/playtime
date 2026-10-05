@@ -450,6 +450,65 @@
       ? `${summary.platinums - platinums} of these are PS3, Vita or collection titles, which have trophies but no play time to track.`
       : "";
 
+    // Hours per year. Neither platform reports hours by year — PSN gives
+    // lifetime totals with a first and last played date, Steam not even
+    // that — so this is yearPlay()'s reckoning: spread evenly between first
+    // and last play, or measured by the daily snapshots where a game has no
+    // start date. Years before tracking therefore undercount those Steam
+    // games, which is the honest answer rather than a confident wrong one.
+    const hoursByYear = {};
+    for (const y of activeYears()) {
+      const { rows, total } = yearPlay(y, "");
+      if (total > 0.05) hoursByYear[y] = { rows, total };
+    }
+    const hourYears = Object.keys(hoursByYear).sort().reverse();
+    const hourPeak = Math.max(...hourYears.map((y) => hoursByYear[y].total), 1);
+    const hourSum = hourYears.reduce((s, y) => s + hoursByYear[y].total, 0);
+
+    $("#yearHours").innerHTML = hourYears.map((y) => `
+      <button class="yrow" data-year="${y}" aria-pressed="false">
+        <span class="yrow__year">${y}</span>
+        <span class="yrow__track"><span class="yrow__fill" style="width:${(hoursByYear[y].total / hourPeak * 100).toFixed(1)}%"></span></span>
+        <span class="yrow__n">${fmtH(hoursByYear[y].total)}h</span>
+      </button>`).join("") || `<p class="empty">No years to show yet.</p>`;
+    // Say what is missing rather than letting the column quietly not add up:
+    // Steam play with no start date can only be placed once tracking saw it.
+    $("#yearHoursNote").textContent = hourYears.length
+      ? `${fmtH(hourSum)} of ${fmtH(totalH)} hours placed in a year — the rest is Steam play with no date to place it. `
+        + `~ means spread across the years a game ran. Tap a year for its games.`
+      : "";
+
+    let openHourYear = null;
+    const showHourYear = (y) => {
+      const { rows, total } = hoursByYear[y];
+      $("#yearHoursGames").innerHTML = `
+        <div class="yearlist chartbox">
+          <h3>${fmtH(total)} hours across ${rows.length} ${rows.length === 1 ? "game" : "games"} in ${y}</h3>
+          <ol>${rows.map((x) => `
+            <li>
+              ${x.g.consoles.map((c) => `<span class="pip" style="background:${tint(c)}" title="${esc(c)}"></span>`).join("")}
+              <span class="yl__title">${esc(x.g.title)}</span>
+              <span class="yl__meta">${x.inYear.exact ? "" : "~"}${fmtH(x.inYear.hours)}h</span>
+            </li>`).join("")}</ol>
+        </div>`;
+    };
+
+    $("#yearHours").addEventListener("click", (e) => {
+      const btn = e.target.closest(".yrow");
+      if (!btn) return;
+      const y = btn.dataset.year;
+      openHourYear = y === openHourYear ? null : y;
+      $("#yearHours").querySelectorAll(".yrow").forEach((b) => {
+        const on = b.dataset.year === openHourYear;
+        b.classList.toggle("is-on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      $("#yearHours").classList.toggle("has-selection", !!openHourYear);
+      if (!openHourYear) { $("#yearHoursGames").innerHTML = ""; return; }
+      showHourYear(openHourYear);
+      $("#yearHoursGames").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
     // New games per year: each game counted once, in the year it was first
     // played. Horizontal bars — twelve rows fit a phone; twelve columns did
     // not, and scrolling a chart sideways to read it was worse.
@@ -488,7 +547,7 @@
       if (!btn) return;
       const y = btn.dataset.year;
       openYear = y === openYear ? null : y;   // click the open year to close it
-      document.querySelectorAll(".yrow").forEach((b) => {
+      $("#startedChart").querySelectorAll(".yrow").forEach((b) => {
         const on = b.dataset.year === openYear;
         b.classList.toggle("is-on", on);
         b.setAttribute("aria-pressed", on ? "true" : "false");
@@ -963,6 +1022,27 @@
     return { hours: x.g.hours * (hi - lo + 1) / (b - a + 1), exact: lo === a && hi === b };
   }
 
+  // Every game played in a year, with the hours it got that year and
+  // whether that figure is exact. One place, so Stats and Year in Review
+  // can never disagree about a year.
+  function yearPlay(y, platform) {
+    const tracked = {};
+    for (const d of dailySeries().days) {
+      if (d.date.slice(0, 4) !== String(y)) continue;
+      for (const [id, h] of Object.entries(d.perGame)) tracked[id] = (tracked[id] || 0) + h;
+    }
+    const { fresh, back } = yearGames(y, platform);
+    const rows = [...fresh, ...back]
+      // No recorded start (most Steam games): the hours can't be spread
+      // across years, so the daily snapshots are the only measure — exact,
+      // but only from when tracking began.
+      .map((x) => ({ ...x, inYear: hoursInYear(x, y) || {
+        hours: x.g.parts.reduce((s, p) => s + (tracked[p.id] || 0), 0), exact: true } }))
+      .filter((x) => x.inYear.hours > 0.05)
+      .sort((a, b) => b.inYear.hours - a.inYear.hours);
+    return { rows, total: rows.reduce((s, x) => s + x.inYear.hours, 0) };
+  }
+
   function activeYears() {
     const now = +todayISO().slice(0, 4);
     let first = now;
@@ -995,11 +1075,9 @@
     // Exact hours inside the year exist only for days the snapshots cover.
     const consoles = platform === "Steam" ? ["Steam"] : platform === "PlayStation" ? ["PS4", "PS5", "Other"] : null;
     let tracked = 0;
-    const trackedById = {};
     for (const d of dailySeries().days) {
       if (d.date.slice(0, 4) !== String(y)) continue;
       tracked += consoles ? consoles.reduce((s, c) => s + (d.byConsole[c] || 0), 0) : d.hours;
-      for (const [id, h] of Object.entries(d.perGame)) trackedById[id] = (trackedById[id] || 0) + h;
     }
 
     const newHours = fresh.reduce((s, x) => s + x.g.hours, 0);
@@ -1030,18 +1108,7 @@
 
     // Ranked by hours inside the year, not lifetime — otherwise a game with
     // years of history tops every year it was touched.
-    // A game with no recorded start (most Steam games) can't be spread
-    // across years, so it counts the hours the daily snapshots saw in the
-    // year — exact, but only from when tracking began.
-    const snapshotHours = (x) => {
-      const hours = x.g.parts.reduce((s, p) => s + (trackedById[p.id] || 0), 0);
-      return { hours, exact: true };
-    };
-    const most = [...fresh, ...back]
-      .map((x) => ({ ...x, inYear: hoursInYear(x, y) || snapshotHours(x) }))
-      .filter((x) => x.inYear.hours > 0.05)
-      .sort((a, b) => b.inYear.hours - a.inYear.hours)
-      .slice(0, 5);
+    const most = yearPlay(y, platform).rows.slice(0, 5);
     const unplaced = [...fresh, ...back].some((x) => !x.sp.knownStart);
     const since = dailySeries().since;
 

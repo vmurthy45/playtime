@@ -154,6 +154,9 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
 .yrow.is-on .yrow__n { color: var(--accent); }
 /* While a year is open the rest recede, so the choice is unmissable. */
 .chartbox--rows.has-selection .yrow:not(.is-on) { opacity: .5; }
+/* Hours need more room than a game count: "1,234.5h" not "12". */
+.chartbox--hours .yrow { grid-template-columns: 46px 1fr 66px; }
+.chartbox--hours .yrow__n { font-variant-numeric: tabular-nums; }
 .yrow__track { height: 14px; border-radius: 7px; background: var(--surface-2); overflow: hidden; }
 .yrow:hover .yrow__track, .yrow.is-on .yrow__track { background: #e2e7f0; }
 .yrow__fill { display: block; height: 100%; border-radius: 7px; background: var(--accent); }
