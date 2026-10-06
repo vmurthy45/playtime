@@ -1,0 +1,13 @@
+{
+ "_comment": "Manual per-day fixes for windows the platforms left ambiguous. Both report a lifetime total plus the LAST day a game was played, never a session history, so when one sync window covers play on two days the hours can only be attributed to one of them. Each move shifts hours for one game from the day the app inferred to the day they were really played; totals are unchanged. Only needed where the player knows better than the data.",
+ "moves": [
+  {
+   "id": "steam_1942280",
+   "title": "Brotato",
+   "from": "2026-10-05",
+   "to": "2026-10-04",
+   "hours": 0.67,
+   "note": "Played both days; the 4 and 5 Oct syncs ran 5h late during the GitHub outage, so one window held both. Vig: 1.1h of the 1.77h was on the 5th."
+  }
+ ]
+}

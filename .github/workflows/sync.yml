@@ -5,12 +5,16 @@ name: Daily play-time sync
 # consecutive snapshots — which only accumulates while this runs.
 on:
   schedule:
-    # 12:00 UTC = midnight in Auckland (1am while daylight saving is on).
-    # Cron cannot follow DST, so the boundary drifts by an hour in summer.
-    # Not on the hour: GitHub queues every :00 job in the world at once, and
-    # a scheduled run that waits too long is dropped, not queued — which is
-    # how 5 and 6 Oct 2026 went missing. Runs here still land 4-6h late.
-    - cron: "37 11 * * *"
+    # Every 3 hours, offset off the hour (GitHub drops schedules that queue
+    # too long at :00). One run lands just after midnight in Auckland —
+    # 11:05 UTC in NZDT, an hour out in NZST, which cron cannot follow.
+    #
+    # Frequency is about correctness, not freshness: both platforms report a
+    # lifetime total plus the day a game was LAST played, never a session
+    # history, so hours earned between two syncs can only be pinned to a day
+    # when that window sits inside one. A daily sync put a game played on
+    # both sides of it wholly on one day.
+    - cron: "5 2,5,8,11,14,17,20,23 * * *"
   workflow_dispatch: {}    # run on demand from the Actions tab
 
 permissions:

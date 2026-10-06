@@ -259,39 +259,58 @@ def last_played_of_gains(snapshots, titles, today):
     }
 
 
+def running_totals(snapshots, source):
+    """Hours per game as of the last entry, folding deltas over full snapshots."""
+    totals = {}
+    for s in sorted((x for x in snapshots if x.get("source") == source),
+                    key=lambda x: x.get("at") or x["date"]):
+        if s.get("delta"):
+            totals.update(s["hours"])
+        else:
+            totals = dict(s["hours"])
+    return totals
+
+
 def update_snapshots(path, titles, today):
-    """Append today's totals; replace the entry if today already ran."""
+    """Record the totals as they stand now.
+
+    The first run of a local date writes a full map; later runs that day
+    write only what changed since the previous entry.
+    """
     snapshots = []
     if path.exists():
         try:
             snapshots = json.loads(path.read_text())
         except json.JSONDecodeError:
             print(f"! {path} is unreadable — starting a fresh history", file=sys.stderr)
+    now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    mine = [s for s in snapshots if s.get("source") == SOURCE]
+    before = running_totals(snapshots, SOURCE)
+    full = {g["id"]: g["hours"] for g in titles}
 
-    snapshots = [s for s in snapshots if not (s.get("date") == today and s.get("source") == SOURCE)]
-    entry = {
-        "date": today,
-        "source": SOURCE,
-        "hours": {g["id"]: g["hours"] for g in titles},
-    }
-    played = last_played_of_gains(snapshots, titles, today)
+    # Several runs a day keep each window inside one day, so a game played
+    # either side of a sync is not credited wholly to one of them. Writing a
+    # full map every time would be 14KB a run, so only the first run of a
+    # local date carries one and the rest record what changed.
+    if any(s.get("date") == today and not s.get("delta") for s in mine):
+        entry = {"date": today, "at": now, "source": SOURCE, "delta": True,
+                 "hours": {i: h for i, h in full.items()
+                           if i not in before or abs(h - before[i]) > 0.0005}}
+    else:
+        entry = {"date": today, "at": now, "source": SOURCE, "hours": full}
+
+    played = {g["id"]: g["lastPlayed"] for g in titles
+              if g.get("lastPlayed") and mine and full[g["id"]] - before.get(g["id"], 0) > 0.005}
     if played:
         entry["played"] = played
     snapshots.append(entry)
-    snapshots.sort(key=lambda s: (s.get("date", ""), s.get("source", "")))
+    snapshots.sort(key=lambda s: (s.get("at") or s.get("date", ""), s.get("source", "")))
     path.write_text(json.dumps(snapshots, indent=1))
 
-    # Report what today actually added, so a cron log is worth reading.
-    previous = [s for s in snapshots if s["source"] == SOURCE and s["date"] < today]
-    if not previous:
+    if not mine:
         return None
-    before = previous[-1]["hours"]
-    gained = {
-        gid: round(hours - before.get(gid, 0), 2)
-        for gid, hours in entry["hours"].items()
-        if hours - before.get(gid, 0) > 0.01
-    }
-    return gained
+    return {i: round(h - before.get(i, 0), 2) for i, h in full.items()
+            if h - before.get(i, 0) > 0.01}
 
 
 def main():

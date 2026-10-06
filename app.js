@@ -12,7 +12,7 @@
 
   // entries = one record per game per platform. groups = the same game merged
   // across platforms, which is what the lists actually show.
-  const state = { entries: [], groups: [], snapshots: [], aliases: {}, synced: [], trophySummary: null, hidden: new Set() };
+  const state = { entries: [], groups: [], snapshots: [], aliases: {}, synced: [], trophySummary: null, hidden: new Set(), corrections: [] };
 
   const $ = (sel) => document.querySelector(sel);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -63,13 +63,15 @@
     fetch(url, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
 
   async function load() {
-    const [files, snaps, aliases, nonGames, backfill] = await Promise.all([
+    const [files, snaps, aliases, nonGames, backfill, corrections] = await Promise.all([
       Promise.all(SOURCES.map((s) => getJSON(s.file))),
       getJSON("data/snapshots.json"),
       getJSON("data/aliases.json"),
       getJSON("data/non_games.json"),
       getJSON("data/backfill.json"),
+      getJSON("data/corrections.json"),
     ]);
+    state.corrections = (corrections && corrections.moves) || [];
 
     // Consoles count Netflix and friends as titles with play time. The
     // collectors drop them going forward; this hides any already collected.
@@ -221,17 +223,25 @@
     const activity = {};
     let earliest = null;
     for (const list of Object.values(bySource)) {
-      list.sort((a, b) => a.date.localeCompare(b.date));
+      // Several snapshots a day, ordered by the moment they were taken. A
+      // full map carries every game, a delta only what changed since the
+      // one before, so the comparison is against a running total rather
+      // than the previous entry's map.
+      list.sort((a, b) => (a.at || a.date).localeCompare(b.at || b.date));
       earliest = minDate(earliest, list[0].date);
+      let totals = {};
+      const fold = (e) => { if (e.delta) Object.assign(totals, e.hours); else totals = { ...e.hours }; };
+      fold(list[0]);
       for (let i = 1; i < list.length; i++) {
         const prev = list[i - 1], cur = list[i];
         let gained = 0;
         const perGame = {};
         for (const [id, hours] of Object.entries(cur.hours)) {
           if (state.hidden.has(id)) continue;
-          const delta = hours - (prev.hours[id] || 0);
+          const delta = hours - (totals[id] || 0);
           if (delta > 0.005) { gained += delta; perGame[id] = delta; }
         }
+        fold(cur);
         // The hours were earned between the two snapshots, so they belong to
         // the days from the earlier one up to (not including) the later one.
         // With a midnight sync that is exactly the day that just ended.
@@ -295,6 +305,27 @@
         }
       }
     }
+    // Hand corrections last: where one sync window covered play on two days
+    // the platforms cannot say how it split, so these move the hours the
+    // player knows were earned on the other day. Totals never change.
+    for (const m of state.corrections) {
+      const src = byDate[m.from];
+      if (!src) continue;
+      const have = src.perGame[m.id] || 0;
+      const move = Math.min(m.hours, have);
+      if (move <= 0.005) continue;
+      const c = consoleOf[m.id] || (m.id.startsWith("steam_") ? "Steam" : "Other");
+      src.hours -= move;
+      src.perGame[m.id] -= move;
+      src.byConsole[c] -= move;
+      const dst = (byDate[m.to] ||= { date: m.to, hours: 0, estimated: false, gap: null, perGame: {}, byConsole: {} });
+      dst.hours += move;
+      dst.perGame[m.id] = (dst.perGame[m.id] || 0) + move;
+      dst.byConsole[c] = (dst.byConsole[c] || 0) + move;
+      const a = activity[m.id];
+      if (a) { a.first = minDate(a.first, m.to); a.last = maxDate(a.last, m.to); }
+    }
+
     const days = Object.values(byDate).sort((a, b) => a.date.localeCompare(b.date));
     return { days, since: earliest, snapshotCount: state.snapshots.length, activity };
   }

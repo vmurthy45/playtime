@@ -154,8 +154,16 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
 
 - **Totals, first played, last played, session counts** are exact, straight from
   Sony, going back to the account's first game.
-- **Hours per day** are derived by diffing consecutive daily snapshots in
-  `data/snapshots.json`. That means the daily chart only fills in from the second
+- **Hours per day** are derived by diffing consecutive snapshots in
+  `data/snapshots.json`. The collectors run **every 3 hours**, so a window
+  normally sits inside one calendar day: the platforms report a lifetime total
+  plus the day a game was LAST played and never a session history, so a game
+  played either side of a sync would otherwise be credited wholly to one day.
+  The first run of each local date writes a full map; later runs that day
+  record only what changed, which keeps the file small.
+- **`data/corrections.json`** moves hours between days by hand for windows the
+  platforms left ambiguous — it is the only place the player's own knowledge
+  overrides the data, and it never changes a total. That means the daily chart only fills in from the second
   sync onward, and days before the first sync are genuinely unknown rather than
   zero — the app draws them that way.
 - **A game's own last-played day wins.** Each snapshot records the last-played
@@ -163,10 +171,10 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
   window the interval credits is moved to that day — forward when a sync ran
   later in the day rather than at midnight (otherwise this morning's play lands
   on yesterday), back when the time was uploaded late.
-- The sync runs at **12:00 UTC, midnight in Auckland** (1am while daylight
-  saving is on — cron cannot follow DST). Snapshots are stamped with the *local*
-  date, and the hours between two snapshots are credited to the day that just
-  ended, so an evening's play lands on the evening's date.
+- Snapshots are stamped with the *local* date, and the hours between two
+  snapshots are credited to the day that just ended, so an evening's play lands
+  on the evening's date. One of the eight daily runs lands just after midnight
+  in Auckland (11:05 UTC in NZDT; cron cannot follow DST).
 - When two syncs land more than a day apart, the total for that window is real
   but the split across those days is an even guess. Those bars are drawn hatched
   and labelled estimated.
