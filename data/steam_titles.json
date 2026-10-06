@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-06T02:06:11+00:00",
+ "syncedAt": "2026-10-06T11:57:34+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -81,7 +81,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-04",
-   "recentHours": 8.65,
+   "recentHours": 7.68,
    "devices": {
     "mac": 46.533,
     "linux": 94.4,
@@ -115,21 +115,21 @@
    "title": "Brotato",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 76.85,
+   "hours": 77.967,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-05",
-   "recentHours": 7.15,
+   "lastPlayed": "2026-10-06",
+   "recentHours": 8.27,
    "devices": {
-    "linux": 76.85,
-    "deck": 74.9
+    "linux": 77.967,
+    "deck": 76.017
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
+   "achievementsChecked": true,
    "achievements": {
-    "earned": 150,
+    "earned": 152,
     "total": 179
-   },
-   "achievementsChecked": true
+   }
   },
   {
    "id": "steam_1030300",
@@ -277,6 +277,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_1145350",
+   "appid": 1145350,
+   "title": "Hades II",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 15.083,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-06",
+   "recentHours": 1.82,
+   "devices": {
+    "linux": 15.083,
+    "deck": 15.083
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145350/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 4,
+    "total": 50
+   }
+  },
+  {
    "id": "steam_504230",
    "appid": 504230,
    "title": "Celeste",
@@ -295,28 +317,6 @@
    "achievements": {
     "earned": 15,
     "total": 32
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_1145350",
-   "appid": 1145350,
-   "title": "Hades II",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 14.383,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-06",
-   "recentHours": 1.12,
-   "devices": {
-    "linux": 14.383,
-    "deck": 14.383
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145350/header.jpg",
-   "achievements": {
-    "earned": 4,
-    "total": 50
    },
    "achievementsChecked": true
   },
@@ -2447,6 +2447,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_356190",
+   "appid": 356190,
+   "title": "Middle-earth\u2122: Shadow of War\u2122",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.867,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-06",
+   "recentHours": 0.13,
+   "devices": {
+    "linux": 0.867,
+    "deck": 0.867
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/356190/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 0,
+    "total": 72
+   }
+  },
+  {
    "id": "steam_1840",
    "appid": 1840,
    "title": "Source Filmmaker",
@@ -2644,28 +2666,6 @@
    "achievements": {
     "earned": 0,
     "total": 53
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_356190",
-   "appid": 356190,
-   "title": "Middle-earth\u2122: Shadow of War\u2122",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 0.717,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2024-07-30",
-   "recentHours": 0.0,
-   "devices": {
-    "linux": 0.717,
-    "deck": 0.717
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/356190/header.jpg",
-   "achievements": {
-    "earned": 0,
-    "total": 72
    },
    "achievementsChecked": true
   },
@@ -3346,6 +3346,24 @@
     "earned": 1,
     "total": 126
    },
+   "achievementsChecked": true
+  },
+  {
+   "id": "steam_5000760",
+   "appid": 5000760,
+   "title": "Castlevania: Belmont's Curse Demo",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.217,
+   "sessions": null,
+   "firstPlayed": "2026-10-06",
+   "lastPlayed": "2026-10-06",
+   "recentHours": 0.22,
+   "devices": {
+    "linux": 0.217,
+    "deck": 0.217
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/5000760/header.jpg",
    "achievementsChecked": true
   },
   {
