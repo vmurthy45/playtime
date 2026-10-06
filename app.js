@@ -238,20 +238,26 @@
         const from = toDay(prev.date), to = Math.max(from, toDay(cur.date) - 1);
         const span = to - from + 1;
 
-        // A game last played before this interval began gained hours that
-        // were not played in it: a session cut off from the network, a Deck
-        // in offline mode, or a title the platform only just started
-        // reporting (PSN served up a 2021 media app with 5h one morning).
-        // They belong to the day they were played, and if that predates
-        // tracking they belong to no day here at all — crediting them to the
-        // interval would invent an evening of play.
+        // The platforms stamp each game with the day it was last played, so
+        // a gain whose day falls outside the window this interval credits
+        // belongs on that day instead:
+        //   after it   — the sync ran later in the day, not at midnight, so
+        //                this morning's play would land on yesterday;
+        //   before it  — uploaded late (a session cut off from the network,
+        //                a Deck in offline mode);
+        //   before tracking — history the platform only just started
+        //                reporting (PSN served up a 2021 media app with 5h
+        //                one morning); it belongs to no day here at all.
         const played = cur.played || {};
         const late = {};
         for (const id of Object.keys(perGame)) {
           const day = played[id];
-          if (!day || toDay(day) >= from) continue;
+          if (!day) continue;
+          const d = toDay(day);
+          if (d >= from && d <= to) continue;
           gained -= perGame[id];
-          if (day >= list[0].date) late[id] = day;
+          if (d > to) late[id] = minDate(day, cur.date);
+          else if (day >= list[0].date) late[id] = day;
           else delete perGame[id];
         }
         for (const [id, day] of Object.entries(late)) {

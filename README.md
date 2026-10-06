@@ -158,6 +158,11 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
   `data/snapshots.json`. That means the daily chart only fills in from the second
   sync onward, and days before the first sync are genuinely unknown rather than
   zero — the app draws them that way.
+- **A game's own last-played day wins.** Each snapshot records the last-played
+  date of every game that gained hours, and a gain whose day falls outside the
+  window the interval credits is moved to that day — forward when a sync ran
+  later in the day rather than at midnight (otherwise this morning's play lands
+  on yesterday), back when the time was uploaded late.
 - The sync runs at **12:00 UTC, midnight in Auckland** (1am while daylight
   saving is on — cron cannot follow DST). Snapshots are stamped with the *local*
   date, and the hours between two snapshots are credited to the day that just
