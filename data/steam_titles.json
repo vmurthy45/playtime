@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-06T23:45:08+00:00",
+ "syncedAt": "2026-10-07T08:33:20+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -77,15 +77,15 @@
    "title": "Slay the Spire 2",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 140.95,
+   "hours": 142.083,
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-07",
-   "recentHours": 7.7,
+   "recentHours": 8.83,
    "devices": {
     "mac": 46.55,
-    "linux": 94.4,
-    "deck": 94.367
+    "linux": 95.517,
+    "deck": 95.5
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg",
    "achievementsChecked": true
@@ -115,21 +115,21 @@
    "title": "Brotato",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 77.967,
+   "hours": 78.85,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-06",
-   "recentHours": 8.27,
+   "lastPlayed": "2026-10-07",
+   "recentHours": 9.15,
    "devices": {
-    "linux": 77.967,
-    "deck": 76.017
+    "linux": 78.85,
+    "deck": 76.9
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
+   "achievementsChecked": true,
    "achievements": {
-    "earned": 152,
+    "earned": 153,
     "total": 179
-   },
-   "achievementsChecked": true
+   }
   },
   {
    "id": "steam_1030300",
@@ -4433,6 +4433,20 @@
    "recentHours": 0.0,
    "devices": {},
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/700580/header.jpg"
+  },
+  {
+   "id": "steam_894020",
+   "appid": 894020,
+   "title": "Death's Door",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.0,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": null,
+   "recentHours": 0.0,
+   "devices": {},
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/894020/header.jpg"
   },
   {
    "id": "steam_1180660",
