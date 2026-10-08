@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-05T20:15:44+00:00",
+ "syncedAt": "2026-10-08T22:49:49+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -58,7 +58,7 @@
    "sessions": 165,
    "firstPlayed": "2016-05-28",
    "lastPlayed": "2017-06-26",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2921/a213c057a3adc5c341911157e461954a97500126e4e2acef.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/2119/654f0b61e6ed9137704ba4679152d2749f676a62f6af1f42.png",
    "trophyLists": [
     "NPWR08516_00"
    ],
@@ -2300,7 +2300,7 @@
    "sessions": 6,
    "firstPlayed": "2016-05-06",
    "lastPlayed": "2016-05-09",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202607/2921/a213c057a3adc5c341911157e461954a97500126e4e2acef.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/2119/654f0b61e6ed9137704ba4679152d2749f676a62f6af1f42.png",
    "trophyLists": [],
    "trophies": {
     "earned": 44,
@@ -3412,7 +3412,7 @@
    ],
    "trophies": {
     "earned": 4,
-    "total": 44,
+    "total": 47,
     "platinum": false
    }
   },
