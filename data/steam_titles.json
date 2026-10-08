@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-08T08:50:08+00:00",
+ "syncedAt": "2026-10-08T17:50:22+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -115,21 +115,21 @@
    "title": "Brotato",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 78.85,
+   "hours": 79.333,
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-08",
-   "recentHours": 9.15,
+   "recentHours": 9.63,
    "devices": {
-    "linux": 78.85,
-    "deck": 76.9
+    "linux": 79.333,
+    "deck": 77.383
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
+   "achievementsChecked": true,
    "achievements": {
-    "earned": 153,
+    "earned": 154,
     "total": 179
-   },
-   "achievementsChecked": true
+   }
   },
   {
    "id": "steam_1030300",
@@ -3253,6 +3253,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_1446780",
+   "appid": 1446780,
+   "title": "MONSTER HUNTER RISE",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.283,
+   "sessions": null,
+   "firstPlayed": "2026-10-09",
+   "lastPlayed": "2026-10-08",
+   "recentHours": 0.28,
+   "devices": {
+    "linux": 0.283,
+    "deck": 0.283
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1446780/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 0,
+    "total": 100
+   }
+  },
+  {
    "id": "steam_94200",
    "appid": 94200,
    "title": "Jamestown",
@@ -3358,13 +3380,14 @@
    "sessions": null,
    "firstPlayed": "2026-10-06",
    "lastPlayed": "2026-10-06",
-   "recentHours": 0.22,
+   "recentHours": 0,
    "devices": {
     "linux": 0.217,
     "deck": 0.217
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/5000760/header.jpg",
-   "achievementsChecked": true
+   "achievementsChecked": true,
+   "leftLibrary": "2026-10-09"
   },
   {
    "id": "steam_95300",
@@ -4477,9 +4500,9 @@
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1361320/header.jpg"
   },
   {
-   "id": "steam_1446780",
-   "appid": 1446780,
-   "title": "MONSTER HUNTER RISE",
+   "id": "steam_1422450",
+   "appid": 1422450,
+   "title": "Deadlock",
    "platform": "Steam",
    "console": "Steam",
    "hours": 0.0,
@@ -4488,7 +4511,7 @@
    "lastPlayed": null,
    "recentHours": 0.0,
    "devices": {},
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1446780/header.jpg"
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1422450/header.jpg"
   },
   {
    "id": "steam_1486630",
