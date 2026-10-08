@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-08T00:08:03+00:00",
+ "syncedAt": "2026-10-08T08:50:08+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -77,13 +77,13 @@
    "title": "Slay the Spire 2",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 142.083,
+   "hours": 142.617,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-07",
-   "recentHours": 8.83,
+   "lastPlayed": "2026-10-08",
+   "recentHours": 9.35,
    "devices": {
-    "mac": 46.55,
+    "mac": 47.083,
     "linux": 95.517,
     "deck": 95.5
    },
@@ -118,7 +118,7 @@
    "hours": 78.85,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-07",
+   "lastPlayed": "2026-10-08",
    "recentHours": 9.15,
    "devices": {
     "linux": 78.85,
@@ -4475,6 +4475,20 @@
    "recentHours": 0.0,
    "devices": {},
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1361320/header.jpg"
+  },
+  {
+   "id": "steam_1446780",
+   "appid": 1446780,
+   "title": "MONSTER HUNTER RISE",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.0,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": null,
+   "recentHours": 0.0,
+   "devices": {},
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1446780/header.jpg"
   },
   {
    "id": "steam_1486630",
