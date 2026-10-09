@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-09T00:16:36+00:00",
+ "syncedAt": "2026-10-09T08:54:20+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -77,13 +77,13 @@
    "title": "Slay the Spire 2",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 144.3,
+   "hours": 144.617,
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-09",
-   "recentHours": 11.05,
+   "recentHours": 11.37,
    "devices": {
-    "mac": 48.767,
+    "mac": 49.1,
     "linux": 95.517,
     "deck": 95.5
    },
@@ -115,21 +115,21 @@
    "title": "Brotato",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 79.333,
+   "hours": 80.817,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-08",
-   "recentHours": 9.63,
+   "lastPlayed": "2026-10-09",
+   "recentHours": 11.37,
    "devices": {
-    "linux": 79.333,
-    "deck": 77.383
+    "linux": 80.817,
+    "deck": 78.867
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
+   "achievementsChecked": true,
    "achievements": {
-    "earned": 154,
+    "earned": 157,
     "total": 179
-   },
-   "achievementsChecked": true
+   }
   },
   {
    "id": "steam_1030300",
