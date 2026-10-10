@@ -205,8 +205,8 @@
 
   // Both platforms report lifetime totals, so per-day hours come from diffing
   // snapshots. Each source is diffed on its own, then summed per day. A gap
-  // between syncs gives a known total over an unknown split — those days are
-  // marked estimated rather than silently drawn as fact.
+  // between syncs gives a known total over an unknown split, which is spread
+  // evenly across those days.
   //
   // Alongside the daily totals this records, per game, the first and last day
   // the snapshots saw it gain hours. Steam supplies no first-played date, so
@@ -271,7 +271,7 @@
           else delete perGame[id];
         }
         for (const [id, day] of Object.entries(late)) {
-          const slot = (byDate[day] ||= { date: day, hours: 0, estimated: false, gap: null, perGame: {}, byConsole: {} });
+          const slot = (byDate[day] ||= { date: day, hours: 0, perGame: {}, byConsole: {} });
           const c = consoleOf[id] || (id.startsWith("steam_") ? "Steam" : "Other");
           slot.hours += perGame[id];
           slot.byConsole[c] = (slot.byConsole[c] || 0) + perGame[id];
@@ -291,7 +291,7 @@
         }
         for (let d = from; d <= to; d++) {
           const date = fromDay(d);
-          const slot = (byDate[date] ||= { date, hours: 0, estimated: false, gap: null, perGame: {}, byConsole: {} });
+          const slot = (byDate[date] ||= { date, hours: 0, perGame: {}, byConsole: {} });
           slot.hours += gained / span;
           // Across a gap each game gets the same even split as the total, so
           // a day's games always add up to its bar.
@@ -301,7 +301,6 @@
             slot.byConsole[c] = (slot.byConsole[c] || 0) + h / span;
             slot.perGame[id] = (slot.perGame[id] || 0) + h / span;
           }
-          if (span > 1) { slot.estimated = true; slot.gap = [fromDay(from), fromDay(to)]; }
         }
       }
     }
@@ -318,7 +317,7 @@
       src.hours -= move;
       src.perGame[m.id] -= move;
       src.byConsole[c] -= move;
-      const dst = (byDate[m.to] ||= { date: m.to, hours: 0, estimated: false, gap: null, perGame: {}, byConsole: {} });
+      const dst = (byDate[m.to] ||= { date: m.to, hours: 0, perGame: {}, byConsole: {} });
       dst.hours += move;
       dst.perGame[m.id] = (dst.perGame[m.id] || 0) + move;
       dst.byConsole[c] = (dst.byConsole[c] || 0) + move;
@@ -928,10 +927,8 @@
     const recent = days.slice(-60);
     const picked = recent.find((d) => d.date === dailyPick) || null;
     if (!picked) dailyPick = null;
-    const anyEstimated = recent.some((d) => d.estimated);
     $("#dailyHint").textContent = `Tracked since ${fmtDate(since)}. Earlier days are unknown, not zero. Tap a bar for that day.`;
-    $("#dailyChart").innerHTML = stackedDays(recent, dailyPick) +
-      (anyEstimated ? `<div class="gapnote"><span class="hatch"></span> faded: a gap between syncs — total is real, daily split estimated</div>` : "");
+    $("#dailyChart").innerHTML = stackedDays(recent, dailyPick);
 
     // One day, or the whole window when nothing is picked.
     const scope = picked ? [picked] : recent;
@@ -962,9 +959,7 @@
 
     if (picked) {
       const i = recent.indexOf(picked);
-      const note = picked.estimated
-        ? `Estimated — ${fmtDate(picked.gap[0])} to ${fmtDate(picked.gap[1])} synced as one gap, so this is an even share of it.`
-        : "";
+      const note = "";
       $("#dailyBreakdown").innerHTML = `
         <div class="dday">
           <button class="dday__step" data-step="-1" aria-label="Previous day"${i ? "" : " disabled"}>‹</button>
@@ -1611,7 +1606,7 @@
         cum += v;
       }
       const parts = ORDER.filter((c) => d.byConsole[c] > 0.001).map((c) => `${c} ${fmtDur(d.byConsole[c])}`).join(", ");
-      const tip = `${fmtDate(d.date)} — ${d.hours > 0.005 ? fmtDur(d.hours) : "nothing played"}${parts ? " (" + parts + ")" : ""}${d.estimated ? " · estimated across a gap" : ""}`;
+      const tip = `${fmtDate(d.date)} — ${d.hours > 0.005 ? fmtDur(d.hours) : "nothing played"}${parts ? " (" + parts + ")" : ""}`;
       const iso = d.date;
       const on = iso === picked;
       // The picked day always gets its date, and its neighbours give way.
@@ -1622,7 +1617,7 @@
       // A full-height strip, so the tooltip and the tap work even on a zero
       // day, plus a band hugging the bar that shades in on hover or when
       // that day is the one picked.
-      const fade = (d.estimated ? 0.45 : 1) * (picked && !on ? 0.35 : 1);
+      const fade = picked && !on ? 0.35 : 1;
       const hw = Math.min(slot, bw + 16);
       return `<g class="dbar${on ? " is-on" : ""}" data-date="${iso}"${fade < 1 ? ` opacity="${fade.toFixed(2)}"` : ""}><title>${esc(tip)}</title>
         <rect x="${(cx - slot / 2).toFixed(1)}" y="${padT}" width="${slot.toFixed(1)}" height="${plotH}" fill="transparent"/>

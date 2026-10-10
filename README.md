@@ -176,8 +176,8 @@ PSN reports **lifetime totals per title**, never a per-day breakdown. So:
   on the evening's date. One of the eight daily runs lands just after midnight
   in Auckland (11:05 UTC in NZDT; cron cannot follow DST).
 - When two syncs land more than a day apart, the total for that window is real
-  but the split across those days is an even guess. Those bars are drawn hatched
-  and labelled estimated.
+  but the split across those days is an even guess. Those days are drawn like
+  any other — the distinction was more noise than it was worth.
 - **Late uploads go to the day they were played.** A session cut off from the
   network, or Steam Deck play in offline mode, uploads its time days later.
   Each snapshot records the last-played date of every game that gained hours

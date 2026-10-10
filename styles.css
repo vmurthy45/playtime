@@ -219,8 +219,6 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 .empty { color: var(--muted); text-align: center; padding: 40px 0; }
 
 /* ---------- daily ---------- */
-.gapnote { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12.5px; margin-top: 10px; }
-.hatch { width: 22px; height: 12px; border-radius: 3px; border: 1px dashed var(--nodata); }
 #dailyChart .dbar { cursor: pointer; }
 #dailyChart .dbar__hl { fill: transparent; }
 #dailyChart .dbar:hover .dbar__hl { fill: var(--surface-2); }
