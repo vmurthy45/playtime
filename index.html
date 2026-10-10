@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
-<link rel="stylesheet" href="styles.css?v=84">
+<link rel="stylesheet" href="styles.css?v=88">
 </head>
 <body>
 
@@ -31,6 +31,7 @@
     <button class="tab" data-tab="timeline">Timeline</button>
     <button class="tab is-active" data-tab="daily">Daily</button>
     <button class="tab" data-tab="stats">Stats</button>
+    <button class="tab" data-tab="roulette">Roulette</button>
   </nav>
  </div>
 </header>
@@ -161,12 +162,34 @@
       </div>
     </div>
   </section>
+
+  <!-- ROULETTE -->
+  <section id="panel-roulette" class="panel">
+    <h2 class="h">What should I play?</h2>
+    <p class="hint" id="rouletteHint"></p>
+
+    <div class="rl__controls">
+      <div class="pfilter" id="rlPlatforms"></div>
+      <div class="pfilter" id="rlCats"></div>
+    </div>
+
+    <div id="rlStage" class="rl__stage"></div>
+    <button class="rl__spin" id="rlSpin" type="button">Spin</button>
+
+    <h3 class="h h--sub">The pool <span id="rlCount" class="rl__count"></span></h3>
+    <div class="controls rl__add">
+      <input type="search" id="rlAdd" placeholder="Add a game…" autocomplete="off" list="rlGames">
+      <datalist id="rlGames"></datalist>
+      <button class="rl__addbtn" id="rlAddBtn" type="button">Add</button>
+    </div>
+    <ul class="rl__pool" id="rlPool"></ul>
+  </section>
 </main>
 
 <footer class="foot">
   <span id="syncedAt"></span>
 </footer>
 
-<script src="app.js?v=84"></script>
+<script src="app.js?v=88"></script>
 </body>
 </html>

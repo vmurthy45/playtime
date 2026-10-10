@@ -1,0 +1,283 @@
+{
+ "_comment": "Game Roulette's pool: Vig's own Steam shelves (Evergreen / Paused / Backlog) as of 2026-10-10, Wreckfest included. The app also treats any game that first appears in the library after 'since' as eligible, so new purchases join the roulette on their own. Games added in the app itself live in that browser's localStorage; tell Claude to add one here to have it everywhere. Matching is by id, with the title kept for readability.",
+ "since": "2026-10-10",
+ "games": [
+  {
+   "title": "Balatro",
+   "category": "evergreen",
+   "ids": [
+    "psn_PPSA21402_00",
+    "steam_2379780"
+   ]
+  },
+  {
+   "title": "Brotato",
+   "category": "evergreen",
+   "ids": [
+    "steam_1942280"
+   ]
+  },
+  {
+   "title": "Hades II",
+   "category": "evergreen",
+   "ids": [
+    "steam_1145350"
+   ]
+  },
+  {
+   "title": "Slay the Spire 2",
+   "category": "evergreen",
+   "ids": [
+    "steam_2868840"
+   ]
+  },
+  {
+   "title": "Tametsi",
+   "category": "evergreen",
+   "ids": [
+    "steam_709920"
+   ]
+  },
+  {
+   "title": "ACE COMBAT™7: SKIES UNKNOWN",
+   "category": "paused",
+   "ids": [
+    "psn_CUSA07202_00",
+    "steam_502500"
+   ]
+  },
+  {
+   "title": "Coromon",
+   "category": "paused",
+   "ids": [
+    "steam_1218210"
+   ]
+  },
+  {
+   "title": "Isles of Sea and Sky",
+   "category": "paused",
+   "ids": [
+    "steam_1233070"
+   ]
+  },
+  {
+   "title": "Prince of Persia The Lost Crown",
+   "category": "paused",
+   "ids": [
+    "psn_PPSA20230_00",
+    "steam_2751000"
+   ]
+  },
+  {
+   "title": "Against the Storm",
+   "category": "backlog",
+   "ids": [
+    "steam_1336490"
+   ]
+  },
+  {
+   "title": "Baldur's Gate 3",
+   "category": "backlog",
+   "ids": [
+    "psn_PPSA14002_00",
+    "steam_1086940"
+   ]
+  },
+  {
+   "title": "Batman: Arkham City GOTY",
+   "category": "backlog",
+   "ids": [
+    "steam_200260"
+   ]
+  },
+  {
+   "title": "Batman™: Arkham Origins",
+   "category": "backlog",
+   "ids": [
+    "steam_209000"
+   ]
+  },
+  {
+   "title": "Dead Cells",
+   "category": "backlog",
+   "ids": [
+    "steam_588650"
+   ]
+  },
+  {
+   "title": "Death's Door",
+   "category": "backlog",
+   "ids": [
+    "steam_894020"
+   ]
+  },
+  {
+   "title": "Disco Elysium",
+   "category": "backlog",
+   "ids": [
+    "steam_632470"
+   ]
+  },
+  {
+   "title": "Dishonored 2",
+   "category": "backlog",
+   "ids": [
+    "psn_CUSA03603_00",
+    "steam_403640"
+   ]
+  },
+  {
+   "title": "Factorio",
+   "category": "backlog",
+   "ids": [
+    "steam_427520"
+   ]
+  },
+  {
+   "title": "Golf Peaks",
+   "category": "backlog",
+   "ids": [
+    "steam_923260"
+   ]
+  },
+  {
+   "title": "Graveyard Keeper",
+   "category": "backlog",
+   "ids": [
+    "steam_599140"
+   ]
+  },
+  {
+   "title": "Inscryption",
+   "category": "backlog",
+   "ids": [
+    "psn_PPSA07023_00",
+    "steam_1092790"
+   ]
+  },
+  {
+   "title": "Into the Breach",
+   "category": "backlog",
+   "ids": [
+    "steam_590380"
+   ]
+  },
+  {
+   "title": "Marvel's Midnight Suns",
+   "category": "backlog",
+   "ids": [
+    "psn_PPSA03603_00",
+    "steam_368260"
+   ]
+  },
+  {
+   "title": "Mewgenics",
+   "category": "backlog",
+   "ids": [
+    "steam_686060"
+   ]
+  },
+  {
+   "title": "Middle-earth™: Shadow of War™",
+   "category": "backlog",
+   "ids": [
+    "psn_CUSA04402_00",
+    "steam_356190"
+   ]
+  },
+  {
+   "title": "MONSTER HUNTER RISE",
+   "category": "backlog",
+   "ids": [
+    "steam_1446780"
+   ]
+  },
+  {
+   "title": "Monster Train 2",
+   "category": "backlog",
+   "ids": [
+    "steam_2742830"
+   ]
+  },
+  {
+   "title": "Outer Wilds",
+   "category": "backlog",
+   "ids": [
+    "psn_PPSA08102_00",
+    "steam_753640"
+   ]
+  },
+  {
+   "title": "The Room Three",
+   "category": "backlog",
+   "ids": [
+    "steam_456750"
+   ]
+  },
+  {
+   "title": "The Room 4: Old Sins",
+   "category": "backlog",
+   "ids": [
+    "steam_1361320"
+   ]
+  },
+  {
+   "title": "Serial Cleaner",
+   "category": "backlog",
+   "ids": [
+    "steam_522210"
+   ]
+  },
+  {
+   "title": "Shogun Showdown",
+   "category": "backlog",
+   "ids": [
+    "steam_2084000"
+   ]
+  },
+  {
+   "title": "Sid Meier's Civilization VI",
+   "category": "backlog",
+   "ids": [
+    "steam_289070"
+   ]
+  },
+  {
+   "title": "Spiritfarer®: Farewell Edition",
+   "category": "backlog",
+   "ids": [
+    "steam_972660"
+   ]
+  },
+  {
+   "title": "SteamWorld Dig",
+   "category": "backlog",
+   "ids": [
+    "steam_252410"
+   ]
+  },
+  {
+   "title": "Tom Clancy's Ghost Recon® Wildlands",
+   "category": "backlog",
+   "ids": [
+    "psn_CUSA02819_00",
+    "psn_CUSA09104_00",
+    "steam_460930"
+   ]
+  },
+  {
+   "title": "Vampire Survivors",
+   "category": "backlog",
+   "ids": [
+    "steam_1794680"
+   ]
+  },
+  {
+   "title": "Wreckfest",
+   "category": "backlog",
+   "ids": [
+    "steam_228380"
+   ]
+  }
+ ]
+}

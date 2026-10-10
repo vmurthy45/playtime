@@ -93,6 +93,14 @@ shell from cache.
   it up. Step through days with the arrows; *All days* goes back to the window,
   with a daily average that counts every day in it, played or not. Times under
   an hour show in minutes here; everywhere else hours are to one decimal.
+- **Roulette** — picks a game to play from a curated pool, on a wheel that
+  spins and settles. The pool is `data/roulette.json` (the Steam shelves:
+  Evergreen, Paused, Backlog) plus anything that joins the library after that
+  file's `since` date, so new purchases enter on their own. Filter by platform
+  (Steam only by default) and by shelf; add a game by name — a library title
+  carries its cover and hours, anything else is kept as plain text — and remove
+  one with the ×. Those edits live in that browser's localStorage; edit
+  `data/roulette.json` to change the pool everywhere.
 - **Stats** — totals, hours played per year (tap a year for its games),
   games started per year, where the hours went.
 

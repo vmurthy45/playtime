@@ -12,7 +12,7 @@
 
   // entries = one record per game per platform. groups = the same game merged
   // across platforms, which is what the lists actually show.
-  const state = { entries: [], groups: [], snapshots: [], aliases: {}, synced: [], trophySummary: null, hidden: new Set(), corrections: [] };
+  const state = { entries: [], groups: [], snapshots: [], aliases: {}, synced: [], trophySummary: null, hidden: new Set(), corrections: [], roulette: null };
 
   const $ = (sel) => document.querySelector(sel);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -63,15 +63,17 @@
     fetch(url, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
 
   async function load() {
-    const [files, snaps, aliases, nonGames, backfill, corrections] = await Promise.all([
+    const [files, snaps, aliases, nonGames, backfill, corrections, roulette] = await Promise.all([
       Promise.all(SOURCES.map((s) => getJSON(s.file))),
       getJSON("data/snapshots.json"),
       getJSON("data/aliases.json"),
       getJSON("data/non_games.json"),
       getJSON("data/backfill.json"),
       getJSON("data/corrections.json"),
+      getJSON("data/roulette.json"),
     ]);
     state.corrections = (corrections && corrections.moves) || [];
+    state.roulette = roulette || { games: [], since: null };
 
     // Consoles count Netflix and friends as titles with play time. The
     // collectors drop them going forward; this hides any already collected.
@@ -356,6 +358,7 @@
     renderGames();
     renderTimeline();
     renderDaily();
+    renderRoulette();
   }
 
   /* --- overview --- */
@@ -1553,6 +1556,214 @@
     a.download = name;
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  }
+
+  /* --- game roulette --- */
+
+  const RL_KEY = "playtime.roulette";
+  const RL_CATS = [["evergreen", "Evergreen"], ["paused", "Paused"], ["backlog", "Backlog"], ["mine", "Added by me"]];
+  // Steam only to begin with: the shelves this was built from are Steam's.
+  const rl = { platforms: { Steam: true, PlayStation: false },
+               cats: { evergreen: true, paused: true, backlog: true, mine: true },
+               added: [], removed: [] };
+  let rlRecent = [];        // don't land on the same game twice in a row
+  let rlSpinning = false;
+
+  function rlSave() {
+    try { localStorage.setItem(RL_KEY, JSON.stringify(rl)); } catch (_) { /* private mode */ }
+  }
+
+  // The pool: the curated shelves, plus anything that joined the library after
+  // they were written — a new game should turn up in the roulette on its own —
+  // plus whatever was added by hand here, minus what was removed.
+  function rlPool() {
+    const out = new Map();
+    const add = (key, entry) => { if (!rl.removed.includes(key)) out.set(key, entry); };
+    const groupOf = (ids) => state.groups.find((g) => g.parts.some((p) => ids.includes(p.id)));
+
+    for (const game of (state.roulette && state.roulette.games) || []) {
+      const g = groupOf(game.ids);
+      add(game.ids[0], { key: game.ids[0], title: (g && g.title) || game.title, cat: game.category, g });
+    }
+    const since = state.roulette && state.roulette.since;
+    if (since) {
+      for (const [id, first] of firstSeen()) {
+        if (first <= since || out.has(id)) continue;
+        const g = groupOf([id]);
+        if (!g || [...out.values()].some((e) => e.g === g)) continue;
+        add(id, { key: id, title: g.title, cat: "mine", g, isNew: true });
+      }
+    }
+    for (const item of rl.added) {
+      const g = item.id ? groupOf([item.id]) : null;
+      add(item.id || item.title, { key: item.id || item.title, title: (g && g.title) || item.title, cat: "mine", g, manual: true });
+    }
+    return [...out.values()];
+  }
+
+  // The first day each game id shows up in the snapshots — how a new purchase
+  // is noticed without anything to maintain by hand.
+  function firstSeen() {
+    const seen = new Map();
+    const lists = {};
+    for (const s of state.snapshots) (lists[s.source] ||= []).push(s);
+    for (const list of Object.values(lists)) {
+      list.sort((a, b) => (a.at || a.date).localeCompare(b.at || b.date));
+      for (const snap of list) {
+        for (const id of Object.keys(snap.hours)) if (!seen.has(id)) seen.set(id, snap.date);
+      }
+    }
+    return seen;
+  }
+
+  const rlEligible = (pool) => (pool || rlPool()).filter((e) => {
+    if (!rl.cats[e.cat]) return false;
+    if (!e.g) return true;                    // typed in by hand, no platform to filter on
+    return e.g.parts.some((p) => rl.platforms[p.platform]);
+  });
+
+  function rlCard(e) {
+    const g = e.g;
+    const hours = g && g.hours > 0.005
+      ? `${fmtH(g.hours)}h played${g.sessions ? ` · ${g.sessions} session${g.sessions === 1 ? "" : "s"}` : ""}`
+      : "never played";
+    const cat = (RL_CATS.find(([k]) => k === e.cat) || [, e.cat])[1];
+    return `<div class="rlcard">
+      ${rlThumb(e)}
+      <div class="rlcard__main">
+        <div class="rlcard__title">${esc(e.title)}</div>
+        <div class="rlcard__meta">${g ? pills(g) : ""}<span class="pill">${esc(cat)}</span>${g && hasTrophy(g) ? TROPHY : ""}</div>
+        <div class="rlcard__hrs">${esc(hours)}</div>
+      </div>
+    </div>`;
+  }
+
+  // A vertical wheel: a long strip of candidates scrolled past a fixed
+  // centre band and eased to a stop with the winner in it. The strip is
+  // built with the winner last, so where it stops is decided up front and
+  // the animation is only for show.
+  const RL_ROW = 76;        // must match .rl__item height in the stylesheet
+  const RL_RUNUP = 26;      // how many names blur past before it settles
+
+  const rlThumb = (e) => e.g ? cover(e.g)
+    : `<div class="cover"><span>${esc((e.title || "?").trim()[0])}</span></div>`;
+
+  function rlSpin() {
+    if (rlSpinning) return;
+    const pool = rlEligible();
+    if (!pool.length) {
+      $("#rlStage").innerHTML = `<p class="empty">Nothing in the pool — turn a platform or a shelf back on, or add a game.</p>`;
+      return;
+    }
+    // Avoid the last couple of picks, unless the pool is too small to bother.
+    const fresh = pool.filter((e) => !rlRecent.includes(e.key));
+    const choices = fresh.length ? fresh : pool;
+    const winner = choices[Math.floor(Math.random() * choices.length)];
+
+    const strip = Array.from({ length: RL_RUNUP }, () => pool[Math.floor(Math.random() * pool.length)]);
+    strip.push(winner);
+    const land = -(strip.length - 2) * RL_ROW;   // winner sits in the middle row
+
+    rlSpinning = true;
+    $("#rlSpin").disabled = true;
+    $("#rlStage").innerHTML = `
+      <div class="rl__reel">
+        <div class="rl__strip" id="rlStrip">
+          ${strip.map((e, i) => `<div class="rl__item" data-i="${i}">
+            ${rlThumb(e)}<span class="rl__item-t">${esc(e.title)}</span>${e.g ? pills(e.g) : ""}</div>`).join("")}
+        </div>
+        <div class="rl__band" aria-hidden="true"></div>
+      </div>
+      <div id="rlResult" class="rl__result"></div>`;
+
+    const done = () => {
+      const row = $("#rlStrip").querySelector(`[data-i="${strip.length - 1}"]`);
+      if (row) row.classList.add("is-won");
+      $("#rlResult").innerHTML = rlCard(winner);
+      rlRecent = [winner.key, ...rlRecent].slice(0, 3);
+      rlSpinning = false;
+      $("#rlSpin").disabled = false;
+      $("#rlSpin").textContent = "Spin again";
+    };
+
+    const el = $("#rlStrip");
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.style.transform = `translateY(${land}px)`;
+      done();
+      return;
+    }
+    el.style.transform = "translateY(0)";
+    void el.offsetHeight;                       // commit the start before easing
+    el.style.transition = "transform 3s cubic-bezier(.08,.74,.1,1)";
+    el.style.transform = `translateY(${land}px)`;
+    el.addEventListener("transitionend", done, { once: true });
+    // A dropped transitionend (backgrounded tab) would wedge the button.
+    setTimeout(() => { if (rlSpinning) done(); }, 3400);
+  }
+
+  function renderRoulette() {
+    try { Object.assign(rl, JSON.parse(localStorage.getItem(RL_KEY)) || {}); } catch (_) { /* ignore */ }
+
+    const chips = (id, items, on, attr, colour) => {
+      $(id).innerHTML = items.map(([key, label]) =>
+        `<button class="pf__btn${on(key) ? " is-on" : ""}" ${attr}="${esc(key)}"` +
+        `${on(key) ? ` style="background:${colour(key)}"` : ""}>${esc(label)}</button>`).join("");
+    };
+    const draw = () => {
+      chips("#rlPlatforms", [["Steam", "Steam"], ["PlayStation", "PlayStation"]],
+            (k) => rl.platforms[k], "data-platform", (k) => tint(k === "Steam" ? "Steam" : "PS5"));
+      chips("#rlCats", RL_CATS, (k) => rl.cats[k], "data-cat", () => "var(--accent)");
+      const pool = rlPool();
+      const live = new Set(rlEligible(pool).map((e) => e.key));
+      $("#rlCount").textContent = `${live.size} of ${pool.length}`;
+      $("#rouletteHint").textContent =
+        `Spins through your shelves. New games join the pool on their own once a sync sees them.`;
+      $("#rlPool").innerHTML = pool.sort((a, b) => a.title.localeCompare(b.title)).map((e) => {
+        const out = !live.has(e.key);
+        return `<li class="rlrow${out ? " is-out" : ""}">
+          <span class="rlrow__title">${esc(e.title)}</span>
+          ${e.isNew ? `<span class="pill">new</span>` : ""}
+          ${e.g ? pills(e.g) : `<span class="pill">typed in</span>`}
+          <button class="rlrow__x" data-drop="${esc(e.key)}" aria-label="Remove ${esc(e.title)}">×</button>
+        </li>`;
+      }).join("");
+      $("#rlGames").innerHTML = state.groups.map((g) => `<option value="${esc(g.title)}">`).join("");
+    };
+    draw();
+
+    $("#rlPlatforms").addEventListener("click", (e) => {
+      const b = e.target.closest(".pf__btn"); if (!b) return;
+      rl.platforms[b.dataset.platform] = !rl.platforms[b.dataset.platform];
+      rlSave(); draw();
+    });
+    $("#rlCats").addEventListener("click", (e) => {
+      const b = e.target.closest(".pf__btn"); if (!b) return;
+      rl.cats[b.dataset.cat] = !rl.cats[b.dataset.cat];
+      rlSave(); draw();
+    });
+    $("#rlPool").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-drop]"); if (!b) return;
+      const key = b.dataset.drop;
+      rl.added = rl.added.filter((x) => (x.id || x.title) !== key);
+      if (!rl.removed.includes(key)) rl.removed.push(key);
+      rlSave(); draw();
+    });
+    const addGame = () => {
+      const name = $("#rlAdd").value.trim();
+      if (!name) return;
+      const g = state.groups.find((x) => normalize(x.title) === normalize(name));
+      const key = g ? g.parts[0].id : name;
+      rl.removed = rl.removed.filter((k) => k !== key);
+      if (!rl.added.some((x) => (x.id || x.title) === key)) {
+        rl.added.push(g ? { id: key, title: g.title } : { title: name });
+      }
+      $("#rlAdd").value = "";
+      rlSave(); draw();
+    };
+    $("#rlAddBtn").addEventListener("click", addGame);
+    $("#rlAdd").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); addGame(); } });
+    $("#rlSpin").addEventListener("click", rlSpin);
+    $("#rlStage").innerHTML = `<p class="rl__idle">Hit spin.</p>`;
   }
 
   /* ------------------------------------------------------- chart helpers */

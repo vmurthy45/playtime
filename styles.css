@@ -427,3 +427,80 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
   .yir__title { font-size: 44px; }
   .t5slot__pick input, .t5slot__custom select { font-size: 16px; }   /* no iOS zoom on focus */
 }
+
+/* ---------- roulette ---------- */
+.rl__controls { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 14px; }
+.rl__stage { min-height: 228px; }
+
+/* The wheel: three rows visible, the middle one is the pick. */
+.rl__reel {
+  position: relative; height: 228px; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+          mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+}
+.rl__strip { will-change: transform; }
+.rl__item {
+  height: 76px; box-sizing: border-box; display: flex; align-items: center; gap: 11px;
+  padding: 0 16px 0 22px; font-size: 15px;
+}
+.rl__item .cover { width: 76px; height: 43px; flex: none; }
+.rl__item-t { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rl__item.is-won .rl__item-t { font-weight: 700; }
+/* The band stays put while the names run past it. */
+.rl__band {
+  position: absolute; left: 0; right: 0; top: 76px; height: 76px; pointer-events: none;
+  border-top: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  background: linear-gradient(90deg, rgba(59,110,242,.10), rgba(59,110,242,0) 60%);
+}
+.rl__band::before {          /* a pointer at the right edge, aimed at the pick */
+  content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 0; height: 0; border: 8px solid transparent;
+  border-right-color: var(--accent); border-left: 0;
+}
+.rl__result { margin-top: 12px; }
+.rl__result .rlcard { animation: rlpop .25s ease-out; }
+@keyframes rlpop { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+.rl__idle { color: var(--muted); font-size: 14px; }
+.rlcard {
+  display: grid; grid-template-columns: 112px 1fr; gap: 14px; align-items: center; width: 100%;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 14px; box-shadow: var(--shadow);
+}
+.rlcard .cover { width: 112px; height: 63px; }
+.rlcard__title { font-size: 19px; font-weight: 650; letter-spacing: -.01em; line-height: 1.25; }
+.rlcard__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0 4px; }
+.rlcard__hrs { color: var(--muted); font-size: 13px; }
+.rl__spin {
+  display: block; width: 100%; margin: 14px 0 6px; padding: 13px 16px;
+  font: inherit; font-size: 15px; font-weight: 650; color: #fff; cursor: pointer;
+  background: var(--accent); border: 0; border-radius: 11px;
+}
+.rl__spin:disabled { opacity: .6; cursor: default; }
+.rl__count { color: var(--muted); font-weight: 400; font-size: 13px; }
+.rl__add { margin-bottom: 10px; }
+.rl__addbtn {
+  font: inherit; font-size: 14px; padding: 8px 16px; cursor: pointer; color: var(--text);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 9px;
+}
+.rl__pool { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) { .rl__pool { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.rlrow {
+  display: flex; align-items: center; gap: 8px; min-width: 0; padding: 8px 10px; font-size: 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 9px;
+}
+.rlrow.is-out { opacity: .45; }            /* filtered out, not removed */
+.rlrow__title { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rlrow__x {
+  flex: none; width: 26px; height: 26px; font: inherit; font-size: 17px; line-height: 1; cursor: pointer;
+  color: var(--muted); background: none; border: 1px solid transparent; border-radius: 7px;
+}
+.rlrow__x:hover { color: var(--text); background: var(--surface-2); border-color: var(--line); }
+@media (max-width: 560px) {
+  .rl__item { padding: 0 12px 0 16px; font-size: 14px; }
+  .rl__item .cover { width: 62px; height: 35px; }
+  .rlcard { grid-template-columns: 84px 1fr; gap: 11px; }
+  .rlcard .cover { width: 84px; height: 47px; }
+  .rlcard__title { font-size: 17px; }
+}
