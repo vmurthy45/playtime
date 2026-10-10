@@ -97,7 +97,8 @@ shell from cache.
   spins and settles. The pool is `data/roulette.json` (the Steam shelves:
   Evergreen, Paused, Backlog) plus anything that joins the library after that
   file's `since` date, so new purchases enter on their own. Filter by platform
-  (Steam only by default) and by shelf; add a game by name — a library title
+  (Steam only by default), by shelf, and by *Under 3h* — barely-started games
+  only, counting hours across both platforms; add a game by name — a library title
   carries its cover and hours, anything else is kept as plain text — and remove
   one with the ×. Those edits live in that browser's localStorage; edit
   `data/roulette.json` to change the pool everywhere.

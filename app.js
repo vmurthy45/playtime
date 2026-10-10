@@ -1563,9 +1563,10 @@
   const RL_KEY = "playtime.roulette";
   const RL_CATS = [["evergreen", "Evergreen"], ["paused", "Paused"], ["backlog", "Backlog"], ["mine", "Added by me"]];
   // Steam only to begin with: the shelves this was built from are Steam's.
+  const RL_SHORT = 3;       // hours — "barely started" for the Under 3h filter
   const rl = { platforms: { Steam: true, PlayStation: false },
                cats: { evergreen: true, paused: true, backlog: true, mine: true },
-               added: [], removed: [] };
+               under: false, added: [], removed: [] };
   let rlRecent = [];        // don't land on the same game twice in a row
   let rlSpinning = false;
 
@@ -1618,7 +1619,8 @@
 
   const rlEligible = (pool) => (pool || rlPool()).filter((e) => {
     if (!rl.cats[e.cat]) return false;
-    if (!e.g) return true;                    // typed in by hand, no platform to filter on
+    if (!e.g) return true;                    // typed in by hand: no platform or hours to filter on
+    if (rl.under && e.g.hours >= RL_SHORT) return false;
     return e.g.parts.some((p) => rl.platforms[p.platform]);
   });
 
@@ -1713,6 +1715,7 @@
       chips("#rlPlatforms", [["Steam", "Steam"], ["PlayStation", "PlayStation"]],
             (k) => rl.platforms[k], "data-platform", (k) => tint(k === "Steam" ? "Steam" : "PS5"));
       chips("#rlCats", RL_CATS, (k) => rl.cats[k], "data-cat", () => "var(--accent)");
+      chips("#rlHours", [["under", `Under ${RL_SHORT}h`]], () => rl.under, "data-hours", () => "var(--ps5)");
       const pool = rlPool();
       const live = new Set(rlEligible(pool).map((e) => e.key));
       $("#rlCount").textContent = `${live.size} of ${pool.length}`;
@@ -1739,6 +1742,11 @@
     $("#rlCats").addEventListener("click", (e) => {
       const b = e.target.closest(".pf__btn"); if (!b) return;
       rl.cats[b.dataset.cat] = !rl.cats[b.dataset.cat];
+      rlSave(); draw();
+    });
+    $("#rlHours").addEventListener("click", (e) => {
+      if (!e.target.closest(".pf__btn")) return;
+      rl.under = !rl.under;
       rlSave(); draw();
     });
     $("#rlPool").addEventListener("click", (e) => {
