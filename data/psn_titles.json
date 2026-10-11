@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-11T01:48:48+00:00",
+ "syncedAt": "2026-10-11T08:42:03+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -2309,6 +2309,26 @@
    }
   },
   {
+   "id": "psn_PPSA07231_00",
+   "titleId": "PPSA07231_00",
+   "title": "Assassin's Creed\u00ae Mirage",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 3.257,
+   "sessions": 4,
+   "firstPlayed": "2025-07-07",
+   "lastPlayed": "2026-10-11",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
+   "trophyLists": [
+    "NPWR29894_00"
+   ],
+   "trophies": {
+    "earned": 2,
+    "total": 62,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA04444_00",
    "titleId": "PPSA04444_00",
    "title": "Sniper Elite 5",
@@ -2476,26 +2496,6 @@
    "trophies": {
     "earned": 1,
     "total": 50,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA07231_00",
-   "titleId": "PPSA07231_00",
-   "title": "Assassin's Creed\u00ae Mirage",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 2.644,
-   "sessions": 3,
-   "firstPlayed": "2025-07-07",
-   "lastPlayed": "2026-10-11",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
-   "trophyLists": [
-    "NPWR29894_00"
-   ],
-   "trophies": {
-    "earned": 2,
-    "total": 62,
     "platinum": false
    }
   },
