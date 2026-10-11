@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-10T20:33:20+00:00",
+ "syncedAt": "2026-10-11T01:48:48+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -872,7 +872,7 @@
   {
    "id": "psn_PPSA01411_00",
    "titleId": "PPSA01411_00",
-   "title": "Marvel\u2019s Spider-Man: Miles Morales",
+   "title": "Marvel's Spider-Man: Miles Morales",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 20.145,
@@ -2480,6 +2480,26 @@
    }
   },
   {
+   "id": "psn_PPSA07231_00",
+   "titleId": "PPSA07231_00",
+   "title": "Assassin's Creed\u00ae Mirage",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 2.644,
+   "sessions": 3,
+   "firstPlayed": "2025-07-07",
+   "lastPlayed": "2026-10-11",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
+   "trophyLists": [
+    "NPWR29894_00"
+   ],
+   "trophies": {
+    "earned": 2,
+    "total": 62,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA08670_00",
    "titleId": "CUSA08670_00",
    "title": "Battlefield\u2122 V",
@@ -3773,26 +3793,6 @@
    "trophies": {
     "earned": 1,
     "total": 50,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA07231_00",
-   "titleId": "PPSA07231_00",
-   "title": "Assassin's Creed\u00ae Mirage",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 0.777,
-   "sessions": 1,
-   "firstPlayed": "2025-07-07",
-   "lastPlayed": "2025-07-07",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
-   "trophyLists": [
-    "NPWR29894_00"
-   ],
-   "trophies": {
-    "earned": 1,
-    "total": 62,
     "platinum": false
    }
   },
