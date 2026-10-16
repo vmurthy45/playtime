@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-16T07:03:37+00:00",
+ "syncedAt": "2026-10-16T13:12:07+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -1897,6 +1897,26 @@
    }
   },
   {
+   "id": "psn_PPSA07231_00",
+   "titleId": "PPSA07231_00",
+   "title": "Assassin's Creed\u00ae Mirage",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 5.359,
+   "sessions": 6,
+   "firstPlayed": "2025-07-07",
+   "lastPlayed": "2026-10-16",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
+   "trophyLists": [
+    "NPWR29894_00"
+   ],
+   "trophies": {
+    "earned": 6,
+    "total": 62,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA16746_00",
    "titleId": "CUSA16746_00",
    "title": "It Takes Two  PS4\u2122 & PS5\u2122",
@@ -2031,26 +2051,6 @@
    "trophies": {
     "earned": 2,
     "total": 26,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA07231_00",
-   "titleId": "PPSA07231_00",
-   "title": "Assassin's Creed\u00ae Mirage",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 4.529,
-   "sessions": 6,
-   "firstPlayed": "2025-07-07",
-   "lastPlayed": "2026-10-16",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
-   "trophyLists": [
-    "NPWR29894_00"
-   ],
-   "trophies": {
-    "earned": 5,
-    "total": 62,
     "platinum": false
    }
   },
@@ -2376,7 +2376,7 @@
    "sessions": 7,
    "firstPlayed": "2016-05-12",
    "lastPlayed": "2019-08-19",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00031_00/1/i_de7f2d4471d56be1911987fdae0711e95cd6f21b0ae43c57c70d0bf785ae4acb/i/icon0.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202610/1516/bcea032f15bbac70cf83c611c87a911ceb9ebfe1cd430dd1.png",
    "trophyLists": [
     "NPWR05677_00"
    ],
