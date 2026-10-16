@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-16T17:58:26+00:00",
+ "syncedAt": "2026-10-16T22:46:37+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -1857,6 +1857,26 @@
    }
   },
   {
+   "id": "psn_PPSA07231_00",
+   "titleId": "PPSA07231_00",
+   "title": "Assassin's Creed\u00ae Mirage",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 6.086,
+   "sessions": 8,
+   "firstPlayed": "2025-07-07",
+   "lastPlayed": "2026-10-17",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
+   "trophyLists": [
+    "NPWR29894_00"
+   ],
+   "trophies": {
+    "earned": 7,
+    "total": 62,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA04609_00",
    "titleId": "PPSA04609_00",
    "title": "ELDEN RING",
@@ -1893,26 +1913,6 @@
    "trophies": {
     "earned": 6,
     "total": 10,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA07231_00",
-   "titleId": "PPSA07231_00",
-   "title": "Assassin's Creed\u00ae Mirage",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 5.359,
-   "sessions": 6,
-   "firstPlayed": "2025-07-07",
-   "lastPlayed": "2026-10-16",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
-   "trophyLists": [
-    "NPWR29894_00"
-   ],
-   "trophies": {
-    "earned": 6,
-    "total": 62,
     "platinum": false
    }
   },
@@ -2376,7 +2376,7 @@
    "sessions": 7,
    "firstPlayed": "2016-05-12",
    "lastPlayed": "2019-08-19",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202610/1516/bcea032f15bbac70cf83c611c87a911ceb9ebfe1cd430dd1.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00031_00/1/i_de7f2d4471d56be1911987fdae0711e95cd6f21b0ae43c57c70d0bf785ae4acb/i/icon0.png",
    "trophyLists": [
     "NPWR05677_00"
    ],
@@ -3892,7 +3892,7 @@
    "sessions": 1,
    "firstPlayed": "2025-12-11",
    "lastPlayed": "2025-12-11",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/1608/170a70c25efec69c00e9575c9a5827943804a871814dff83.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202610/1410/c4d22396830728db25505b2b0b623d5c4259f44a7aab1447.png",
    "trophyLists": [
     "NPWR50887_00"
    ],
