@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-16T01:13:10+00:00",
+ "syncedAt": "2026-10-16T07:03:37+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -2041,9 +2041,9 @@
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 4.529,
-   "sessions": 5,
+   "sessions": 6,
    "firstPlayed": "2025-07-07",
-   "lastPlayed": "2026-10-12",
+   "lastPlayed": "2026-10-16",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
    "trophyLists": [
     "NPWR29894_00"
