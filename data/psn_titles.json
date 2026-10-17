@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-16T22:46:37+00:00",
+ "syncedAt": "2026-10-17T01:15:37+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 1
+  "lookedUp": 0
  },
  "games": [
   {
@@ -2376,7 +2376,7 @@
    "sessions": 7,
    "firstPlayed": "2016-05-12",
    "lastPlayed": "2019-08-19",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00031_00/1/i_de7f2d4471d56be1911987fdae0711e95cd6f21b0ae43c57c70d0bf785ae4acb/i/icon0.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202610/1516/bcea032f15bbac70cf83c611c87a911ceb9ebfe1cd430dd1.png",
    "trophyLists": [
     "NPWR05677_00"
    ],
