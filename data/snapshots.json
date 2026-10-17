@@ -22018,5 +22018,19 @@
   "source": "steam",
   "delta": true,
   "hours": {}
+ },
+ {
+  "date": "2026-10-18",
+  "at": "2026-10-17T22:12:56+00:00",
+  "source": "psn",
+  "delta": true,
+  "hours": {}
+ },
+ {
+  "date": "2026-10-18",
+  "at": "2026-10-17T22:12:56+00:00",
+  "source": "steam",
+  "delta": true,
+  "hours": {}
  }
 ]
