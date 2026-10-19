@@ -22629,5 +22629,19 @@
   "source": "steam",
   "delta": true,
   "hours": {}
+ },
+ {
+  "date": "2026-10-19",
+  "at": "2026-10-19T01:06:49+00:00",
+  "source": "psn",
+  "delta": true,
+  "hours": {}
+ },
+ {
+  "date": "2026-10-19",
+  "at": "2026-10-19T01:06:49+00:00",
+  "source": "steam",
+  "delta": true,
+  "hours": {}
  }
 ]
