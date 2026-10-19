@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-19T01:06:49+00:00",
+ "syncedAt": "2026-10-19T07:40:58+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -77,15 +77,15 @@
    "title": "Slay the Spire 2",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 150.6,
+   "hours": 152.05,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-15",
-   "recentHours": 9.67,
+   "lastPlayed": "2026-10-19",
+   "recentHours": 11.12,
    "devices": {
     "mac": 50.033,
-    "linux": 100.55,
-    "deck": 100.533
+    "linux": 102.017,
+    "deck": 101.983
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg",
    "achievementsChecked": true
@@ -118,8 +118,8 @@
    "hours": 88.033,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-15",
-   "recentHours": 12.53,
+   "lastPlayed": "2026-10-19",
+   "recentHours": 11.18,
    "devices": {
     "linux": 88.033,
     "deck": 86.083
@@ -2506,6 +2506,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_894020",
+   "appid": 894020,
+   "title": "Death's Door",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.8,
+   "sessions": null,
+   "firstPlayed": "2026-10-16",
+   "lastPlayed": "2026-10-19",
+   "recentHours": 0.8,
+   "devices": {
+    "linux": 0.8,
+    "deck": 0.8
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/894020/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 0,
+    "total": 24
+   }
+  },
+  {
    "id": "steam_26800",
    "appid": 26800,
    "title": "Braid",
@@ -2577,28 +2599,6 @@
     "windows": 0.783
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/671860/header.jpg",
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_894020",
-   "appid": 894020,
-   "title": "Death's Door",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 0.783,
-   "sessions": null,
-   "firstPlayed": "2026-10-16",
-   "lastPlayed": "2026-10-15",
-   "recentHours": 0.78,
-   "devices": {
-    "linux": 0.783,
-    "deck": 0.783
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/894020/header.jpg",
-   "achievements": {
-    "earned": 0,
-    "total": 24
-   },
    "achievementsChecked": true
   },
   {
@@ -2746,7 +2746,7 @@
    "sessions": null,
    "firstPlayed": "2026-10-05",
    "lastPlayed": "2026-10-05",
-   "recentHours": 0.63,
+   "recentHours": 0.0,
    "devices": {
     "linux": 0.633
    },
