@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-20T07:26:13+00:00",
+ "syncedAt": "2026-10-20T13:31:52+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -91,6 +91,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_1942280",
+   "appid": 1942280,
+   "title": "Brotato",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 89.333,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-20",
+   "recentHours": 11.37,
+   "devices": {
+    "linux": 89.333,
+    "deck": 87.383
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 167,
+    "total": 179
+   }
+  },
+  {
    "id": "steam_3590",
    "appid": 3590,
    "title": "Plants vs. Zombies: Game of the Year",
@@ -106,28 +128,6 @@
    "achievements": {
     "earned": 21,
     "total": 21
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_1942280",
-   "appid": 1942280,
-   "title": "Brotato",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 88.767,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-19",
-   "recentHours": 11.92,
-   "devices": {
-    "linux": 88.767,
-    "deck": 86.817
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
-   "achievements": {
-    "earned": 166,
-    "total": 179
    },
    "achievementsChecked": true
   },
@@ -931,6 +931,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 5.217,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-20",
+   "recentHours": 2.77,
+   "devices": {
+    "linux": 5.217,
+    "deck": 5.2
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 5,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_1086940",
    "appid": 1086940,
    "title": "Baldur's Gate 3",
@@ -1034,28 +1056,6 @@
     "total": 22
    },
    "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 4.45,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-20",
-   "recentHours": 2.22,
-   "devices": {
-    "linux": 4.45,
-    "deck": 4.45
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievementsChecked": true,
-   "achievements": {
-    "earned": 3,
-    "total": 36
-   }
   },
   {
    "id": "steam_49520",
