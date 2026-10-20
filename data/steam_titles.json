@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-19T21:26:46+00:00",
+ "syncedAt": "2026-10-20T01:43:23+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -1077,6 +1077,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 4.033,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-20",
+   "recentHours": 1.7,
+   "devices": {
+    "linux": 4.033,
+    "deck": 4.017
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 3,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_590380",
    "appid": 590380,
    "title": "Into the Breach",
@@ -1215,28 +1237,6 @@
    "achievements": {
     "earned": 0,
     "total": 45
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 3.433,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-20",
-   "recentHours": 1.13,
-   "devices": {
-    "linux": 3.433,
-    "deck": 3.417
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievements": {
-    "earned": 3,
-    "total": 36
    },
    "achievementsChecked": true
   },
