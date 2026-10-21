@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-21T07:29:13+00:00",
+ "syncedAt": "2026-10-21T13:42:49+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -81,7 +81,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-21",
-   "recentHours": 11.32,
+   "recentHours": 11.3,
    "devices": {
     "mac": 51.0,
     "linux": 102.383,
@@ -100,7 +100,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-20",
-   "recentHours": 11.37,
+   "recentHours": 10.48,
    "devices": {
     "linux": 89.333,
     "deck": 87.383
@@ -738,6 +738,29 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 7.267,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-21",
+   "recentHours": 4.82,
+   "devices": {
+    "mac": 0.017,
+    "linux": 7.25,
+    "deck": 7.233
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 6,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_207610",
    "appid": 207610,
    "title": "The Walking Dead",
@@ -755,28 +778,6 @@
     "total": 48
    },
    "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 6.95,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-21",
-   "recentHours": 4.5,
-   "devices": {
-    "linux": 6.95,
-    "deck": 6.933
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievementsChecked": true,
-   "achievements": {
-    "earned": 5,
-    "total": 36
-   }
   },
   {
    "id": "steam_397460",
