@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-20T23:08:21+00:00",
+ "syncedAt": "2026-10-21T07:29:13+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -81,7 +81,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-21",
-   "recentHours": 12.43,
+   "recentHours": 11.32,
    "devices": {
     "mac": 51.0,
     "linux": 102.383,
@@ -757,6 +757,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 6.95,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-21",
+   "recentHours": 4.5,
+   "devices": {
+    "linux": 6.95,
+    "deck": 6.933
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 5,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_397460",
    "appid": 397460,
    "title": "The Jackbox Party Pack 2",
@@ -927,28 +949,6 @@
    "achievements": {
     "earned": 11,
     "total": 99
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 5.217,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-20",
-   "recentHours": 2.77,
-   "devices": {
-    "linux": 5.217,
-    "deck": 5.2
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievements": {
-    "earned": 5,
-    "total": 36
    },
    "achievementsChecked": true
   },
