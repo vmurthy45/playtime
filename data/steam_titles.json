@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-22T07:28:59+00:00",
+ "syncedAt": "2026-10-22T13:43:52+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -100,7 +100,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-20",
-   "recentHours": 10.48,
+   "recentHours": 10.0,
    "devices": {
     "linux": 89.333,
     "deck": 87.383
@@ -655,6 +655,29 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 9.117,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-22",
+   "recentHours": 6.67,
+   "devices": {
+    "mac": 0.017,
+    "linux": 9.1,
+    "deck": 9.083
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 9,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_550",
    "appid": 550,
    "title": "Left 4 Dead 2",
@@ -734,29 +757,6 @@
    "achievements": {
     "earned": 26,
     "total": 50
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 7.267,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-21",
-   "recentHours": 4.82,
-   "devices": {
-    "mac": 0.017,
-    "linux": 7.25,
-    "deck": 7.233
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievements": {
-    "earned": 6,
-    "total": 36
    },
    "achievementsChecked": true
   },
