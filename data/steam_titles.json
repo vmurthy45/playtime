@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-23T23:04:31+00:00",
+ "syncedAt": "2026-10-24T01:32:36+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -526,6 +526,29 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 10.683,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-24",
+   "recentHours": 8.23,
+   "devices": {
+    "mac": 0.017,
+    "linux": 10.667,
+    "deck": 10.65
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 9,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_2742830",
    "appid": 2742830,
    "title": "Monster Train 2",
@@ -651,29 +674,6 @@
    "achievements": {
     "earned": 9,
     "total": 281
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 9.117,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-22",
-   "recentHours": 6.67,
-   "devices": {
-    "mac": 0.017,
-    "linux": 9.1,
-    "deck": 9.083
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievements": {
-    "earned": 9,
-    "total": 36
    },
    "achievementsChecked": true
   },
