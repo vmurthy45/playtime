@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-24T01:32:36+00:00",
+ "syncedAt": "2026-10-24T07:12:38+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -81,7 +81,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-23",
-   "recentHours": 9.57,
+   "recentHours": 8.63,
    "devices": {
     "mac": 51.0,
     "linux": 103.2,
@@ -542,11 +542,11 @@
     "deck": 10.65
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievementsChecked": true,
    "achievements": {
     "earned": 9,
     "total": 36
-   }
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_2742830",
