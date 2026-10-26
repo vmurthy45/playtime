@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-26T07:43:13+00:00",
+ "syncedAt": "2026-10-26T15:07:32+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -81,7 +81,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-26",
-   "recentHours": 9.73,
+   "recentHours": 9.57,
    "devices": {
     "mac": 53.517,
     "linux": 103.2,
@@ -100,7 +100,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-20",
-   "recentHours": 4.62,
+   "recentHours": 3.47,
    "devices": {
     "linux": 89.333,
     "deck": 87.383
@@ -428,6 +428,29 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 11.9,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-26",
+   "recentHours": 9.45,
+   "devices": {
+    "mac": 0.017,
+    "linux": 11.883,
+    "deck": 11.867
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 13,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_42690",
    "appid": 42690,
    "title": "Call of Duty\u00ae: Modern Warfare\u00ae 3 (2011) - Multiplayer",
@@ -522,29 +545,6 @@
    "achievements": {
     "earned": 20,
     "total": 143
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 10.683,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-24",
-   "recentHours": 8.23,
-   "devices": {
-    "mac": 0.017,
-    "linux": 10.667,
-    "deck": 10.65
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievements": {
-    "earned": 9,
-    "total": 36
    },
    "achievementsChecked": true
   },
