@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-26T01:06:25+00:00",
+ "syncedAt": "2026-10-26T07:43:13+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -2044,7 +2044,7 @@
    "sessions": 11,
    "firstPlayed": "2017-01-15",
    "lastPlayed": "2017-05-02",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00168_00/5/i_2637b7a92d8b09615c9b919a27546c7a1b52102ceaee6a0354fc6f5f671b4aec/i/icon0_01.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00168_00/5/i_2637b7a92d8b09615c9b919a27546c7a1b52102ceaee6a0354fc6f5f671b4aec/i/icon0.png",
    "trophyLists": [
     "NPWR05335_00"
    ],
