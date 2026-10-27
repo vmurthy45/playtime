@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-27T01:59:46+00:00",
+ "syncedAt": "2026-10-27T07:41:27+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -81,7 +81,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-27",
-   "recentHours": 11.1,
+   "recentHours": 9.8,
    "devices": {
     "mac": 55.05,
     "linux": 103.2,
@@ -100,7 +100,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-20",
-   "recentHours": 2.4,
+   "recentHours": 2.18,
    "devices": {
     "linux": 89.333,
     "deck": 87.383
@@ -391,6 +391,29 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 12.9,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-27",
+   "recentHours": 10.45,
+   "devices": {
+    "mac": 0.017,
+    "linux": 12.883,
+    "deck": 12.867
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 13,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_8400",
    "appid": 8400,
    "title": "Geometry Wars: Retro Evolved",
@@ -424,29 +447,6 @@
    "achievements": {
     "earned": 15,
     "total": 47
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 11.9,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-26",
-   "recentHours": 9.45,
-   "devices": {
-    "mac": 0.017,
-    "linux": 11.883,
-    "deck": 11.867
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievements": {
-    "earned": 13,
-    "total": 36
    },
    "achievementsChecked": true
   },
