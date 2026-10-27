@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-27T14:21:57+00:00",
+ "syncedAt": "2026-10-27T21:13:53+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -106,11 +106,11 @@
     "deck": 87.9
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
-   "achievementsChecked": true,
    "achievements": {
     "earned": 168,
     "total": 179
-   }
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_3590",
@@ -388,11 +388,11 @@
     "deck": 13.283
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievementsChecked": true,
    "achievements": {
     "earned": 13,
     "total": 36
-   }
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_12210",
@@ -2294,6 +2294,28 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_894020",
+   "appid": 894020,
+   "title": "Death's Door",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 1.1,
+   "sessions": null,
+   "firstPlayed": "2026-10-16",
+   "lastPlayed": "2026-10-28",
+   "recentHours": 1.1,
+   "devices": {
+    "linux": 1.1,
+    "deck": 1.1
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/894020/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 0,
+    "total": 24
+   }
+  },
+  {
    "id": "steam_113200",
    "appid": 113200,
    "title": "The Binding of Isaac",
@@ -2503,28 +2525,6 @@
    "achievements": {
     "earned": 1,
     "total": 50
-   },
-   "achievementsChecked": true
-  },
-  {
-   "id": "steam_894020",
-   "appid": 894020,
-   "title": "Death's Door",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 0.8,
-   "sessions": null,
-   "firstPlayed": "2026-10-16",
-   "lastPlayed": "2026-10-19",
-   "recentHours": 0.8,
-   "devices": {
-    "linux": 0.8,
-    "deck": 0.8
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/894020/header.jpg",
-   "achievements": {
-    "earned": 0,
-    "total": 24
    },
    "achievementsChecked": true
   },
