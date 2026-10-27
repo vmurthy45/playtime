@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-10-27T07:41:27+00:00",
+ "syncedAt": "2026-10-27T14:21:57+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -77,15 +77,15 @@
    "title": "Slay the Spire 2",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 158.25,
+   "hours": 158.983,
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-27",
-   "recentHours": 9.8,
+   "recentHours": 10.05,
    "devices": {
     "mac": 55.05,
-    "linux": 103.2,
-    "deck": 103.167
+    "linux": 103.917,
+    "deck": 103.9
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2868840/header.jpg",
    "achievementsChecked": true
@@ -96,21 +96,21 @@
    "title": "Brotato",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 89.333,
+   "hours": 89.867,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-10-20",
-   "recentHours": 2.18,
+   "lastPlayed": "2026-10-27",
+   "recentHours": 2.1,
    "devices": {
-    "linux": 89.333,
-    "deck": 87.383
+    "linux": 89.867,
+    "deck": 87.9
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
+   "achievementsChecked": true,
    "achievements": {
-    "earned": 167,
+    "earned": 168,
     "total": 179
-   },
-   "achievementsChecked": true
+   }
   },
   {
    "id": "steam_3590",
@@ -372,6 +372,29 @@
    "achievementsChecked": true
   },
   {
+   "id": "steam_2084000",
+   "appid": 2084000,
+   "title": "Shogun Showdown",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 13.317,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": "2026-10-27",
+   "recentHours": 10.87,
+   "devices": {
+    "mac": 0.017,
+    "linux": 13.3,
+    "deck": 13.283
+   },
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
+   "achievementsChecked": true,
+   "achievements": {
+    "earned": 13,
+    "total": 36
+   }
+  },
+  {
    "id": "steam_12210",
    "appid": 12210,
    "title": "Grand Theft Auto IV: The Complete Edition",
@@ -389,29 +412,6 @@
     "total": 55
    },
    "achievementsChecked": true
-  },
-  {
-   "id": "steam_2084000",
-   "appid": 2084000,
-   "title": "Shogun Showdown",
-   "platform": "Steam",
-   "console": "Steam",
-   "hours": 12.9,
-   "sessions": null,
-   "firstPlayed": null,
-   "lastPlayed": "2026-10-27",
-   "recentHours": 10.45,
-   "devices": {
-    "mac": 0.017,
-    "linux": 12.883,
-    "deck": 12.867
-   },
-   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/2084000/header.jpg",
-   "achievementsChecked": true,
-   "achievements": {
-    "earned": 13,
-    "total": 36
-   }
   },
   {
    "id": "steam_8400",
