@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-26T21:35:34+00:00",
+ "syncedAt": "2026-10-28T20:19:59+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -1862,10 +1862,10 @@
    "title": "Assassin's Creed\u00ae Mirage",
    "platform": "PlayStation",
    "console": "PS5",
-   "hours": 6.086,
-   "sessions": 8,
+   "hours": 6.435,
+   "sessions": 9,
    "firstPlayed": "2025-07-07",
-   "lastPlayed": "2026-10-17",
+   "lastPlayed": "2026-10-27",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1718/phwiQjbJddEg979YucUoP3Vr.png",
    "trophyLists": [
     "NPWR29894_00"
