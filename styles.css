@@ -63,6 +63,12 @@ main { max-width: var(--page); margin: 0 auto; padding: 22px var(--gut) 48px; }
 
 .notice { padding: 12px 14px; border-radius: var(--radius); font-size: 14px; }
 .notice--error { background: #fdecec; color: #8a1c1c; border: 1px solid #f5c6c6; }
+.notice--warn {
+  background: #fff7e6; color: #7c4a03; border: 1px solid #f3d9a4;
+  line-height: 1.5; margin-bottom: 14px;
+}
+.notice--warn b { display: block; margin-bottom: 2px; font-size: 15px; }
+.notice--warn a { color: #7c4a03; font-weight: 600; }
 
 /* ---------- tiles ---------- */
 .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }

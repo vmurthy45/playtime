@@ -333,6 +333,54 @@
 
   /* ------------------------------------------------------------- render */
 
+  // A platform that quietly stops syncing is the one failure this dashboard
+  // cannot survive: the daily numbers come from diffing consecutive snapshots,
+  // so a dead source does not show a gap, it shows nothing at all, and the
+  // hours come back as one lump on whatever day it is revived. The workflow
+  // lets either platform's step fail on its own — right for the data, wrong
+  // for noticing — and the issue it raises is an email that can be missed.
+  // So the dashboard says it out loud.
+  const STALE_DAYS = 2;
+  const REPO = "https://github.com/vmurthy45/playtime";
+  const link = (href, text) =>
+    `<a href="${href}" target="_blank" rel="noopener">${esc(text)}</a>`;
+  function renderStale() {
+    const box = $("#staleWarn");
+    const todayD = toDay(todayISO());
+    const aged = state.synced.map((s) => ({
+      ...s, age: todayD - toDay(localDate(new Date(s.at))),
+    }));
+    const stale = aged.filter((s) => s.age >= STALE_DAYS);
+    if (!stale.length) { box.hidden = true; box.innerHTML = ""; return; }
+    const fresh = aged.filter((s) => s.age < STALE_DAYS);
+    const days = (n) => `${n} day${n === 1 ? "" : "s"}`;
+    const runs = link(`${REPO}/actions/workflows/sync.yml`, "Check the runs");
+    let body;
+    if (!fresh.length) {
+      // Both platforms authenticate separately, so both going dark at once is
+      // the workflow not running, not two tokens expiring on the same day.
+      const worst = stale.reduce((a, b) => (a.age > b.age ? a : b));
+      body = `<b>Nothing has synced for ${days(worst.age)}</b>` +
+        `Last sync ${fmtStamp(worst.at)}. Both platforms stopping together ` +
+        `points at the sync workflow rather than a login. ${runs}.`;
+    } else {
+      // One dead, one fine: the shared workflow ran, so it is the credential.
+      const dead = stale[0];
+      body = `<b>${esc(sourceName(dead.source))} hasn't synced for ${days(dead.age)}</b>` +
+        `Last sync ${fmtStamp(dead.at)}. ` +
+        `${esc(fresh.map((s) => sourceName(s.source)).join(" and "))} is still ` +
+        `landing, so the workflow is running and the login is what broke.`;
+      body += dead.source === "psn"
+        ? ` An npsso lasts about three weeks. ` +
+          `${link("https://ca.account.sony.com/api/v1/ssocookie", "Copy a new one")}, ` +
+          `${link(`${REPO}/settings/secrets/actions/PSN_NPSSO/update`, "paste it into the secret")}, ` +
+          `then ${link(`${REPO}/actions/workflows/sync.yml`, "re-run the sync")}.`
+        : ` ${runs}.`;
+    }
+    box.innerHTML = body;
+    box.hidden = false;
+  }
+
   function render() {
     const totalH = state.entries.reduce((s, x) => s + (x.hours || 0), 0);
     const known = state.entries
@@ -347,9 +395,10 @@
       .map((s) => {
         const age = todayD - toDay(localDate(new Date(s.at)));
         const label = `${sourceName(s.source)} synced ${fmtStamp(s.at)}`;
-        return age > 2 ? `<span class="stale">${esc(label)} · ${age} days ago</span>` : esc(label);
+        return age >= STALE_DAYS ? `<span class="stale">${esc(label)} · ${age} days ago</span>` : esc(label);
       })
       .join(" · ");
+    renderStale();
     state.spans = timelineSpans();
     renderOverview();
     renderStats(totalH);

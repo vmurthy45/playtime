@@ -53,15 +53,39 @@ The `ca.` is Canada and is irrelevant — it reads the cookie from whatever sess
 you are logged into, from any region. `{"npsso":null}` means you are not logged
 in, not that you are in the wrong place.
 
-The npsso cookie lasts **about 60 days**, after which the sync fails and you
+The npsso cookie is documented as lasting **about 60 days**, but in practice it
+has died at **roughly three weeks** — 9 Sep to 6 Oct 2026, then 6 to 27 Oct — so
+treat a month as the outside estimate. After it dies the sync fails and you
 repeat the three steps above. Locally it lives in `.env` (gitignored); in CI it
-is the repository secret `PSN_NPSSO`.
+is the repository secret `PSN_NPSSO`. Paste a new one straight into
+<https://github.com/vmurthy45/playtime/settings/secrets/actions/PSN_NPSSO/update>,
+then hit **Run workflow** rather than waiting up to three hours for the cron.
 
 Every run exchanges the npsso for fresh tokens, so the short-lived access token
 (1 hour) and refresh token (10 days) that `psnawp` reports are **not** the
 deadline — only the npsso's own life matters. It cannot be renewed without a
 login, so there is nothing to automate: when it dies the workflow raises a
 GitHub issue telling you to replace it, and Steam keeps syncing meanwhile.
+
+Because each platform's step is `continue-on-error`, **a run with a dead PSN
+token still shows a green tick** in the Actions list — only the step inside it
+is red. Do not read the run list as proof that both platforms synced.
+
+### The staleness banner
+
+The GitHub issue is an email, and an email can be missed: PSN sat dead for two
+days in October 2026 because it was. So the dashboard says it itself. When a
+platform's `syncedAt` is two or more calendar days old, a banner appears at the
+top of the page, above the tabs' content:
+
+- **One platform stale, the other fresh** — the shared workflow clearly ran, so
+  the login is what broke. For PSN the banner links the three steps in order:
+  copy a new npsso, paste it into the secret, re-run the sync.
+- **Both stale** — two separate logins do not expire on the same day, so this is
+  the workflow not running. The banner links the run list instead.
+
+Two days is the threshold because the sync runs 3-hourly and GitHub fires only
+some of those; a gap inside one day is normal, a gap spanning two is not.
 
 ## Deploy
 
