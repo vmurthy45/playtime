@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-28T23:59:16+00:00",
+ "syncedAt": "2026-10-29T08:23:00+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 2
+  "lookedUp": 1
  },
  "games": [
   {
@@ -609,6 +609,26 @@
    }
   },
   {
+   "id": "psn_PPSA01316_00",
+   "titleId": "PPSA01316_00",
+   "title": "Gran Turismo\u00ae 7",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 25.853,
+   "sessions": 32,
+   "firstPlayed": "2026-06-05",
+   "lastPlayed": "2026-10-29",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
+   "trophyLists": [
+    "NPWR20919_00"
+   ],
+   "trophies": {
+    "earned": 18,
+    "total": 54,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA00851_00",
    "titleId": "CUSA00851_00",
    "title": "Call of Duty\u00ae: Advanced Warfare",
@@ -647,26 +667,6 @@
     "earned": 106,
     "total": 118,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA01316_00",
-   "titleId": "PPSA01316_00",
-   "title": "Gran Turismo\u00ae 7",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 25.222,
-   "sessions": 31,
-   "firstPlayed": "2026-06-05",
-   "lastPlayed": "2026-10-29",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
-   "trophyLists": [
-    "NPWR20919_00"
-   ],
-   "trophies": {
-    "earned": 18,
-    "total": 54,
-    "platinum": false
    }
   },
   {
