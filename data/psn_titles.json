@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-29T08:23:00+00:00",
+ "syncedAt": "2026-10-29T17:24:09+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -589,6 +589,26 @@
    }
   },
   {
+   "id": "psn_PPSA01316_00",
+   "titleId": "PPSA01316_00",
+   "title": "Gran Turismo\u00ae 7",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 27.804,
+   "sessions": 32,
+   "firstPlayed": "2026-06-05",
+   "lastPlayed": "2026-10-29",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
+   "trophyLists": [
+    "NPWR20919_00"
+   ],
+   "trophies": {
+    "earned": 19,
+    "total": 54,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA12443_00",
    "titleId": "CUSA12443_00",
    "title": "Call of Duty\u00ae: Black Ops 4",
@@ -605,26 +625,6 @@
    "trophies": {
     "earned": 4,
     "total": 103,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA01316_00",
-   "titleId": "PPSA01316_00",
-   "title": "Gran Turismo\u00ae 7",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 25.853,
-   "sessions": 32,
-   "firstPlayed": "2026-06-05",
-   "lastPlayed": "2026-10-29",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
-   "trophyLists": [
-    "NPWR20919_00"
-   ],
-   "trophies": {
-    "earned": 18,
-    "total": 54,
     "platinum": false
    }
   },
