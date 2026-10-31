@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-10-31T02:16:38+00:00",
+ "syncedAt": "2026-10-31T10:51:55+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -549,6 +549,26 @@
    }
   },
   {
+   "id": "psn_PPSA01316_00",
+   "titleId": "PPSA01316_00",
+   "title": "Gran Turismo\u00ae 7",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 29.674,
+   "sessions": 34,
+   "firstPlayed": "2026-06-05",
+   "lastPlayed": "2026-10-31",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
+   "trophyLists": [
+    "NPWR20919_00"
+   ],
+   "trophies": {
+    "earned": 24,
+    "total": 54,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA08338_00",
    "titleId": "PPSA08338_00",
    "title": "Marvel's Spider-Man 2",
@@ -586,26 +606,6 @@
     "earned": 56,
     "total": 68,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA01316_00",
-   "titleId": "PPSA01316_00",
-   "title": "Gran Turismo\u00ae 7",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 28.566,
-   "sessions": 33,
-   "firstPlayed": "2026-06-05",
-   "lastPlayed": "2026-10-30",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
-   "trophyLists": [
-    "NPWR20919_00"
-   ],
-   "trophies": {
-    "earned": 20,
-    "total": 54,
-    "platinum": false
    }
   },
   {
