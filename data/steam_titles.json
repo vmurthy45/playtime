@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-11-01T18:52:55+00:00",
+ "syncedAt": "2026-11-01T23:30:57+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -4550,6 +4550,20 @@
    "recentHours": 0.0,
    "devices": {},
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1659040/header.jpg"
+  },
+  {
+   "id": "steam_1865960",
+   "appid": 1865960,
+   "title": "Symphonia",
+   "platform": "Steam",
+   "console": "Steam",
+   "hours": 0.0,
+   "sessions": null,
+   "firstPlayed": null,
+   "lastPlayed": null,
+   "recentHours": 0.0,
+   "devices": {},
+   "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1865960/header.jpg"
   },
   {
    "id": "steam_1879840",
