@@ -30074,5 +30074,19 @@
   "source": "steam",
   "delta": true,
   "hours": {}
+ },
+ {
+  "date": "2026-11-01",
+  "at": "2026-11-01T02:07:06+00:00",
+  "source": "psn",
+  "delta": true,
+  "hours": {}
+ },
+ {
+  "date": "2026-11-01",
+  "at": "2026-11-01T02:07:07+00:00",
+  "source": "steam",
+  "delta": true,
+  "hours": {}
  }
 ]
