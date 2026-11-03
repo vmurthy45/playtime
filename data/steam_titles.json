@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-11-02T20:43:48+00:00",
+ "syncedAt": "2026-11-03T03:54:59+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -81,7 +81,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-30",
-   "recentHours": 9.27,
+   "recentHours": 8.88,
    "devices": {
     "mac": 56.267,
     "linux": 105.033,
@@ -96,21 +96,21 @@
    "title": "Brotato",
    "platform": "Steam",
    "console": "Steam",
-   "hours": 91.667,
+   "hours": 91.9,
    "sessions": null,
    "firstPlayed": null,
-   "lastPlayed": "2026-11-02",
-   "recentHours": 2.88,
+   "lastPlayed": "2026-11-03",
+   "recentHours": 3.12,
    "devices": {
-    "linux": 91.667,
-    "deck": 89.717
+    "linux": 91.9,
+    "deck": 89.95
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
+   "achievementsChecked": true,
    "achievements": {
-    "earned": 171,
-    "total": 179
-   },
-   "achievementsChecked": true
+    "earned": 173,
+    "total": 200
+   }
   },
   {
    "id": "steam_3590",
@@ -381,7 +381,7 @@
    "sessions": null,
    "firstPlayed": null,
    "lastPlayed": "2026-10-27",
-   "recentHours": 9.88,
+   "recentHours": 8.85,
    "devices": {
     "mac": 0.017,
     "linux": 13.3,
