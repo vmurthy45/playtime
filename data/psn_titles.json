@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-04T02:59:07+00:00",
+ "syncedAt": "2026-11-04T12:55:24+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -258,7 +258,7 @@
    "sessions": 55,
    "firstPlayed": "2019-06-17",
    "lastPlayed": "2022-03-05",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0_01.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0.png",
    "trophyLists": [
     "NPWR15235_00"
    ],
@@ -571,7 +571,7 @@
   {
    "id": "psn_PPSA08338_00",
    "titleId": "PPSA08338_00",
-   "title": "Marvel's Spider-Man 2",
+   "title": "Marvel's Spider-Man\u00a02",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 29.203,
@@ -1072,7 +1072,7 @@
   {
    "id": "psn_CUSA09155_00",
    "titleId": "CUSA09155_00",
-   "title": "Batman: The Enemy Within",
+   "title": "Batman: l'ennemi \u00e0 l'int\u00e9rieur",
    "platform": "PlayStation",
    "console": "PS4",
    "hours": 16.733,
@@ -1299,7 +1299,7 @@
    "sessions": 14,
    "firstPlayed": "2025-12-11",
    "lastPlayed": "2026-06-02",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202502/2422/3b21599d6dea076afc4e1e4a80fcca3fc5c19c57a196e619.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202404/1815/e67713e008d1cdb83ebf71916c193a5c03ae7e12b85133d2.png",
    "trophyLists": [
     "NPWR41753_00"
    ],
@@ -1819,7 +1819,7 @@
   {
    "id": "psn_PPSA01325_00",
    "titleId": "PPSA01325_00",
-   "title": "ASTRO's PLAYROOM",
+   "title": "ASTRO'S PLAYROOM",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 6.545,
@@ -2155,14 +2155,14 @@
   {
    "id": "psn_CUSA02009_00",
    "titleId": "CUSA02009_00",
-   "title": "That's You!\u2122",
+   "title": "Qui es-tu?\u2122",
    "platform": "PlayStation",
    "console": "PS4",
    "hours": 3.962,
    "sessions": 7,
    "firstPlayed": "2020-05-21",
    "lastPlayed": "2022-09-10",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02009_00/2/i_01d97173875497eee84a10db23f35b6daefb13f4a999b3fa477051ecb725d116/i/icon0.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA02009_00/2/i_01d97173875497eee84a10db23f35b6daefb13f4a999b3fa477051ecb725d116/i/icon0_02.png",
    "trophyLists": [
     "NPWR08593_00"
    ],
@@ -3846,7 +3846,7 @@
    "sessions": 1,
    "firstPlayed": "2026-06-05",
    "lastPlayed": "2026-06-05",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202411/2507/f3e188254bee44e60aca10a86ce9184293fa24ba169e9249.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202411/2507/b42581cc9a00b3868f231b449bcbab7624cd84f2c2383daa.png",
    "trophyLists": []
   },
   {
