@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-05T03:26:55+00:00",
+ "syncedAt": "2026-11-05T13:05:04+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -78,7 +78,7 @@
    "sessions": 186,
    "firstPlayed": "2024-01-12",
    "lastPlayed": "2025-11-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202610/2822/9540e915e26a7168ee5dfc697d8fa756b6a6343b8969d6e5.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/2817/0b31b8306c4fae90e94a2fbf5d14fe9cf3ea014da70309cf.png",
    "trophyLists": [
     "NPWR22022_00"
    ],
@@ -670,6 +670,26 @@
    }
   },
   {
+   "id": "psn_PPSA04029_00",
+   "titleId": "PPSA04029_00",
+   "title": "Cyberpunk 2077",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 25.134,
+   "sessions": 38,
+   "firstPlayed": "2022-02-18",
+   "lastPlayed": "2026-11-05",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
+   "trophyLists": [
+    "NPWR24695_00"
+   ],
+   "trophies": {
+    "earned": 10,
+    "total": 58,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA07904_00",
    "titleId": "CUSA07904_00",
    "title": "Call of Duty\u00ae: Modern Warfare\u00ae 2 Campaign Remastered",
@@ -687,26 +707,6 @@
     "earned": 51,
     "total": 51,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA04029_00",
-   "titleId": "PPSA04029_00",
-   "title": "Cyberpunk 2077",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 23.944,
-   "sessions": 38,
-   "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-05",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
-   "trophyLists": [
-    "NPWR24695_00"
-   ],
-   "trophies": {
-    "earned": 10,
-    "total": 58,
-    "platinum": false
    }
   },
   {
