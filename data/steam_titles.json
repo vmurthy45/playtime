@@ -1,7 +1,7 @@
 {
  "source": "steam",
  "steamId": "76561198022909290",
- "syncedAt": "2026-11-05T13:05:05+00:00",
+ "syncedAt": "2026-11-05T21:01:25+00:00",
  "games": [
   {
    "id": "steam_646570",
@@ -106,11 +106,11 @@
     "deck": 91.7
    },
    "cover": "https://cdn.cloudflare.steamstatic.com/steam/apps/1942280/header.jpg",
-   "achievementsChecked": true,
    "achievements": {
     "earned": 180,
     "total": 200
-   }
+   },
+   "achievementsChecked": true
   },
   {
    "id": "steam_3590",

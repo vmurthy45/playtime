@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-05T13:05:04+00:00",
+ "syncedAt": "2026-11-05T21:01:25+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -78,7 +78,7 @@
    "sessions": 186,
    "firstPlayed": "2024-01-12",
    "lastPlayed": "2025-11-13",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/2817/0b31b8306c4fae90e94a2fbf5d14fe9cf3ea014da70309cf.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202610/2822/9540e915e26a7168ee5dfc697d8fa756b6a6343b8969d6e5.png",
    "trophyLists": [
     "NPWR22022_00"
    ],
@@ -204,7 +204,7 @@
    ],
    "trophies": {
     "earned": 51,
-    "total": 93,
+    "total": 95,
     "platinum": true
    }
   },
@@ -258,7 +258,7 @@
    "sessions": 55,
    "firstPlayed": "2019-06-17",
    "lastPlayed": "2022-03-05",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0_01.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0.png",
    "trophyLists": [
     "NPWR15235_00"
    ],
@@ -551,14 +551,14 @@
   {
    "id": "psn_PPSA01316_00",
    "titleId": "PPSA01316_00",
-   "title": "Gran Turismo\u00ae 7",
+   "title": "Gran Turismo\u2122 7",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 29.674,
    "sessions": 34,
    "firstPlayed": "2026-06-05",
    "lastPlayed": "2026-10-31",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/2806/wpHT6JXmOA9iECLZKRPRvt0U.png",
    "trophyLists": [
     "NPWR20919_00"
    ],
@@ -629,6 +629,26 @@
    }
   },
   {
+   "id": "psn_PPSA04029_00",
+   "titleId": "PPSA04029_00",
+   "title": "Cyberpunk 2077",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 25.869,
+   "sessions": 39,
+   "firstPlayed": "2022-02-18",
+   "lastPlayed": "2026-11-06",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
+   "trophyLists": [
+    "NPWR24695_00"
+   ],
+   "trophies": {
+    "earned": 10,
+    "total": 58,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA00851_00",
    "titleId": "CUSA00851_00",
    "title": "Call of Duty\u00ae: Advanced Warfare",
@@ -667,26 +687,6 @@
     "earned": 106,
     "total": 118,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA04029_00",
-   "titleId": "PPSA04029_00",
-   "title": "Cyberpunk 2077",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 25.134,
-   "sessions": 38,
-   "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-05",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
-   "trophyLists": [
-    "NPWR24695_00"
-   ],
-   "trophies": {
-    "earned": 10,
-    "total": 58,
-    "platinum": false
    }
   },
   {
@@ -1819,7 +1819,7 @@
   {
    "id": "psn_PPSA01325_00",
    "titleId": "PPSA01325_00",
-   "title": "ASTRO's PLAYROOM",
+   "title": "SALA DE JOGOS DO ASTRO",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 6.545,
@@ -3406,7 +3406,7 @@
    "sessions": 1,
    "firstPlayed": "2025-05-03",
    "lastPlayed": "2025-05-03",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202610/2108/23654b0032f1abe416eb0413ace2af95ea725425c5160137.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202611/0208/b7419a6de58e24b150ff94fbb54ed73ec1d426d507772ba4.png",
    "trophyLists": [
     "NPWR48384_00"
    ],
