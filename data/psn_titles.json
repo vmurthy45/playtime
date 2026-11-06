@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-05T21:01:25+00:00",
+ "syncedAt": "2026-11-06T03:22:18+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 1
+  "lookedUp": 0
  },
  "games": [
   {
@@ -258,7 +258,7 @@
    "sessions": 55,
    "firstPlayed": "2019-06-17",
    "lastPlayed": "2022-03-05",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0_01.png",
    "trophyLists": [
     "NPWR15235_00"
    ],
@@ -551,14 +551,14 @@
   {
    "id": "psn_PPSA01316_00",
    "titleId": "PPSA01316_00",
-   "title": "Gran Turismo\u2122 7",
+   "title": "Gran Turismo\u00ae 7",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 29.674,
    "sessions": 34,
    "firstPlayed": "2026-06-05",
    "lastPlayed": "2026-10-31",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/2806/wpHT6JXmOA9iECLZKRPRvt0U.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
    "trophyLists": [
     "NPWR20919_00"
    ],
@@ -1819,7 +1819,7 @@
   {
    "id": "psn_PPSA01325_00",
    "titleId": "PPSA01325_00",
-   "title": "SALA DE JOGOS DO ASTRO",
+   "title": "ASTRO's PLAYROOM",
    "platform": "PlayStation",
    "console": "PS5",
    "hours": 6.545,
