@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-07T02:42:41+00:00",
+ "syncedAt": "2026-11-07T11:40:01+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -509,6 +509,26 @@
    }
   },
   {
+   "id": "psn_PPSA04029_00",
+   "titleId": "PPSA04029_00",
+   "title": "Cyberpunk 2077",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 31.703,
+   "sessions": 43,
+   "firstPlayed": "2022-02-18",
+   "lastPlayed": "2026-11-07",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
+   "trophyLists": [
+    "NPWR24695_00"
+   ],
+   "trophies": {
+    "earned": 10,
+    "total": 58,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA17599_00",
    "titleId": "PPSA17599_00",
    "title": "Clair Obscur: Expedition 33",
@@ -525,26 +545,6 @@
    "trophies": {
     "earned": 27,
     "total": 56,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA04029_00",
-   "titleId": "PPSA04029_00",
-   "title": "Cyberpunk 2077",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 30.629,
-   "sessions": 42,
-   "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-07",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
-   "trophyLists": [
-    "NPWR24695_00"
-   ],
-   "trophies": {
-    "earned": 10,
-    "total": 58,
     "platinum": false
    }
   },
