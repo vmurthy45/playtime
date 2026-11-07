@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-06T20:24:16+00:00",
+ "syncedAt": "2026-11-07T02:42:41+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -529,6 +529,26 @@
    }
   },
   {
+   "id": "psn_PPSA04029_00",
+   "titleId": "PPSA04029_00",
+   "title": "Cyberpunk 2077",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 30.629,
+   "sessions": 42,
+   "firstPlayed": "2022-02-18",
+   "lastPlayed": "2026-11-07",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
+   "trophyLists": [
+    "NPWR24695_00"
+   ],
+   "trophies": {
+    "earned": 10,
+    "total": 58,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA21567_00",
    "titleId": "PPSA21567_00",
    "title": "ASTRO BOT",
@@ -606,26 +626,6 @@
     "earned": 56,
     "total": 68,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA04029_00",
-   "titleId": "PPSA04029_00",
-   "title": "Cyberpunk 2077",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 28.925,
-   "sessions": 41,
-   "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-07",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
-   "trophyLists": [
-    "NPWR24695_00"
-   ],
-   "trophies": {
-    "earned": 10,
-    "total": 58,
-    "platinum": false
    }
   },
   {
