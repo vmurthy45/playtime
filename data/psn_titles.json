@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-13T09:26:08+00:00",
+ "syncedAt": "2026-11-13T18:29:25+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -1686,7 +1686,7 @@
    "sessions": 12,
    "firstPlayed": "2026-01-15",
    "lastPlayed": "2026-02-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2115/ae183c63bbeb38d05ecce96aa7f693b4a3769a1835020b63.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202502/2711/cbc6c3135660ec68eacc766959a766b36d7ce3fa6010ca88.png",
    "trophyLists": [
     "NPWR21904_00"
    ],
@@ -3586,7 +3586,7 @@
    "sessions": 1,
    "firstPlayed": "2024-12-17",
    "lastPlayed": "2024-12-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202609/1008/3d85937370ce5d1fe39c9541e7cdc14455798fed56dc2390.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202611/1210/652a064c255831b4bc06eab2a88e886c5d96411fc7d4bc5e.png",
    "trophyLists": [
     "NPWR44165_00"
    ],
@@ -3892,7 +3892,7 @@
    "sessions": 1,
    "firstPlayed": "2025-12-11",
    "lastPlayed": "2025-12-11",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202610/1410/c4d22396830728db25505b2b0b623d5c4259f44a7aab1447.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202611/1310/644cfefdf5d3a02191c4444153321a90a961b7140d3874ce.png",
    "trophyLists": [
     "NPWR50887_00"
    ],
