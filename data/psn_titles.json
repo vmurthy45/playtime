@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-14T00:51:43+00:00",
+ "syncedAt": "2026-11-14T08:54:34+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 2
  },
  "games": [
   {
@@ -389,6 +389,26 @@
    }
   },
   {
+   "id": "psn_PPSA04029_00",
+   "titleId": "PPSA04029_00",
+   "title": "Cyberpunk 2077",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 39.458,
+   "sessions": 50,
+   "firstPlayed": "2022-02-18",
+   "lastPlayed": "2026-11-14",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
+   "trophyLists": [
+    "NPWR24695_00"
+   ],
+   "trophies": {
+    "earned": 10,
+    "total": 58,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA09663_00",
    "titleId": "CUSA09663_00",
    "title": "Ashes Cricket",
@@ -406,26 +426,6 @@
     "earned": 33,
     "total": 33,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA04029_00",
-   "titleId": "PPSA04029_00",
-   "title": "Cyberpunk 2077",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 38.704,
-   "sessions": 49,
-   "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-10",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
-   "trophyLists": [
-    "NPWR24695_00"
-   ],
-   "trophies": {
-    "earned": 10,
-    "total": 58,
-    "platinum": false
    }
   },
   {
@@ -574,10 +574,10 @@
    "title": "Gran Turismo\u00ae 7",
    "platform": "PlayStation",
    "console": "PS5",
-   "hours": 29.674,
-   "sessions": 34,
+   "hours": 29.856,
+   "sessions": 36,
    "firstPlayed": "2026-06-05",
-   "lastPlayed": "2026-10-31",
+   "lastPlayed": "2026-11-14",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
    "trophyLists": [
     "NPWR20919_00"
