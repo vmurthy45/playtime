@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-14T16:59:16+00:00",
+ "syncedAt": "2026-11-14T21:22:35+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -369,6 +369,26 @@
    }
   },
   {
+   "id": "psn_PPSA04029_00",
+   "titleId": "PPSA04029_00",
+   "title": "Cyberpunk 2077",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 41.091,
+   "sessions": 51,
+   "firstPlayed": "2022-02-18",
+   "lastPlayed": "2026-11-15",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
+   "trophyLists": [
+    "NPWR24695_00"
+   ],
+   "trophies": {
+    "earned": 10,
+    "total": 58,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA00049_00",
    "titleId": "CUSA00049_00",
    "title": "Battlefield 4\u2122",
@@ -385,26 +405,6 @@
    "trophies": {
     "earned": 16,
     "total": 68,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA04029_00",
-   "titleId": "PPSA04029_00",
-   "title": "Cyberpunk 2077",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 39.458,
-   "sessions": 50,
-   "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-14",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
-   "trophyLists": [
-    "NPWR24695_00"
-   ],
-   "trophies": {
-    "earned": 10,
-    "total": 58,
     "platinum": false
    }
   },
