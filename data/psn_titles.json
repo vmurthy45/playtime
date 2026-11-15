@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-15T19:42:33+00:00",
+ "syncedAt": "2026-11-15T23:56:13+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 2
  },
  "games": [
   {
@@ -374,10 +374,10 @@
    "title": "Cyberpunk 2077",
    "platform": "PlayStation",
    "console": "PS5",
-   "hours": 41.091,
-   "sessions": 51,
+   "hours": 42.218,
+   "sessions": 52,
    "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-15",
+   "lastPlayed": "2026-11-16",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
    "trophyLists": [
     "NPWR24695_00"
@@ -574,10 +574,10 @@
    "title": "Gran Turismo\u00ae 7",
    "platform": "PlayStation",
    "console": "PS5",
-   "hours": 29.856,
-   "sessions": 36,
+   "hours": 30.087,
+   "sessions": 37,
    "firstPlayed": "2026-06-05",
-   "lastPlayed": "2026-11-14",
+   "lastPlayed": "2026-11-16",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png",
    "trophyLists": [
     "NPWR20919_00"
