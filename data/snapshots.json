@@ -38776,5 +38776,29 @@
   "source": "steam",
   "delta": true,
   "hours": {}
+ },
+ {
+  "date": "2026-11-16",
+  "at": "2026-11-16T09:29:02+00:00",
+  "source": "psn",
+  "delta": true,
+  "hours": {
+   "psn_PPSA04029_00": 44.437
+  },
+  "played": {
+   "psn_PPSA04029_00": "2026-11-16"
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "at": "2026-11-16T09:29:02+00:00",
+  "source": "steam",
+  "delta": true,
+  "hours": {
+   "steam_2868840": 171.7
+  },
+  "played": {
+   "steam_2868840": "2026-11-16"
+  }
  }
 ]
