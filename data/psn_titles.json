@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-16T20:56:43+00:00",
+ "syncedAt": "2026-11-17T05:02:07+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
@@ -258,7 +258,7 @@
    "sessions": 55,
    "firstPlayed": "2019-06-17",
    "lastPlayed": "2022-03-05",
-   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA11608_00/4/i_792a77798272879836aff65dd0591c5a8ad85b2c0bdb007bfbc4f2073d3ab97e/i/icon0_01.png",
    "trophyLists": [
     "NPWR15235_00"
    ],
@@ -4549,14 +4549,14 @@
   {
    "id": "psn_CUSA04402_00",
    "titleId": "CUSA04402_00",
-   "title": "La Terre du Milieu\u2122: L'Ombre de la Guerre\u2122",
+   "title": "Middle-earth\u2122: Shadow of War\u2122",
    "platform": "PlayStation",
    "console": "PS4",
    "hours": 0.35,
    "sessions": 1,
    "firstPlayed": "2021-03-29",
    "lastPlayed": "2021-03-29",
-   "cover": "https://image.api.playstation.com/cdn/EP1018/CUSA04402_00/vfzei4UmKBJL4qZpcN1Lo5BWdSZyTx5j.png",
+   "cover": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA04402_00/4/i_104ac8e1b4e4e700ac38bff7103b9a3625959a28797b01db7d9935cbebc51160/i/icon0.png",
    "trophyLists": []
   },
   {
