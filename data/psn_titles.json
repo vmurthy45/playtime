@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-17T05:02:07+00:00",
+ "syncedAt": "2026-11-17T14:17:46+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -374,16 +374,16 @@
    "title": "Cyberpunk 2077",
    "platform": "PlayStation",
    "console": "PS5",
-   "hours": 44.437,
-   "sessions": 55,
+   "hours": 45.58,
+   "sessions": 56,
    "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-16",
+   "lastPlayed": "2026-11-17",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
    "trophyLists": [
     "NPWR24695_00"
    ],
    "trophies": {
-    "earned": 10,
+    "earned": 13,
     "total": 58,
     "platinum": false
    }
