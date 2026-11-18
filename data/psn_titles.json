@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-17T23:49:43+00:00",
+ "syncedAt": "2026-11-18T10:02:18+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 311,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -329,6 +329,26 @@
    }
   },
   {
+   "id": "psn_PPSA04029_00",
+   "titleId": "PPSA04029_00",
+   "title": "Cyberpunk 2077",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 48.891,
+   "sessions": 59,
+   "firstPlayed": "2022-02-18",
+   "lastPlayed": "2026-11-18",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
+   "trophyLists": [
+    "NPWR24695_00"
+   ],
+   "trophies": {
+    "earned": 13,
+    "total": 58,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA08630_00",
    "titleId": "CUSA08630_00",
    "title": "Call of Duty\u00ae: WWII",
@@ -365,26 +385,6 @@
    "trophies": {
     "earned": 20,
     "total": 42,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA04029_00",
-   "titleId": "PPSA04029_00",
-   "title": "Cyberpunk 2077",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 45.58,
-   "sessions": 57,
-   "firstPlayed": "2022-02-18",
-   "lastPlayed": "2026-11-18",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1517/UyPJCxbE3EoeLtUxjoFBnsD4.png",
-   "trophyLists": [
-    "NPWR24695_00"
-   ],
-   "trophies": {
-    "earned": 13,
-    "total": 58,
     "platinum": false
    }
   },
