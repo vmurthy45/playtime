@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-19T01:50:53+00:00",
+ "syncedAt": "2026-11-19T10:10:53+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
@@ -1677,6 +1677,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 8.5,
+   "sessions": 4,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-19",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 1,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA02015_00",
    "titleId": "PPSA02015_00",
    "title": "DEATH STRANDING 2: ON THE BEACH",
@@ -1773,26 +1793,6 @@
    "trophies": {
     "earned": 2,
     "total": 15,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 7.431,
-   "sessions": 3,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-19",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 1,
-    "total": 55,
     "platinum": false
    }
   },

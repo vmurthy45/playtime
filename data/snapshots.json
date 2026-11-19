@@ -40502,5 +40502,24 @@
   "source": "steam",
   "delta": true,
   "hours": {}
+ },
+ {
+  "date": "2026-11-19",
+  "at": "2026-11-19T10:10:53+00:00",
+  "source": "psn",
+  "delta": true,
+  "hours": {
+   "psn_PPSA38500_00": 8.5
+  },
+  "played": {
+   "psn_PPSA38500_00": "2026-11-19"
+  }
+ },
+ {
+  "date": "2026-11-19",
+  "at": "2026-11-19T10:10:53+00:00",
+  "source": "steam",
+  "delta": true,
+  "hours": {}
  }
 ]
