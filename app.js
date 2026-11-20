@@ -957,10 +957,55 @@
   // PS4 at the bottom of each bar, Steam on top; the summary uses the same order.
   const DAY_ORDER = ["PS4", "PS5", "Steam", "Other"];
   const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let dailyPick = null;   // the tapped day, or null for the whole window
+
+  // Today is the default view: the day in front of you is the one you open the
+  // page to check. "Today" draws a week for context and preselects the last
+  // bar; the wider ranges summarise their whole span instead.
+  const DAILY_RANGES = [
+    ["today", "Today"],
+    ["7", "7 days"],
+    ["30", "30 days"],
+    ["year", "This year"],
+    ["all", "All time"],
+  ];
+  let dailyRange = "today";
+  let dailyPick = todayISO();  // the chosen day, or null for the whole window
+  let dailyGame = null;        // a game whose days are highlighted in the chart
+
+  // The window always runs to today, even when the snapshots stop short of it:
+  // hours are credited to the days a sync interval covered, and that interval
+  // ends on the previous day, so today carries hours only once a sync has seen
+  // them. Padding the tail keeps today selectable instead of absent.
+  function dailyWindow(days) {
+    const today = toDay(todayISO());
+    let win = days;
+    if (dailyRange === "year") {
+      const jan1 = todayISO().slice(0, 4) + "-01-01";
+      win = days.filter((d) => d.date >= jan1);
+    } else if (dailyRange !== "all") {
+      const from = today - (dailyRange === "today" ? 7 : +dailyRange) + 1;
+      win = days.filter((d) => toDay(d.date) >= from);
+    }
+    win = win.slice();
+    const last = win.length ? toDay(win[win.length - 1].date) : today - 1;
+    for (let d = last + 1; d <= today; d++) {
+      win.push({ date: fromDay(d), hours: 0, perGame: {}, byConsole: {} });
+    }
+    return win;
+  }
+
+  // Tapping a bar inside the Today view moves off today, so the chip that
+  // describes the window — a week either way — takes over as the active one.
+  function renderDailyRanges() {
+    const eff = dailyRange === "today" && dailyPick !== todayISO() ? "7" : dailyRange;
+    $("#dailyRange").innerHTML = DAILY_RANGES.map(([k, label]) =>
+      `<button class="seg__btn${k === eff ? " is-active" : ""}" data-range="${k}" role="tab">${esc(label)}</button>`
+    ).join("");
+  }
 
   function renderDaily() {
     const { days, since, snapshotCount } = dailySeries();
+    renderDailyRanges();
 
     // Two snapshots taken hours apart with no play between them produce a
     // day of zero, which draws as a blank box and reads as "broken".
@@ -976,11 +1021,22 @@
       return;
     }
 
-    const recent = days.slice(-60);
+    const recent = dailyWindow(days);
     const picked = recent.find((d) => d.date === dailyPick) || null;
     if (!picked) dailyPick = null;
-    $("#dailyHint").textContent = `Tracked since ${fmtDate(since)}. Earlier days are unknown, not zero. Tap a bar for that day.`;
-    $("#dailyChart").innerHTML = stackedDays(recent, dailyPick);
+
+    // A highlighted game marks every day of the window it was played on, so
+    // it only reads against the span rather than inside a single day.
+    let hiDates = null;
+    if (dailyGame) {
+      const on = recent.filter((d) => (d.perGame[dailyGame] || 0) > 0.005).map((d) => d.date);
+      if (on.length) hiDates = new Set(on);
+      else dailyGame = null;
+    }
+
+    $("#dailyHint").textContent = `Tracked since ${fmtDate(since)}. Earlier days are unknown, not zero.`
+      + ` Tap a bar for one day, or a game below to mark the days it was played.`;
+    $("#dailyChart").innerHTML = stackedDays(recent, dailyPick, hiDates);
 
     // One day, or the whole window when nothing is picked.
     const scope = picked ? [picked] : recent;
@@ -995,6 +1051,7 @@
         const e = state.entries.find((x) => x.id === id);
         const steam = id.startsWith("steam_");
         return {
+          id,
           label: e ? e.title : steam ? `Steam app ${id.slice(6)}` : "Unknown game",
           value: hrs, color: tint(e ? e.console : steam ? "Steam" : null),
         };
@@ -1009,9 +1066,26 @@
           <div class="dsum__item"><b>${fmtDur(byConsole[c])}</b><span><i style="background:${tint(c)}"></i>${esc(c)}</span></div>`).join("")}
       </div>`;
 
+    // Named here rather than from the row list, which a picked day can leave out.
+    const gameNote = (() => {
+      if (!dailyGame) return "";
+      const e = state.entries.find((x) => x.id === dailyGame);
+      const name = e ? e.title : dailyGame.startsWith("steam_")
+        ? `Steam app ${dailyGame.slice(6)}` : "That game";
+      const n = hiDates.size;
+      return `<div class="dgame">
+        <span><b>${esc(name)}</b> — played on ${n} day${n === 1 ? "" : "s"}, marked above</span>
+        <button class="dday__all" type="button" data-game-clear>Clear</button>
+      </div>`;
+    })();
+
     if (picked) {
       const i = recent.indexOf(picked);
-      const note = "";
+      // Today is a partial day by definition: the hours arrive as syncs see them.
+      const newest = state.synced.map((s) => s.at).sort().pop();
+      const note = picked.date === todayISO()
+        ? `Today fills in as each sync lands${newest ? ` — the last was ${fmtStamp(newest)}` : ""}.`
+        : "";
       $("#dailyBreakdown").innerHTML = `
         <div class="dday">
           <button class="dday__step" data-step="-1" aria-label="Previous day"${i ? "" : " disabled"}>‹</button>
@@ -1021,29 +1095,46 @@
         </div>
         ${chips}
         ${note ? `<p class="hint">${note}</p>` : ""}
-        <div class="chartbox">${rows.length ? barRows(rows, fmtDur) : `<p class="empty">Nothing played this day.</p>`}</div>`;
+        ${gameNote}
+        <div class="chartbox">${rows.length ? barRows(rows, fmtDur, { pick: dailyGame }) : `<p class="empty">Nothing played this day.</p>`}</div>`;
       return;
     }
     $("#dailyBreakdown").innerHTML = rows.length
-      ? `<h2 class="h">What those hours went into</h2>${chips}<div class="chartbox">${barRows(rows, fmtDur)}</div>
-         <p class="hint" style="margin-top:10px">${fmtDur(total)} across the last ${spanDays} days.</p>`
-      : "";
+      ? `<h2 class="h">What those hours went into</h2>${chips}${gameNote}
+         <div class="chartbox">${barRows(rows, fmtDur, { pick: dailyGame })}</div>
+         <p class="hint" style="margin-top:10px">${fmtDur(total)} across ${spanDays} days.</p>`
+      : gameNote;
   }
 
+  $("#dailyRange").addEventListener("click", (e) => {
+    const btn = e.target.closest(".seg__btn");
+    if (!btn) return;
+    dailyRange = btn.dataset.range;
+    // A highlighted game survives a change of range — "when did I play this,
+    // all time?" is the whole point of widening the window.
+    dailyPick = dailyRange === "today" && !dailyGame ? todayISO() : null;
+    renderDaily();
+  });
   $("#dailyChart").addEventListener("click", (e) => {
     const bar = e.target.closest("[data-date]");
     if (!bar) return;
     dailyPick = bar.dataset.date === dailyPick ? null : bar.dataset.date;
+    dailyGame = null;
     renderDaily();
   });
   $("#dailyBreakdown").addEventListener("click", (e) => {
     const btn = e.target.closest("button");
     if (!btn) return;
-    if (btn.hasAttribute("data-clear")) dailyPick = null;
+    if (btn.hasAttribute("data-game-clear")) dailyGame = null;
+    else if (btn.dataset.game) {
+      dailyGame = btn.dataset.game === dailyGame ? null : btn.dataset.game;
+      if (dailyGame) dailyPick = null;   // the marks span the window
+    }
+    else if (btn.hasAttribute("data-clear")) dailyPick = null;
     else if (btn.dataset.step) {
-      const days = dailySeries().days.slice(-60);
-      const i = days.findIndex((d) => d.date === dailyPick) + +btn.dataset.step;
-      if (days[i]) dailyPick = days[i].date;
+      const win = dailyWindow(dailySeries().days);
+      const i = win.findIndex((d) => d.date === dailyPick) + +btn.dataset.step;
+      if (win[i]) dailyPick = win[i].date;
     }
     renderDaily();
   });
@@ -1834,7 +1925,7 @@
 
   // Hours per day, one bar per day stacked by console (PS4 at the bottom,
   // Steam on top), with an hours axis and dates underneath.
-  function stackedDays(days, picked) {
+  function stackedDays(days, picked, hiDates) {
     const ORDER = DAY_ORDER;
     // SVG text scales with the viewBox, so a 1000-wide chart squeezed onto a
     // phone rendered its axis labels at 5px. Match the coordinate space to
@@ -1861,6 +1952,10 @@
     const bw = Math.min(44, slot * 0.72);
     const every = Math.max(1, Math.ceil(days.length / 8));
     const pickedAt = days.findIndex((d) => d.date === picked);
+    // Marked days are worth dating, but only where a date fits: at 30 bars a
+    // slot is ~32px and two neighbouring labels run into each other.
+    const markedAt = hiDates ? days.reduce((a, d, i) => (hiDates.has(d.date) && a.push(i), a), []) : [];
+    const labelMarks = markedAt.length > 0 && markedAt.length <= 10 && slot >= 46;
 
     const bars = days.map((d, i) => {
       const cx = padL + slot * (i + 0.5);
@@ -1877,17 +1972,21 @@
       const tip = `${fmtDate(d.date)} — ${d.hours > 0.005 ? fmtDur(d.hours) : "nothing played"}${parts ? " (" + parts + ")" : ""}`;
       const iso = d.date;
       const on = iso === picked;
+      const hi = hiDates ? hiDates.has(iso) : false;
       // The picked day always gets its date, and its neighbours give way.
-      const showLabel = on || (i % every === 0 && !(pickedAt >= 0 && Math.abs(i - pickedAt) < every));
+      const showLabel = on || (hi && labelMarks)
+        || (i % every === 0
+            && !(pickedAt >= 0 && Math.abs(i - pickedAt) < every)
+            && !(labelMarks && markedAt.some((j) => Math.abs(i - j) < every)));
       const label = showLabel
         ? `<text x="${cx.toFixed(1)}" y="${h - 10}" font-size="12" fill="${on ? "var(--accent)" : "var(--muted)"}"${on ? ' font-weight="700"' : ""} text-anchor="middle">${+iso.slice(8)} ${MONTHS[+iso.slice(5, 7) - 1]}</text>`
         : "";
       // A full-height strip, so the tooltip and the tap work even on a zero
       // day, plus a band hugging the bar that shades in on hover or when
       // that day is the one picked.
-      const fade = picked && !on ? 0.35 : 1;
+      const fade = hiDates ? (hi ? 1 : 0.3) : picked && !on ? 0.35 : 1;
       const hw = Math.min(slot, bw + 16);
-      return `<g class="dbar${on ? " is-on" : ""}" data-date="${iso}"${fade < 1 ? ` opacity="${fade.toFixed(2)}"` : ""}><title>${esc(tip)}</title>
+      return `<g class="dbar${on ? " is-on" : ""}${hi ? " is-hi" : ""}" data-date="${iso}"${fade < 1 ? ` opacity="${fade.toFixed(2)}"` : ""}><title>${esc(tip)}</title>
         <rect x="${(cx - slot / 2).toFixed(1)}" y="${padT}" width="${slot.toFixed(1)}" height="${plotH}" fill="transparent"/>
         <rect class="dbar__hl" x="${(cx - hw / 2).toFixed(1)}" y="${padT}" width="${hw.toFixed(1)}" height="${plotH}" rx="5"/>
         ${stack}</g>${label}`;
@@ -1898,17 +1997,24 @@
       <div class="legend">${present.map((c) => `<span><i style="background:${tint(c)}"></i>${esc(c)}</span>`).join("")}</div>`;
   }
 
-  function barRows(items, fmt = (v) => fmtH(v)) {
+  // An item with an id becomes a button, so a caller that wants the rows
+  // clickable only has to supply one; the rest stay plain divs.
+  function barRows(items, fmt = (v) => fmtH(v), opts = {}) {
     if (!items.length) return `<p class="empty">No data.</p>`;
     const max = Math.max(...items.map((i) => i.value));
-    return items.map((it) => `
-      <div class="barrow">
+    return items.map((it) => {
+      const tag = it.id ? "button" : "div";
+      const on = it.id && it.id === opts.pick;
+      return `
+      <${tag} class="barrow${it.id ? " barrow--btn" : ""}${on ? " is-on" : ""}"${
+        it.id ? ` type="button" data-game="${esc(it.id)}" aria-pressed="${on ? "true" : "false"}"` : ""}>
         <div>
           <div class="barrow__label">${esc(it.label)}${it.extra ? ` <span style="color:var(--muted)">· ${esc(it.extra)}</span>` : ""}</div>
           <div class="barrow__bar" style="background:${it.color || "var(--accent)"};width:${(it.value / max * 100).toFixed(1)}%"></div>
         </div>
         <div class="barrow__val">${fmt(it.value)}${it.suffix || ""}</div>
-      </div>`).join("");
+      </${tag}>`;
+    }).join("");
   }
 
   // One handler for both lists: rows are rendered closed and open in place.

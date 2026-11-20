@@ -112,10 +112,14 @@ shell from cache.
   (last 7 days, last 30 days, this year, last year, all time, or any single
   year) and searchable by title. Tick spacing follows the window: weeks for a
   month, months for a year, years for a decade.
-- **Daily** — hours per day, derived from snapshot diffs. Tap a bar to see
-  that day on its own: total and hours per platform, and the games that made
-  it up. Step through days with the arrows; *All days* goes back to the window,
-  with a daily average that counts every day in it, played or not. Times under
+- **Daily** — hours per day, derived from snapshot diffs. Opens on **Today**;
+  the range chips widen the window to 7 days, 30 days, this calendar year or
+  all time. Tap a bar to see that day on its own: total and hours per platform,
+  and the games that made it up. Step through days with the arrows; *All days*
+  goes back to the window, with a daily average that counts every day in it,
+  played or not. **Tap a game in the list to mark every day it was played** in
+  the chart above — the other bars fade, and the marks survive a change of
+  range, so widening to *All time* answers "when did I play this?". Times under
   an hour show in minutes here; everywhere else hours are to one decimal.
 - **Roulette** — picks a game to play from a curated pool, on a wheel that
   spins and settles. The pool is `data/roulette.json` (the Steam shelves:
@@ -128,6 +132,15 @@ shell from cache.
   `data/roulette.json` to change the pool everywhere.
 - **Stats** — totals, hours played per year (tap a year for its games),
   games started per year, where the hours went.
+
+### Today is always a partial day
+
+Hours are credited to the days a sync interval covered, and that interval ends
+on the *previous* day — so a day's bar is only final once a later sync has seen
+it. Today usually carries just what the platforms' own "last played" stamps
+have already revealed, which is why the day panel says so outright rather than
+showing a confident zero. The window is padded forward to today regardless, so
+today is always there to select even before any hours land on it.
 
 ### Why the Timeline is dots, not bars
 

@@ -13,6 +13,7 @@
   --other: #8b93a5;
   --nodata: #b6bdc9;
   --pick: #e3eaff;  /* the tapped day on the Daily chart */
+  --mark: #ffe9b8;  /* days a chosen game was played        */
   --radius: 12px;
   --page: 1060px;
   --gut: 22px;
@@ -221,6 +222,23 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 .barrow__label { font-size: 13px; margin-bottom: 3px; }
 .barrow__bar { height: 6px; border-radius: 3px; }
 .barrow__val { text-align: right; font-variant-numeric: tabular-nums; font-size: 13px; }
+/* a row the caller made clickable — same grid, button behaviour */
+.barrow--btn {
+  appearance: none; border: 0; background: none; color: inherit; font: inherit;
+  text-align: left; width: calc(100% + 12px); margin-left: -6px; padding: 3px 6px;
+  border-radius: 8px; cursor: pointer;
+}
+.barrow--btn:hover { background: var(--surface-2); }
+.barrow--btn.is-on { background: var(--mark); }
+.barrow--btn.is-on .barrow__label { font-weight: 600; }
+
+/* the "showing days X was played" strip above the list */
+.dgame {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  background: var(--mark); border-radius: 10px;
+  padding: 8px 10px 8px 12px; margin: 0 0 12px; font-size: 13.5px;
+}
+.dgame .dday__all { margin-left: auto; background: var(--surface); }
 
 .empty { color: var(--muted); text-align: center; padding: 40px 0; }
 
@@ -229,6 +247,7 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 #dailyChart .dbar__hl { fill: transparent; }
 #dailyChart .dbar:hover .dbar__hl { fill: var(--surface-2); }
 #dailyChart .dbar.is-on .dbar__hl { fill: var(--pick); }
+#dailyChart .dbar.is-hi .dbar__hl { fill: var(--mark); }
 #dailyChart .dbar[opacity] { transition: opacity .15s; }
 
 /* The picked day: a header you can step through, then hours per platform. */
@@ -340,6 +359,8 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 
 /* ---------- stats sub-tabs ---------- */
 .seg--sub { margin: 0 0 20px; }
+.seg--daily { flex-wrap: wrap; margin: 0 0 12px; }
+@media (max-width: 480px) { .seg--daily .seg__btn { padding: 6px 10px; font-size: 13px; } }
 .subpanel { display: none; }
 .subpanel.is-active { display: block; }
 
