@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-20T09:56:47+00:00",
+ "syncedAt": "2026-11-20T19:04:12+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
@@ -1310,6 +1310,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 11.999,
+   "sessions": 7,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-20",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 2,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA16283_00",
    "titleId": "CUSA16283_00",
    "title": "F1\u00ae 2020",
@@ -1438,26 +1458,6 @@
     "earned": 31,
     "total": 31,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 10.443,
-   "sessions": 7,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-20",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 2,
-    "total": 55,
-    "platinum": false
    }
   },
   {
@@ -3606,7 +3606,7 @@
    "sessions": 1,
    "firstPlayed": "2024-12-17",
    "lastPlayed": "2024-12-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202611/1210/652a064c255831b4bc06eab2a88e886c5d96411fc7d4bc5e.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202611/1907/24cf4a281a9234c6f7648246bec9a2ceeec9dd6bbc4910b2.png",
    "trophyLists": [
     "NPWR44165_00"
    ],
