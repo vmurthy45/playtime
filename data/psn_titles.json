@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-20T01:45:19+00:00",
+ "syncedAt": "2026-11-20T09:56:47+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -1441,6 +1441,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 10.443,
+   "sessions": 7,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-20",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 2,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA05986_00",
    "titleId": "CUSA05986_00",
    "title": "Need for Speed\u2122 Payback",
@@ -1673,26 +1693,6 @@
    "trophies": {
     "earned": 5,
     "total": 28,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 8.5,
-   "sessions": 4,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-19",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 1,
-    "total": 55,
     "platinum": false
    }
   },
