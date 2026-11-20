@@ -248,6 +248,10 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--accent); out
 #dailyChart .dbar:hover .dbar__hl { fill: var(--surface-2); }
 #dailyChart .dbar.is-on .dbar__hl { fill: var(--pick); }
 #dailyChart .dbar.is-hi .dbar__hl { fill: var(--mark); }
+/* The breakdown's first element is a first-child, so .h:first-child zeroed its
+   top margin and sat it flush against the chart box. Give the gap back — to
+   whichever element leads, the heading, the day header or the marked-game strip. */
+#dailyBreakdown > :first-child { margin-top: 30px; }
 #dailyChart .dbar[opacity] { transition: opacity .15s; }
 
 /* The picked day: a header you can step through, then hours per platform. */
