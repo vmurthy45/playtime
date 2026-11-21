@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-20T19:04:12+00:00",
+ "syncedAt": "2026-11-21T01:24:34+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
@@ -1270,6 +1270,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 13.402,
+   "sessions": 8,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-21",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 3,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA14002_00",
    "titleId": "PPSA14002_00",
    "title": "Baldur's Gate 3",
@@ -1306,26 +1326,6 @@
    "trophies": {
     "earned": 14,
     "total": 76,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 11.999,
-   "sessions": 7,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-20",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 2,
-    "total": 55,
     "platinum": false
    }
   },
@@ -3606,7 +3606,7 @@
    "sessions": 1,
    "firstPlayed": "2024-12-17",
    "lastPlayed": "2024-12-17",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202611/1907/24cf4a281a9234c6f7648246bec9a2ceeec9dd6bbc4910b2.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202611/1210/652a064c255831b4bc06eab2a88e886c5d96411fc7d4bc5e.png",
    "trophyLists": [
     "NPWR44165_00"
    ],
