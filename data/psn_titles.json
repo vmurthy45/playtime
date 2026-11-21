@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-21T01:24:34+00:00",
+ "syncedAt": "2026-11-21T09:38:05+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
@@ -1188,6 +1188,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 15.212,
+   "sessions": 10,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-21",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 3,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA02343_00",
    "titleId": "CUSA02343_00",
    "title": "Uncharted\u2122: The Nathan Drake Collection",
@@ -1266,26 +1286,6 @@
    "trophies": {
     "earned": 21,
     "total": 49,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 13.402,
-   "sessions": 8,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 3,
-    "total": 55,
     "platinum": false
    }
   },
