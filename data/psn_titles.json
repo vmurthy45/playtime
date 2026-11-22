@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-21T17:56:43+00:00",
+ "syncedAt": "2026-11-22T00:16:57+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -1108,6 +1108,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 16.355,
+   "sessions": 11,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-22",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 3,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA22519_00",
    "titleId": "PPSA22519_00",
    "title": "ANIMAL WELL",
@@ -1184,26 +1204,6 @@
    "trophies": {
     "earned": 18,
     "total": 22,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 15.212,
-   "sessions": 10,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 3,
-    "total": 55,
     "platinum": false
    }
   },
