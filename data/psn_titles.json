@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-22T18:26:51+00:00",
+ "syncedAt": "2026-11-23T00:46:19+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -1050,6 +1050,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 17.221,
+   "sessions": 12,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-23",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 3,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA01011_00",
    "titleId": "CUSA01011_00",
    "title": "The Walking Dead: Season 1",
@@ -1104,26 +1124,6 @@
    "trophies": {
     "earned": 0,
     "total": 54,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 16.355,
-   "sessions": 11,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-22",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 3,
-    "total": 55,
     "platinum": false
    }
   },
