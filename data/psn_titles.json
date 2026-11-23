@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-23T10:39:44+00:00",
+ "syncedAt": "2026-11-23T22:34:21+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
@@ -870,6 +870,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 20.316,
+   "sessions": 14,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-24",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 5,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA01411_00",
    "titleId": "PPSA01411_00",
    "title": "Marvel's Spider-Man: Miles Morales",
@@ -966,26 +986,6 @@
    "trophies": {
     "earned": 4,
     "total": 52,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 18.928,
-   "sessions": 13,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-23",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 5,
-    "total": 55,
     "platinum": false
    }
   },
