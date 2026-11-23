@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-23T00:46:19+00:00",
+ "syncedAt": "2026-11-23T10:39:44+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
@@ -970,6 +970,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 18.928,
+   "sessions": 13,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-23",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 5,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA00462_00",
    "titleId": "CUSA00462_00",
    "title": "Far Cry\u00ae 4",
@@ -1046,26 +1066,6 @@
    "trophies": {
     "earned": 11,
     "total": 13,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 17.221,
-   "sessions": 12,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-23",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 3,
-    "total": 55,
     "platinum": false
    }
   },
