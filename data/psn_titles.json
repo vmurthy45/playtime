@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-25T03:30:33+00:00",
+ "syncedAt": "2026-11-25T15:28:57+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -770,6 +770,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 21.874,
+   "sessions": 15,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-25",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 5,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_PPSA16342_00",
    "titleId": "PPSA16342_00",
    "title": "Cricket 24",
@@ -867,26 +887,6 @@
     "earned": 36,
     "total": 36,
     "platinum": true
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 20.316,
-   "sessions": 14,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-24",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 5,
-    "total": 55,
-    "platinum": false
    }
   },
   {
