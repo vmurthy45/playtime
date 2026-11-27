@@ -1,11 +1,11 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-27T04:56:24+00:00",
+ "syncedAt": "2026-11-27T14:55:57+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
-  "lookedUp": 0
+  "lookedUp": 1
  },
  "games": [
   {
@@ -690,6 +690,26 @@
    }
   },
   {
+   "id": "psn_PPSA38500_00",
+   "titleId": "PPSA38500_00",
+   "title": "Grand Theft Auto VI",
+   "platform": "PlayStation",
+   "console": "PS5",
+   "hours": 25.123,
+   "sessions": 17,
+   "firstPlayed": "2026-11-19",
+   "lastPlayed": "2026-11-28",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
+   "trophyLists": [
+    "NPWR21085_00"
+   ],
+   "trophies": {
+    "earned": 5,
+    "total": 55,
+    "platinum": false
+   }
+  },
+  {
    "id": "psn_CUSA07904_00",
    "titleId": "CUSA07904_00",
    "title": "Call of Duty\u00ae: Modern Warfare\u00ae 2 Campaign Remastered",
@@ -766,26 +786,6 @@
    "trophies": {
     "earned": 17,
     "total": 81,
-    "platinum": false
-   }
-  },
-  {
-   "id": "psn_PPSA38500_00",
-   "titleId": "PPSA38500_00",
-   "title": "Grand Theft Auto VI",
-   "platform": "PlayStation",
-   "console": "PS5",
-   "hours": 21.874,
-   "sessions": 15,
-   "firstPlayed": "2026-11-19",
-   "lastPlayed": "2026-11-25",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
-   "trophyLists": [
-    "NPWR21085_00"
-   ],
-   "trophies": {
-    "earned": 5,
-    "total": 55,
     "platinum": false
    }
   },
