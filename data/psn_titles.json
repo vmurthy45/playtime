@@ -1,7 +1,7 @@
 {
  "source": "psn",
  "onlineId": "sgbatsrule",
- "syncedAt": "2026-11-28T00:29:29+00:00",
+ "syncedAt": "2026-11-28T10:13:29+00:00",
  "trophySummary": {
   "platinums": 63,
   "titles": 312,
@@ -634,8 +634,8 @@
    "title": "Grand Theft Auto VI",
    "platform": "PlayStation",
    "console": "PS5",
-   "hours": 26.926,
-   "sessions": 18,
+   "hours": 28.641,
+   "sessions": 19,
    "firstPlayed": "2026-11-19",
    "lastPlayed": "2026-11-28",
    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png",
@@ -5210,7 +5210,7 @@
    "sessions": 0,
    "firstPlayed": "2023-01-21",
    "lastPlayed": "2023-01-21",
-   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/2402/KVQ9u7TKuwWSFAHVM0ojALEb.png",
+   "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202208/2402/icByXGm1W5mQmol84yMxEgD2.png",
    "trophyLists": []
   },
   {
